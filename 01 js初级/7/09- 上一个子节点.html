@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">这是文字
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li><!-- 这是一个注释-->456
+  <li id="li3">这是第3个li标签</li>123
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+  var li3 = document.getElementById("li3");
+//  var node = li3.previousSibling; // 是所有的浏览器都支持的方式，高级浏览器不但会获得标签节点，还会获得文本节点，而IE8会忽略空白文本节点
+//  console.log(node.nodeType);
+//  console.log(node.nodeName);
+//  console.log(node.nodeValue);
+//  var node = li3.previousElementSibling; // 高级浏览器支持的属性，只会获取标签节点，而IE8不支持此属性
+//  console.log(node.nodeType);
+//  console.log(node.nodeName);
+//  console.log(node.nodeValue);
+
+  var node = getPrevElement(li3);
+  console.log(node.nodeType);
+  console.log(node.innerHTML);
+
+  /**
+   * 封装了一个兼容版本的获取上一个标签节点的函数
+   * @param ele
+   * @returns {*}
+   */
+  function getPrevElement(ele){
+    // 能力检测
+    if(ele&&ele.previousElementSibling){
+      return ele.previousElementSibling;
+    }else {
+      ele = ele.previousSibling;
+      while(ele&&ele.nodeType!=1){
+        ele = ele.previousSibling;
+      }
+      return ele;
+    }
+  }
+</script>

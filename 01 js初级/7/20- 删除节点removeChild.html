@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li id="li3">这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+  //1. 获得要操作的标签对象
+  var list = document.getElementById("list");
+  var lis = list.children;
+  var li3 = document.getElementById("li3");
+
+  list.removeChild(li3); //  删除标签节点
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">这是文字
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li><!-- 这是一个注释-->
+  <li>这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+  //1. 获取要操作的对象
+  var list = document.getElementById("list");
+// var lis = list.getElementsByTagName("li");
+  //var lis = list.childNodes;// childNodes是标准的DOM属性，高级浏览器不但会获取标签节点，还会获取文本和注释节点，而IE8及之前的浏览器，坐忽略空白文本节点，是所有的浏览器都支持的，没有兼容性
+  //console.log(lis.length);
+  // 节点 ： 标签  属性  文本  注释
+ // var lis = list.children; // 一般只会获取标签节点，不会获取文本节点，IE8会获取注释
+ // console.log(lis.length);
+  // children不是标准的DOM属性，但是却获得了所有的浏览器的支持，推荐使用
+</script>
