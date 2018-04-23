@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+</body>
+</html>
+<script>
+  // 点哪个按钮，哪个按钮的背景颜色变成 红色
+  //1.获得要操作的对象
+  var inputs = document.getElementsByTagName("input");
+  // 2. 给事件源注册事件
+//  inputs[0].onclick = function (){
+////      inputs[0].style.backgroundColor = "red";
+//    this.style.backgroundColor = "red";
+//  }
+//  inputs[1].onclick = function (){
+////    inputs[1].style.backgroundColor = "red";
+//    this.style.backgroundColor = "red";
+//  }
+//  inputs[2].onclick = function (){
+////    inputs[2].style.backgroundColor = "red";
+//    this.style.backgroundColor = "red";
+//  }
+
+  for(var i = 0; i < inputs.length; i++) { // 这层循环是用来给每一个标签对象注册事件的
+       inputs[i].onclick = function (){
+         // 在事件当中，如果想指代当前事件源的话，得使用关键字this
+         // this在事件中，表示当前触发事件的事件源
+         this.style.backgroundColor = "red";
+//         inputs[i].style.backgroundColor ="blue";  这种书写方式是错的
+       }
+  }
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>简单轮播图js效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+
+        }
+        .inner {
+            width: 490px;
+            height: 170px;
+            background-color: pink;
+            position: relative;
+        }
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .inner li {
+            float: left;
+        }
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+        .square span.current {
+            background-color: orangered;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+<script>
+    //先获得要操作的对象
+    var box  = document.getElementById("box");
+    var inner = box.children[0];
+    var ul = inner.children[0];
+    var square = inner.children[1];
+    var imgWidth =  inner.offsetWidth;
+    var spans = square.children;//得到所有的spans
+
+    // 1. 当鼠标移入的时候，让对应的span显示orangered颜色 ，其它 的变成无色
+    for(var i=0;i<spans.length;i++){
+        spans[i].index = i;// 给每一个Span设置一个自定义属性
+        spans[i].onmouseover = function(){
+            for(j=0;j<spans.length;j++){
+                spans[j].className = '';//循环遍历所有span，让所有的，包括自己变成无色
+            }
+            this.className = 'current'; // 让当前的span变成orangered颜色
+            // 2. 设置需要让ul移动的目标距离
+            var target = -imgWidth*this.index;
+            //ul.style.left = target+'px';
+            // 3. 调用动画函数
+            animate(ul,target);
+        }
+    }
+    function animate(obj,target){
+        clearInterval(obj.timerId); // 先清除，再设置
+        obj.timerId= setInterval(function(){
+            var step = 20;// 每次要移动的像素
+            // 先要获得原来的距离左侧的位置
+            var leader = obj.offsetLeft; // 600  400
+            step = leader < target? step : -step;
+            leader =    leader + step;
+            if(Math.abs(leader-target)>Math.abs(step)){
+                obj.style.left = leader + 'px';
+            }else {
+                clearInterval(obj.timerId);//清除定时器
+                obj.style.left = target + 'px';//将当前元素的数值变成当前Target 变成当前的需要走到的位置即可
+            }
+        },15)
+    }
+</script>
+</body>
+</html>

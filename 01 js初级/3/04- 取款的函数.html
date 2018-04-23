@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>取款的函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 第一种定义函数的方式，使用函数声明的方式
+  // 参数又分两种，一种是形参，一种是实参
+  function getMoney(card,password){// 在定义函数的时候，小括号里面的参数就是形参，是形式意义上的参数，起占位置的作用
+     if(card=="123456789"&&password=="888888"){
+       var money = prompt("请输入取款的金额");
+       console.log("您要取款的金额是："+money);
+     }else {
+       alert("您输入的密码不正确,请退出");
+     }
+  }
+  var card = prompt("请输入银行卡号");
+  var password = prompt("请输入银行卡密码");
+//  getMoney("123456789","8888888");
+  getMoney(card,password); // 在调用函数的时候，传进来的参数是实参，是有实际意义的数据值  实参和形参的关系是，在调用函数的时候，实参会将自己的值复制一份，传递给形参
+
+
+  // 形参其实就是一个变量，但是它是属于函数内部的，只能在函数内部使用，形参的名称也要尽量的有意义
+//  function getMoney(a,b){
+//
+//  }
+</script>

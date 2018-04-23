@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+        // 事件的三要素： 事件源，事件名称，事件处理程序
+        // 事件监听者就是事件处理程序
+
+        addEventListener(btn,"click",function (){
+          console.log("愿岁月静好");
+        });
+        addEventListener(btn,"click",function (){
+          console.log("愿现世安稳");
+        });
+
+
+        /**
+         * 封装了一个兼容版本的注册事件的函数
+         * @param obj
+         * @param type
+         * @param listener
+         */
+        function addEventListener(obj,type,listener){
+          // 能力检测
+          if(obj&&obj.addEventListener){
+            obj.addEventListener(type,listener,false);
+          }else if(obj&&obj.attachEvent){
+            obj.attachEvent("on"+type,listener);
+          }else {
+            obj["on"+type] = listener;
+          }
+        }
+      }
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>

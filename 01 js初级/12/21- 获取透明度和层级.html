@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>获取透明度和层级</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #fff;
+    }
+  </style>
+  <script>
+      window.onload = function () {
+        var box = document.getElementById("box");
+        var result = getStyle(box,"opacity");
+        console.log(result);
+        var result1 = getStyle(box,"zIndex");
+        console.log(result1);
+        console.log(parseInt(result1));
+        // 凡是涉及到NaN的运算，结果都是NaN
+        /**
+         * 封装了一个兼容版本的获取当前对象属性值的函数
+         * @param obj
+         * @param attr
+         * @returns {*}
+         */
+        function getStyle(obj,attr){
+          // 能力检测 就是要看当前的浏览器是否支持此对象的属性和方法
+          if(obj.currentStyle){
+            return  obj.currentStyle[attr];
+          }else {
+            return  getComputedStyle(obj,null)[attr];
+          }
+        }
+      }
+  </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

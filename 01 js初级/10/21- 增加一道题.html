@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var a = 20;
+  function f1(){
+    var b = 30;
+    console.log(a);
+    a = 50;
+    console.log(a);
+    c = 200;
+  }
+
+  f1();
+  console.log(a);
+  console.log(c);
+  console.log(b);
+  //20  50  20   200  报错
+  //一样
+  //20  50  50   200  报错
+  //20  50  50   200  报错
+</script>

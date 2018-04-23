@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>切换背景图片</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background:url(images/01.jpg);
+    }
+    div {
+      background-color: rgba(255, 255, 255, .3);
+      height: 200px;
+      width: 1032px;
+      /*text-align: center;*/
+      margin: 0 auto;
+
+    }
+    div img {
+      width: 200px;
+      margin-top: 35px;
+      /*float: left;*/
+      cursor: pointer;
+      /*margin-right: 50px;*/
+    }
+  </style>
+</head>
+<body>
+<div id="mask">
+  <img src="images/01.jpg" alt=""/>
+  <img src="images/02.jpg" alt=""/>
+  <img src="images/03.jpg" alt=""/>
+  <img src="images/04.jpg" alt=""/>
+  <img src="images/05.jpg" alt=""/>
+</div>
+
+</body>
+</html>
+<script>
+  // 1. 获取 要操作的对象
+  var mask = document.getElementById("mask");
+  var imgs = mask.getElementsByTagName("img");
+  // 2. 给事件源注册事件
+  for(var i=0;i<imgs.length;i++){
+    imgs[i].onclick = function (){
+//      var src = this.src;
+//      document.body.style.backgroundImage = "url("+src+")";
+      document.body.style.backgroundImage = "url("+this.src+")";
+//      var name = prompt("请输入你的名字");
+//      alert("你好，"+window.name+",欢迎 来到广州");
+
+      // 属性就相当于之前学的变量，是用来存储数据的
+    }
+  }
+</script>

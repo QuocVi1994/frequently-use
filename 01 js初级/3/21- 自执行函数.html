@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>自执行函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var fn = function (){
+//         console.log("这是一个函数表达式定义的函数");
+//  };
+//  fn();
+//(function (){
+//    console.log("这是一个自执行函数在执行了。。。。");
+//  })();
+//  // 自执行函数或是自调用函数，定义了之后，立即执行，多用于只执行或是调用一次的情况
+//
+//(function(){
+//    console.log("这是一个自执行函数的另一种写法");
+//  }());
+
+  var f1 = function (){
+         console.log("这是f1的函数。。。");
+  };
+  (function(){console.log("这是一个自执行的函数。。。");}());
+</script>

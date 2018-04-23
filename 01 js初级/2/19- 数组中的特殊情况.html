@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var arr = new Array("abc","mmm",true,false,null);
+//  console.log(arr);
+//  var arr1 = new Array("abc");
+//  console.log(arr1.length);
+//
+//  var arr2 = new Array(20,30);
+//  console.log(arr2.length);
+//console.log(arr2);
+//
+//  var arr3 = new Array(4);// 注意： 如果使用构造函数创建数组的时候，小括号中的参数只有一个数字的话，那么这表示是数组的长度。
+////  console.log(arr3.length);
+////  console.log(arr3);
+////  alert(arr3);
+////  var arr4 = [10,20,30,40]
+//  console.log(arr3[2]);
+  // 如果数组中没有真正的数组值的时候，默认的那个位置的数据是undefined
+
+  var arr = new Array();
+  arr[0] = "abc";
+  arr[1] = 20;
+  arr[5] = false;
+  arr[8] = 500;
+//  console.log(arr.length);
+//  console.log(arr);
+//  alert(arr);
+  console.log(arr[19]); //访问的数据超出了数组的索引范围的话，js中的数组不会报错，是undefined
+
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封闭兼容的innerText</title>
+</head>
+<body>
+<p id="des">这是一个p标签</p>
+</body>
+</html>
+<script>
+  var des = document.getElementById("des");
+  var str = getText(des);
+  console.log(str);
+
+  /**
+   * 定义了一个兼容性的获取标签对象间文本内容的函数
+   * @param ele
+   * @returns {*}
+   */
+  function getText(ele){
+    // 能力检测： 就是要看当前的浏览器是否支持此对象的属性或是方法
+    if(typeof ele.innerText=="string"){
+      return ele.innerText;//将获取的文本内容返回
+    }else {
+      return ele.textContent;
+    }
+  }
+</script>

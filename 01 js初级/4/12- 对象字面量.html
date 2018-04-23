@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 对象可以帮助我们封装一组数据  或是帮助我们描述一些事物
+
+  // 很多时候，我们并不需要批量的创建对象，仅仅是需要一个对象来存储对应的数据
+
+  // 这个时候，就可以使用对象字面量的方式来创建对象了
+
+  var arr = [];// 数组字面量
+  var o = {}; // 对象字面量的方式创建了一个空对象
+  var o2 = {};
+  o.name = "张三";
+  o.age = 20;
+  o.sex = "男";
+  o.sayHello = function (){
+//     console.log("我叫"+ o.name+"，我今年"+ o.age+"岁了，我是"+ o.sex+"生");
+     console.log("我叫"+ this.name+"，我今年"+ this.age+"岁了，我是"+ this.sex+"生");
+  };
+  o.sayHello();
+
+  var o1 = {
+    age     :20,
+    sex     :"男",
+    name    :"张三",
+    sayHello:function(){
+      console.log("我叫"+ this.name+"，我今年"+ this.age+"岁了，我是"+ this.sex+"生");
+    }
+  }
+  o1.sayHello();
+  var a = 20;
+  console.log(window.a);
+
+  function f1(){
+
+  }
+  f1();
+  window.f1();
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>分组提取</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // ()   改变优先级  再一个用法 就是用来分组
+  // 字符串的方法replace  match   search  split
+  var str = "123123@xx.com";
+  var reg = /(\w+)@(\w+)\.(\w+)(\.\w+)?/;
+   var arr = str.match(reg);
+  console.log(RegExp.$1);
+  console.log(RegExp.$2);
+  console.log(RegExp.$3);
+  console.log(RegExp.$4);
+  console.log(RegExp.$5);
+  console.log(RegExp.$6); // 如果没有匹配的值，则输出空
+
+  var str = "5=a,6=b,7=c"; //
+  str = str.replace(/(\d)=(\w)/g,"$2======$1");
+  console.log(str);
+</script>

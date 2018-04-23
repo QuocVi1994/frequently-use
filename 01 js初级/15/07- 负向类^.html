@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>负向类</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //括号内，前面加个元字符^进行取反，表示匹配不能为括号里面的字符。
+  // ^和[] 一块使用    不能取中括号中的任意一个字符
+  //console.log(/[^abc]/.test('a'));
+  //console.log(/[^abc]/.test('ad'));
+
+  console.log(/[abc]/.test("a"));//true
+  console.log(/[abc]/.test("b"));//true
+  console.log(/[abc]/.test("d"));//false
+  console.log(/[abc]/.test("dmk"));//false
+  console.log(/[abc]/.test("a "));//true
+  console.log(/[abc]/.test("a %"));//true
+
+  console.log("=======^表示取反 []里面的任意一个字符不能出现===========");
+  // 待检测的字符串，必须至少有一个不是abc
+  console.log(/[^abc]/.test("a"));//false
+  console.log(/[^abc]/.test("b"));//false
+  console.log(/[^abc]/.test("d"));//true
+  console.log(/[^abc]/.test("dmk"));//true
+  console.log(/[^abc]/.test("a "));//true
+  console.log(/[^abc]/.test("a %"));//true
+
+  console.log("=======[^\d]=====至少有一个是非数字========");
+  console.log(/[^\d]/.test("a"));// true
+  console.log(/[^\d]/.test("b"));// true
+  console.log(/[^\d]/.test(""));// false  连一个字符都没有
+  console.log(/[^\d]/.test(" "));// true
+  console.log(/[^\d]/.test(" 20"));// true
+  console.log(/[^\d]/.test("20"));// false
+  console.log(/[^\d]/.test("%"));// true
+  console.log(/[^\d]/.test("_"));//true
+  console.log(/[^\d]/.test("_ 20"));//true
+</script>

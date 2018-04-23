@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  ////4.1 所有的逗号替换成句号abc,efg,123,abc,123,a
+  //var str = "abc,efg,123,abc,123,a";
+  //  //  str = str.replace(",",".");
+  //str = str.replace(/,/g,"."); // g  global 的意思，是全局替换
+  //console.log(str);
+  //4.2 修改成绩，全改成100分
+  // var jsonStr = '[{"name":"张三",score:80},{"name":"张三",score:90},{"name":"张三",score:81}]';
+  // jsonStr = jsonStr.replace(/\d{2}/g,"100");
+  // console.log(jsonStr);
+  // //4.3 把, ， . 和。都改成 。
+  // var str = "“你饿了,调我们的粮进京。你渴了.调我们的水进京。高考了，你特么想尽千方百计不让我们的孩子进京。为什么？!” 我们呼吁：全国一张卷，一个录取线！愿赌服输！最近高考方案闹得沸沸扬扬，其实大家就是要的公平竞争！同样都是孩子，同样的国家，同样的教育！为何不同的待遇？";
+  // //   str = str.replace(/,|，|\.|!|\?|？|！/g,"。");
+  // // 如果是放在中括号中的话，. + ? 就不用转义了
+  // str = str.replace(/[,.!！？，]/g,"。");
+  // console.log(str);
+  // //4.4 去掉前后空格，封装成函数
+
+  var str = "   abc  adf dsaf  ";
+  console.log(str);
+  str = trim(str);
+  console.log("==" + str + "==");
+
+  function trim(str) {
+    str = str.replace(/^\s+|\s+$/g, "");
+    return str;
+  }
+
+  // 替换就是字符串的方法  第一个参数改成了正则表达式
+
+  // 递归
+</script>

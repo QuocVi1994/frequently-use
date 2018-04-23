@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>复习数组中的用法</title>
+  <script>
+       // 从数组的最后添加或是删除元素
+      //  push   pop     unshift  shift
+    // concat     join       split()
+      var nums = [10,20,30,40,50,60];
+//        nums.push(200);
+//    console.log(nums);
+//      nums.unshift(300);
+//    console.log(nums);
+//    var num =  nums.shift();
+////       console.log(num);
+////    console.log(nums);
+//    nums.push(num);
+//    nums.push(nums.shift());
+//    console.log(nums);
+
+
+//      var n1=  nums.pop();
+//    console.log(n1);
+//    console.log(nums);
+
+    nums.unshift(nums.pop());
+    console.log(nums);
+
+    var str = "get-element-by-id";
+    var strs= str.split("-");
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

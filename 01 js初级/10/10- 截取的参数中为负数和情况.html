@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // slice和 subString都是从start开始截取，截取到end为止，但是end 取不到
+  //subStr  从start开始，截取length个
+
+//           0 1 2 3 4 5 67 8
+  var str = "传智播客黑马程序员";
+//console.log(str.length);
+//  var str1 = str.slice(-2);// 可以看成是倒着截取
+//var str2 = str.slice(-3);// 还可以看成是用字符串的长度+ 参数的位置开始截取，一直截取到最后
+console.log(str.slice(2,-2)); // 两个参数的时候，表示从第一个参数所示的索引位置开始向后截取，截取到数组的长度+第二个负参数所示的索引位置的前一位
+  //  console.log(str1);
+ //console.log(str2);
+
+  //var str1 = str.substring(-2); // 如果输入的是负数，默认是0，从0的位置开始截取
+ //var str2 = str.substring(1,-2); // 传
+ //var str2 = str.substring(3,-2); // 传智播
+ //var str2 = str.substring(5,-3); //传智播客黑   如果第二个参数为负数的时候，表示是0，如果第一个参数大于第二个参数，默认以0开始，以第一个参数为结尾
+//console.log(str1);
+//console.log(str2);
+
+ // var str1 = str.substr(-2); // 可以看成是倒着到
+ // console.log(str.substr(-3)); // 也可以看成是在字符串的长度+负参数的索引位置开始截取，一直到最后
+ //  console.log(str1);
+//console.log(str.substr(2,-2)); // 为空 第二个为负情况不可取
+
+  //try  try   see    give your a  color  see see
+</script>

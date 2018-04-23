@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li>这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+  <li>这是第5个li标签</li>
+  <li>这是第6个li标签</li>
+  <li>这是第7个li标签</li>
+  <li>这是第8个li标签</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+  //1. 获得要操作的标签对象
+//  var list = document.getElementById("list");
+  var list = $$("list");
+  var lis = list.childNodes;
+//  console.log(lis.length);
+  var index = 0;
+  for(var i = 0; i < lis.length; i++) {
+    // i能不能做为当前伪数组当中标签对象的索引
+      if(lis[i].nodeType==1){
+        if(index%2==0){
+          lis[i].style.backgroundColor="red";
+        }else {
+          lis[i].style.backgroundColor="blue";
+        }
+        index++;
+      }
+  }
+
+</script>

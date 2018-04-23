@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red;
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>QQ</label><input type="text" id="txt1"><span></span><br/>
+    <label>手机</label><input type="text" id="txt2"><span></span><br/>
+    <label>邮箱</label><input type="text" id="txt3"><span></span><br/>
+    <label>座机</label><input type="text" id="txt4"><span></span><br/>
+    <label>姓名</label><input type="text" id="txt5"><span></span><br/>
+</div>
+<script>
+    // 5-11
+    // 1. 先获得所有的要操作的对象
+    var txtQQ = document.getElementById("txt1");
+    var txtMobile = document.getElementById("txt2");
+    var txtEmail = document.getElementById("txt3");
+    var txtTel = document.getElementById("txt4");
+    var txtName = document.getElementById("txt5");
+
+
+    // qq号的正则  5-11    10000
+    //  不能以0开头
+    var reg = /^[1-9]\d{4,10}$/;
+
+//    txtQQ.onblur = function (){
+//              if(regQQ.test(this.value)){
+//                   this.nextSibling.innerHTML = "输入正确";
+//                   this.nextSibling.className = "right";
+//              } else {
+//                  this.nextSibling.innerHTML = "输入错误";
+//                  this.nextSibling.className = "wrong";
+//              }
+//        }
+    checkReg(regQQ,txtQQ);
+    checkReg(regMoblie,txtMobile);
+
+   function checkReg(reg,obj){
+       obj.onblur = function (){
+           if(reg.test(this.value)){
+               this.nextSibling.innerHTML = "输入正确";
+               this.nextSibling.className = "right";
+           } else {
+               this.nextSibling.innerHTML = "输入错误";
+               this.nextSibling.className = "wrong";
+           }
+       }
+   }
+
+    // 替换 replce   match  exec  分组提取
+
+</script>
+</body>
+</html>

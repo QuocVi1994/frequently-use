@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>隔行变色</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 500px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    /*tbody tr {*/
+    /*background-color: #f0f0f0;*/
+    /*}*/
+
+    /*tbody tr:nth-child(odd) {*/
+    /*background-color: #c0c0c0;*/
+    /*}*/
+
+    /*tbody tr:nth-child(even) {*/
+    /*background-color: #d0d0d0;*/
+    /*}*/
+
+    /*tbody tr:hover {*/
+    /*cursor: pointer;*/
+    /*background-color: #fff;*/
+    /*}*/
+
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>课程</th>
+      <th>成绩</th>
+    </tr>
+    </thead>
+    <tbody id="j_tb">
+    <tr>
+      <td>
+        1
+      </td>
+      <td>柳岩</td>
+      <td>语文</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>苍老师</td>
+      <td>日语</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        3
+      </td>
+      <td>凤姐</td>
+      <td>营销学</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        4
+      </td>
+      <td>张飞</td>
+      <td>数学</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>
+        5
+      </td>
+      <td>小沈阳</td>
+      <td>英语</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        6
+      </td>
+      <td>马户</td>
+      <td>体育</td>
+      <td>100</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+<script>
+  // 1. 获得要操作的对象
+  var tBody = document.getElementById("j_tb");
+  var trs = tBody.children;//获得的只是子级标签节点，孙子级的不要
+
+  // 2. 让tr进行隔行变色
+  for(var i = 0; i < trs.length; i++) {
+       if(i%2==0){ // 根据索引的奇偶进行隔行变色
+         trs[i].style.backgroundColor = "#c0c0c0";
+       }else {
+         trs[i].style.backgroundColor = "#d0d0d0";
+       }
+    //3. 给每一行注册鼠标移入的事件  鼠标移入当前行的时候，要让背景颜色变成白色
+    var bg; // 定义一个变量来存储当前对象的背景颜色
+    trs[i].onmouseover = function (){
+         bg=  this.style.backgroundColor; // 先把当前对象的背景颜色存到一个变量当中
+         this.style.backgroundColor = "#fff"; //把当前对象的背景颜色设置为白色
+    }
+    //4. 给每一行注册鼠标离开的事件 鼠标离开的时候，要恢复到原来的颜色
+    trs[i].onmouseout = function (){
+           this.style.backgroundColor =bg ;//把原来存储的颜色 还原回去
+    }
+  }
+</script>

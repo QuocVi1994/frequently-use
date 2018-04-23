@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 创建两个构造函数 汽车  手机
+
+  function Car(brand,color,tag,price){
+    this.a = brand;
+    this.b = color;
+    this.tag = tag;
+    this.price = price;
+    this.drive = function (){
+        console.log("我是"+this.a +"牌子的汽车，我的车身的颜色是"+this.b+"色的，我的特点是"+this.tag+"，我的售价是"+this.price+"!");
+    }
+  }
+
+  var bmw = new Car("bmw","红","高贵大气",1200000);
+  bmw.drive();
+
+  var ad = new Car("奥迪","黑","时尚耐用",300000);
+  ad.drive();
+
+  var at = new Car("奥拓","棕","九手的，古董级的",4500);
+  at.drive();
+
+
+
+
+
+  function Car(brand,color,tag,price)
+  {
+    this.brand=brand;
+    this.color=color;
+    this.tag=tag;
+    this.price=price;
+    this.drive=function(){
+      console.log("我是"+this.brand+"牌子的汽车，我的车身颜色是"+this.color+"色的，我的特点是"+this.tag+"，我的售价是"+this.pricer+"!");
+    }
+  }
+  var bmv=new Car("bmw","红","高贵大气",1200000);
+  bmv.drive();
+  var ad=new Car("奥迪","黑","时尚耐用",100000);
+  ad.drive();
+
+
+function Car(brand,color,tag,price){
+  this.brand=brand;
+  this.color=color;
+  this.tag=tag;
+  this.price=price;
+  this.drive=function(){
+    console.log("我是"+this.brand+"牌子的汽车，我的车身颜色是"+this.color+"是的，我的特点是"+this.tag+"，我的售价是"+this.price+"!")
+  }
+}
+var bmv=new Car("bmw","红","高贵大气",120000)
+
+
+  // this在构造函数当中始终指代当前对象 也就是当前调用方法的那个对象
+  // this在事件当中，始终指代当前事件源，触发事件的那个对象
+
+  // 对象的属性就相当于是之前变量，都是用来存储数据的
+  // 对象的方法，就相当于之前的函数，都是代码复用的一种机制或是封装某种功能的代码段
+
+//  function Phone(brand,color,tag,price){
+//    this.brand = brand;
+//    this.color = color;
+//    this.tag = tag;
+//    this.price = price;
+//    this.call = function (){
+//           console.log("我是"+this.brand+"牌子的手机，我的颜色是"+this.color+"色的，我的特点是"+this.tag+"，我的价格是"+this.price+"!");
+//    }
+//  }
+//
+//  var hw = new Phone("华为plus","黑","国产中的战斗机","5800");
+//  hw.call();
+//  var xiaomi = new Phone("mi","灰","为发烧而生","1800");
+//  xiaomi.call();
+//  var note7 = new Phone("sumsung","透明","一言不和就爆炸","5600");
+//  note7.call();
+</script>

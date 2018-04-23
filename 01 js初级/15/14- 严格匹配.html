@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>严格匹配</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 严格匹配模式下，就是^$一块用
+  console.log(/\d{2,5}/.test("abc20"));
+  console.log(/\d{2,5}/.test("abc20456"));
+  console.log(/\d{2,5}/.test("abc20c456"));
+  console.log(/\d{2,5}/.test("abc20c4"));
+  console.log(/\d{2,5}/.test("abc2c4"));//false
+  console.log(/\d{2,5}/.test("ab"));//false
+  console.log(/\d{2,5}/.test("  "));//false
+  console.log(/\d{2,5}/.test(" f123456789 "));// true
+  console.log("=====严格匹配模式下，不可以出现其它字符=========");
+  console.log(/^\d{2,5}$/.test("abc20"));
+  console.log(/^\d{2,5}$/.test("abc20456"));
+  console.log(/^\d{2,5}$/.test("abc20c456"));
+  console.log(/^\d{2,5}$/.test("abc20c4"));
+  console.log(/^\d{2,5}$/.test("abc2c4"));//
+  console.log(/^\d{2,5}$/.test("ab"));//
+  console.log(/^\d{2,5}$/.test("  "));//
+  console.log(/^\d{2,5}$/.test(" f123456789 "));//
+  console.log(/^\d{2,5}$/.test("2"));//false  不能少于两次
+  console.log(/^\d{2,5}$/.test("23"));//true
+  console.log(/^\d{2,5}$/.test("234"));//true
+  console.log(/^\d{2,5}$/.test("2345"));//true
+  console.log(/^\d{2,5}$/.test("23456"));//true
+  console.log(/^\d{2,5}$/.test("234567"));//false  超过5次
+  console.log(/^\d{2,5}$/.test(" 234567"));//false  有其它符号
+  console.log(/^\d{2,5}$/.test("2345_"));//false
+
+
+  console.log("==========?严格模式匹配================");
+  console.log(/\d?/.test(" "));// true 没有数字也可以
+  console.log(/^\d?$/.test(" ")); //false  不能出现其它字符
+  console.log(/^\d?$/.test("0"));//true
+  console.log(/^\d?$/.test("20"));//false  多一次也不行
+  console.log(/^\d?$/.test(""));//true   一次也没有，而且也没有多余的字符
+  console.log(/^\d?$/.test("a"));// false  不能出现别的字符
+  console.log(/^\d?$/.test("_"));// false  也不能出现别的字符
+  console.log(/^\d?$/.test("_1"));// false  也不能出现别的字符
+</script>

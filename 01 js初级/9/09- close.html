@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>close</title>
+</head>
+<body>
+<input type="button" value="open" id="open"/>
+<input type="button" value="close" id="close"/>
+</body>
+</html>
+<script>
+  document.getElementById("open").onclick = function (){
+//         window.open("http://www.baidu.com");
+//         window.open("http://www.baidu.com","_blank"); // 是在新的窗口中打开
+//         window.open("http://www.baidu.com","_self"); // 在当前窗口打开
+      win=  window.open("http://www.baidu.com","_blank","width=200,height=300,left=220,top=260");
+    // 在局部作用域内，不加var   定义的变量是全局变量
+  };
+
+  document.getElementById("close").onclick = function (){
+      win.close();
+  };
+</script>

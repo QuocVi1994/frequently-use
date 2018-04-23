@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>两种定义函数的区别</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  function getSum(n1,n2){
+    return n1+ n2;
+  }
+  var sum;
+  var sum1;
+  var getSum1
+   sum= getSum(10,20);
+  console.log(sum);
+
+  getSum1 = function(n1,n2){
+    return n1+n2;
+  }
+
+  sum1= getSum1(30,50);
+  console.log(sum1);
+  // 预解析：
+  // js中的解析器有一个预解析的机制，就是在执行代码之前，会先将所有的js代码都扫描一遍，会先将变量的声明和函数的声明，提升到当前作用域的最前面，但是变量的赋值 还是在原来的位置
+
+  // 匿名 函数多用在DOM的事件注册当中，或是定时器当中
+</script>

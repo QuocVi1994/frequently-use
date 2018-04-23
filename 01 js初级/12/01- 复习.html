@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>复习</title>
+  <script>
+    /**
+     * 1. offsetWidth:   border+padding+width    边框以内的部分
+     * 2. offsetHeight:  border+padding+height   边框以内的部分
+     * 3. offsetLeft:   是自己的左边框到离自己最近的带有定位的父级元素之间的距离，如果父级元素都没有定位的话，则默认是以页面或是body为准
+     * 4. offsetTop:  同上
+     * 5. offsetLeft与style.left的区别：
+     *    5.1  offsetLeft获取的值是number类型，没有单位px,不但可以获取行内的属性值还可以获得内嵌的属性值直接可以进行后续的运算
+     *    5.2  而style.left只能获取行内的属性值，不能获取内嵌的属性值，而且获取的值带有单位px，
+     *    5.3  offsetLeft是只读属性，只能用来获取值，而不能设置值
+     *    5.4  style.left是可读写的属性，不但可以用来获取值，还可以用来设置值，一般是与position: absolute一块用，如果没有这个属性的话，只设置的话，是不起作用的
+     *    5.5  offsetLeft是以自己的左边框为准，而style.left是以margin的左侧为准
+     * 6. animate运动函数，步长是一定的，因此这个函数是匀速移动
+     *    Math.abs()    取绝对值
+     *    Math.random()     取随机数
+     *    Math.round()     四舍五入
+     *
+     *    只有两者之间的距离足够的长，大于步长的时候，才需要让对象在当前的位置不断的去加一个步长 或是减去一个步长匀速的移动到目标位置，在两者之间的距离不足一个步长的时候，直接移动到目标位置即可。
+     *    因为两者之间的距离以数字计算的话，有正有负，而步长 也有正有负，因此需要都取其绝对值然后进行比较
+     *
+     *    先快后慢   在同样的时间内，一开始运动的距离比较大，后续的运动的距离越来越小
+     *    */
+  </script>
+</head>
+<body>
+
+</body>
+</html>

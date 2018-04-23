@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。
+
+  // 定义数组的时候，有两种方式   构造函数    数组字面量
+  var arr = new Array("abc");
+
+  var arr1 = [];
+
+  // 定义正则对象，也有两种方式   构造函数   字面量
+  // var reg = new RegExp(/\d/); // d   digit   数字   去验证某字符串是是否有数字，如果有一个符合就返回true,如果一个都没有的话，则返回false
+  //var str = "abcde123";
+  //var str1 = "abc";
+  // //  var b = reg.test(str);
+  //var b = reg.test(str1); // 如果字符串一个匹配的都没有的话，则返回false
+  //console.log(b);
+
+  var reg = /\d/;  // 用对象字面量的方式创建了一个正则对象
+
+  var b = reg.test("abc123"); // test方法是验证待检测的字符串中，是否符合我们的验证规则
+  console.log(b);
+</script>

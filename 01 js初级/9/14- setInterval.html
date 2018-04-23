@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>setInterval</title>
+  <script>
+    window.onload = function(){
+      var timeId = null;
+        document.getElementById("btnSet").onclick = function (){
+           timeId =   setInterval(function(){
+                 alert("爆炸了...");
+               },2000); // 每间隔2000毫秒不间断的执行，一直执行下去
+        };
+
+      document.getElementById("btnClear").onclick = function (){
+             clearInterval(timeId);
+      };
+    }
+  </script>
+</head>
+<body>
+<input type="button" id="btnSet" value="设置定时器"/>
+<input type="button" id="btnClear" value="清除定时器"/>
+</body>
+</html>

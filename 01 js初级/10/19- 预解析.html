@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var a;
+  var b;
+  function f1(){
+    console.log(123);
+  }
+  var f2;
+  // 预解析，就是在js中，引擎在解析js代码的时候，有一个预解析的机制，会先将所有的代码扫描一遍，会将变量的声明、函数的声明，提升到当前作用域的最前面,变量的赋值还是在原位置。
+  //作用域 ：  全局作用域(页面中一对script标签之间的部分就是全局作用域)       局部作用域(函数的内部)
+
+
+   a = 20;
+  console.log(a);
+  console.log(b);
+  b = 30;
+
+  f1();
+  f2();
+
+  f2 = function (){
+      console.log(456);
+  }
+
+
+
+</script>

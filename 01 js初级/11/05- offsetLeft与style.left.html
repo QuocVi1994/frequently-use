@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border: 10px solid #000;
+      margin: 50px;
+      position: absolute;
+      /*top: 30px;*/
+      /*left: 20px;*/
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        var box = document.getElementById("box");
+        console.log(box.style.left); //
+        //1. left或top值一般与position:absolute在一块使用，单独的设置一个left是不起作用的。 style的方式只能获取行内的属性值，再一个可以用style的方式来设置属性和属性值
+      // 2.style.left是可读写的属性
+      // 3.left和top的定位始终是以盒子的margin的左上角为准
+      console.log(box.offsetLeft); //
+      // 1.offsetLeft是获取的自己左边框到最近的定位的父级元素之间的距离 ，如果都没有定位的话，则默认以页面或body为准，
+      // 2.offsetLeft是只读的属性，仅仅只能用来获取属性值，不能用来设置
+      // 3.offsetLeft或offsetTop是以盒子的边框为准
+
+
+      // 如果在做动画效果的时候，盒子没有margin也没有border的情况下，一般用offsetLeft来获取盒子当前的值，用style.left来设置值
+
+      console.log(box.offsetTop);
+    }
+  </script>
+</head>
+<body>
+<div id="box" style="left:25px"></div>
+</body>
+</html>

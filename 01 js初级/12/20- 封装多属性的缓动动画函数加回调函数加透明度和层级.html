@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封装多属性的缓动动画加回调透明度和层级</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      /*opacity: 0.4;*/
+    }
+    #box1 {
+      background-color: red;
+    }
+    #box2 {
+      left: 80px;
+      top:90px;
+      background-color: blue;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var box1 = document.getElementById("box1");
+      var box2 = document.getElementById("box2");
+      var btn = document.getElementById("btn");
+
+      btn.onclick = function (){
+        animate(box1,{
+          width:400,
+          height:460,
+          left:180,
+          top:190,
+          zIndex:1,
+          opacity:0.2
+        })
+
+      }
+      /**
+       * 封装了一个兼容版本的获取当前对象属性值的函数
+       * @param obj
+       * @param attr
+       * @returns {*}
+       */
+      function getStyle(obj,attr){
+        // 能力检测 就是要看当前的浏览器是否支持此对象的属性和方法
+        if(obj.currentStyle){
+          return  obj.currentStyle[attr];
+        }else {
+          return  getComputedStyle(obj,null)[attr];
+        }
+      }
+      /**
+       * 封装了一个缓动运动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj,json,fn) {
+        clearInterval(obj.timeId);
+        obj.timeId = setInterval(function () {
+          var flag = true;
+          for(var key in json){
+            if(key=="opacity"){
+              var leader = parseInt(getStyle(obj,key)*100) || 0;
+              var target = json[key]*100;//要到达的目标僧
+              var step = (target - leader) / 10;
+              step = step > 0 ? Math.ceil(step) : Math.floor(step);
+              console.log(step);
+              leader = leader + step;
+              obj.style[key] = leader/100;
+            }else if(key =="zIndex"){  // 可以不用缓动
+              var leader = parseInt(getStyle(obj,key)) || 0;
+              var target = json[key];//要到达的目标僧
+              obj.style[key] = target;
+            }else {
+              var leader = parseInt(getStyle(obj,key)) || 0;
+              var target = json[key];//要到达的目标僧
+              var step = (target - leader) / 10;
+              step = step > 0 ? Math.ceil(step) : Math.floor(step);
+              console.log(step);
+              leader = leader + step;
+              obj.style[key] = leader + 'px';
+            }
+            if(leader!=target){ // 只要有一个属性没有到达目标位置，就让flag = false
+              flag = false;
+            }
+          }
+          if (flag) { // 所有的都到达了目标位置的时候，才来清除定时器
+            clearInterval(obj.timeId);
+            console.log(123);
+           if(fn){  // 如果第三个参数是函数的话，要调用这个函数
+             fn();
+           }
+          }
+//
+        }, 15);
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="设置"/>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

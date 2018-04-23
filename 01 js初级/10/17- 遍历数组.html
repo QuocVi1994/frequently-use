@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var nums = [10,20,30,40,50,60,88,99,63,25,69,78,92];
+//  for(var i=0;i<nums.length;i++){
+//    console.log(nums[i]+"==="+i);
+//  }
+ //nums.forEach(function(item,index){
+ //  console.log(item+"===="+index);
+ //  // forEach是数组中的方法，用来遍历数组中的每一项
+ //  // index: 就是数组的索引值
+ //  // item：数组中的每一项
+ //});
+
+ var arr = nums.filter(function(item,index){
+//    console.log(item+"===="+index);
+//   console.log(a+"===="+b);
+   if(item>=60){
+     return false;
+   }
+   return true;  // 过滤出符合条件的
+  });
+  console.log(arr);
+
+
+</script>

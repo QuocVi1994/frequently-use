@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>盒子移动</title>
+  <style>
+    div {
+      position: absolute;
+      left: 0;
+      top: 120px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var index = 0;
+      var timeId = null;
+      var box = document.getElementById("box");
+        document.getElementById("btn").onclick = function (){
+          clearInterval(timeId);
+           timeId = setInterval(function(){
+                 index+=9;
+                if(index>=600){
+                  clearInterval(timeId);
+                  box.style.left = "600px";
+                  return;
+                }
+                 box.style.left = index+'px';
+               },100);
+        };
+    }
+
+    // 现在的要求就是，无论怎么点击 按钮，始终让盒子保持匀速向前移动
+    // 做法就是保证每次单击按钮的时候，只开启一个定时器，就是先将原来的清除掉，再来开启新的定时器
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<div id="box"></div>
+</body>
+</html>

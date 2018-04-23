@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var nums = [0,1,2,3,4,5,6,7,8,9];
+var nums =  [65,97,76,13,27,49,58,20,16,39,240]
+  for(var i = 0; i < nums.length-1; i++) {
+       for(var j = 0; j <nums.length-1-i; j++) {
+          if(nums[j]>nums[j+1]){
+            var temp = nums[j];
+            nums[j]= nums[j+1];
+            nums[j+1]= temp;
+          }
+       }
+  }
+  console.log(nums);
+</script>

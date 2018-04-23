@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>number函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 将其它的简单数据类型转换为number   string  boolean  null  undefined
+  var num1 = Number(true); //true返回1  false返回0
+  console.log(num1);
+  var num2 = Number(undefined); //返回NaN
+  console.log(num2);
+  var num3 = Number("hello");  //返回NaN
+  console.log(num3);
+  var num4 = Number("   "); //如果是空字符串返回0
+  console.log(num4);
+  var num5 = Number(123); //返回123，如果是数字，简单返回
+  console.log(num5);
+  var num6 = Number("123abc");  //返回NaN
+  console.log(num6);
+  var num7 = Number("abc123");  //返回NaN
+console.log(num7);
+var num8 = Number("123.35");
+  console.log(num8);
+
+
+
+</script>

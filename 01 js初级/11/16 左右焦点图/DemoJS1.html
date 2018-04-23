@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>左右焦点图JS效果</title>
+  <style>
+    body, ul, ol, li, img {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #box {
+      width: 490px;
+      height: 270px;
+      padding: 5px;
+      /*background-color: red;*/
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .ad {
+      width: 490px;
+      height: 270px;
+      position: relative;
+    }
+
+    #box img {
+      width: 490px;
+    }
+
+    .ad ul li {
+      float: left;
+    }
+
+    .ad ul {
+      position: absolute;
+      top: 0;
+      width: 2940px;
+    }
+
+    .ad ul li.current {
+      display: block;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      position: absolute;
+      /*left: 5px;*/
+      top: 50%;
+      margin-top: -20px;
+      background-color: #000;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+    }
+
+    #arr #left {
+      left: 5px;
+    }
+
+    #arr #right {
+      right: 5px;
+      /*left: auto;*/
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      //1. 获得对象
+      var ul = document.getElementById("imgs");
+      var arr = document.getElementById("arr");
+      var box = document.getElementById("box");
+      var lis = ul.children;
+      var ad = ul.parentNode;
+      var leftBtn = document.getElementById("left");
+      var rightBtn = document.getElementById("right");
+      var imgWidth = ad.offsetWidth;
+      // 2. 鼠标移入大盒子的时候，要显示左右按钮，离开的时候要隐藏左右按钮
+      box.onmouseover = function () {
+        arr.style.display = "block";
+      }
+      box.onmouseout = function () {
+        arr.style.display = "none";
+      }
+      // 3. 给事件源注册事件
+      var index = 0;// 设置一个变量，来标示图片移动的张数
+      rightBtn.onclick = function () {
+        if (index < lis.length - 1) {
+          index++;
+          console.log(index);
+        }
+        animate(ul, -imgWidth * index);// 让ul移动对应图片张数的宽度的距离
+      }
+
+      leftBtn.onclick = function () {
+        if (index > 0) {
+          index--;
+        }
+        animate(ul, -imgWidth * index);
+      }
+      /**
+       * 封装了一个匀速移动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj, target) {
+        clearInterval(obj.timeId); //
+        // 是将开启的定时器ID存在当前对象的timeId属性当中，每次单击按钮的时候，都要先清掉定时器，保证当前对象移动的时候，只开启一个定时器
+        obj.timeId = setInterval(function () {
+          // 3. 先获取盒子当前的位置
+          var leader = obj.offsetLeft; // 获取盒子距离定位的父盒子之间的距离
+          var step = 20; // 向前移动的步长
+          step = leader < target ? step : -step;
+          if (Math.abs(leader - target) > Math.abs(step)) {
+            leader = leader + step;
+            obj.style.left = leader + 'px';
+          } else {
+            clearInterval(obj.timeId);
+            obj.style.left = target + 'px'; // 最后的时候，不足一个步长了，可以直接迈过去，到达目标位置
+          }
+        }, 15)
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="box" class="all">
+  <div class="ad">
+    <ul id="imgs">
+      <li><img src="images/1.jpg" alt=""/></li>
+      <li><img src="images/2.jpg" alt=""/></li>
+      <li><img src="images/3.jpg" alt=""/></li>
+      <li><img src="images/4.jpg" alt=""/></li>
+      <li><img src="images/5.jpg" alt=""/></li>
+    </ul>
+  </div>
+  <div id="arr">
+    <span id="left">&lt;</span>
+    <span id="right">&gt;</span>
+  </div>
+</div>
+
+</body>
+</html>

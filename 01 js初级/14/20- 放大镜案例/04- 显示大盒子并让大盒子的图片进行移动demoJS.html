@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .big {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mask {
+      width: 175px;
+      height: 175px;
+      background: rgba(255, 255, 0, 0.4);
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: move;
+      display: none;
+    }
+
+    .small {
+      position: relative;
+    }
+
+    .box img {
+      vertical-align: top;
+    }
+
+    #bigBox > img {
+      /*是让里面的图片脱标，为的就是让里面的图片进行一个移动*/
+      position: absolute;
+    }
+  </style>
+  <script src="../common.js"></script>
+  <script>
+    window.onload = function () {
+      //1.获得要操作的对象
+      var box = document.getElementById("box");
+      var bigBox = document.getElementById("bigBox");
+      var smallBox = document.getElementById("smallBox");
+      var mask = document.getElementById("mask");
+      var bigImg = document.getElementById("bigImg");
+
+      // 2. 鼠标移入盒子的时候，要显示遮罩层
+      smallBox.onmousemove = function (e) {
+        e = e || window.event;
+        mask.style.display = "block";
+        bigBox.style.display = "block";
+
+        // 3. 获取鼠标在盒子中的坐标位置
+        var x = page(e).x - box.offsetLeft - mask.offsetWidth / 2;
+        var y = page(e).y - box.offsetTop - mask.offsetHeight / 2;
+
+        //4. 限制遮罩层的移动范围，不能移出大盒子
+        x = x < 0 ? 0 : x;
+        y = y < 0 ? 0 : y;
+
+        x = x> smallBox.offsetWidth - mask.offsetWidth?smallBox.offsetWidth-mask.offsetWidth:x;
+        y = y>smallBox.offsetHeight - mask.offsetHeight?smallBox.offsetHeight - mask.offsetHeight:y;
+        console.log(x + "===" + y);
+        mask.style.left = x + 'px';
+        mask.style.top = y + 'px';
+
+        // 5. 让大盒子进行移动
+        // 实际 是应该是大盒子进行的移动，但是大盒子尽量固定，让里面的图片进行移动
+        bigImg.style.left = -bigBox.offsetWidth/mask.offsetWidth*x+'px';
+        bigImg.style.top =-bigBox.offsetHeight/mask.offsetHeight*y+'px';
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="box" id="box">
+  <div class="small" id="smallBox">
+    <img src="images/001.jpg" width="350" alt=""/>
+
+    <div class="mask" id="mask"></div>
+  </div>
+  <div class="big" id="bigBox">
+    <img id="bigImg" src="images/0001.jpg" width="800" alt=""/>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>验证汉字</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //[\u4e00-\u9fa5]
+  console.log(/[\u4e00-\u9fa5]/.test("a"));
+  console.log(/[\u4e00-\u9fa5]/.test("20"));
+  console.log(/[\u4e00-\u9fa5]/.test(" "));
+  console.log(/[\u4e00-\u9fa5]/.test("_"));
+  console.log(/[\u4e00-\u9fa5]/.test("人"));
+  console.log(/[\u4e00-\u9fa5]/.test("中"));
+  console.log(/[\u4e00-\u9fa5]/.test("广告"));
+  console.log(/^[\u4e00-\u9fa5]{2,6}$/.test("广告"));
+  // 2--3   6
+</script>

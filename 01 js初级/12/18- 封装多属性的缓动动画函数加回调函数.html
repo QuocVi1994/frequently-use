@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封装多属性的缓动动画加回调</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var box = document.getElementById("box");
+      var btn = document.getElementById("btn");
+
+      btn.onclick = function (){
+
+          animate(box,{
+            width:200,
+            height:300,
+            left:1200
+          },function (){
+            animate(box,{
+              width:260,
+              height:420,
+              top:600,
+              left:1200
+            },function(){
+              animate(box,{
+                width:300,
+                height:500,
+                top:600,
+                left:100
+              },function (){
+                animate(box,{
+                  width:400,
+                  height:500,
+                  top:100,
+                  left:100
+                })
+              })
+            });
+          })
+      }
+      /**
+       * 封装了一个兼容版本的获取当前对象属性值的函数
+       * @param obj
+       * @param attr
+       * @returns {*}
+       */
+      function getStyle(obj,attr){
+        // 能力检测 就是要看当前的浏览器是否支持此对象的属性和方法
+        if(obj.currentStyle){
+          return  obj.currentStyle[attr];
+        }else {
+          return  getComputedStyle(obj,null)[attr];
+        }
+      }
+      /**
+       * 封装了一个缓动运动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj,json,fn) {
+        clearInterval(obj.timeId);
+        obj.timeId = setInterval(function () {
+          var flag = true;
+          for(var key in json){
+            var leader = parseInt(getStyle(obj,key)) || 0;
+            var target = json[key];//要到达的目标僧
+            var step = (target - leader) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            console.log(step);
+            leader = leader + step;
+//          obj.style.left = leader + 'px';
+            obj.style[key] = leader + 'px';
+            if(leader!=target){ // 只要有一个属性没有到达目标位置，就让flag = false
+              flag = false;
+            }
+          }
+          if (flag) { // 所有的都到达了目标位置的时候，才来清除定时器
+            clearInterval(obj.timeId);
+           if(fn){  // 如果第三个参数是函数的话，要调用这个函数
+             fn();
+           }
+          }
+//
+        }, 15);
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="设置"/>
+<div id="box"></div>
+</body>
+</html>

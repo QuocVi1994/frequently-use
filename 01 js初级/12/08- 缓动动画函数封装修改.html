@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>移动到多个位置</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      //1. 获得要操作的对象
+      var box = document.getElementById("box"); // 获取的div对象
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+      var timeId = null;
+      // 2. 给事件源注册事件
+      btn1.onclick = function () {
+          animate(box,200);
+        // 1. offsetLeft获得的这个数字好像是四舍五入，只会获取整数值
+        // 2. 所以干脆在用style.left来设置值的时候，直接设置成整数即可，小数的时候，为了保证能一点点的到达目标位置，需要将小数的步长向上取整
+        // 3. 移动的盒子，最小单位一般是1px
+      }
+    // 所谓的缓动移动，就是在同样的时间内，移动的先快后慢，
+      // 有两个参数，一个是时间一个是步长 ，时间是一定的，不能随便改动，要想实现缓动的话，只能改变步长，就是让步长先大后小
+
+      btn2.onclick = function (){
+        animate(box,400);
+      }
+      btn3.onclick = function (){
+             animate(box,600);
+      }
+
+
+      function animate(obj,target){
+        clearInterval(obj.timeId);
+        obj.timeId= setInterval(function (){
+          var leader = obj.offsetLeft;//获取盒子当前的位置,只会获得整数
+          var step = (target-leader)/10;
+//          step = Math.ceil(step); // 将步长向上取整，获得一个整数的步长，因为offsetLeft在获取值的时候，只会获取整数值
+          // 1. 现在的目标位置，有可能小于当前的位置，因此步长有可能是负数
+          // 2. 正小数向上取整是没有问题的，因为都是1，但是负小数，比如-0.9，-0.8再向上取整的话，是0，步长就加不上了
+          // 3. 因此步长要根据正负来决定 是向上取整 还是向下取整
+
+          step= step>0?Math.ceil(step):Math.floor(step);
+          console.log(step);
+          leader = leader + step;
+          obj.style.left = leader +'px';
+          if(leader ==target){
+            clearInterval(obj.timeId);
+            console.log(123);
+          }
+//          if(leader!=target){
+//            leader = leader + step;
+//            obj.style.left = leader + 'px';
+//          }else {
+//            clearInterval(obj.timeId);
+//            console.log(123);
+//          }
+        },15);
+      }
+    }
+
+  </script>
+</head>
+<body>
+<input type="button" value="移动到200" id="btn1"/>
+<input type="button" value="移动到400" id="btn2"/>
+<input type="button" value="移动到600" id="btn3"/>
+<div id="box"></div>
+</body>
+</html>

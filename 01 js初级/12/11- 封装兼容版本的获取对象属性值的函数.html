@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封装获取属性值的兼容版本的函数</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 220px;
+      padding:20px;
+      border: 10px solid #000;
+      background-color: red;
+      /*left: 20px;*/
+      /*top:52px;*/
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        var box = document.getElementById("box");
+//        console.log(box.offsetWidth); // border+padding+width
+      // currentStyle   window.getComputedStyle   只会获取指定的属性值
+      // currentStyle  谷歌和火狐不支持  IE支持
+      // getComputedStyle是IE8及之前的浏览器不支持
+      //console.log(box.currentStyle.width); //谷歌和火狐不支持，IE是支持
+     //console.log(window.getComputedStyle(box,false).width);
+     //console.log(window.getComputedStyle(box,null).height);
+     //console.log(getComputedStyle(box,null).left);
+     //console.log(getComputedStyle(box,false)["top"]);
+
+//      console.log(box.currentStyle.width);
+//      console.log(box.currentStyle.height);
+//      console.log(box.currentStyle["left"]);
+//      console.log(box.currentStyle["top"]);
+
+//      console.log(getStyle(box,"width"));
+//      console.log(getStyle(box,"height"));
+      console.log(getStyle(box,"left"));
+
+      /**
+       * 封装了一个兼容版本的获取当前对象属性值的函数
+       * @param obj
+       * @param attr
+       * @returns {*}
+       */
+      function getStyle(obj,attr){
+        // 能力检测
+        if(obj.currentStyle){
+          return  obj.currentStyle[attr];
+        }else {
+          return  getComputedStyle(obj,null)[attr];
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

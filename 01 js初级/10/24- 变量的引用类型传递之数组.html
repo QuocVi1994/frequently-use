@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var arr = [10,20,30];
+  function getSum(arr){
+    arr[1] = 120;
+    var sum = 0;
+    for(var i=0;i<arr.length;i++){
+      sum += arr[i];
+    }
+    return sum;
+  }
+
+  var sum = getSum(arr);
+  console.log(sum);
+  console.log(arr);
+  // 数组属性于引用类型或是复杂数据类型
+  // 复杂数据类型是将自身的真正的数据值存在内存中的堆空间中，而在栈空间中存有在堆空间中的内存地址，在进行参数传递的时候，是将自己在栈空间中的内存地址复制了一份传递过去了，如果是在函数内部对复杂数据类型进行更改的话，是操作的真正的那块堆空间中的数据值
+</script>

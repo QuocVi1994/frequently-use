@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //
+  // 变量的值类型传递  当变量中存的是一个值(简单数组类型，基本数据类型)
+
+
+  function getSum(a,b){
+    a = 80; // 不是全局变量，只是一个参数，只属于函数的内部
+    return a+b;
+  }
+  var n1 = 20;
+  var n2 = 50;
+  var sum = getSum(n1,n2);
+  console.log(sum);
+ // console.log(a); // 80   报错了
+  console.log(n1); //20  80
+  console.log(n2);// 50
+
+  // 变量的类型为number类型的时候，传递的时候是将自身的值复制一份传递给函数的参数，在函数的内部对参数的更改或是重新赋值，与函数外部的变量没有任何关系。
+</script>

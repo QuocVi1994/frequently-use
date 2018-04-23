@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //  张三   男   20   打招呼  打球   游戏  游泳
+  var o = new Object(); // Object是对象的构造函数
+  o.name ="张三";
+  o.age = 20;
+  o.sex = "男";
+  o.hobby = "玩游戏";
+//  o.address = "广州市";
+//  o.telNumber = "13100000";
+  o.sayHello = function (){
+    console.log("大家好，我是新来的，我的名字叫"+ o.name+"，我看今年"+ o.age+"岁了，我是"+ o.sex+"生，我的爱好是"+ o.hobby);
+  };
+
+  // 李四   22  男   打招呼
+  var o1 = new Object();
+  o1.name = "李四";
+  o1.age = 22;
+  o1.sex = "男";
+  o1.hobby = "学习";
+  o1.sayHello = function (){
+    console.log("大家好，我是新来的，我的名字叫"+ o1.name+"，我看今年"+ o1.age+"岁了，我是"+ o1.sex+"生，我的爱好是"+ o1.hobby);
+  }
+//  o.sayHello();
+//  o1.sayHello();
+
+
+  function createStu(name,age,sex,hobby){  // js中的构造函数，其实就相当于后台语言中的类
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sex = sex;
+    o.hobby = hobby;
+    o.sayHello= function (){
+      console.log("大家好，我是新来的，我的名字叫"+ o.name+"，我看今年"+ o.age+"岁了，我是"+ o.sex+"生，我的爱好是"+ o.hobby);
+    };
+    return o;
+  }
+
+  var zs = createStu("赵四",28,"男","跳舞");
+  zs.sayHello();
+
+  var tq = createStu("田七",22,"女","唱歌");
+  tq.sayHello();
+
+  // 创建出来的是哪个对象，就用哪个对象来调用对应的方法就可以了
+</script>

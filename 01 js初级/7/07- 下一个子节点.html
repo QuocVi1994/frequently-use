@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">这是文字
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li><!-- 这是一个注释-->
+  <li id="li3">这是第3个li标签</li>123
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+  // 1. 先获得要操作的对象
+  var li3 = document.getElementById("li3");
+//   var node=   li3.nextSibling;// 获取当前标签对象的下一个节点 高级浏览器会获得标签或是文本，而IE8会忽略空白文本节点，如果文本节点有内容的话，则会获取此文本节点
+//  console.log(node);
+//  console.log(node.nodeType);
+//  console.log(node.nodeName);
+//  console.log(node.nodeValue);
+  var node = li3.nextElementSibling;// 高级浏览器支持的属性，只会获取当前标签对象的下一个标签节点，而IE8及之前的浏览器不支持此属性。
+  console.log(node.nodeType);
+  console.log(node.nodeName);
+  console.log(node.nodeValue);
+</script>

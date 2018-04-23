@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+//        btn.onclick = function (){
+//          console.log("愿岁月静好");
+//          btn.onclick = null;
+//        };
+
+
+
+        //btn.addEventListener("click",function (){
+        //       console.log("愿岁月静好");
+        //},false);  // 第三个参数表示支持冒泡还是捕获
+
+//        var fn = function (){
+//          console.log("愿现世安稳");
+//        };
+        function fn(){
+          console.log("愿现世安稳");
+        }
+        btn.addEventListener("click",fn,false);  // 第三个参数表示支持冒泡还是捕获
+        btn.addEventListener("mouseover",f1,false);  // 第三个参数表示支持冒泡还是捕获
+//
+        //btn.removeEventListener("mouseover",fn,false)
+
+        // 函数是属于复杂数据类型
+        // [] == []
+        // 复杂数组类型，在比较值的时候，是比较的在堆中的内存地址
+        // 所以注册事件 时候，要注册一个事件，清除事件的时候，也要清除原来的事件
+        function f1(){
+          console.log("愿岁月静好");
+        }
+//        btn.attachEvent("onclick",fn);
+//        btn.attachEvent("onmouseover",f1);
+//        btn.detachEvent("onmouseover",f1);
+
+        removeEventListener(btn,"mouseover",f1);
+        // 封装一个兼容版本的清除事件的函数
+
+        /**
+         * 封装了一个兼容性的移除事件的函数
+         * @param obj
+         * @param type
+         * @param listener
+         */
+        function removeEventListener(obj,type,listener){
+          // 能力检测
+          if(obj&&obj.removeEventListener){
+            obj.removeEventListener(type,listener,false);
+          }else if(obj&&obj.detachEvent){
+            obj.detachEvent("on"+type,listener);
+          }else {
+            obj["on"+type] = null;
+          }
+        }
+      }
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>

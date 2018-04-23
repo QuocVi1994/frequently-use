@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>百度搜索框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 400px;
+            margin: 200px auto;
+            /*border: 1px solid #000;*/
+        }
+
+        #txtSearch {
+            width: 300px;
+        }
+
+        #pop {
+            width: 300px;
+            border: 1px solid red;
+            padding: 0px;
+        }
+
+        #pop ul {
+            list-style-type: none;
+            margin: 5px;
+            padding: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="text" value="" id="txtSearch"/>
+    <input type="button" value="搜索" id="btnSearch"/>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    var strs = ["a", "ab", "abc", "abcd", "abcde", "acc", "amm", "mmm", "kkk"];
+
+    //1、获取要操作的对象
+    var txtSearch = document.getElementById("txtSearch");
+    var box = document.getElementById("box");
+    //2、给事件源注册事件
+    txtSearch.onkeyup = function () {
+        //3、获取输入框中的数据；
+        var value = txtSearch.value;
+        //4、到数组中查询哪些元素是以用户输入的内容为开头的数据，如果找到了，就需要存到一个新的数组中
+        var filterArr = [];
+        for (var i = 0; i < strs.length; i++) {
+            if (strs[i].indexOf(value) == 0) {
+                filterArr.push(strs[i]);
+            }
+        }
+        console.log(filterArr);
+
+        /*//10、在生成新的盒子之前把旧的盒子清除掉
+        var div=document.getElementById("pop");
+        if(div){
+            box.removeAttribute(div);
+        }
+        //11、如filterArr数组中的元素为空，就不要执行下面的代码
+        if(!filterArr.length){
+            return;
+        }
+        //12、如果输入框的内容为空。也不要执行下面的代码
+        if(!value){
+            return;
+        }*/
+
+        //循环遍历数组之后，filterArr里面就存了以用户输入的内容开头的数据
+            //5、动态的创建div标签
+            var divPop = document.createElement("div");
+        divPop.setAttribute("id", "pop")
+            box.appendChild(divPop);
+            //6、动态的创建ul标签
+            var ul = document.createElement("ul");
+        divPop.appendChild(ul);
+            //7、动态的创建li标签,要根据filterArr对应的li标签
+            for(var i=0;i<filterArr.length;i++){
+                var li = document.createElement("li");
+                Txt.setText(li, filterArr[i]);
+                ul.appendChild(li);
+
+                //8、添加鼠标移入移出的事件
+                li.onmouseover= function () {
+                    this.style.backgroundColor="#dedede";
+                }
+
+                li.onmouseout= function () {
+                    this.style.backgroundColor="#fff";
+                }
+
+                //9、选中当前行的时候，让当前行的内容填充到输入框中，盒子不要了
+                li.onclick= function () {
+                    txtSearch.value=Txt.getText(this);
+                    box.removeAttribute(divPop);
+                }
+            }
+    }
+
+
+</script>

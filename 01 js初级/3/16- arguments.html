@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>arguments</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // arguments对象是每个函数当中都有的，相当于是一个实参的备份
+
+  function getSum(){
+    // arguements 是一个伪数组   伪数组是不能通过Array构造函数来创建，但是仍然具有数组的一些特性和方法
+    // arguments这个伪数组对象的用法 和真数组的用法是一模一样的
+    var sum = 0;
+    for(var i=0;i<arguments.length;i++){
+//      console.log(arguments[i]);
+
+      sum += arguments[i];
+    }
+    console.log(arguments[2]);
+    return sum;
+  }
+
+//  var sum =  getSum(10);
+//  var sum =  getSum(10,20);
+//  var sum =  getSum(10,20,30);
+  var sum =  getSum(10,20,30,40);
+  console.log(sum);
+</script>

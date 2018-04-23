@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>到指定位置停止</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      top: 50px;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        // 就像人走路一样，匀速的向前移动，始终在当前的位置向前迈一步，步长是固定的
+      //1. 获取要操作的对象
+      var box = document.getElementById("box");
+      var btn = document.getElementById("btn");
+      var timeId = null;
+      // 2. 给事件源注册事件
+      btn.onclick = function (){
+        clearInterval(timeId);//先将之前的定时器清掉
+       timeId=  setInterval(function (){
+           // 3. 先获取盒子当前的位置
+           var leader =  box.offsetLeft;
+           var step = 9; // 向前移动的步长
+           leader = leader + step;
+           console.log(leader);
+           if(leader<800){
+             box.style.left = leader + 'px';
+           }else {
+             clearInterval(timeId); // 清空定时器
+             box.style.left = "800px"; // 最后的时候，不足一个步长了，就不要再加步长了，可以直接迈过去，到达目标位置
+           }
+
+         },15)
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="移动" id="btn"/>
+<div id="box"></div>
+</body>
+</html>

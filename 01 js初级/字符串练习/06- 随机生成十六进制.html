@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>06- 随机生成十六进制</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //书写一个函数，随机生成十六进制颜色值比如： #ff6600  16进制指0-f之间的数。
+    //  var colors = [0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"];
+    //
+    //  var str = "#";
+    //  for(var i=0;i<6;i++){
+    //    str+= colors[Math.floor(Math.random()*colors.length)]
+    //  }
+    //  console.log(str);
+
+
+    var colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+    var str = "#";
+
+    var ai = setInterval(function aa(){
+        for(var i = 0; i < 6; i++){
+            str += colors[Math.floor(Math.random()*colors.length)];
+        }
+    },500);
+    console.log(ai);
+</script>

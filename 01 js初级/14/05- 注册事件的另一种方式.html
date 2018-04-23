@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+//        btn.onclick  = function (){
+//               console.log(123);
+//        };
+//        btn.onclick = function (){
+//               console.log(456);
+//        }
+
+       // 使用on的方式给同一个事件源注册同样的事件的时候，后面的事件会将前面的事件给覆盖掉
+
+        // addEventListener    attacheEvent
+//        btn.addEventListener("click",function (){
+//               console.log("愿岁月静好");
+//        },false);  // 第三个参数表示支持冒泡还是捕获
+//
+//        btn.addEventListener("click",function (){
+//               console.log("愿现世安稳");
+//        },false);
+
+        // 谷歌和火狐支持的方式，但是IE8不支持
+
+        btn.attachEvent("onclick",function (){
+          console.log("愿岁月静好");
+        });// 没有第三个参数
+        btn.attachEvent("onclick",function (){
+          console.log("愿现世安稳");
+        });// 没有第三个参数
+
+        // IE对于同一个事件源的同一个事件而言的话，先触发最后一次，依次的往前触发
+      }
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>

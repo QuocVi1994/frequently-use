@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>05- 改成驼峰命名法</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”
+  var str = "get-element-by-id";
+
+  var arr= str.split("-");
+//  console.log(arr);
+  for(var i=1;i<arr.length;i++){
+     arr[i]= arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+  }
+//  console.log(arr);
+  console.log(arr.join(""));
+</script>

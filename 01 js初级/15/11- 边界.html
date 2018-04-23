@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>边界</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // ^  以...开头   $以。。。结尾
+  console.log(/\d/.test(" 20 "));
+  console.log(/\d/.test("_ 20 "));
+  console.log(/\d/.test("abc 20 "));
+  console.log(/\d/.test("$ 20 "));
+  console.log(/^\d/.test(" 20 "));
+  console.log(/^\d/.test("_ 20 "));
+  console.log(/^\d/.test("abc 20 "));
+  console.log(/^\d/.test("$ 20 "));
+  console.log(/^\d/.test("0$ 20 "));
+  console.log(/^\d/.test("1$ 20 "));
+
+  console.log("=====^\w 大小写字母数字_============");
+  console.log(/^\w/.test(" abc "));// false
+  console.log(/^\w/.test("2 af asf"));//true
+  console.log(/^\w/.test("% 20 "));//false
+  console.log(/^\w/.test("_fa sd"));//true
+  console.log(/^\w/.test("- fa sd"));//false
+  console.log(/^\w/.test("A fa sd"));//true
+
+  console.log("===========$以。。。结尾================");
+  console.log(/\d/.test(" 20 "));//true
+  console.log(/\d/.test("_ 20 "));//
+  console.log(/\d/.test("abc 20 "));//
+  console.log(/\d/.test("$ 20 "));//true
+  console.log(/\d$/.test(" 20 "));//false
+  console.log(/\d$/.test("_ 20 "));//false
+  console.log(/\d$/.test("abc 20 "));//false
+  console.log(/\d$/.test("$ 20 "));//false
+  console.log(/\d$/.test("0$ 20 "));//false
+  console.log(/\d$/.test("1$ 20 "));//false
+  console.log(/\d$/.test("1$ 20 0"));//
+  console.log(/\d$/.test("1$ 20 1"));//
+
+  console.log("=====\w$ 大小写字母数字_============");
+  console.log(/\w$/.test(" abc "));//false
+  console.log(/\w$/.test("2 af asf"));//true
+  console.log(/\w$/.test("% 20 "));//false
+  console.log(/\w$/.test("_fa sd"));//true
+  console.log(/\w$/.test("- fa sd"));//true
+  console.log(/\w$/.test("A fa 20"));//true
+  console.log(/\w$/.test("A fa _"));//true
+  console.log(/\w$/.test("A fa %"));//false
+
+  // ^$ 一块使用的时候，表示严格匹配
+</script>

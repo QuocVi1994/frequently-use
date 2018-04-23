@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>让div跟着鼠标飞</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      cursor: move;
+    }
+  </style>
+  <script src="common.js"></script>
+  <script>
+      window.onload = function () {
+        // 1. 获得对象
+        var demo = document.getElementById("demo");
+        // 2. 给事件源注册移动的事件
+        document.onmousemove = function (e){
+          e = e ||window.event;
+               // 当鼠标在页面中移动的时候，就会触发移动的事件，就会产生一个事件对象，就能够通过 此事件对象来获取鼠标在页面中的坐标位置
+
+          var x = page(e).x-demo.offsetWidth/2;// 减去盒子自身宽度的一半
+          var y = page(e).y-demo.offsetHeight/2; //  减去盒子自身高度的一半
+
+          demo.style.left = x + 'px';
+          demo.style.top = y + 'px';
+          //
+        }
+      }
+  </script>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>

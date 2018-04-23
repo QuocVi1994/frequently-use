@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>递归的练习</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 1--10
+  //10+9+8+7+6
+  // 10+ getSum(9)
+  // 10+ 9 +getCount(8)
+  // 10+ 9 + 8 +getCount(7)
+
+  function getCount(n){
+    if(n==1){
+      return 1;
+    }
+    return  n+ getCount(n-1);
+  }
+  console.log(getCount(100));
+
+  // 1 1 2 3 5 8 13 21 34 55
+
+  function getF(n){
+    if(n==1||n==2){
+      return 1;
+    }
+    return getF(n-1) + getF(n-2);
+  }
+
+  console.log(getF(6));
+  console.log(getF(7));
+  console.log(getF(8));
+</script>

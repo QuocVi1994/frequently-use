@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>范围类</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 表示范围中的任意一个   如果有很多，而且是连惯的话，则是用-
+  console.log(/[a-z]/.test("a"));
+  console.log(/[a-z]/.test("10"));
+  console.log(/[a-z]/.test(" "));
+  console.log(/[A-Z]/.test("A"));
+  console.log(/[A-Z]/.test("m"));
+  console.log(/[A-Z]/.test("20"));
+  console.log(/[A-Z]/.test("C1"));
+
+  console.log("=====比较少的连续的匹配abcdef===========");
+  console.log(/[a-f]/.test("a"));
+  console.log(/[a-f]/.test("l"));
+  console.log(/[a-f]/.test("m"));
+  console.log(/[a-f]/.test("20d"));
+
+  console.log("======如果不是连续的，则必须都写上============");
+  console.log(/[acfmpyz]/.test("f"));//true
+  console.log(/[acfmpyz]/.test("m"));//true
+  console.log(/[acfmpyz]/.test(" "));//fase
+  console.log(/[acfmpyz]/.test("n"));//false
+  console.log(/[acfmpyz]/.test("20"));//false
+
+
+  // 如果是一个连惯的区间范围，则可以用 - 连接起来再去匹配
+  console.log("========所有的数字============");
+  console.log(/\d/.test("10"));
+  console.log(/\d/.test("10a"));
+  console.log(/\d/.test(" "));
+  console.log(/[0-9]/.test("10"));
+  console.log(/[0-9]/.test("10a"));
+  console.log(/[0-9]/.test(" "));
+</script>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .login-header {
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    ul, li, ol, dl, dt, dd, div, p, span, h1, h2, h3, h4, h5, h6, a {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .login {
+      width: 512px;
+      position: absolute;
+      border: #ebebeb solid 1px;
+      height: 280px;
+      left: 50%;
+      right: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 20px #ddd;
+      z-index: 9999;
+      margin-left: -250px;
+      margin-top: 140px;
+      display: none;
+    }
+
+    .login-title {
+      width: 100%;
+      margin: 10px 0px 0px 0px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      font-size: 18px;
+      position: relative;
+      cursor: move;
+      -moz-user-select: none; /*火狐*/
+      -webkit-user-select: none; /*webkit浏览器*/
+      -ms-user-select: none; /*IE10*/
+      -khtml-user-select: none; /*早期浏览器*/
+      user-select: none;
+    }
+
+    .login-input-content {
+      margin-top: 20px;
+    }
+
+    .login-button {
+      width: 50%;
+      margin: 30px auto 0px auto;
+      line-height: 40px;
+      font-size: 14px;
+      border: #ebebeb 1px solid;
+      text-align: center;
+    }
+
+    .login-bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background: #000000;
+      filter: alpha(opacity=30);
+      -moz-opacity: 0.3;
+      -khtml-opacity: 0.3;
+      opacity: 0.3;
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .login-button a {
+      display: block;
+    }
+
+    .login-input input.list-input {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      width: 350px;
+      border: #ebebeb 1px solid;
+      text-indent: 5px;
+    }
+
+    .login-input {
+      overflow: hidden;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .login-input label {
+      float: left;
+      width: 90px;
+      padding-right: 10px;
+      text-align: right;
+      line-height: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    .login-title span {
+      position: absolute;
+      font-size: 12px;
+      right: -20px;
+      top: -30px;
+      background: #ffffff;
+      border: #ebebeb solid 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="login-header">
+  <a id="link" href="javascript:void(0);">点击，弹出登录框</a>
+</div>
+<div id="login" class="login">
+  <div id="title" class="login-title">登录会员
+        <span>
+            <a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a>
+        </span>
+  </div>
+  <div class="login-input-content">
+    <div class="login-input">
+      <label>用户名：</label>
+      <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+    </div>
+    <div class="login-input">
+      <label>登录密码：</label>
+      <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+    </div>
+  </div>
+  <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+</div>
+<div id="bg" class="login-bg"></div>
+
+<script>
+  // onmousedown 鼠标按下的事件    onmouseup  鼠标抬起才会触发的事件
+  // onmousemove  鼠标移动的时候
+  // 1. 获得要操作的对象
+  var  closeBtn = document.getElementById("closeBtn");
+  var login = document.getElementById("login");
+  var bg = document.getElementById("bg");
+  var title = document.getElementById("title");
+  var  link = document.getElementById("link");
+  // 2. 给事件源注册事件  单击按钮，弹出两个层来
+  link.onclick = function (e){
+    e = e  || window.event;
+    login.style.display = "block";
+    bg.style.display = "block";
+//    e.stopPropagation();// Propagation 广播的意思 停止扩展  IE8不支持
+    //e.cancelBubble = true; //  Bubble 冒泡  是否取消冒泡
+    e.cancelBubble = true; //  Bubble 冒泡  是否取消冒泡
+
+    // 封装兼容版本的取消冒泡
+  }
+  // 3. 单击关闭按钮，关闭两个层
+  closeBtn.onclick = function (){
+    login.style.display = "none";
+    bg.style.display = "none";
+  }
+
+  // 4. 在文档的任何空白部分，单击鼠标，也要关闭当前的弹出框和遮罩层
+  document.onclick = function (){
+    login.style.display = "none";
+    bg.style.display = "none";
+  }
+
+// 实现事件冒泡有两种方式
+
+
+  // 拖拽案例整体思路
+  // 1. 当鼠标按下弹出登陆框的a标签的时候，弹出两个层来
+  // 2. 单击关闭按钮的时候，隐藏这两个层
+  // 3. 当鼠标按下title这个盒子的时候，就能够获取鼠标在盒子中的坐标位置
+  // 4. 鼠标在文档中移动的时候，时时的获取坐标，减去在盒子中的坐标，将这个值赋值给login的left和top
+  // 5. 鼠标离开的时候，在清空事件处理程序，不要再去触发移动的事件中的事件处理程序了
+
+
+  // 本质就是让给当前的盒子的left和top 值赋值
+  // 鼠标一移动就会获取坐标位置 ，而且鼠标在盒子中的坐标位置不能变
+  // 就是将鼠标移动的坐标减去鼠标在盒子中的坐标位置，不断的赋值给left和 top
+</script>
+</body>
+</html>

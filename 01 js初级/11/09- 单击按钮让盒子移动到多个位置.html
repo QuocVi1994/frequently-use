@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>移动到多个位置</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      top: 50px;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        // 就像人走路一样，匀速的向前移动，始终在当前的位置向前迈一步，步长是固定的
+      //1. 获取要操作的对象
+      var box = document.getElementById("box");
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+      var timeId = null;
+      // 2. 给事件源注册事件
+      btn1.onclick = function (){
+        clearInterval(timeId);
+       timeId=  setInterval(function (){
+           // 3. 先获取盒子当前的位置
+           var leader =  box.offsetLeft;
+           var step = 9; // 向前移动的步长
+           leader = leader + step;
+           console.log(leader);
+           if(leader<200){
+             box.style.left = leader + 'px';
+           }else {
+             clearInterval(timeId);
+             box.style.left = "200px"; // 最后的时候，不足一个步长了，可以直接迈过去，到达目标位置
+           }
+         },15)
+      }
+      btn2.onclick = function (){
+        clearInterval(timeId);
+         timeId = setInterval(function (){
+              var leader = box.offsetLeft;//获得盒子当前的位置
+           var step = 9;
+           leader = leader + step;
+           if(leader<400){
+             box.style.left = leader + 'px';
+           }else {
+             clearInterval(timeId);//清除定时器
+             box.style.left = "400px";
+           }
+         },15)
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="移动到200" id="btn1"/>
+<input type="button" value="移动到400" id="btn2"/>
+<input type="button" value="移动到600" id="btn3"/>
+<div id="box"></div>
+</body>
+</html>

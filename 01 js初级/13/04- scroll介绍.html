@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>scroll介绍</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid #000;
+      background-color: pink;
+      overflow: auto;
+    }
+  </style>
+  <script>
+      window.onload = function () {
+        var box = document.getElementById("box");
+        // scroll   scrollWidth  scrollHeight  scrollTop  scrollLeft
+       // console.log(box.scrollWidth); // width+padding 不包括边框 不包括滚动条
+       // console.log(box.scrollHeight);// height+padding  还包括内容超出的部分
+
+        console.log(box.scrollTop);
+
+        box.onscroll   = function (){
+              console.log(box.scrollTop);
+        }
+
+       // window.pageYOffset  window.scrollY
+      }
+  </script>
+</head>
+<body>
+<div id="box">
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+  鸟随鸾凤飞腾远，人伴贤良品自高
+</div>
+</body>
+</html>

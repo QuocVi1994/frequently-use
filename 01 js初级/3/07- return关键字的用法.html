@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>return关键字的用法</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+  function tellStory(){
+    console.log("从前有座山");
+    console.log("山里有座庙");
+    console.log("庙里有个老和尚");
+    console.log("在给小和尚讲故事");
+    return ;  // 程序执行到return处，不管有没有数据返回，都会跳出函数，return后面的代码不会再执行
+    console.log("讲的是什么");
+    console.log("那你可以继续的往下看===============");
+  }
+//   var result =  tellStory();
+//  console.log(result);
+
+  tellStory();
+
+  // return  如果有数据返回的话，是先将数据返回，再跳出函数，不管有没有数据返回，只要执行了return关键字，最终都会跳出函数
+  // break  continue 是跳出循环
+</script>

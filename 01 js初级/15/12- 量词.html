@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>量词使用</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  /**
+   * "*"  重复零次或更多 x>=0
+
+   "+"  重复一次或更多次 x>=1
+
+   "?"  重复零次或一次  x=(0||1)
+   */
+  console.log("========*>=0次==============");
+  console.log(/\d*/.test(" "));//true
+  console.log(/\d*/.test("20"));//true
+  console.log(/\d*/.test(""));// t//truerue
+  console.log(/\d*/.test("ab"));//true
+  console.log(/\d*/.test("%"));//true
+  console.log(/\d*/.test("_ "));//true
+
+
+  console.log("========+>=1次==============");
+  console.log(/\d+/.test(" "));// false
+  console.log(/\d+/.test("20"));//true
+  console.log(/\d+/.test(""));//false
+  console.log(/\d+/.test("ab"));//false
+  console.log(/\d+/.test("%"));//false
+  console.log(/\d+/.test("_ "));//false
+
+
+  console.log("========0|1次 多了也没有问题因为不是严格匹配==============");   // 只有严格匹配下，才是只能是0到1次
+  console.log(/\d?/.test(" "));//true
+  console.log(/\d?/.test("20"));//true
+  console.log(/\d?/.test("201646465"));//true
+  console.log(/\d?/.test(""));//true
+  console.log(/\d?/.test("ab"));//true
+  console.log(/\d?/.test("%"));//true
+  console.log(/\d?/.test("_ "));//true
+
+  console.log("=========严格匹配下的?===============");
+  console.log(/^\d?$/.test("_ "));// 有别的符号也不行
+  console.log(/^\d?$/.test("0"));//
+  console.log(/^\d?$/.test("203"));//
+  console.log(/^\d?$/.test("1"));//
+  console.log(/^\d?$/.test(""));//
+  console.log(/^\d?$/.test(" "));// 严格匹配下，多一个别的字符也不行
+</script>

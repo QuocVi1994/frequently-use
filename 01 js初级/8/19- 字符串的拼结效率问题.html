@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+  var box = document.getElementById("box");
+  var start = +new Date();
+// for(var i=0;i<1000;i++){
+//   box.innerHTML += "<input type='text'/><br/>";
+//   //字符串具有不可变性，凡是涉及到字符串的拼接问题,最好是先将字符串存在数组当中，存完了之后，一次性将数组中的元素连接成字符串进行输出
+//
+// }
+  var arr = [];
+  for(var i=0;i<1000;i++){
+    var str = "<input type='text'/><br/>"
+    arr.push(str);
+  }
+  box.innerHTML = arr.join("");
+  var end = +new Date();
+  console.log(end-start); // 4298   10
+</script>

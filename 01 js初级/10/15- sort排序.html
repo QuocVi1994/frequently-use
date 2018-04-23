@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var nums = [10,20,30,11,25,36,102,96];
+
+  //nums= nums.sort();   // sort()不是按照阿拉伯数字的大小顺序进行排序的，是按照ASCII码进行排序的
+  nums = nums.sort(function (a,b){
+    return -(a-b);
+  });
+  //0   如果a<b 小于0  a往前排  b往后排
+  //a-b==0      就不换了
+  // a-b>0      b往前排，a往后排
+
+  console.log(nums);
+</script>

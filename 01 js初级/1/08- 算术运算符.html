@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>算术运算符</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    var a = 30+10;
+//  console.log(a);
+//
+//  console.log(50-20);
+
+//  var a = 20;
+////  a++;
+////  ++a;
+////  console.log(a);
+//
+////  var b = a++  + ++a  + a++;
+//  //      20     22     22
+//  //      21     22     23
+////  console.log(b);
+////  console.log(a);
+//  // 先算一元运算符，再算二元运算符
+//
+//  var c =  a++  + a++  +  ++a   + a++  + ++a  + a++ + ++a;
+////         20     21      23      23      25    25     27
+////         21     22      23      24      25    26     27
+//  console.log(a);//27   27   27   27   27
+//  console.log(c);//168  168  164  168  164
+
+//  var b = 16;
+//  var d = ++b + b++ +  b++ + ++b  + b-- + --b + ++b;
+////        17    17     18    20     20     18    19
+////        17    18     19    20     19     18     19
+//  console.log(b);//19   19    19   19     19
+//  console.log(d);//129  129   129  130    129
+
+  var  m = 7;
+  var n = ++m  +  m++  -  m-- - --m  +  ++m  +  --m  -  ++m  +  m--;
+//        8       8        9     7       8      7       8       8
+//        8       9        8     7       8      7       8       7
+  console.log(m);//7    7    7   7   7
+  console.log(n);//63   15   15  15  15
+</script>

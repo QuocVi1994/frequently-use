@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>求n到m之间所有的数的和</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //求n-m之间所有数的和
+
+
+  /**
+   * 定义了一个求n到m之间所有数的和的函数
+   * @param n
+   * @param m
+   * @returns {number}
+   */
+  function getSum(n,m){
+    var sum = 0 ;
+    for(var i=n;i<=m;i++){
+      sum += i;
+    }
+    return sum;
+  }
+
+//  var sum = getSum(1,100);
+//  var sum = getSum(10,100);
+  var sum = getSum(62,100);
+  console.log(sum);
+</script>

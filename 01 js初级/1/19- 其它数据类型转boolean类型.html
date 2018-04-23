@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>其它数据类型转boolean</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 其它数据类型转boolean为false的几种情况
+  // "" 0 NaN null  undefined  false  其它的情况全部为true
+//  var a = 123;
+//  a = !!a;
+//  console.log(a);
+//  console.log(typeof a);
+//
+//  var   b = "abc";
+//  b = !!b;
+//  console.log(b);
+//  console.log(typeof b);
+
+//  var c = 0;
+  //  c = !!c;
+  //  console.log(c);
+  //  var d = "  ";
+  //  d = !!d;
+  //  console.log(d);
+
+//  var e = null;
+//  e = !!e;
+//  console.log(e);
+//  var f = undefined;
+//  f = !!f;
+//  console.log(f);
+
+  console.log(Boolean(null));
+  console.log(Boolean(undefined));
+  console.log(Boolean(""));
+  console.log(Boolean(0));
+  console.log(Boolean(NaN));
+  console.log(Boolean("abc"));
+  console.log(Boolean(123));
+</script>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,ul,ol,li,img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            /*background-color: red;*/
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .ad {
+            width: 500px;
+            height: 200px;
+            position: relative;
+        }
+        #box img {
+            width: 500px;
+        }
+        .ad ul li{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        .ad ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3000px;
+        }
+        .ad ul li.current {
+            background: yellow;
+        }
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .ad ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .ad ol li.current {
+            background: yellow;
+        }
+        #arr {
+            display: none;
+        }
+        #arr span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            /*left: 5px;*/
+            top: 50%;
+            margin-top: -20px;
+            background-color: #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+        #arr #left{
+            left: 5px;
+        }
+        #arr #right {
+            right: 5px;
+            /*left: auto;*/
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/2.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/3.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/4.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/5.jpg" width='500' height='200' alt=""/></li>
+        </ul>
+        <ol></ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+</body>
+</html>

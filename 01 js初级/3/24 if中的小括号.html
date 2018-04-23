@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>if中的小括号</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var a = 20;
+  var b = 5;
+//  if(a>b){ // 一般是boolean类型的值或是关系表达式或是逻辑表达式
+//    console.log("条件成立时打印执行输出的内容。。。");
+//  }else {
+//    console.log("条件不成立的时候，打印输出的内容。。。");
+//  }
+
+    if("abc"){ // 一般是boolean类型的值或是关系表达式或是逻辑表达式
+      // if小括号里面，如果不是上面的类型的，会默认的隐式调用Boolean()函数，将其它类型的值，转换为boolean类型，再进行判断 ，如果为true，则进行if中的大括号执行里面的代码，否则 执行else里面的代码
+      console.log("条件成立时打印执行输出的内容。。。");
+    }else {
+      console.log("条件不成立的时候，打印输出的内容。。。");
+    }
+
+</script>

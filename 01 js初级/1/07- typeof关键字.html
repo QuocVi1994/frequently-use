@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>typeof关键字</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 检测 变量当中存储的是什么样的数据类型  得用typeof
+  var  a  = 20;
+  console.log(typeof a);  // 数据类型是number  "number"   “function”
+  var b = "abc";
+  console.log(typeof b);
+  var c = true;
+  console.log(typeof c);
+
+
+  function getSum(a,b){
+    if(typeof a =="string"){
+      alert("应该传一个数字进来，而不是字符串，请重新输入")
+    }
+    return a+b;
+  }
+
+  getSum("abc",20);
+</script>

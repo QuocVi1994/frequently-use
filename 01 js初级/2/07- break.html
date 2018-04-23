@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>break</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //循环录入5个人的年龄并计算平均年龄,如果录入的数据出现负数或大于100的数,立即停止输入并报错.
+  // 您一共输入了3个人的年龄，他们的总年龄是  平均年龄是多少
+//  var i = 0;
+//  while(i<5){
+//    var age = +prompt("请输入第"+(i+1)+"个人的年龄");
+//    if(age<0|| age >100){
+//      alert("你输入的值不正确，请重新输入，值应该在1--100之间");
+//      break;
+//    }
+//    i++;
+//  }
+
+  for(var i=0;i<5;i++){
+    var age = +prompt("请输入第"+(i+1)+"个人的年龄");
+    if(age<0|| age >100){
+      alert("你输入的值不正确，请重新输入，值应该在1--100之间");
+      break;
+    }
+  }
+</script>

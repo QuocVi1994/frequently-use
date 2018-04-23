@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      float: left;
+      margin-right: 10px;
+      /*display: none;*/
+    }
+  </style>
+</head>
+<body>
+<input type="button" id="btn" value="隐藏"/>
+<p style="clear:both"></p>
+<div>这是第1个盒子</div>
+<div>这是第2个盒子</div>
+<div>这是第3个盒子</div>
+<div>这是第4个盒子</div>
+<div>这是第5个盒子</div>
+<div>这是第6个盒子</div>
+</body>
+</html>
+<script>
+  // 1.获取要操作的对象
+  var btn = document.getElementById("btn");
+  var divs = document.getElementsByTagName("div");
+//2. 给事件源注册事件
+  var flag = true;
+  btn.onclick = function (){
+      if(flag){
+        for(var i = 0; i < divs.length; i++) {
+          divs[i].style.display = "none";
+        }
+        btn.value = "显示";
+//        flag = false;
+//        flag = !flag;
+      }else {
+        for(var i = 0; i < divs.length; i++) {
+          divs[i].style.display = "block";
+        }
+        btn.value= "隐藏";
+//        flag = true;
+//        flag = !flag;
+      }
+    flag = !flag;
+  }
+</script>

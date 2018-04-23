@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var str = "abcdef";
+//  console.log(str[2]); //H5里面的内容
+  for(var i=0;i<str.length;i++){
+    console.log(str[i]);
+  }
+  // indexOf   lastIndexOf   判断某个字符在字符串的索引
+  // 如果索引为0的话，可以把这个字符中看成是以这个字符或是以这一组字符为开头的字符串
+  // 如果不等于-1的话，就可以看成，这个字符串是是包含这个字符或是这组字符的
+
+  console.log(str.indexOf("abc"));
+  console.log(str.indexOf("de"));
+</script>

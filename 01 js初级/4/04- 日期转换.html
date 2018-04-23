@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var date = new Date(2006,10,5);
+  var date = new Date("2006-10-05");
+  console.log(date);
+
+  var date1 = Date.parse("2006-10-06");  // 1970 1 1 00:00:00 000 国际协调时间  是一个13位的数字
+  console.log(date1);
+
+  var date2 = +new Date(); // 推荐使用这种方式  没有兼容性的问题
+  console.log(date2);
+
+  var date3 = Date.now();
+  console.log(date3);
+
+  var date4 = new Date();
+  console.log(date4.valueOf());  // 13位的阿拉伯数字
+
+  // string   Array   学习内置对象就是学习别人已经封装好的方法或是属性
+</script>

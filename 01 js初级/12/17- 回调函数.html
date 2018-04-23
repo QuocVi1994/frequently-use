@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>回调函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 回调函数   就是将函数当做参数进行传递，这样的函数就叫做回调函数
+
+  function fn() {
+    console.log(123);
+  }
+
+  var f2 = function () {
+    console.log(789);
+  }
+  function f1(fn) {
+    if (typeof fn == "function") {
+      fn();
+    }
+    console.log(456);
+  }
+
+  //  f1(fn);
+  f1(f2);
+</script>

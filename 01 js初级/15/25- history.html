@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>history</title>
+</head>
+<body>
+<p>这是history的页面</p>
+<input type="button" value="回退" id="btn1"/>
+</body>
+</html>
+<script>
+  document.getElementById("btn1").onclick = function (){
+         window.history.back();
+         history.go(-1);
+  };
+</script>

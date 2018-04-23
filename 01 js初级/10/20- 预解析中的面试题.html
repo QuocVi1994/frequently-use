@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var num;
+//  function fun(){
+//    var num;
+//    console.log(num);
+//    num = 20;
+//  }
+//  num= 10;
+//  fun();
+
+  // undedined   10  10   undefined
+
+
+/*
+  原来的函数第一题
+*   var num = 10;
+ fun();
+ function fun(){
+ console.log(num);
+ var num = 20;
+ }
+*
+*
+* */
+
+//function f1(){
+//  var a;
+//  var b=9;
+//  console.log(a);
+//  console.log(b);
+//  a = '123';
+//}
+//  var a = 18;
+//f1();
+
+/*
+  原函数第二题
+*var a = 18;
+ f1();
+ function f1(){
+ var b=9;
+ console.log(a);
+ console.log(b);
+ var a = '123';
+ }
+*
+* */
+
+  //undefined   9
+  //undefined   9
+  //undefined   9
+  //18          9
+  // undefined  9
+
+/*
+function f1(){
+  var a = 9;
+  b =9;
+  c =9;
+  var a = b = c = 9;
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+    f1();
+    console.log(c);
+    console.log(b);
+    console.log(a); // a是属于局部函数的，全局里面没有a，所以报错了
+    */
+
+
+/*
+* 原函数第三题
+*  f1();
+ console.log(c);
+ console.log(b);
+ console.log(a);
+ function f1(){
+ var a = b = c = 9;
+ console.log(a);
+ console.log(b);
+ console.log(c);
+ }
+*
+* */
+  //9  9  9  9    9       undefined
+  //9  9  9  9    9         9
+  //9  9  9  9  undefined undefined
+  //9  9  9  9    9       报错了
+  //9  9  9  9    9       报错了
+
+
+  console.log(b);   // 全局里面变量b所以报错了，js中只要有一行报错，后面的代码都不会执行了
+  console.log(c);
+  console.log(a);
+  f1();
+  function f1(){
+    var a = b = c =9;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+  }
+  //报错 报错  报错  不执行了
+  //报错不执行了
+  //报错不执行了
+  //报错不执行了
+</script>

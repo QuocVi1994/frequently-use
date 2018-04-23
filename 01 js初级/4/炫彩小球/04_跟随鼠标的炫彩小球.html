@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color:black;
+        }
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="800"></canvas>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript">
+        //得到画布
+        var canvas = document.getElementById("canvas");
+        //得到上下文
+        var ctx = canvas.getContext("2d");
+
+        var colorArr = ["#CC3399","#99CC66","#FF33CC","#FFFF99","red","blue","green","yellow","purple"];
+
+        //构造函数
+        function Ball(params){
+            this.x = params.x;
+            this.y = params.y;
+            this.r = 40;
+            this.zhenR = params.r;
+            this.color = "white";
+            this.zhenColor = colorArr[_.random(0,colorArr.length - 1)];
+            this._dX = _.random(-2,2);
+            this._dY = _.random(-2,2);
+            this._dR = _.random(3,10) / 10;
+            //自己的帧序号
+            this._frameNumber = 0;
+        }
+        //原型
+        Ball.prototype = {
+            update : function(){
+                //让自己的帧序号属性加1
+                this._frameNumber++;
+                //这个update函数，每帧执行。每20毫秒将执行。
+                this.x += this._dX;
+                this.y += this._dY;
+                this.r -= this._dR;
+
+                //验收半径：
+                //圆的半径不能是负数
+                if(this.r < 0){
+                    this.r = 0;
+                    //下场的演员，就要从演员数组删除。
+                    ballArr = _.without(ballArr,this);
+                }
+
+                //变色
+                if(this._frameNumber == 6){
+                    this.color = this.zhenColor;
+                    this.r = this.zhenR;
+                }
+            },
+            render : function(){
+                ctx.globalAlpha = 0.8;
+                //弧都是路径
+                ctx.beginPath();
+                //最后一个参数，是anticlockwise逆时针。
+                ctx.arc(this.x,this.y,this.r,0,degreeToRad(360),false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function degreeToRad(deg){
+            return deg * Math.PI / 180;
+        }
+
+        //小球数组
+        //new出来的所有小球，都要push进来。目的是，
+        //便于批量update、render
+        var ballArr = [];
+
+        canvas.onmousemove = function(e){
+
+            var ball = new Ball({
+                x : e.offsetX,
+                y : e.offsetY,
+                r : 80
+            });
+            ballArr.push(ball);
+        }
+
+        //定时器
+        setInterval(function(){
+            console.log(ballArr.length);
+            //定义的就是帧。这里面的语句，将每20毫秒执行一次
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(var i = 0 ; i < ballArr.length ; i++){
+                ballArr[i].update();
+                ballArr[i].render();
+            }
+        },20);
+
+    </script>
+</body>
+</html>

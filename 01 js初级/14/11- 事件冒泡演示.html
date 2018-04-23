@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件冒泡的演示</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        //1. 获得要操作的对象
+      var d1 =document.getElementById("d1");
+      var d2 =document.getElementById("d2");
+      var d3 =document.getElementById("d3");
+
+      var arr = [d1,d2,d3,document.body,document];
+      for(var i = 0; i < arr.length; i++) {
+           arr[i].onclick = function (e){
+             e = e ||window.event;
+//                  console.log(this) // 打印输出当前对象;
+             console.log(e.target); //始终打印输出的是触发事件的事件源，最原始的事件源
+           }
+      }
+
+      // 冒泡的前提条件就是一般都得有嵌套的元素
+      // 当前子元素的某个事件被触发的时候，同样的事件在它的所有的祖先级元素中会被依次的触发
+//      d1.onclick = function (){
+//            // 事件当中的当前对象得用this表示
+//        console.log(this);
+//      }
+//      d2.onclick = function (){
+//             console.log(this);
+//      }
+    }
+  </script>
+</head>
+<body>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+</body>
+</html>

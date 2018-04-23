@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>自定义类</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 匹配某个单词   待检测的字符串中必须和规则中的自定义类是一样的，而是国连惯的
+  console.log("=======自定义类===========");
+  console.log(/hei/.test("h"));// false
+  console.log(/hei/.test("he"));//false
+  console.log(/hei/.test("hei"));//true
+  console.log(/hei/.test("hei "));//true
+  console.log(/hei/.test("$hei "));//true
+  console.log(/hei/.test("_hei "));//true
+  console.log(/hei/.test("_hie "));//false
+  console.log(/hei/.test("_hie123 "));//false
+  console.log(/hei/.test("_hiehei "));//true
+  console.log(/hei/.test("_heihei "));//true
+  console.log(/hei/.test("_h ei "));//false
+  console.log(/hei/.test("_hh ei "));//false
+  console.log(/hei/.test("_hhei "));//true
+
+  // []
+  console.log("======[]=========");
+  console.log(/[hei]/.test("h"));
+  console.log(/[hei]/.test("e"));
+  console.log(/[hei]/.test("i"));
+  console.log(/[hei]/.test("he"));
+  console.log(/[hei]/.test("_i"));
+  console.log(/[hei]/.test("a"));
+  console.log(/[hei]/.test("1"));
+  console.log(/[hei]/.test("eA"));
+</script>

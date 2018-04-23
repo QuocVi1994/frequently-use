@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>或和优先级</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 或 |  和优先级 ()
+  // |  如果没有括号的时候，表示两边的一组字符
+  console.log("===|和()的作用====");
+  console.log(/hei/.test("hei")); // true
+  console.log(/k|hei/.test("hei"));//true
+  console.log(/k|hei/.test("kei"));//true
+  console.log(/k|hei/.test("k"));//true
+  console.log(/k|hei/.test("123kei"));//true
+  console.log(/k|hei/.test("123hei"));//true
+  console.log(/k|hei/.test("keihei"));//true
+  console.log(/k|hei/.test("h"));//false
+
+  console.log("=========()============");
+  console.log("===有括号的时候表示括号中的内容====");
+  console.log(/(k|h)ei/.test("hei"));//true
+  console.log(/(k|h)ei/.test("kei"));//true
+  console.log(/(k|h)ei/.test("k"));//false
+  console.log(/(k|h)ei/.test("123kei"));//true
+  console.log(/(k|h)ei/.test("123hei"));//true
+  console.log(/(k|h)ei/.test("keihei"));//true
+  console.log(/(k|h)ei/.test("h"));//false
+
+
+  //| 的两边的任意一组
+  console.log("===========|的验证==============");
+  console.log(/lk|hei/.test("kei"));
+  console.log(/lk|hei/.test("k"));
+  console.log(/lk|hei/.test("lk"));
+  console.log(/lk|hei/.test("lei"));//
+  console.log(/lk|hei/.test("hei"));//
+  console.log(/lk|hei/.test("lkei"));//
+  console.log(/abc|hei/.test("a"));//false
+  console.log(/abc|hei/.test("ab"));//false
+  console.log(/abc|hei/.test("abc"));//true
+  console.log(/abc|hei/.test("abcei"));//true
+  console.log(/abc|hei/.test("hi"));//false
+  console.log(/abc|hei/.test("hei"));//true
+  console.log(/abc|hei/.test("abci"));//true
+  console.log(/abc|hei/.test("cei"));//false
+</script>

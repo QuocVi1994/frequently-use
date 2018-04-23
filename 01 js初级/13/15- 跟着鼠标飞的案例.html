@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>跟着鼠标飞的案例</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+  </style>
+  <script src="common.js"></script>
+  <script>
+      window.onload = function () {
+        var img =document.getElementById("img");
+        // 要是想让图片跟随鼠标一直移动的话，移动只要移动就要产生一个坐标位置，需要时时的将鼠标的坐标位置赋值给图片    left  top
+          // 首先先获取鼠标在页面中坐标位置  页面就是文档  文档对象就是document
+        document.onmousemove = function (e){
+               e = e || window.event; // 先封装事件对象的兼容性
+//            var x = e.clientX;
+//            var y = e.clientY;
+
+//             var x = e.pageX;  // pageX + pageY 在IE8及之前的浏览器不支持，
+//            var y = e.pageY;
+
+          var x = page(e).x;
+          var y = page(e).y;
+
+          img.style.left = x +'px';
+          img.style.top = y + 'px';
+        }
+      }
+  </script>
+</head>
+<body>
+<img src="images/tianshi.gif" alt="" id="img" style="position: absolute;"/>
+</body>
+</html>

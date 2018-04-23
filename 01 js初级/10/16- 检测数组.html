@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul>
+  <li>这是一些文字</li>
+  <li>这是一些文字</li>
+  <li>这是一些文字</li>
+  <li>这是一些文字</li>
+  <li>这是一些文字</li>
+  <li>这是一些文字</li>
+</ul>
+</body>
+</html>
+<script>
+  var arr = new Array("abc",123);
+  console.log(arr instanceof  Array);
+
+  var arr1 = [123,456,789];
+  console.log(arr1 instanceof  Array);
+
+  var lis = document.getElementsByTagName("li");
+  console.log(lis.length);
+  console.log(lis instanceof  Array); // lis是一个伪数组，所以返回的是false
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<ul id="list">
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li id="li3">这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+  // 克隆 cloneNode
+  var li3= document.getElementById("li3");
+  var list = document.getElementById("list");
+//   var node= li3.cloneNode();
+//   var node= li3.cloneNode(false); // 浅度克隆，只会克隆标签及属性，不会克隆标签间的内容
+//   var node= li3.cloneNode(true);// 表示深度克隆，不但会克隆标签及其属性，还会克隆标签间的一切内容
+  // 克隆的节点，是在系统的内存中克隆，相当于一个游离的状态，
+//  console.log(node);
+ // list.appendChild(node); // 在父元素的最后一个子标签节点的后面追加节点
+
+  list.appendChild(li3); // appendChild是将节点剪切下来，追加到父元素的最后一个子元素的最后
+</script>

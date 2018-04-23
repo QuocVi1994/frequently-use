@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>求三个数中的最大值</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  function getMax(num1,num2){
+    if(num1>num2){
+      return num1;
+    }else {
+      return num2;
+    }
+  }
+
+ // 求三个数中的最大值
+  function getMax2(n1,n2,n3){
+    // 做法：先比较n1 和n2之中的最大值，然后再和n3进行比较，取出最大值
+//     var n4 =  getMax(n1,n2);
+//    var  max = getMax(n4,n3);
+//    return max;
+
+    return getMax(getMax(n1,n2),n3);
+  }
+
+  var max = getMax2(20,80,60);
+  console.log(max);
+
+ // 将函数封装成具有单一功能的一个小工具   一个函数尽量只有一个功能即可，
+  // 这样做的好处，就是方便以后的管理和维护
+  // 大型程序当中，需要将运行的代码，几乎都要封装到函数当中
+  // 可以让我们的程序足够的鲁棒，健壮
+
+
+//  function getMax1(n1,n2,n3){
+//    if(n1>n2&&n1>n3){
+//      return n1;
+//    }else if(n2>n1&&n2>n3){
+//      return n2;
+//    }else {
+//      return n3;
+//    }
+//  }
+//  var max = getMax1(100,20,30);
+//  console.log(max);
+</script>

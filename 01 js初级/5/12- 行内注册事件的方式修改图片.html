@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="更改成图片2" onclick="turn1()" />
+<input type="button"  value="更改成图片3" onclick = "turn2()"/>
+<input type="button"  value="更改成图片4" onclick = "turn3()"/>
+<br/>
+<br/>
+<img src="images/1.jpg" alt="" id="img1" width="600"/>
+
+</body>
+</html>
+<script>
+  //1. 获取对象
+  var img = document.getElementById("img1");
+  function turn1(){
+    img.src = "images/2.jpg";
+  }
+
+  function turn2(){
+    img.src = "images/3.jpg";
+  }
+
+  function turn3(){
+    img.src = "images/4.jpg"
+  }
+</script>

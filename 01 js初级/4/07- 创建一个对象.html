@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 创建对象的方式
+  var arr = new Array();
+
+  //  张三   男   20   打招呼  打球   游戏  游泳
+  var o = new Object(); // Object是对象的构造函数
+  o.name = "张三";
+  o.age = 20;
+  o.sex = "男";
+  o.hobby = "玩游戏";
+  o.address = "广州市";
+  o.telNumber = "13100000";
+  o.sayHello = function (){
+    console.log("大家好，我是新来的，我的名字叫"+ o.name+"，我看今年"+ o.age+"岁了，我是"+ o.sex+"生，我的爱好是"+ o.hobby);
+  };
+
+  o.sayHello();
+
+
+</script>

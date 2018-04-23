@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #d1 {
+      width: 400px;
+      height: 600px;
+      background-color: pink;
+      margin: 100px 0 0 200px;
+      position: relative;
+    }
+
+    #d2 {
+      width: 600px;
+      height: 100px;
+      background-color: purple;
+      position: absolute;
+      top: 120px;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      // 1. 获得要操作的对象
+      var btn = document.getElementById("btn");
+      var box2 = document.getElementById("d2");
+      //2. 给事件源注册事件
+      var target = 400;
+      var index = 0;
+      btn.onclick = function () {
+        index++;
+        animate(box2,target*index);
+      }
+
+      /**
+       * 封装了一个匀速移动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj, target) {
+        clearInterval(obj.timeId); //
+        // 是将开启的定时器ID存在当前对象的timeId属性当中，每次单击按钮的时候，都要先清掉定时器，保证当前对象移动的时候，只开启一个定时器
+        obj.timeId = setInterval(function () {
+          // 3. 先获取盒子当前的位置
+          var leader = obj.offsetLeft; // 获取盒子距离定位的父盒子之间的距离
+          var step = 9; // 向前移动的步长
+
+          step = leader < target ? step : -step;
+          if (Math.abs(leader - target) > Math.abs(step)) {
+            leader = leader + step;
+            obj.style.left = leader + 'px';
+          } else {
+            clearInterval(obj.timeId);
+            obj.style.left = target + 'px'; // 最后的时候，不足一个步长了，可以直接迈过去，到达目标位置
+          }
+
+        }, 15)
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="移动" id="btn"/>
+
+<div id="d1">
+  <div id="d2"></div>
+</div>
+</body>
+</html>

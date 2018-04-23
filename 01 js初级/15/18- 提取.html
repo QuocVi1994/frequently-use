@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  ////5.1 提取工资
+//  var str = "张三：1000，李四：5000，王五：8000。";
+//  var reg = /\d{4}/g;
+//  var arr = str.match(reg);
+//  console.log(arr);
+  //5.2 提取email地址
+   var str = "123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...";
+  var reg = /\w+@\w+[.]\w+([.]\w+)?/g;
+  var arr = str.match(reg);
+  console.log(arr);
+
+  // match是字符串中的方法 去字符串中根据正则表达式去提取指定的数据
+</script>

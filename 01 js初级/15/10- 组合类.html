@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>组合类</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // []里写一些匹配规则，是匹配其中的任意一个字符即可
+  // 所谓组合类就是将之前的预定义类或是自定义类，写在一块去匹配待检测的字符串
+  console.log(/\w/.test("a"));
+  console.log(/\w/.test("B"));
+  console.log(/\w/.test("20"));
+  console.log(/\w/.test("_ fas f"));
+  console.log(/[a-zA-Z0-9_]/.test("a"));
+  console.log(/[a-zA-Z0-9_]/.test("B"));
+  console.log(/[a-zA-Z0-9_]/.test("20"));
+  console.log(/[a-zA-Z0-9_]/.test("_ fas f"));
+
+
+  console.log("=======只显示.的匹配===========");
+  //    console.log(/\d\s\w./);
+  console.log(/[\.]/.test("20"));
+  console.log(/[\.]/.test(""));
+  console.log(/[\.]/.test(" "));
+  console.log(/[\.]/.test(" ."));
+
+  // \"
+</script>

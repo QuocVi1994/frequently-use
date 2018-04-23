@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件冒泡的演示</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      //1. 获得要操作的对象
+      var d1 = document.getElementById("d1");
+      var d2 = document.getElementById("d2");
+      var d3 = document.getElementById("d3");
+      var arr = [d1,d2,d3];
+      for(var i = 0; i < arr.length; i++) {
+           arr[i].onclick = function (e){
+             e = e || window.event;
+            // console.log(this); // 在事件当中，this始终表示当前对象，也就是当前的事件源，就是执行事件处理程序的事件源
+            // console.log(e.target); // 目标源头，就是原始的事件源  最最原始的触发事件的事件源
+            // console.log(e.currentTarget); // 和this是一样的，表示当前执行事件处理程序的事件源
+
+             console.log(e.srcElement.id); // 和target是一样的，表示最原始的事件源
+
+             // 用事件中几个属性，来获取不同的事件源
+           }
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+</body>
+</html>

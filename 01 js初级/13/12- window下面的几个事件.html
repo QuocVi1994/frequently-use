@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>window下的几个事件</title>
+  <script>
+       //  load   页面中所有的资源都加载完毕的时候才会触发的事件
+      //   scroll     滚动事件  浏览器或是页面只要一滚动，就会触发 的事件
+      //   resize      也就是浏览器的大小(宽度或是高度)一改变，就会触发的事件
+
+    window.onload = function(){
+        window.onresize = function (){
+             console.log(123);
+        }
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #demo1 {
+      width: 360px;
+      height: 500px;
+      margin: 200px auto;
+      background-color: pink;
+    }
+    #demo2 {
+      width: 360px;
+      height: 100px;
+      background-color: purple;
+      cursor: move;
+    }
+  </style>
+  <script>
+      window.onload = function () {
+        // 有两个事件源，一个是给当前的盒子注册事件，再一个需要给document注册事件
+        // 给当前的子盒子注册鼠标按下的事件，给document注册鼠标移动的事件
+
+        // 冒泡  事件捕获
+      }
+  </script>
+</head>
+<body>
+<div id="demo1">
+  <div id="demo2"></div>
+</div>
+</body>
+</html>

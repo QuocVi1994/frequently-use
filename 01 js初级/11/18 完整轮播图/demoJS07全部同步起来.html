@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body, ul, ol, li, img {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #box {
+      width: 500px;
+      height: 200px;
+      padding: 7px;
+      /*background-color: red;*/
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .ad {
+      width: 500px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #box img {
+      width: 500px;
+    }
+
+    .ad ul li {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .ad ul {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3000px;
+    }
+
+    .ad ul li.current {
+      background: yellow;
+    }
+
+    .ad ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .ad ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .ad ol li.current {
+      background: yellow;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      position: absolute;
+      /*left: 5px;*/
+      top: 50%;
+      margin-top: -20px;
+      background-color: #000;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #left {
+      left: 5px;
+    }
+
+    #arr #right {
+      right: 5px;
+      /*left: auto;*/
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      //1. 获得要操作的对象
+      var box = document.getElementById("box");
+      var ad = box.children[0];
+      var ul = document.getElementById("imgs");
+      var lis = ul.children;
+      var ol = ad.children[1];
+      var arr = document.getElementById("arr");
+      var btnLeft = document.getElementById("left");
+      var btnRight = document.getElementById("right");
+      var imgWidth = ad.offsetWidth;
+      var timeId = null;
+      // 2. 动态的创建小方块
+      for (var i = 0; i < lis.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = i + 1;
+        ol.appendChild(li);
+      }
+      // 3. 获得所有的小方块，并设置第一个小方块的默认背景颜色
+      var olLis = ol.children;
+      olLis[0].setAttribute("class", "current");
+      //4. 鼠标移入当前小方块背景颜色要变黄色，
+      for (var i = 0; i < olLis.length; i++) {
+        olLis[i].setAttribute("index", i);
+        olLis[i].onmouseover = function () {
+          for (var j = 0; j < olLis.length; j++) {
+            olLis[j].removeAttribute("class");
+          }
+          this.setAttribute("class", "current");
+          //5. 获取鼠标移入的当前小方块的索引值
+          var index = this.getAttribute("index");
+          pic = square = index; // 让三者同步
+          var target = -imgWidth * index; // 获取ul要移动的目标位置
+          animate(ul, target);
+        }
+      }
+      //6. 鼠标移入大盒子，要显示左右按钮  离开之后要隐藏左右按钮
+      box.onmouseover = function () {
+        arr.style.display = "block";
+        clearInterval(timeId);
+      }
+
+      box.onmouseout = function () {
+        arr.style.display = "none";
+        timeId = setInterval(playNext,1000);
+      }
+
+      //8. 克隆第一张图片，追加到最后
+      var firstImg = lis[0].cloneNode(true);
+      ul.appendChild(firstImg);
+      //7. 给右侧按钮注册事件
+      var pic = 0;// 这个变量表示图片的张数
+      var square = 0;
+      btnRight.onclick = function () {
+        playNext();
+      }
+      // 给左侧按钮注册事件
+      btnLeft.onclick = function () {
+        if (pic == 0) {
+          pic = lis.length - 1;
+          ul.style.left = -imgWidth * (lis.length - 1) + 'px';
+        }
+        pic--;
+        var target = -imgWidth * pic;
+        animate(ul, target);
+
+        if(square==0){
+          square =olLis.length-1;
+        }else {
+          square--;
+        }
+        for(var i = 0; i < olLis.length; i++) {
+          olLis[i].removeAttribute("class");
+        }
+        olLis[square].setAttribute("class","current");
+      }
+
+      //10. 开启自动轮播  自动轮播就像点击右侧按钮一样的效果
+      var timeId =  setInterval(playNext,1000);
+
+      /**
+       *  封装了一个播放下一张的函数
+       *  */
+      function playNext(){
+        if (pic == lis.length - 1) {
+          pic = 0;
+          ul.style.left = "0px";
+        }
+        pic++;
+        var target = -imgWidth * pic;
+        animate(ul, target);
+        //9. 设置小方块的背景颜色和按钮一致
+        if(square==olLis.length-1){
+          square = 0;
+        }else {
+          square++;
+        }
+        for(var i = 0; i < olLis.length; i++) {
+          olLis[i].removeAttribute("class");
+        }
+        olLis[square].setAttribute("class","current");
+      }
+      /**
+       * 封装了一个匀速移动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj, target) {
+        clearInterval(obj.timeId); //
+        // 是将开启的定时器ID存在当前对象的timeId属性当中，每次单击按钮的时候，都要先清掉定时器，保证当前对象移动的时候，只开启一个定时器
+        obj.timeId = setInterval(function () {
+          // 3. 先获取盒子当前的位置
+          var leader = obj.offsetLeft; // 获取盒子距离定位的父盒子之间的距离
+          var step = 20; // 向前移动的步长
+          step = leader < target ? step : -step;
+          if (Math.abs(leader - target) > Math.abs(step)) {
+            leader = leader + step;
+            obj.style.left = leader + 'px';
+          } else {
+            clearInterval(obj.timeId);
+            obj.style.left = target + 'px'; // 最后的时候，不足一个步长了，可以直接迈过去，到达目标位置
+          }
+        }, 15)
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="box" class="all">
+  <div class="ad">
+    <ul id="imgs">
+      <li><img src="images/1.jpg" width='500' height='200' alt=""/></li>
+      <li><img src="images/2.jpg" width='500' height='200' alt=""/></li>
+      <li><img src="images/3.jpg" width='500' height='200' alt=""/></li>
+      <li><img src="images/4.jpg" width='500' height='200' alt=""/></li>
+      <li><img src="images/5.jpg" width='500' height='200' alt=""/></li>
+    </ul>
+    <ol></ol>
+  </div>
+  <div id="arr">
+    <span id="left">&lt;</span>
+    <span id="right">&gt;</span>
+  </div>
+</div>
+
+</body>
+</html>

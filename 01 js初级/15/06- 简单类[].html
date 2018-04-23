@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>简单类</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // [] 表示匹配其中的任意一个字符
+  console.log("======[]==========");
+  console.log(/[hei]/.test("g")); //false
+  console.log(/[hei]/.test("h"));// true
+  console.log(/[hei]/.test("e"));//true
+  console.log(/[hei]/.test("i"));//true
+  console.log(/[hei]/.test("he"));//true
+  console.log(/[hei]/.test("hei"));//true
+  console.log(/[hei]/.test(" "));//false
+  console.log(/[hei]/.test(" $"));//false
+
+  console.log("=====[]与预定义类\d============");
+  console.log(/[\d]/.test("2"));//true
+  console.log(/[\d]/.test("a")); //false
+  console.log(/[\d]/.test(""));//false
+  console.log(/[\d]/.test(" "));//false
+  console.log(/[\d]/.test(" $"));//false
+  console.log(/[\d]/.test(" $20"));//true
+  console.log(/[\d]/.test(" $20A "));//true
+  console.log(/[\d]/.test("%"));//false
+  console.log(/[\d]/.test("%8"));//true
+
+  console.log("=====[]与\s(空白字符)=========");
+  console.log(/[\s]/.test("")); // false
+  console.log(/[\s]/.test(" "));//true
+  console.log(/[\s]/.test(" p"));//true
+  console.log(/[\s]/.test(" 123"));//true
+  console.log(/[\s]/.test(" %"));//true
+
+  console.log("=====[]和\w(大小写字母数字及_)======");
+  console.log(/[\w]/.test("")); // false
+  console.log(/[\w]/.test(" ")); //false
+  console.log(/[\w]/.test(" 12"));//true
+  console.log(/[\w]/.test(" Ab "));//true
+  console.log(/[\w]/.test(" %"));//false
+  console.log(/[\w]/.test(" _ "));//true
+  console.log(/[\w]/.test(" %_ "));//true
+  console.log(/[\w]/.test(" -= "));//false
+
+
+  console.log("=====[]区间范围============");
+  console.log(/[abcde]/.test("a"));//true
+  console.log(/[abcde]/.test("d"));//true
+  console.log(/[abcde]/.test(" "));//false
+  console.log(/[a-z]/.test("y"));//true
+  console.log(/[a-z]/.test("w"));//true
+  console.log(/[a-z]/.test("x"));//true
+  console.log(/[a-z]/.test("m"));// true
+  console.log(/[a-z]/.test("K"));//false
+
+  // 所有的数字中的一种 [0-9]   匹配所有数字中的任意一个
+  //  [a-zA-Z0-9]  匹配大小写字母数字中的任意一个
+  //
+  //    console.log(/[\w\s]/);
+  //x*ABC+Y *DDD+Z*EE    x+y+z = 14
+</script>

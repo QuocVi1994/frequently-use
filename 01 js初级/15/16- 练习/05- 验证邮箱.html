@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>邮箱</label><input type="text" id="txt"><span></span><br/>
+</div>
+<script>
+
+    var txt = document.getElementById("txt");
+    //邮箱的规律
+    // 126.com.cn  163  qq  sohu  sina   google  yahoo  .net  .gov  .edu
+    //liudahu@126.com    Liudahu_123Liudahu_123@126.com.cn   中国 .net
+
+    // ?表示 0次或是1次    * 表示0到多次   + 表示1到多次
+    // \w   大小写字母 数字 _
+    var reg = /^\w+@\w+\.[a-z]{2,8}(\.[a-z]{2})?$/;
+
+    txt.onblur = function (){
+          if(reg.test(this.value)){
+              alert("输入的邮箱正确。。。");
+          }else {
+              alert("输入的邮箱错误...")
+          }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>拖拽简单盒子</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #demo1 {
+      width: 360px;
+      height: 500px;
+      /*margin: 200px auto;*/
+      background-color: pink;
+      position:absolute;
+      left: 200px;
+      top: 200px;
+    }
+    #demo2 {
+      width: 360px;
+      height: 100px;
+      background-color: purple;
+      cursor: move;
+
+    }
+  </style>
+  <script>
+      window.onload = function () {
+        // 有两个事件源，一个是给当前的盒子注册事件，再一个需要给document注册事件
+        // 给当前的子盒子注册鼠标按下的事件，给document注册鼠标移动的事件
+
+        //1. 获得
+      }
+
+      /**
+       * 思路：
+       * 1. 当鼠标在上面那块按下的时候，要获得鼠标在盒子中的坐标位置
+       * 2. 当鼠标在文档中移动的时候，要时时的获取一下鼠标的坐标位置
+       * 3. 用鼠标移动时的坐标位置减去鼠标在盒子中的坐标位置 并将此值赋值给盒子的left  top值
+       */
+  </script>
+</head>
+<body>
+<div id="demo1">
+  <div id="demo2"></div>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+  //1. 获得对象
+  var demo1 = document.getElementById("demo1");
+  var demo2 = document.getElementById("demo2");
+  //2. 给事件源注册事件
+  demo2.onmousedown = function (e){
+      e = e || window.event;
+         // 3. 获取鼠标在盒子中的坐标位置
+      var demoX = page(e).x- demo1.offsetLeft;
+    var demoY = page(e).y-demo1.offsetTop;
+
+    // 4. 当鼠标在页面中移动的时候，要时时的获取位置   要减去鼠标在盒子中的坐标位置  将此值赋值给盒子的top  left
+    document.onmousemove =function (e){
+           e = e || window.event;
+        var x = page(e).x-demoX;
+      var y = page(e).y - demoY;
+
+      demo1.style.left = x+'px';
+      demo1.style.top = y + 'px';
+
+    }
+  }
+
+  // 5. 鼠标抬起来的时候，应该取消事件
+  demo2.onmouseup = function (){  // 鼠标抬起来之后
+         document.onmousemove = null;  // 鼠标移动的时候，什么都不执行了
+  }
+</script>

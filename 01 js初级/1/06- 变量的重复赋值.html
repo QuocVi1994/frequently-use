@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>变量的重复赋值</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var n1 = 10;
+  n1 = 20;  //之前已经使用var定义过的变量，后面再用此变量的时候，就不需要写var
+  console.log(n1); //num类型赋值的时候，会将原来的值给覆盖掉
+
+  var str1 = "abc"; // 字符串具有不可变性，一旦声明了，空间就不能改变了
+  str1 = "mmm"; // 如果给变量重复赋值的话，会重新开辟一块内存空间
+</script>

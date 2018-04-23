@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 在js 当中string是属于基本数据类型
+
+  var str = "hello";
+//  console.log(typeof str);
+//  console.log(str.charAt(0));
+//
+//  var str1 = new String("hello");
+//  console.log(typeof str1);
+//  console.log(str1.charAt(0));
+
+  // 简单数据类型在使用对象的属性和方法的时候，会有三步处理
+  // 1. 先创建一个临时的基本包装类型的对象      var str = new String("hello");
+  // 2. 使用这个临时对象调用属性和方法
+  // 3. 调用完毕之后立马销毁
+
+  // number   boolean 也是基本包装类型，但是尽量不要用
+
+  var  a = new Boolean(false);
+  console.log(typeof a);
+
+//  var b = a && true; // false   true
+
+  var b = a || true;
+  console.log(b);
+
+  // 尽量不推荐使用number和boolean类型的基本包装类型
+
+  var c = 123;
+  var d = new Number(456);
+</script>

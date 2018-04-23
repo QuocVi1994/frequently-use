@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>函数表达式的方式定义函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 第一种定义函数的方式 ，函数声明的方式
+  /*
+  function 函数名称([参数列表]){
+    函数体;
+  }
+
+  // 第二种定义函数的方式  函数表达式的方式定义函数
+
+     var fn  =  function([参数列表]){
+
+          }
+  fn(); // 将匿名函数存在一个变量当中，调用的时候，使用变量名()的方式来调用，那么这个变量名就相当于是这个函数的名称
+  */
+
+  function getSum(n1,n2){
+    return n1+n2;
+  }
+  getSum(10,20);
+
+  var getSum1 = function (n1,n2){
+      return n1+n2;
+  }
+  var sum =  getSum1(100,200);
+  console.log(sum);
+
+  // 函数声明和函数表达式的方式定义的函数在运算方式和调用上，几乎是一样的，但是是有区别的
+  // 区别在于先定义还是先调用上
+
+</script>

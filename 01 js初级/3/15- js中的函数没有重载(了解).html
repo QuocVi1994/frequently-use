@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>js中的函数没有重载</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 重载： 这是后台语言中的概念 函数名相同，但是函数的参数类型不同，或是参数的个数不同或是返回值不同，这样的函数就构成了重载。
+  // 重载的好处，就是调用的时候，只调用一个函数名称，根据参数不同，具有不同的作用
+
+//  function fn(int a,int b){
+//
+//  }
+//  function fn(string a,string b){
+//
+//  }
+//  function fn(int a,string b){
+//
+//  }
+//  function fn(int a,int b,int c){
+//
+//  }
+
+  function f1(n1,n2){
+    return n1+n2;
+  }
+
+  function f1(n1,n2,n3){
+    return n1+n2+n3;
+  }
+
+  function f1(n1,n2,n3,n4){
+    // arguments
+    n1 = n1 ||0;
+    n2 = n2 || 0;
+    n3 = n3 || 0;
+    n4 = n4 || 0;
+    return n1+n2+n3+n4;
+  }
+//  var sum = f1(10,20); // 30  40  undefined  报错  30+undefined  1020   NaN
+  var sum = f1(10,20,30); // 30  40  undefined  报错  30+undefined  1020   NaN
+  console.log(sum);
+
+  // 如果js当中的函数名称相同的话，后面的函数会将前面的函数给覆盖掉
+  // js中的函数的形参和实参的个数可以不同
+</script>

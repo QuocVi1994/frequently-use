@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="button" value="按钮"  />
+<input type="text" name="" id=""  value="默认的值"/>
+<input type="button" value="禁用"/>
+<input type="button" value="启用"/>
+</body>
+</html>
+<script>
+  // 1. 获得要操作的对象
+  var inputs = document.getElementsByTagName("input");
+  // 2. 给事件源注册事件
+  inputs[2].onclick = function (){
+//    inputs[0].disabled = "disabled";
+    // 如果设置的属性里面的值，只一个的话，在JS当中要用boolean类型来设置
+    inputs[0].disabled = true;
+    inputs[1].disabled = true;
+  }
+
+  inputs[3].onclick = function (){
+    inputs[0].disabled = false;
+    inputs[1].disabled = false;
+  }
+</script>

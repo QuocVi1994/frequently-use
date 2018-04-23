@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 做法： 遍历数组 ，获取每一项，判断每一项值是不是0，将为0的去掉
+  var nums1 = [20,0,36,25,0,21,28,0,69,0,78,96,0,99];
+  var newNums = [];
+  // 不用额外变量的做法就是将当前数组的长度做为新数据的索引
+//  var index = 0;
+//  for(var i = 0; i < nums1.length; i++) {
+//          if(nums1[i]!=0){
+//            newNums[index] = nums1[i];
+//            index++;
+//          }
+//  }
+//  console.log(newNums);
+  for(var i = 0; i < nums1.length; i++) {
+       if(nums1[i]!=0){
+         newNums[newNums.length] = nums1[i];
+       }
+  }
+  console.log(newNums);
+</script>

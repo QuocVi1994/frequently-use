@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>移动到多个位置</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      //1. 获得要操作的对象
+      var box = document.getElementById("box"); // 获取的div对象
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+      var timeId = null;
+      // 2. 给事件源注册事件
+      btn1.onclick = function () {
+        clearInterval(timeId);
+       timeId= setInterval(function (){
+          var leader = box.offsetLeft;//获取盒子当前的位置,只会获得整数
+//          var step = 10;  // 步长不是固定的了，是一直在变化的
+          //要让步长自动的实现从大到小的一个变化,得设计一个公式来进行运算
+          //将两者之间的距离不断的进行等分 比如从100到600  195  405   50 45 40.5
+          var step = (200-leader)/10;
+//         console.log(step);
+         step = Math.ceil(step); // 将步长向上取整，获得一个整数的步长，因为offsetLeft在获取值的时候，只会获取整数值
+          if(leader<200){
+            leader = leader + step;
+            box.style.left = leader + 'px';
+          }else {
+            clearInterval(timeId);
+            console.log(123);
+          }
+        },15);
+        // 1. offsetLeft获得的这个数字好像是四舍五入，只会获取整数值
+        // 2. 所以干脆在用style.left来设置值的时候，直接设置成整数即可，小数的时候，为了保证能一点点的到达目标位置，需要将小数的步长向上取整
+        // 3. 移动的盒子，最小单位一般是1px
+      }
+    // 所谓的缓动移动，就是在同样的时间内，移动的先快后慢，
+      // 有两个参数，一个是时间一个是步长 ，时间是一定的，不能随便改动，要想实现缓动的话，只能改变步长，就是让步长先大后小
+
+      btn2.onclick = function (){
+        clearInterval(timeId);
+        timeId= setInterval(function (){
+          var leader = box.offsetLeft;//获取盒子当前的位置,只会获得整数
+//          var step = 10;  // 步长不是固定的了，是一直在变化的
+          //要让步长自动的实现从大到小的一个变化,得设计一个公式来进行运算
+          //将两者之间的距离不断的进行等分 比如从100到600  195  405   50 45 40.5
+          var step = (400-leader)/10;
+//         console.log(step);
+          step = Math.ceil(step); // 将步长向上取整，获得一个整数的步长，因为offsetLeft在获取值的时候，只会获取整数值
+          if(leader<400){
+            leader = leader + step;
+            box.style.left = leader + 'px';
+          }else {
+            clearInterval(timeId);
+            console.log(123);
+          }
+        },15);
+      }
+    }
+
+  </script>
+</head>
+<body>
+<input type="button" value="移动到200" id="btn1"/>
+<input type="button" value="移动到400" id="btn2"/>
+<input type="button" value="移动到600" id="btn3"/>
+<div id="box"></div>
+</body>
+</html>

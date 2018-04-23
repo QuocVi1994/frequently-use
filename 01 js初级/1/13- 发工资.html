@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>发工资</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  /*
+  * 比如某公司的职员工资是由基础工资 +绩效组成，基本工资是5000，绩效是30000--50000元，提示老板输入职员的绩效，然后给员工发工资
+   var  salary = 5000 + “30000”;?
+  * */
+
+  var baseSalary = 5000;
+  var ticheng = +prompt("请老板输入此员工的绩效工资");
+
+//  console.log(typeof ticheng); //所有的编程语言当中，只要是用户输入的内容都是字符串类型
+//  ticheng = +ticheng;
+  var salary = baseSalary + ticheng; // 当+的两边有一边是字符串的时候，就是起连接的作用
+  console.log("此员工的工资为："+salary);
+  // +的两边都 是number类型的时候，才能够进行数学运算
+</script>

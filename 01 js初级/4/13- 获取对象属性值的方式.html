@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var o1 = {
+    age     :20,
+    sex     :"男",
+    name    :"张三",
+    sayHello:function(){
+      console.log("我叫"+ this.name+"，我今年"+ this.age+"岁了，我是"+ this.sex+"生");
+    }
+  }
+  // 获取对象属性值的第一种方式： 对象.属性名
+//  console.log(o1.age);
+//  console.log(o1.sex);
+//  console.log(o1.name);
+//  console.log(o1.sayHello);
+  // 第二种方式，是通过对象[属性名]
+//  console.log(o1["age"]);
+//  console.log(o1["name"]);
+//  console.log(o1["sex"]);
+//  console.log(o1["sayHello"]);
+  for(var a in  o1){
+    console.log(a+"===="+o1[a]);
+  }
+
+  for(var key in o1){ // key  value
+    console.log(key+"====="+o1[key]);
+  }
+  // 访问对象属性的时候，[]的方式更加灵活，因为[]里面可以放置变量表示的属性值
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>parseInt</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var num1 = parseInt("12.3abc");  //返回12，如果第一个字符是数字会解析直到遇到非数字结束
+  console.log(num1);
+  var num2 = parseInt("abc123");  //返回NaN，如果第一个字符不是数字或者符号就返回NaN
+  console.log(num2);
+  var num3 = parseInt("");        //空字符串返回NaN，Number("")返回0
+  console.log(num3);
+  var num5 = parseInt("10");      //返回10
+  console.log(num5);
+  var num4 = parseInt("0xA");     //返回10'   0 1 2 3 4 5 6 7 8 9 a b c d e f  01011010
+  console.log(num4);
+  var num6 = parseInt(false);  // NaN
+  console.log(num6);
+  var num7 = parseInt(null);
+  console.log(num7);
+  var num8 = parseInt(undefined);
+  console.log(num8);
+  var num9 = parseInt("    ");
+  console.log(num9);
+
+  //
+
+  console.log(Number("123abc"));
+  console.log(parseInt("123abc"));
+
+  // width  300px
+</script>

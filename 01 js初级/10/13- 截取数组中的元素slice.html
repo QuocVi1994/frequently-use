@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //slice()	    从当前数组中截取一个新的数组，不影响原来的数组，     		    参数start从0开始,end从1开始
+  var arr = ["abc","cde","mmm","nnn","kkk","yyy","ttt","aaa","ccc"];
+
+ //var arr1 =  arr.slice(0,2); // 从数组中截取元素，原数组不变，生成一个以截取的数据组成的新数组
+ // console.log(arr1);
+ // console.log(arr);
+
+  //splice()      删除或替换当前数组的某些项目，参数 	   		    start,deleteCount,options(要替换的项目),
+  //开始位置(下标)删除元素的个数 要替换的元素
+
+  // 两个参数的时候，表示删除数组中的元素，从某个索引位置开始删除，删除count个
+//  var arr1 = arr.splice(2,2); // 两个参数的时候，表示从第一个参数所示的位置开始截取，截取第二个参数个元素
+ // var arr1 = arr.splice(2,4); // 两个参数的时候，表示从第一个参数所示的位置开始截取，截取第二个参数个元素,返回值就是从数组中截取的元素，会改变原数组
+ // console.log(arr1);
+ // console.log(arr);
+
+  // 下面是三个参数的时候   替换   将删除的元素，替换为新的数据
+//  var arr1 = arr.splice(2,4,123);
+  var arr1 = arr.splice(2,4,123,456,789);
+  console.log(arr1);
+  console.log(arr);
+</script>

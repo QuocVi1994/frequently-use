@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>隐式类型转换</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  var a = "200";
+//  console.log(typeof a);
+//  a = +a;
+//  console.log(typeof a);
+  // -  *  /   %  在进行数学运算的时候，直接先将其它的数据类型转换为number类型再进行数学运算
+//  var result = "123" - 20;
+//console.log(typeof result);
+//  console.log(result);
+
+ // var a = "123a" - 20;
+ // console.log(a); //NaN  not a  number  不是一个数字，非数字
+  // NaN number类型,表示数字的一种不正常状态  isNaN()  是的，经检测，它不是一个数字
+
+//  var b = true;
+//  var b = false;
+//  var c = b -5;
+//  console.log(c);
+  // boolean类型的值转换为number类型的时候，true--1  false--0
+
+//  var a = null -10;
+//  console.log(a);
+//  var b = undefined -9;//undefined表示未定义，不知道的一个数值
+//  console.log(b);
+
+//  var a = isNaN("ABC"); // 是的，经检测，它不是一个数字
+  var a = isNaN("123"); // 是的，经检测，它不是一个数字
+  console.log(a);
+</script>

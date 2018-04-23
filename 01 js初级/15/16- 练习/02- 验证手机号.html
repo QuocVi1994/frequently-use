@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>手机号</label><input type="text" id="txt"><span></span><br/>
+</div>
+<script>
+    // 手机号是11位的数字
+    // 1  移动  电信  联通   09
+    // 130 1 132 3 4 5 6 7 8 9
+    // 145 147
+    // 150 1 2 3  5 6    7 8 9
+    // 170 177
+    // 180 1 2 3  5 6 7 8  9
+    // [] 表示其中的任意一个
+    var reg = /^(13[0-9]|14[57]|15[012356789]|17[07]|18[012356789])\d{8}$/;
+
+    var txt = document.getElementById("txt");
+    txt.onblur = function (){
+           if(reg.test(this.value)){
+               alert("输入正确...");
+           }else {
+               alert("输入不正确");
+           }
+    }
+    //
+</script>
+</body>
+</html>

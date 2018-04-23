@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var arr = new Array();
+  var date = new Date();
+// 构造函数也是普通的函数，只不过构造函数是可以用来创建对象的
+
+  function Student(name,age,sex,hobby){  // js中的构造函数，其实就相当于后台语言中的类
+//    var o = new Object();
+    this.name = name;   //this 这个的意思，在程序里面一般表示当前的 对象
+    this.age = age;
+    this.sex = sex;
+    this.hobby = hobby;
+    this.sayHello= function (){
+      console.log("大家好，我是新来的，我的名字叫"+ this.name+"，我看今年"+ this.age+"岁了，我是"+ this.sex+"生，我的爱好是"+ this.hobby);
+    };
+//    return o;
+  }
+  var zs = new  Student("张三",20,"男","吃糖"); //new   创建  创立 构造
+  zs.sayHello();
+
+  // new关键字的作用
+  // 1. 创建空对象
+  // 2. 将this指向这个空对象    this就相当于当前的对象
+  // 3. 执行构造函数里面的代码，给属性赋值
+  // 4. 返回当前对象  返回this   this就指代当前对象
+
+  var ls = new Student("李四",22,"男","玩游戏");
+  ls.sayHello();   //创建了哪个对象，哪个对象调用了方法的时候，this就指向哪个对象  this始终指代当前调用方法的那个对象
+
+  function Car(brand,color,tag,price){
+     this.brand = brand;
+    this.color = color;
+    this.tag = tag;
+    this.price = price;
+    this.drive = function (){
+        console.log();
+    }
+  }
+
+  //手机的  brand,color,tag,price  call
+
+</script>

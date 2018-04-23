@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+  function Student(name,age,sex){
+    this.name = name;
+    this.age = age;
+    this.sex=sex
+  }
+
+  var zs = new Student("张三",20,"男");
+//  console.log(zs.name);
+
+//  function fn(obj){
+//    obj.name = "李四";
+//    console.log(obj.name);
+//  }
+//
+//  fn(zs);
+//  console.log(zs.name);
+
+  function fn(obj){
+    obj = new Student("田七",22,"女"); // 只要new了就说明创建了一个新的对象，将新的对象存到obj这个变量当中
+    console.log(obj.name);
+  }
+
+  fn(zs);
+  console.log(zs.name);
+
+  // 引用类型传递，传递的都是在栈空间中的内存地址，
+
+  // 内存地址中，存储数据的地方有两块，一块是栈，一块是堆
+  // 简单数据类型，是将值直接存在栈中
+  // 而引用类型是将自身真实的数据值存在堆空间中，在栈空间中也会有一块空间，来存储自己的数据在堆中的内存地址
+
+  // 无论是简单数据类型还是复杂数据类型传递的时候，都是传递的自身的副本
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件冒泡</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+
+    }
+
+    input {
+      position: absolute;
+      left: 300px;
+      top: 360px;
+    }
+  </style>
+  <script>
+      window.onload = function () {
+        // 1. 获取对象
+        var btn = document.getElementById("btn");
+        var demo = document.getElementById("demo");
+        //2. 给事件源注册事件
+//        btn.onclick = function (){
+//               console.log(123);
+//        }
+        demo.onclick = function (){
+            console.log(456);
+        }
+        // 当一个元素的事件被触发的时候，比如说单击了一个按钮，那么同样的事件，会在他的祖先级元素中也会被依次触发，这种现象叫做事件冒泡
+
+        //事件冒泡: 当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。
+
+        // 由此可见，所有的元素上默认的都有事件
+        //不是所有的事件都能冒泡。以下事件不冒泡：blur、focus、load、unload
+      }
+  </script>
+</head>
+<body>
+<div id="demo">
+  <input type="button" value="按钮" id="btn"/>
+</div>
+</body>
+</html>

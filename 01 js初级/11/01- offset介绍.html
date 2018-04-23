@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offset介绍</title>
+  <style>
+    div {
+      width: 200px;
+      /*height: 220px;*/
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        var box = document.getElementById("box");
+      console.log(box.style.width);  // style的方式只能获取行内的属性值，内嵌的获取 不到的
+      console.log(box.style.height);
+
+      console.log(box.offsetWidth);  // 获取的是数值，可以获取内嵌的属性值
+      console.log(box.offsetHeight);
+      // offset的方式不但可以获取行内的属性值，还可以获取内嵌的属性值
+    }
+  </script>
+</head>
+<body>
+<div id="box" style="height:220px"></div>
+</body>
+</html>

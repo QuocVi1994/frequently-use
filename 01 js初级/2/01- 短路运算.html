@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>短路运算</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  // var b =    true && false;
+  //  console.log(b);
+  // 找假  找false
+  // 如果第一个操作数转换为boolean类型为false的话，则直接返回第一个数的原值，如果转换后为true的话，则直接返回第二个数，不管第二个数是什么。
+  //     var b =  456 && "abc";
+  //  console.log(b);
+  //  var b = 456 && false;
+  //  console.log(b);
+
+  //  var b = 456 && null;
+  //  console.log(b);
+
+  //  var b = 456 && undefined;
+  //  console.log(b);
+  //
+  //  var c = 456 && NaN;
+  //  console.log(c);
+  //
+  //  var d = 456 && 0;
+  //  console.log(d);
+
+  //  var b = 0 && null;
+  //  console.log(b);
+
+  //  var b = NaN && undefined;
+  //  console.log(b);
+  //
+  //  var c = "" && NaN;
+  //  console.log(c);
+
+  // || 找真  找true
+  //  var b = 456 || "abc";
+  //  console.log(b);
+
+  //  var b = 456 || NaN;
+  //  console.log(b);
+
+  //  var b = 0 || "abc";
+  //  console.log(b);
+  //  var b = 0 || false;
+  //  console.log(b);
+
+  //  var c = "" || NaN;
+  //  console.log(c);
+
+  var c = null || undefined;
+  console.log(c);
+
+
+  function getSum(a, b, c, d, e) {
+    a = a || 0;
+    b = b || 0;
+    c = c || 0;
+    return a + b + c + d + e;
+  }
+
+  var sum = getSum(undefined, 20);
+  console.log(sum);
+</script>

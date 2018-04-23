@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // js中的数组可以存储任意的数据类型
+//  var o = {
+//    name:"李四",
+//    age:20,
+//    sex:"男",
+//    address:"广州市天河区1号",
+//    tel:"13112345678"
+//  };
+//  var o1 = {
+//    name:"张三",
+//    age:22,
+//    sex:"男",
+//    address:"广州市天河区2号",
+//    tel:"13212345678"
+//  };
+//  var o2 = {
+//    name:"田七",
+//    age:23,
+//    sex:"女",
+//    address:"广州市天河区3号",
+//    tel:"13312345678"
+//  };
+
+//  var arr = [o,o2,o1];
+  var arr = [
+    {name:"李四", age:20, sex:"男", address:"广州市天河区1号", tel:"13112345678"},
+    {name:"田七", age:23, sex:"女", address:"广州市天河区3号", tel:"13312345678"},
+    {
+      name:"张三",
+      age:22,
+      sex:"男",
+      address:"广州市天河区2号",
+      tel:"13212345678"
+    }
+  ];
+  //
+//  console.log(arr[1].address);
+//  console.log(arr[2]["address"]);
+//  var arr = ["abc",123,true,null,undefined,["abc",123,false,null],o];
+//
+  // 我要拿到数组当中的每个元素的属性值
+  for(var i = 0; i < arr.length; i++) { // 这层循环是用来遍历数组的
+      for(var key in arr[i]){ //这层循环是用来遍历对象的，获取对象中的属性值
+      console.log(key+"====="+arr[i][key]);
+    }
+  }
+</script>

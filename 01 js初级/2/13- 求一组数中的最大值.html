@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 求一组数中的最大值，本质就是将数组中的内容比较一下，找最大的值
+  var nums = [10,20,30,40,50,60,120,280,360,920,450,2,36,98];
+  // 先假设数组中的第一项就是数组中的最大值
+  var max = nums[0]; // 假设第一个值就是此数组中的最大值
+  for(var i = 1; i < nums.length; i++) {
+       //
+     if(max<nums[i]){
+       max = nums[i];
+     }
+  }
+  console.log(max);
+</script>

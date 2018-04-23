@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>作用域</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 域  范围  作用域   作用的范围
+  // 在没有学函数之前，JS当中只有一个作用域，就是全局作用域 所谓的全局作用域就是指的script标签 之间的范围
+  // 有了函数之后，就多了一个作用域，叫局部作用域 指的是函数的内部
+  // 全局变量和局部变量
+  // 全局变量： 在全局作用域内定义的变量或是在函数内部不使用var定义的变量，都是全局变量
+  // 局部变量： 就在函数内部使用var定义的变量
+
+  // 全局作用域和局部作用域的关系
+  // 局部作用域可以访问全局作用域内的变量或是函数，但是全局的不可以调用局部作用域内的变量或是函数
+  // js当中没有块级作用域  {}就是一个代码块
+  // 后台语言当中是有块级作用域的
+
+//  var c = 200;
+//  function getSum(a,b){
+//    console.log(c);
+//    return a+b;
+//
+//  }
+//
+////  console.log(a);
+//  console.log(c);
+//  getSum(10,20);
+//  {
+//    var m = 20;
+//  }
+//  console.log(m);
+
+//  if(true){
+//    var a = 16;
+//  }
+//  console.log(a);
+
+  function f1(){
+    var a = 22;
+    b = 33;
+  }
+  f1();
+//  console.log(a);
+  console.log(b);
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>复习匀速移动函数</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        //1. 获得要操作的对象
+      var box = document.getElementById("box"); // 获取的div对象
+      var btn = document.getElementById("btn");
+      var timeId = null;
+      // 2. 给事件源注册事件
+      btn.onclick = function (){
+        animate(box,400);
+      }
+
+      /**
+       * 封装了一个匀速移动的动画函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj,target){
+        clearInterval(obj.timeId);
+        obj.timeId = setInterval(function (){
+          var leader = box.offsetLeft;//先获得当前对象的现在的位置
+          console.log("获取的当前的位置是:"+leader);
+          var step = 6;   //步长是固定的，时间也是固定的，因此就是一个匀速的移动
+          step= leader <target?step:-step;
+          if(Math.abs(leader-target)>Math.abs(step)){
+            leader = leader + step;
+            console.log("加步长移动之后的位置是："+leader);
+            obj.style.left = leader +'px';
+          }else {
+            clearInterval(obj.timeId);//清空定时器
+            obj.style.left = target + 'px';
+          }
+
+        },15);
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="移动" id="btn"/>
+<div id="box"></div>
+</body>
+</html>

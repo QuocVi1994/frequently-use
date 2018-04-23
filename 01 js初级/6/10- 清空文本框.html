@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>清空文本框</title>
+</head>
+<body>
+<input type="text" id="txt" value="请输入内容。。。"/>
+</body>
+</html>
+<script>
+  // 1. 先获得要操作的对象
+  var txt = document.getElementById("txt");
+  // 2. 给事件源注册事件
+  txt.onfocus = function (){
+       if(this.value=="请输入内容。。。"){
+         this.value ="";
+       }else {
+         this.value = this.value;
+       }
+  }
+
+  txt.onblur = function (){
+     if(this.value==""){
+       this.value="请输入内容。。。";
+     }else {
+       this.value = this.value;
+     }
+  }
+</script>

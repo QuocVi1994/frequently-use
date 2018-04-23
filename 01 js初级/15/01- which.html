@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>which的用法</title>
+  <script src="common.js"></script>
+  <script>
+    window.onload = function () {
+      var btn = document.getElementById("btn");
+
+      function f1() {
+
+      }
+
+      eventTools.addEventListener(btn, "click", f1)
+      eventTools.removeEventListener(btn, "click", f1)
+
+      eventTools.addEventListener(btn, "mouseover", function f2() {
+
+      })
+      eventTools.removeEventListener(btn, "mouseover", function f2() {
+
+      })
+      // 最后的这种不能移除事件，必须用第一种方式注册事件和移除事件
+
+//            btn.onmousedown = function (e){
+//                e = e || window.event;
+//                console.log(e.which); // 获取是哪一个按钮按下的    1 左健  2 中键(滚轮) 3 右键
+//            }
+//            // common.js把与事件相关的封装成对象
+//
+//            var eventTools = {
+//
+//            }
+    }
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+</body>
+</html>

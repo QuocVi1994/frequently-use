@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="text" value="这是一个默认的值" class="txt" id="txt" aa="bb"/>
+</body>
+</html>
+<script>
+  var txt = document.getElementById("txt");
+ // console.log(txt.type);
+ // console.log(txt.value);
+ // console.log(txt.className);
+ // console.log(txt.id);
+ // console.log(txt.aa); // 通过对象.的方式，是获取不到自定义的属性值的
+  // 自定义属性
+
+//  getAttribute
+ var str=  txt.getAttribute("aa"); // getAttribute是可以获取自定义的属性的值的
+  console.log(str);
+  console.log(txt.getAttribute("type"));
+  console.log(txt.getAttribute("value"));
+  console.log(txt.getAttribute("class"));
+  console.log(txt.getAttribute("id"));
+  // getAttribute不但可以获取自定义属性的值，还可以获取原生的
+
+  txt.setAttribute("mm","nn");
+  console.log(txt.mm);
+  console.log(txt.getAttribute("mm"));
+  // 用setAttribute设置的属性值，必须用getAttribute来获取
+
+  // js是一种动态的弱类型语言
+</script>

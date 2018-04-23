@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件冒泡的好处</title>
+  <script>
+      window.onload = function () {
+        var lis = document.getElementsByTagName("li");
+        var ul = document.getElementsByTagName("ul")[0];
+
+        // 给每一个li标签注册事件，输出每一个li标签的文本内容
+
+//        for(var i = 0; i < lis.length; i++) {
+//             lis[i].onclick = fn;
+//        }
+//
+//        function fn(){
+//          console.log(this.innerHTML);
+//        }
+
+        ul.onclick = function (e){
+          e = e ||window.event;
+              // console.log(this);
+//          console.log(e.target); // target  目标的意思  获取最原始的事件源
+          console.log(e.target.innerHTML);
+        }
+
+        // 之前需要给每一个li标签都注册事件，需要注册6次事件
+        // 而现在只需要给父元素ul注册一次即可
+        // 事件委托  原本是要自己去做的事件，现在委托其它对象去做了，但是效果是一样的
+        // 事件冒泡的好处是可以实现 事件委托
+      }
+  </script>
+</head>
+<body>
+<ul>
+  <li>这是第1个标签</li>
+  <li>这是第2个标签</li>
+  <li>这是第3个标签</li>
+  <li>这是第4个标签</li>
+  <li>这是第5个标签</li>
+  <li>这是第6个标签</li>
+</ul>
+</body>
+</html>

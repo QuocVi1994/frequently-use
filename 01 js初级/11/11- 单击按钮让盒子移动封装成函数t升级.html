@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封装成函数</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      top: 50px;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        // 就像人走路一样，匀速的向前移动，始终在当前的位置向前迈一步，步长是固定的
+      //1. 获取要操作的对象
+      var box = document.getElementById("box");
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+//      var timeId = null;
+      // 2. 给事件源注册事件
+      btn1.onclick = function (){
+          animate(box,200);
+      }
+      btn2.onclick = function (){
+       animate(box,400);
+      }
+      btn3.onclick = function (){
+             animate(box,600);
+      }
+
+      function animate(obj,target){
+        clearInterval(obj.timeId); //
+        // 是将开启的定时器ID存在当前对象的timeId属性当中，每次单击按钮的时候，都要先清掉定时器，保证当前对象移动的时候，只开启一个定时器
+        obj.timeId =  setInterval(function (){
+          // 3. 先获取盒子当前的位置
+          var leader =  obj.offsetLeft;
+          var step = 9; // 向前移动的步长
+//          if(leader<target){
+//            step = step;
+//          }else {
+//            step = -step;
+//          }
+          step =  leader < target?step:-step;
+          leader = leader + step;
+          if(leader!=target){
+            obj.style.left = leader + 'px';
+          }else {
+            clearInterval(obj.timeId);
+            obj.style.left =target + 'px'; // 最后的时候，不足一个步长了，可以直接迈过去，到达目标位置
+          }
+        },15)
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="移动到200" id="btn1"/>
+<input type="button" value="移动到400" id="btn2"/>
+<input type="button" value="移动到600" id="btn3"/>
+<div id="box"></div>
+<p id="p1"></p>
+</body>
+</html>

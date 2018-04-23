@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //求数组中的最小值，本质也是将里面的元素进行比较后，得出最小值
+  var nums = [10,20,30,40,50,60,120,280,360,920,450,2,36,98];
+  var min = nums[0];
+  for(var i = 1; i < nums.length; i++) {
+       if(min>nums[i]){ // 如果min里面存的值，要大于循环遍历到的那个值的话，说明循环遍历到的那个值才是最小值
+         min = nums[i];
+       }
+  }
+  console.log(min);
+</script>

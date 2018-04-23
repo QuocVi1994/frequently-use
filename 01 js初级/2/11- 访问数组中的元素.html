@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>访问数组中的元素</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 所谓数组就是数组的有序列
+//  alert();
+//  var arr1 = new Array()
+  var nums = [100,98,96,95,94,93,97,92,90,99,89,86,88];// 10 9
+//  console.log(nums.length);
+  // 通过数组的索引 或是下标来访问数组中的元素
+//  console.log(nums[0]);
+//  console.log(nums[5]);
+//  console.log(nums[7]);
+//  console.log(nums[9]);
+//  console.log(nums[nums.length-1]);
+
+//  console.log(nums[0]);
+//  console.log(nums[1]);
+//  console.log(nums[2]);
+//  console.log(nums[3]);
+////  ...
+//  console.log(nums[nums.length-1]);
+  var sum = 0;
+  for(var i = 0; i < nums.length; i++) {
+//       console.log(nums[i]);
+    sum += nums[i];// sum = sum + nums[i];
+  }
+  console.log(sum);
+  var avg = sum / nums.length;
+  console.log(avg);
+  // 访问数组中的元素 使用     数组名[索引]
+
+  var nums = [10,20,30,40,50,60,120,280]; //求这个数组中的和和平均数
+</script>

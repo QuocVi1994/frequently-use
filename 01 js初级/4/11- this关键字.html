@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // this 在构造函数当中，始终指代当前对象 ，在调用方法的时候，谁调用方法this就指代谁
+
+  function Phone(brand,color,tag,price){
+    this.brand = brand;
+    this.color = color;
+    this.tag = tag;
+    this.price = price;
+    this.call = function (){
+      console.log("我是"+this.brand+"牌子的手机，我的颜色是"+this.color+"色的，我的特点是"+this.tag+"，我的价格是"+this.price+"!");
+    }
+  }
+
+  var hw = new Phone("华为plus","黑","国产中的战斗机","5800");
+  hw.call();
+  var xiaomi = new Phone("mi","灰","为发烧而生","1800");
+  xiaomi.call();
+  var note7 = new Phone("sumsung","透明","一言不和就爆炸","5600");
+  note7.call();
+
+
+  function f1(){
+    console.log(this);
+  }
+  f1(); //window是js中的顶级对象,在调用函数的时候，window是可以省略
+  window.f1();
+  // 方法就是函数，只是叫法不一样罢了，对象的属性其实就相当于是原来的变量，都是用来存储数据的
+
+ // 故天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，
+ // 所以动心忍性，增益其所不能。
+  // 其就是this
+
+
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+        btn.onclick = function (e){
+          e = e || window.event;
+               console.log(e.type);
+        }
+        btn.onmouseover = function (e){
+          e = e || window.event;
+               console.log(e.type);
+        }
+        // 通过type来获取当前对象触发的是什么样的事件
+      }
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+</body>
+</html>

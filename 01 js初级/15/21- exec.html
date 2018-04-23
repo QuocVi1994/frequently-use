@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>exec</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // test    exec
+  var str = "二三四五六三五八七";
+  var reg = /五/g;
+  var arr =  reg.exec(str);  // exec只能匹配一个，不能全部提取 如果想要全部匹配或是提取的话，得用match
+  console.log(arr);
+</script>

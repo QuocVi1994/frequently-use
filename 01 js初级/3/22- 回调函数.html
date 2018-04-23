@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>回调函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+  // 回调函数  就把函数当做参数来传递，这样的函数叫做回调函数
+  // 回调函数和构造函数都是普通的函数
+  // 将普通的函数当做参数进行传递，这样的函数叫做回调函数
+  // 函数可以用来创建对象，这样的函数叫做构造函数
+  var f1 = function (){
+         console.log("这是一个f1的函数。。。");
+
+  };
+
+  function f2(fn){
+     if(typeof fn=="function"){
+       fn();
+     }
+  }
+
+  f2(f1);
+
+
+  // 函数的三要素   参数   返回值
+  // 能够定义函数解决一些编程问题
+</script>

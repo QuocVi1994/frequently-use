@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>封装兼容版本的缓动动动画函数</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var box = document.getElementById("box");
+      var btn = document.getElementById("btn");
+      btn.onclick = function (){
+//             animate(box,"width",800);
+             animate(box,"left",800);
+//             animate(box,"height",800);
+      }
+
+
+      /**
+       * 封装了一个兼容版本的获取当前对象属性值的函数
+       * @param obj
+       * @param attr
+       * @returns {*}
+       */
+      function getStyle(obj,attr){
+        // 能力检测 就是要看当前的浏览器是否支持此对象的属性和方法
+        if(obj.currentStyle){
+          return  obj.currentStyle[attr];
+        }else {
+          return  getComputedStyle(obj,null)[attr];
+        }
+      }
+      /**
+       * 封装了一个缓动运动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj,attr, target) {
+        clearInterval(obj.timeId);
+        obj.timeId = setInterval(function () {
+//          var leader = obj.offsetLeft;//获取盒子当前的位置,只会获得整数
+          var leader = parseInt(getStyle(obj,attr)) || 0;
+          var step = (target - leader) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          console.log(step);
+          leader = leader + step;
+//          obj.style.left = leader + 'px';
+          obj.style[attr] = leader + 'px';
+          if (leader == target) {
+            clearInterval(obj.timeId);
+            console.log(123);
+          }
+        }, 15);
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="设置"/>
+<div id="box"></div>
+</body>
+</html>

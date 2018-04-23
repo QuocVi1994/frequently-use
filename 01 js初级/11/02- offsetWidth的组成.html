@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offsetWidth的组成</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 200px;
+      height: 220px;
+      padding: 30px;
+      border: 20px solid #000;
+      margin:10px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        var box = document.getElementById("box");
+      console.log(box.offsetWidth); // width+padding+border
+      console.log(box.offsetHeight); //height+padding+border
+
+      // offset不但有offsetWidth  offsetHeight    offsetLeft   offsetTop  offsetParent
+    }
+  </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

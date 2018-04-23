@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  // 预定义类就像内置对象一样，由系统提前已经定义好了
+  // .	[^\n\r]	除了换行和回车之外的任意字符
+
+  //\d	[0-9]		数字字符
+  //\D	[^0-9]	非数字字符
+
+  //\s	[\f\r\n\t\v]	不可见字符
+  //\S	[^\f\r\n\t\v]	可见字符
+
+  //\w	[a-zA-Z0-9_]	单词字符(所有的字母数字和_)
+  //\W	[^a-zA-Z0-9_]	非单词字符
+
+  //\r,\n,\r\n的区别
+  //在万恶的旧社会，打字机换行（\n newline）之后只会下移一行，需要回到一行的开头（\r return）才能继续打字
+  //老式的操作系统也继承了打字机的这一特性，新式的系统统一为\r\n
+
+
+  console.log("===.[^\n\r]除了换行和回车之外的任意字符===");
+
+  //    var reg = /./;
+  //    var b = reg.test("abc");
+  //    console.log(b);
+  console.log(/./.test("abc"));//true
+  console.log(/./.test("\n"));//false
+  console.log(/./.test("\r"));//flase
+  console.log(/./.test("a\r"));//true
+  console.log(/./.test(" \r"));//true
+  console.log(/./.test("%"));//true
+  console.log(/./.test(""));//false  首先得有字符，
+  console.log(/./.test(" "));// true
+  console.log(/./.test(" 123"));//true
+  console.log(/./.test("123"));//true
+
+  console.log("=====\d表示匹配任意一个数字======");
+  console.log(/\d/.test("a"));//false  匹配任意一个数字，一个都没有
+  console.log(/\d/.test(" "));//flase
+  console.log(/\d/.test(" 123"));//true
+  console.log(/\d/.test(""));// false
+  console.log(/\d/.test("_12"));// true
+  console.log(/\d/.test("%"));//false
+  console.log(/\d/.test("ABC"));//false
+
+  console.log("==\D表示非数字只要有一个不是数字的字符就行===========");
+  console.log(/\D/.test("a")); //true
+  console.log(/\D/.test("a12"));//true
+  console.log(/\D/.test("a "));//true
+  console.log(/\D/.test(" "));//true
+  console.log(/\D/.test(""));// false  连字符都没有
+  console.log(/\D/.test("_"));// true
+  console.log(/\D/.test("%"));// true
+  console.log(/\D/.test("%AB"));//true
+
+  console.log("===\s 不可见字符,空白字符=======");
+  console.log(/\s/.test(" ")); // true
+  console.log(/\s/.test("")); // false
+  console.log(/\s/.test("abc")); //false
+  console.log(/\s/.test("123"));//false
+  console.log(/\s/.test("%"));// false
+  console.log(/\s/.test("_ "));//true
+  console.log(/\s/.test("% "));// true
+  console.log(/\s/.test("\r"));//true
+  console.log(/\s/.test("\n"));//true
+  console.log(/\s/.test("" +
+      ""));// false   直接回车打印出来的
+  console.log(/\s/.test("\t"));
+  true
+
+
+  console.log("==\S非空白字符 可见字符=====");
+  console.log(/\S/.test(""));// false
+  console.log(/\S/.test(" ")); // false
+  console.log(/\S/.test("_")); //true
+  console.log(/\S/.test("$"));//true
+  console.log(/\S/.test("abc"));//true
+  console.log(/\S/.test("abc "));//true
+  console.log(/\S/.test("123"));//true
+  console.log(/\S/.test("123 "));//true
+
+  console.log("====\w单词字符大小写字母数字及_=====");
+  console.log(/\w/.test(""));// false
+  console.log(/\w/.test(" ")); //false
+  console.log(/\w/.test(" a"));// true
+  console.log(/\w/.test(" 20"));//true
+  console.log(/\w/.test(" _"));//true
+  console.log(/\w/.test(" A"));//true
+  console.log(/\w/.test("$"));//false
+  console.log(/\w/.test("   20  "));//true
+  console.log(/\w/.test("   - "));//false
+
+  console.log("==\W 只要有不是大小字字母数字及_即可====");
+  console.log(/\W/.test(""));// false
+  console.log(/\W/.test(" "));//true
+  console.log(/\W/.test("abc")); // false
+  console.log(/\W/.test("123"));//false
+  console.log(/\W/.test("a "));//true
+  console.log(/\W/.test("_"));//false
+  console.log(/\W/.test("-"));// true
+  console.log(/\W/.test("$"));// true
+  console.log(/\W/.test("--"));// true
+  console.log(/\W/.test("\n"));//true
+</script>
