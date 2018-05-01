@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<input type="text" @keydown.enter="keyD" />
+				<input type="text" @keydown.40="keyD" />
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						
+					},
+					methods: {
+						keyD: function() {
+							alert('键盘按下');
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

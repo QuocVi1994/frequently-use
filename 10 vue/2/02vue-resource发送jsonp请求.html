@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="vue/vue234.js"></script>
+		<script src="vue/vue-resource134.js"></script>
+		<script type="text/javascript">
+			/**
+			 * jsonp相当于get请求，是用来获取数据的。
+			 * jsonp请求实际上并不是一个ajax请求，
+			 * 它本质是动态加载一个js脚本，这个脚本的代码是一个函数调用。
+			 * 
+			 * jsonp请求的这个js脚本有个规范，
+			 * 即咱们发送请求时会在脚本url中添加一个callback参数，用来配置加载的脚本调用什么函数
+			 * */
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					name: ''
+				},
+				created: function() {
+					this.$http.jsonp('http://139.199.192.48:8888/api/jsonp').then(function(rep) {
+						// jsonp请求这里得到的body数据是一个字符串，需要我们自己格式化处理
+						console.log(rep.body);
+						var data = JSON.parse(rep.body)
+						console.log(JSON.parse(data));
+					});
+				}
+			});
+		</script>
+	</body>
+</html>

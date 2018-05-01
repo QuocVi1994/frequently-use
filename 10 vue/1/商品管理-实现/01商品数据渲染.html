@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 800px;
+			margin: 20px auto;
+		}
+
+		.operation {
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 20px;
+			font-size: 18px;
+		}
+
+		.operation input {
+			padding: 5px;
+			border: 1px solid deepskyblue;
+		}
+
+		.operation button {
+			border-radius: 3px;
+			background-color: deepskyblue;
+		}
+
+		.search {
+			text-align: left;
+			line-height: 20px;
+			font-size: 18px;
+		}
+
+		.search input {
+			padding: 5px;
+			border: 1px solid deeppink;
+		}
+
+		#tb {
+			width: 800px;
+			border-collapse: collapse;
+			margin: 20px auto;
+		}
+
+		#tb th {
+			background-color: #0094ff;
+			color: white;
+			font-size: 16px;
+			padding: 5px;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		#tb td {
+			padding: 5px;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" class="wrapper" v-cloak>
+		<table id="tb">
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>创建时间</th>
+				<th>操作</th>
+			</tr>
+			<!-- 如果没有数据，那么才给出提示 -->
+			<tr v-show="!list.length">
+				<td colspan="4">列表无数据</td>
+			</tr>
+			<tr v-for="product in list">
+				<td>{{ product.id }}</td>
+				<td>{{ product.name }}</td>
+				<td>{{ product.ctime }}</td>
+				<td>无</td>
+			</tr>
+		</table>
+	</div>
+	<script src="vue234.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				list: [{
+						id: 1,
+						name: '奔驰',
+						ctime: (new Date()).toUTCString()
+					},
+					{
+						id: 2,
+						name: '宝马',
+						ctime: (new Date()).toUTCString()
+					},
+					{
+						id: 3,
+						name: '法拉利',
+						ctime: (new Date()).toUTCString()
+					},
+				]
+			}
+		});
+	</script>
+</body>
+
+</html>

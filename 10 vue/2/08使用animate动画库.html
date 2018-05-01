@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="vue/animate.css"/>
+	</head>
+	<body>
+		<div id="app">
+			
+			<!-- enter配置显示时的动画效果，leave配置隐藏时的动画效果 -->
+			<transition enter-active-class="slideOutDown" leave-active-class="hinge">
+				<!-- 要不手动给元素添加animation样式，要么使用样式库内置的class设置，不然动画不生效 -->
+				<div v-if="isShow" class="animated">绚不？</div>
+			</transition>
+			
+			<button @click="isShow = !isShow">显式隐藏</button>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isShow: true
+				}
+			});
+		</script>
+	</body>
+</html>

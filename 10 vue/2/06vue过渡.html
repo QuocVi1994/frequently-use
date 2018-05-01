@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/* 这些样式属性只在过渡动画的生命周期中才有效 */
+			div {
+			  transition: all .5s
+			}
+			
+			/* 这里设置的样式在过渡时依赖元素的默认样式，下面的4个class更灵活，可以分别设置起始样式与结束样式 */
+			/*.fade-enter-active, .fade-leave-active {
+			   transition: opacity .5s;
+			   font-size: 30px;
+			}*/
+			
+			/* 元素隐藏时，样式过滤的起点值 */
+			/* 元素隐藏时，样式过渡的终点值 */
+			.fade-leave {
+			
+			}
+			
+			.fade-leave-to {
+			
+			}
+			
+			/* 元素显示时，样式过滤的起点值 */
+			/* 元素显示时，样式过渡的终点值 */
+			.fade-enter {
+				color: red;
+			}
+			.fade-enter-to {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 对应v-if与v-show的元素，如果想要过渡效果，需要把这些标签使用transition标签包裹起来 -->
+			<!--  只要你包裹起来，那么vue会检测那些元素被设置了trasnsition样式 -->
+			<!-- 如果设置了，那么vue就会在这个元素显式隐藏的生命周期中添加6个class -->
+			<transition name="fade">
+				<!-- 这里只能控制根元素 -->
+				<div v-if="isShow">
+					<p>嘘鄙喘</p>
+					<section>还得瑟</section>
+					<div>佛主保佑</div>
+				</div>
+			</transition>
+			<button @click="isShow = !isShow">显式隐藏</button>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isShow: true
+				}
+			});
+		</script>
+	</body>
+</html>

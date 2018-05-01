@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue234.js"></script>
+	</head>
+	<body>
+		<div id="app">
+				<!-- 这引用子组件的视图中，可以通过v-on指令获取来自子的自定义事件 -->
+				<v-news v-bind:mytitle="title" :nbas="prentObj" @msg="alert"></v-news>
+		</div>
+		
+		<!-- 定义1个组件 -->
+		<template id="tpl-news">
+			<section>
+				<h1>{{ mytitle }}</h1>
+				<ul>
+					<li v-for="val in list">{{ val }}</li>
+				</ul>
+				<ul>
+					<li v-for="val in nbas">{{ val }}</li>
+				</ul>
+				<input type="text" v-model="msg" placeholder="请输入值，我传给父" />
+				<button @click="btnClick">把输入好消息发送给父</button>
+			</section>
+		</template>
+		<script type="text/javascript">
+			Vue.component('v-news', {
+				template: '#tpl-news',
+				data: function() {
+					return {
+						list: ['震惊', '不可置信', '天不怒我死'],
+						msg: ''
+					}
+				},
+				// 获取属性值，配置后这个值就被加到了data中
+				props: ['mytitle', 'nbas'],
+				methods: {
+					btnClick: function() {
+						
+						// 通过$emit触发一个自定义事件，也可以理解为发送一个消息
+						// 第一个参数是自定义的事件名，第二个参数是附带的数据
+						this.$emit('msg', this.msg);
+					}
+				}
+			});
+		</script>
+		
+		<!--  vue实例，可以认为是一个根组件  -->
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					title: '大保健',
+					prentObj: {
+						a: '马刺',
+						b: '勇士',
+						c: '骑士'
+					}
+				},
+				methods: {
+					
+					// 父接收到子的msg事件后，调用该函数，该函数可以接收来自子的数据
+					alert: function(data) {
+						alert('收到子的消息数据：' + data);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

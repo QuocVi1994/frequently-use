@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<form action="" @submit.prevent="addProduct">
+				<input type="text" v-model="name"/>
+				<button type="submit">提交</button>
+			</form>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script src="vue/vue-resource134.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					name: ''
+				},
+				methods: {
+					addProduct: function() {
+						// 接口文档上需要一个name，所以我们这里只有一个参数
+						var data = {
+							name: this.name
+						};
+						// 发送post请求
+						// this.$http.post('http://139.199.192.48:8888/api/addproduct', data, {emulateJSON:true}).then(function(rep) {
+						this.$http.post('http://157.122.54.189:9093/api/addproduct', data, {emulateJSON:true}).then(function(rep) {
+							console.log(rep);
+						});
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

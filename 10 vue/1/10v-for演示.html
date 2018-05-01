@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<!--  v-for即可以遍历数组也可以遍历对象，如果需要得到多个值，需要使用()来定义这些值 -->
+				<ul>
+					<li v-for="item in list" v-text='item'></li>
+					<li v-for="(item, idx) in list" v-text='idx'></li>
+				</ul>
+				<ul>
+					<li v-for="val in obj" v-text='val'></li>
+					<li v-for="(val, key) in obj" v-text='key'></li>
+					<li v-for="(val, key, idx) in obj" v-text='idx'></li>
+				</ul>
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						list: ['猪肝汤', '牛肉火锅'],
+						obj: {
+							name: 'youyou',
+							age: '38',
+							gender: '女'
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

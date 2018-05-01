@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div2 {
+				transition: all 1s;
+			}
+			.fade-enter {
+				color: red;
+				font-size: 10px;
+			}
+			.fade-enter-to {
+				color: blue;
+				font-size: 40px;
+			}
+			.newFade-enter {
+				position: relative;
+				left: -100px;
+			}
+			.newFade-enter-to {
+				position: relative;
+				left: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 对应v-if与v-show的元素，如果想要过渡效果，需要把这些标签使用transition标签包裹起来 -->
+			<!--  只要你包裹起来，那么vue会检测那些元素被设置了trasnsition或者animation样式 -->
+			<!-- 如果设置了，那么vue就会在这个元素显式隐藏的生命周期中添加6个class -->
+			
+			<transition name="fade">
+					<div v-if="isShow">没有设置transition样式</div>
+			</transition>
+			
+			<transition name="fade">
+					<div v-if="isShow" id="div2">设置了transition样式,使用fade样式前缀</div>
+			</transition>
+			
+			<transition name="newFade">
+					<div v-if="isShow" id="div2">设置了transition样式,使用newFade样式前缀</div>
+			</transition>
+			
+			<button @click="isShow = !isShow">显式隐藏</button>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 使用transition的注意事项：
+			 * 1、一对transition标签只管理一个根节点
+			 * 2、根节点必须被设置了transition样式
+			 * 3、为了区分不同transition包裹标签的过渡样式，一般我们会通过一个name属性来设置样式的前缀
+			 * */
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isShow: true
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<!-- 如果想阻止浏览器的默认事件，那么添加prevent修饰符即可 -->
+				<form action="http://www.baidu.com" @submit.prevent="submit">
+					<button type="submit">点击</button>
+				</form>
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						
+					},
+					methods: {
+						submit: function() {
+							alert('表单被提交');
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

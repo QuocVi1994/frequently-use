@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 父想接收来自子的数据，那么就先监听来自子的自定义事件 -->
+			<v-input @val="alert"></v-input>
+			<p>{{ content }}</p>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			Vue.component('v-input', {
+				template: '<input type="text" v-model="val" />',
+				data: function() {
+					return {
+						val: ''
+					};
+				},
+				updated: function() {
+//					alert('子组件中的数据变化了');
+					this.$emit('val', this.val);
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					content: ''
+				},
+				methods: {
+					// 父监听到子的val事件，就会执行该函数，把来自子的数据传递进来
+					alert: function (data) {
+						this.content = data;
+					}
+				}
+			});
+			
+			/**
+			 * 子传父：
+			 * 
+			 * 子组件执行的流程：
+			 * 1、用户在子组件中输入值
+			 * 2、会触发子组件中的updated生命周期函数
+			 * 3、该函数内发送值变化了，就会发送一个val自定义事件
+			 * 
+			 * 父组件执行的流程：
+			 * 4、因为父监听了子的val事件
+			 * 5、所以子发送val事件，父这里就会接收到，并且执行指定的alert函数
+			 * 6、alert函数内把接收到的值赋给自己的content属性
+			 * 7、那么父组件中引用content属性的标签内容就会自动发生变化
+			 * */
+		</script>
+	</body>
+</html>

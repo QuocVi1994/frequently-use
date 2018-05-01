@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<v-header></v-header>
+			<!-- 路由将根据url，把匹配到的组件视图渲染到这里 -->
+			<router-view></router-view>
+			<v-footer></v-footer>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script src="vue/vue-router260.js"></script>
+		<script>
+			// 定义一个全局头部组件
+			Vue.component('v-header', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'header'
+					};
+				}
+			});
+			
+			// 定义一个全局底部组件
+			Vue.component('v-footer', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'footer'
+					};
+				}
+			});
+			
+			// 定义一个未注册的登陆组件
+			var comLogin = Vue.extend({
+				template: '<h4>{{ msg }}</h4>',
+				data: function() {
+					return {
+						msg: '登陆'
+					};
+				}
+			});
+			
+			// 定义一个未注册的注册组件
+			var comRegister = Vue.extend({
+				template: '<h4>{{ msg }}</h4>',
+				data: function() {
+					return {
+						msg: '注册'
+					};
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {},
+				router: new VueRouter({
+					routes: [
+						{ path: '/login', component: comLogin },
+						{ path: '/register', component: comRegister }
+					]
+				})
+			});
+		</script>
+	</body>
+</html>

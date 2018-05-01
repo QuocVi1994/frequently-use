@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="" v-model="val"/>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					val: ''
+				},
+				
+				// 这些生命周期函数都是vue内部在恰当的时机自动调用的
+
+				
+				// vue实例刚创建好，但是未初始化完毕，很多逻辑还没有执行
+				// 比如：数据的变化监听没有完成，还有元素的事件绑定没有完成
+				beforeCreate: function() {
+					console.log('beforeCreate');
+				},
+				
+				// 代表vue真正初始化完毕
+				created: function() {
+					console.log('created');
+				},
+				
+				// 和视图关联之前执行
+				beforeMount: function() {
+					console.log('beforeMount');
+				},
+				
+				// 和视图关联之后执行
+				mounted: function() {
+					console.log('mounted');
+				},
+				
+				// 数据发生变化时，要刷新视图之前执行
+				beforeUpdate: function() {
+					console.log('beforeUpdate');
+				},
+				
+				// 数据已改变，视图已刷新
+				// 尽量不要在这里面写代码，因为可能会造成死循环
+				updated: function() {
+					console.log('updated');
+				},
+				
+				// 组件激活时执行
+				activated: function() {
+					console.log('activated');
+				},
+				
+				// 组件停止时执行
+				deactivated: function() {
+					console.log('deactivated');
+				},
+				
+				// 实例销毁前执行
+				beforeDestory: function() {
+					console.log('beforeDestory');
+				},
+				
+				// 实例销毁后执行
+				destoryed: function() {
+					console.log('destoryed');
+				}
+			});
+			
+			// 我们可以后续手动的管理视图，调用该方法beforeMount与mounted这两函数就会执行
+			vm.$mount('#app')
+		</script>
+	</body>
+</html>

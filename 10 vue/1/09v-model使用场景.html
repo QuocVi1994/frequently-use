@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<form action="#">
+					<input type="text" v-model="username"/>
+					<input type="text" v-model="password"/>
+					<button v-on:click="send">提交</button>
+				</form>
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						username: '',
+						password: ''
+					},
+					methods: {
+						send: function() {
+							alert(this.username + ':' + this.password);
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

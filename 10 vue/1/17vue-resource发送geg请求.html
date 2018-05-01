@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>{{ list }}</div>
+			<button @click="getData">发送请求</button>
+		</div>
+		<script src="vue234.js"></script>
+		<script src="vue-resource134.js"></script>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					list: []
+				},
+				methods: {
+					
+					// 定义一个获取数据的方法
+					// 只要引入了resource插件，那么实例就会拥有$http对象
+					// 这个对象里面就有我们常用的get、post、jsonp这些方法
+					getData: function() {
+						this.$http.get('http://139.199.192.48:8888/api/getprodlist').then(function(rep) {
+
+							// 根据文档的说明，先判断status是不是0，
+							// 是则证明数据正常，message里面存我们需要的数据，
+							// 不是message里面存的是错误提示
+							if(rep.body.status === 0) {
+								this.list = rep.body.message;
+							}else {
+								console.log(rep.body.message);
+							}
+						});
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

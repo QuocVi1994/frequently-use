@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 1、导入包 -->
+		<script src="vue234.js"></script>
+	</head>
+	<body>
+		<!-- 这就是视图，视图被vue实例通过选择器的方式关联 -->
+		<div id="app">
+			<!-- 数据可以直接使用 -->
+			{{ name }}
+			<button v-on:click="changeName">戳我</button>
+		</div>
+		<script>
+			// 2、创建vue实例
+			// vue代表mvvm中的vm，用于串联视图与数据
+			var vm = new Vue({
+				el: '#app',
+				
+				// 这里是mvvm中的model，用于存储数据
+				data: {
+					name: '大飞哥'
+				},
+				
+				// 这里存放所有的函数，用于业务逻辑处理
+				// 这里所有的方法执行时，内部的this都指向当前实例
+				methods: {
+					changeName: function() {
+						console.log(this);
+						this.name += 1;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

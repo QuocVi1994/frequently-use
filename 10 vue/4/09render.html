@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				
+				// 如果有了render函数，那么render函数返回的虚拟节点会替换掉el对应的视图
+				// 这个函数可以让编程爱好者以编程的方式创建节点，
+				// 这种方式更接近与vue的底层，因为vue底层就是通过这种方式创建虚拟节点刷新视图的
+				render: function(createElement) {
+					
+					// 用代码的方式构建出10个li标签
+					var lisTotal = 10;
+					var lis = [];
+					for(var i = 0; i < lisTotal; i++) {
+						lis.push(createElement('li', i));
+					}
+					
+					// 然后返回一个根节点，根节点拥有10个li
+					return createElement('ul', lis);
+				},
+				data: { 
+					cxt: ''
+				}
+			});
+		</script>
+	</body>
+</html>

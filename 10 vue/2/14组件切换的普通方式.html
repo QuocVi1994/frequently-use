@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<v-news1 v-if="isShowNews1"></v-news1>
+			<v-news2 v-if="isShowNews2"></v-news2>
+		</div>
+		
+		<template id="tpl-news1">
+			<section>
+				<h1>新闻列表1</h1>
+				<ul>
+					<li v-for="val in list">{{ val }}</li>
+				</ul>
+			</section>
+		</template>
+		<template id="tpl-news2">
+			<section>
+				<h1>新闻列表2</h1>
+				<ul>
+					<li v-for="val in list">{{ val }}</li>
+				</ul>
+			</section>
+		</template>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			
+			Vue.component('v-news1', {
+				template: '#tpl-news1',
+				data: function() {
+					return {
+						list: ['震惊', '不可置信', '天不怒我死']
+					}
+				}
+			});
+			Vue.component('v-news2', {
+				template: '#tpl-news2',
+				data: function() {
+					return {
+						list: ['女人看了会哭泣', '男人看了会沉默', '人妖看了会愤怒']
+					}
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isShowNews1: false,
+					isShowNews2: true
+				}
+			});
+		</script>
+	</body>
+</html>

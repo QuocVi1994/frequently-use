@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 1、导入包 -->
+		<script src="vue234.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--  自定义过滤器必须我们自己实参，vue2.+内置没有 -->
+			<!-- 自定义过滤器只能使用在插值表达式当中 -->
+			<span>{{ time | formatDate2('yyyy-mm-dd') }}</span>
+			<span>{{ time | formatDate2('mm-dd-yyyy') }}</span>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					time: new Date
+				},
+				
+				// 这种过滤器是局部的，只能在当前实例对应的视图中使用
+				filters: {
+					// 格式化日期
+					formatDate: function(t) {
+						var date = new Date(t);
+						var year = date.getFullYear();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						return year + '-' + month + '-' + day; 
+					},
+					
+					// 格式化日期，额外接收自定义参数
+					formatDate2: function(t, type) {
+						var date = new Date(t);
+						var year = date.getFullYear();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						
+						if(type === 'yyyy-mm-dd') {
+							return year + '-' + month + '-' + day; 
+						}else if(type === 'mm-dd-yyyy') {
+							return month + '-' + day + '-' + year ; 
+						}
+					},
+				}
+			});
+		</script>
+	</body>
+</html>

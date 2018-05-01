@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue234.js"></script>
+	</head>
+	<body>
+		<div id="app">
+				<!-- 通过v-bind指令给组件动态添加属性值，组件可以通过配置props选项来获取 -->
+				<v-news v-bind:mytitle="title" :nbas="prentObj"></v-news>
+		</div>
+		
+		<!-- 定义1个组件 -->
+		<template id="tpl-news">
+			<section>
+				<h1>{{ mytitle }}</h1>
+				<ul>
+					<li v-for="val in list">{{ val }}</li>
+				</ul>
+				<ul>
+					<li v-for="val in nbas">{{ val }}</li>
+				</ul>
+			</section>
+		</template>
+		<script type="text/javascript">
+			Vue.component('v-news', {
+				template: '#tpl-news',
+				data: function() {
+					return {
+						list: ['震惊', '不可置信', '天不怒我死']
+					}
+				},
+				// 获取属性值，配置后这个值就被加到了data中
+				props: ['mytitle', 'nbas']
+			});
+		</script>
+		
+		<!--  vue实例，可以认为是一个根组件  -->
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					title: '大保健',
+					prentObj: {
+						a: '马刺',
+						b: '勇士',
+						c: '骑士'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

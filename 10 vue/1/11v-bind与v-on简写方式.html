@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<span v-bind:self="obj.name">v-bind正常方式 --> v-bind:self="obj.name"</span>
+				<br />
+				<span :self="obj.name">简写方式 --> :self</span>
+				
+				<br />
+				
+				<button v-on:click="click">点我</button>
+				<br />
+				<button @click="click">点我</button>
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						list: ['猪肝汤', '牛肉火锅'],
+						obj: {
+							name: 'youyou',
+							age: '38',
+							gender: '女'
+						}
+					},
+					methods: {
+						click: function() {
+							alert('点击');
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

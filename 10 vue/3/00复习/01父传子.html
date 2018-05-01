@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 这里还在父组件的数据作用域，可以访问父中的数据，把父的数据通过自定义属性的方式传给子 -->
+			<!-- 自定义属性=号左边定义的是属性名，右边引用的是父中的数据名 -->
+			<v-news :title="title"></v-news>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script>
+			
+			// 定义全局组件
+			Vue.component('v-news', {
+				// 子组件里使用来自父的数据，也是通过自定义属性的名字来使用的
+				template: '<h1>{{ title }}</h1>',
+				data: function() {
+					return {};
+				},
+				// 通过该配置指定接收来自父的数据
+				// 这里面配置的title是自定义属性的名字
+				props: ['title']
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					title: '习近平访问香港'
+				},
+				methods: {},
+				created: function() {}
+			});
+		</script>
+	</body>
+</html>

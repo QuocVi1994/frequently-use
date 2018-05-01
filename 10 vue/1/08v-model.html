@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 这就是视图，视图被vue实例通过选择器的方式关联 -->
+		<div id="app">
+			
+			<!-- 传统的指令都是单项的数据绑定，视图发生变化数据不变化，要想双项需要使用v-model指令 -->
+			<input type="text" v-bind:value="val" />
+			<!-- 指令表单元素才可以使用v-model指令，实现数据双向绑定 -->
+			<input type="text" v-model="val" />
+			
+			<button v-on:click="changeName">戳我</button>
+		</div>
+		<!-- 1、导入包 -->
+		<script src="vue234.js"></script>
+		<script>
+			// 2、创建vue实例
+			// vue代表mvvm中的vm，用于串联视图与数据
+			var vm = new Vue({
+				el: '#app',
+				
+				// 这里是mvvm中的model，用于存储数据
+				data: {
+					val: '请输入'
+				},
+				
+				// 这里存放所有的函数，用于业务逻辑处理
+				// 这里所有的方法执行时，内部的this都指向当前实例
+				methods: {
+					changeName: function() {
+						console.log(this);
+						this.name += 1;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

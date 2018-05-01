@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 定义组件的模版 -->
+		<script type="tpl" id="test-tpl">
+			<ul>
+				<li>哈哈</li>
+				<li>嘎嘎</li>
+				<li>咯咯</li>
+			</ul>
+		</script>
+		
+		<div id="app">
+			<v-test></v-test>
+			<v-test></v-test>
+			<v-test></v-test>
+			<v-test></v-test>
+		</div>
+		
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 组件的使用场景：
+			 * 1、如果一个app比较庞大，那么可以使用vue提供的组件把这个app拆分为一个个组件，有利于项目维护
+			 * 2、如果一个项目中，存在很多可复用的功能，这个复用的功能可以封装为一个组件，被重复利用
+			 * */
+
+			Vue.component('v-test', {
+				template: '#test-tpl'
+			});
+			
+			var vm = new Vue({
+				el: '#app'
+			});
+		</script>
+	</body>
+</html>

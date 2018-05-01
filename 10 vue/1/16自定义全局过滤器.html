@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 1、导入包 -->
+		<script src="vue234.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<span>{{ time | globalFormatDate('yyyy-mm-dd') }}</span>
+			<span>{{ time | globalFormatDate('mm-dd-yyyy') }}</span>
+		</div>
+		<div id="app2">
+			<span>{{ time | globalFormatDate('yyyy-mm-dd') }}</span>
+			<span>{{ time | globalFormatDate('mm-dd-yyyy') }}</span>
+		</div>
+		<script>
+			
+			/**
+			 * 有些时候我们想创建一些全局过滤器，在任何地方都可以使用，
+			 * 那么就需要Vue大佬出手了。
+			 * 调用Vue的filter方法来添加过滤器，这个方式与局部过滤器是有区别的。
+			 * */
+			Vue.filter('globalFormatDate', function(t, type) {
+				var date = new Date(t);
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var day = date.getDate();
+				
+				if(type === 'yyyy-mm-dd') {
+					return year + '-' + month + '-' + day; 
+				}else if(type === 'mm-dd-yyyy') {
+					return month + '-' + day + '-' + year ; 
+				}
+			});
+			
+			// var vm = new Vue({
+			// 	el: '#app',
+			// 	data: {
+			// 		time: new Date
+			// 	},
+			// 	filters: {
+			// 		globalFormatDate: function(t, type) {
+			// 			var date = new Date(t);
+			// 			var year = date.getFullYear();
+			// 			var month = date.getMonth() + 1;
+			// 			var day = date.getDate();
+						
+			// 			if(type === 'yyyy-mm-dd') {
+			// 				return year + '-' + month + '-' + day; 
+			// 			}else if(type === 'mm-dd-yyyy') {
+			// 				return month + '-' + day + '-' + year ; 
+			// 			}
+			// 		}
+			// 	}
+			// });
+			
+			var vm1 = new Vue({
+				el: '#app1',
+				data: {
+					time: new Date('2000-01-01')
+				}
+			});
+			var vm2 = new Vue({
+				el: '#app2',
+				data: {
+					time: new Date('2000-01-01')
+				}
+			});
+		</script>
+	</body>
+</html>

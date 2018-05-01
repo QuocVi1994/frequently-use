@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 定义组件的模版 -->
+		<script type="tpl" id="test-tpl">
+			<ul>
+				<li v-for="val in list">{{ val }}</li>
+			</ul>
+		</script>
+		
+		<div id="app">
+			<h1>app1</h1>
+			<v-test></v-test>
+			<v-test></v-test>
+		</div>
+		
+		<div id="app2">
+			<h1>app2</h1>
+			<v-test></v-test>
+			<v-test></v-test>
+		</div>
+		
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 组件的使用场景：
+			 * 1、如果一个app比较庞大，那么可以使用vue提供的组件把这个app拆分为一个个组件，有利于项目维护
+			 * 2、如果一个项目中，存在很多可复用的功能，这个复用的功能可以封装为一个组件，被重复利用
+			 * */
+			
+			// 无论是Vue.component还是components配置定义的组件，背后都调用了extend方法，
+			// 实际上extend才是定义组件的方法，其他两个只是给组件起个名字并区分一下全不全局
+			var cmp = Vue.extend({
+			
+				//  组件只能配置模版，因为组件可被复用不能单独关联页面某个元素
+				template: '#test-tpl',
+				
+				// 组件中的data为了不同组件之间没有关联，所以必须写成一个函数，返回对象的形式
+				data: function() {
+					return {
+						list: ['哈哈', '呵呵', '呲呲', '嘎嘎', '咯咯']
+					};
+				}
+			});
+			
+			// extend定义好的组件通过这种方式注册为全局的
+			Vue.component('v-test', cmp);
+			
+			var vm = new Vue({
+				el: '#app',
+				
+				// extend定义好的组件通过这种方式注册为局部的
+				components: {
+					'v-test': cmp
+				}
+			});
+			
+			var vm2 = new Vue({
+				el: '#app2'
+			});
+		</script>
+	</body>
+</html>

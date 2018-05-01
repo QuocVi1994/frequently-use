@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="val1" />
+			<input type="text" v-model="val2" />
+			<!-- 可能会存在这种需求，有一个数据与其他的多个数据挂钩，比如这里的total就是上面俩个数据的和  -->
+			<p>{{ total }}</p>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: { 
+					val1: 0,
+					val2: 0
+				},
+				
+				// 这个watch相比beforeUpdate与updated生命周期函数，更具有针对性，专门监听指定值的变化。
+//				watch: {
+//					val1: function(newVal, oldVal) {
+//						this.total = parseFloat(this.val1) + parseFloat(this.val2)
+//					},
+//					val2: function(newVal, oldVal) {
+//						this.total = parseFloat(this.val1) + parseFloat(this.val2)
+//					}
+//				}
+				
+				// 这里定义的都是页面数据渲染时用于获取数据的钩子函数
+				// 如果有某个值与其他多个值有关，那么最好把这个值定义在这里
+				computed: {
+					total: function() {
+						return parseFloat(this.val1) + parseFloat(this.val2);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

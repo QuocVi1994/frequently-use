@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<v-header></v-header>
+			<!-- 路由将根据url，把匹配到的组件视图渲染到这里 -->
+			<router-view></router-view>
+			<v-footer></v-footer>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script src="vue/vue-router260.js"></script>
+		<script>
+			// 定义一个全局头部组件
+			Vue.component('v-header', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'header'
+					};
+				}
+			});
+			
+			// 定义一个全局底部组件
+			Vue.component('v-footer', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'footer'
+					};
+				}
+			});
+			
+			// 预定义两个article的子组件
+			var comArticleColor1 = Vue.extend({
+				template: '<p>文章内容1</p>'
+			});
+			var comArticleColor2 = Vue.extend({
+				template: '<p>文章内容2</p>'
+			});
+			
+			// 定义一个未注册的登陆组件
+			var comArticle = Vue.extend({
+				// 现在子组件的引用方式交由路由来管理，所以使用<router-view></router-view>标签占位
+				template: '<div><h4>{{ title }}</h4><router-view></router-view></div>',
+				data: function() {
+					return {
+						title: '标题'
+					};
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {},
+				router: new VueRouter({
+					routes: [
+						// 当访问article路径时，切换到article组件
+						// 当访问article/color1路径时，切换到article组件，并引入article的子组件color1
+						// 当访问article/color2路径时，切换到article组件，并引入article的子组件color2
+						{ path: '/article', component: comArticle, children: [
+							{ path: 'color1', component: comArticleColor1 },
+							{ path: 'color2', component: comArticleColor2 }
+						] },
+					]
+				})
+			});
+		</script>
+	</body>
+</html>

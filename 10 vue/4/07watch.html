@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg" />
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: { msg: '' },
+				
+				// 这个watch相比beforeUpdate与updated生命周期函数，更具有针对性，专门监听指定值的变化。
+				watch: {
+					msg: function(newVal, oldVal) {
+						console.log(newVal, oldVal);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<v-header></v-header>
+			<component is="v-register"></component>
+			<v-footer></v-footer>
+		</div>
+		<script src="vue/vue234.js"></script>
+		<script>
+			
+			// 定义一个全局头部组件
+			Vue.component('v-header', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'header'
+					};
+				}
+			});
+			
+			// 定义一个全局底部组件
+			Vue.component('v-footer', {
+				template: '<h2>{{ msg }}</h2>',
+				data: function() {
+					return {
+						msg: 'footer'
+					};
+				}
+			});
+			
+			// 定义一个全局登陆组件
+			Vue.component('v-login', {
+				template: '<h4>{{ msg }}</h4>',
+				data: function() {
+					return {
+						msg: '登陆'
+					};
+				}
+			});
+			
+			// 定义一个全局注册组件
+			Vue.component('v-register', {
+				template: '<h4>{{ msg }}</h4>',
+				data: function() {
+					return {
+						msg: '注册'
+					};
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {}
+			});
+		</script>
+	</body>
+</html>

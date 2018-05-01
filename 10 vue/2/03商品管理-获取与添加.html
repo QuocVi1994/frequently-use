@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 800px;
+			margin: 20px auto;
+		}
+		.operation {
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 20px;
+			font-size: 18px;
+		}
+		.operation input {
+			padding: 5px;
+			border: 1px solid deepskyblue;
+		}
+		.operation button {
+			border-radius: 3px;
+			background-color: deepskyblue;
+		}
+		.search {
+			text-align: left;
+			line-height: 20px;
+			font-size: 18px;
+		}
+		.search input {
+			padding: 5px;
+			border: 1px solid deeppink;
+		}
+		#tb{
+			width: 800px;
+			border-collapse: collapse;
+			margin: 20px auto;
+		}
+		#tb th{
+			background-color: #0094ff;
+			color:white;
+			font-size: 16px;
+			padding: 5px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		#tb td{
+			padding: 5px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="wrapper" v-cloak>
+		<div class="operation">
+			<!--<input type="text" placeholder="请输入编号" v-model="id">-->
+			<input type="text" placeholder="请输入名称" v-model="name" @keydown.enter="addProduct">
+			<button type="button" @click="addProduct">添加数据</button>
+		</div>
+		<div class="search">
+			<input type="text" placeHolder="请输入筛选内容" v-model="searchVal">
+		</div>
+		<table id="tb">
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>创建时间</th>
+				<th>操作</th>
+			</tr>
+			<!-- 没有数据给出提示 -->
+			<tr v-show="!list.length">
+				<td colspan="4">列表无数据</td>
+			</tr>
+			
+			<!-- v-for在动态生成多条列表时，都需要先通过v-if进行判断，符合规则的才会渲染 -->
+			<tr v-if="isMatch(obj)" v-for="obj in list">
+				<td>{{ obj.id }}</td>
+				<td>{{ obj.name }}</td>
+				<td>{{ obj.ctime | formatDate('mm-dd-yyyy') }}</td>
+				<td>
+					<a href="#" @click="delProduct(obj.id)">删除</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<script src="vue/vue234.js"></script>
+	<script src="vue/vue-resource134.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				
+				// 商品列表
+				list: [],
+				
+				// v-model绑定的值这里必须先预定义
+				id: '',
+				name: '',
+				searchVal: ''
+			},
+			
+			// 当实例初始化完毕后就获取商品列表，然后把list数据进行修改，那么视图就会自动刷新
+			created: function() {
+				this.getList();
+			},
+			methods: {
+				
+				// 获取商品
+				getList: function() {
+					this.$http.get('http://139.199.192.48:8888/api/getprodlist').then(function(rep) {
+						// rep.body是获取服务器返回的全部数据，商品列表在该数据的message中
+						this.list = rep.body.message;
+					});
+				},
+				
+				// 点击添加按钮的时候调用该方法，方法内调用添加商品的接口
+				addProduct: function() {
+					
+					/**
+					 * 发送请求，如果添加失败给出失败提示，
+					 * 如果添加成功那么请求新的商品列表进行渲染。
+					 * */
+					var data = { name: this.name };
+					this.$http.post('http://139.199.192.48:8888/api/addproduct', data, {emulateJSON:true}).then(function(rep) {
+						if(rep.body.status !== 0) {
+							alert('添加失败！');
+						}else {
+							this.getList();
+						}
+					});
+					
+					// 添加完毕后，情况这俩数据，让用户重新输入
+					this.id = '';
+					this.name = '';
+				},
+				
+				// 点击删除按钮的时候调用该方法，
+				// 方法内遍历所有的商品，比较每一个商品的id与被删除id，如果一致则删除这条数据
+				delProduct: function(id) {
+					for(var i = 0, l = this.list.length; i < l; i++) {
+						if(this.list[i].id === id) {
+							// splice(要剔除数据的起始下标，剔除的数量，替换的值)
+							this.list.splice(i, 1);
+							return;
+						}
+					}
+				},
+				
+				/**
+				 * 商品列表在渲染每一个列表的时候，都会调用一次该方法，
+				 * 如果该方法返回true，那么渲染这个列表，否则不渲染。
+				 * */
+				isMatch: function(product) {
+					/**
+					 * 方法返回true还是false，就看用户输入的筛选的条件是否与商品的name规则相符
+					 * */
+					var reg = new RegExp(this.searchVal);
+					return reg.test(product.name);
+				}
+			},
+			filters: {
+				
+				// 注意：过滤器只能在插值表达式当中使用
+				formatDate: function(date, type) {
+					
+					// 为了保证date可以调用方法获取年、月、日，所以先包装成日期对象
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					
+					if(type === 'mm-dd-yyyy') {
+						return month + '-' + day + '-' + year;
+					}else {
+						return year + '-' + month + '-' + day;
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="app">
+				<!-- stop修饰符可以阻止冒泡，防止触发无关的父元素事件 -->
+				<div @click="click('父元素')">
+					<span @click="click('子元素')">点击</span>
+				</div>
+				<div @click="click('父元素')">
+					<span @click.stop="click('子元素')">点击</span>
+				</div>
+			</div>
+			<script src="vue234.js"></script>
+			<script>
+				var vm = new Vue({
+					el: '#app',
+					data: {
+						
+					},
+					methods: {
+						click: function(msg) {
+							alert(msg);
+						}
+					}
+				});
+			</script>
+	</body>
+</html>

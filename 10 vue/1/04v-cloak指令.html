@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 这就是视图，视图被vue实例通过选择器的方式关联 -->
+		<div id="app">
+			<!-- 数据可以直接使用 -->
+			
+			<!-- 如果要渲染的值比较多，使用v-text指令不方便，可以先添加一个父元素，然后父添加v-cloak指令来解决 -->
+			<!-- 当vue库初始化完毕后，会找到所有v-cloak的标签，去掉他们的v-cloak属性 -->
+			<div v-cloak>
+				<span>{{ name }}</span>
+				<span>{{ name }}</span>
+				<span>{{ name }}</span>
+			</div>
+			
+			<button v-on:click="changeName">戳我</button>
+		</div>
+		<!-- 1、导入包 -->
+		<script src="vue234.js"></script>
+		<script>
+			// 2、创建vue实例
+			// vue代表mvvm中的vm，用于串联视图与数据
+			var vm = new Vue({
+				el: '#app',
+				
+				// 这里是mvvm中的model，用于存储数据
+				data: {
+					name: '<i>大飞哥</i>'
+				},
+				
+				// 这里存放所有的函数，用于业务逻辑处理
+				// 这里所有的方法执行时，内部的this都指向当前实例
+				methods: {
+					changeName: function() {
+						console.log(this);
+						this.name += 1;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
