@@ -1,0 +1,230 @@
+
+
+    H5C3     6天     页面特效
+    移动web  6天     移动端页面 响应式页面
+    ajax     6天     前端和后台服务器交互
+
+  6课程安排： h5 2天  css3 4天  h5  c3  h5
+
+  html_css  js jq
+  h5c3  ajax  web---  3遍  2遍
+
+  心态：
+
+
+
+
+1、HTML5概念：
+    制作网页： html4.0
+        HTML   结构
+        CSS    样式
+        JS     行为
+
+       ipone6  -->ipone7
+    狭义的理解： html5 是 html4的升级版 在功能上有所增强
+           html4.01 -->html5
+           css2.0  --->css3
+           js--->  新增的js API  地理定位  重力感应  web存储
+
+    HTML5 广义的概念:
+          代表在浏览器发展的一个阶段，是一套前端技术的统称，包括 html5 css3 jsAPI
+
+
+    html5的语法：
+        更简洁
+        更宽松：
+            单标签不用写关闭符号  <br>
+            双标签 不用写结束标签 <li>aa
+            骨架表签可以省略
+
+        实际工作中不能太随意
+
+        <meta />  描述网页的元信息
+
+
+
+2、新增语义化标签
+
+     标签语义化：在合适的地方用合适的标签   seo优化
+
+      p   h1   img   div  span
+
+     header 头部
+     nav 导航
+     section 区域
+     aside 侧边栏
+     article 文章
+     footer 底部
+
+
+     低版本浏览器不识别 h5语义标签的解决办法
+     引入：html5shiv.js
+
+   
+        l:less 小与
+        t：than 比较
+        e:equal 等于
+        g:great 大于
+
+    <!--[if lte ie 8]>
+        <script src="html5shiv.min.js"></script>
+    <![endif]-->
+
+3、表单 (有兼容性问题)
+    用于收集用户的信息，提交给服务器
+
+   表单类型： type
+   <input type="text"/>
+    email   邮箱
+    tel     电话
+    url     地址
+    number  数字
+    search  搜索框
+    color   取色器
+    range   滑块 滑动条
+    time    时间
+    date    日期
+    datetime
+    month   月份
+    week    星期
+
+   表单元素：
+        datalist  数据列表  id="car"         list="car"
+        option
+
+   表单属性：
+        <input type="text" placeholder />
+        placeholder:提示文字
+        autofocus:  自动聚焦
+        autocomplete:自动完成  on  开启 off 关闭
+        multiple:   多选  上传多个文件
+        required:   必填
+        form:       指定所有属的表单域
+        pattern:    自定义正则验证规则
+        novalidate: 关闭表单的验证功能  用于form 表单
+
+   表单事件：
+        oninput  当用户输入是触发
+        oninvalid  当验证不通过时触发 ，设置验证不通过时的提示文字
+
+4、多媒体
+    canvas  画布
+    audio   音频
+    video   视频
+    img
+
+
+
+
+    在h5之前，网页需要播放视频和音频： 依赖于第3方的插件
+        xp     mediaplayer
+        快播   浏览器会自动调用  快播插件来网页视频
+        flash插件
+
+
+    h5 中： 提供了音频和视频标签
+        <audio src="hlw.mp3"></audio>
+        <audio autoplay controls loop>
+            <source src="music/yinyue.mp3"/>
+            <source src="music/yinyue.ogg"/>
+            <source src="music/yinyue.wav"/>
+            抱歉，你的浏览器版本贼低...
+        </audio>
+
+        <video controls>
+            <source src="video/movie.mp4"/>
+            <source src="video/movie.webm"/>
+            <source src="video/movie.ogg"/>
+            抱歉，你的浏览器版本贼低...
+        </video>
+
+        属性：
+        autoplay:自动播放
+        controls:控制条
+        loop:循环播放
+
+        API方法：
+        paly()  播放
+        pause() 暂停
+
+        paused  属性 是否暂停
+
+
+
+
+
+5、DOM拓展 （js API方面的增强)
+    html5-->html4
+    html5 新增标签
+    css3 新增了属性
+    js新增API
+
+    document对象：文档对象模型
+    当在浏览器中 打开一个页面时，浏览器首先会来解析我们的页面，会把我们的页面解析成一个document对象；
+
+    一、获取DOM元素
+            document.getElementById();
+            document.getElementsByTagName();
+            document.getElementsByClassName();
+
+            比较方便的获取元素的方式：
+            jq:$();
+                $('div');
+                $('.box');
+                $('#box');
+                $('ol li');
+
+         获取单个元素：
+         document.querySelector('div span');
+         获取多个元素：
+         document.querySelectorAll();
+
+    二、控制类名的API：
+        jq: addClass()  removeClass()  hasClass()  toggleClass();
+
+        js:box.className='test';
+
+        html5新增的操作类名的方式：
+            box.classList.add(); 添加类名
+            box.classList.remove();删除类名
+            box.classList.contains(); 判断是否有指定的类名 true false
+            box.classList.toggle(); 切换类名
+
+    三、标签的自定义属性：
+        <div  title="aa" data-name="xs" data-my-age="19" data-myid="1" ></div>
+        box.dataset['name'];
+        box.dataset['myAge']=30;
+
+        作用：存储数据
+
+
+    作业：
+      语义标签、多媒体 1遍
+      智能表单2  代码2遍
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

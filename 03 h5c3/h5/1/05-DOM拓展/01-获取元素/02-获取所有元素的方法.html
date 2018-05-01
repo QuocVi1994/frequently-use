@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 400px;
+            height: 50px;
+            border: 1px solid #000;
+            margin:20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box box1" id="box1"></div>
+<div class="box box2" id="box2"></div>
+<div class="box box3" id="box3"></div>
+<div class="box box4" id="box4"></div>
+<script>
+    //querySelectorAll 获取所有符合条件的元素 ，
+    // 返回的是一个伪数组 ，参数可以是任意合法的css选择器
+    document.querySelectorAll('div ');
+    document.querySelectorAll('.box')[2].style.background='hotpink';
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 标签的自定义属性 可以用于存储数据-->
+    <!--<div class="box"  title="哦，原来我是一个盒子啊！" title1="呵呵" age="18"></div>-->
+    <!--
+        规则：法律
+        规范：道德
+     -->
+    <!-- 在html5中的 规范 所有的自定义属性 要以  data-*  开头  -->
+    <div class="box" title="呵呵" data-title1="aa"  data-age="18" data-my-name='zs' ></div>
+
+    <script>
+
+        var box=document.querySelector('.box');
+        /*添加和设置属性的方法*/
+//        console.log(box.getAttribute('data-age'));
+//        box.setAttribute('title','123');
+
+        /*html5中提供了 用于操作自定义属性的方法*/
+        console.log(box.dataset);
+        console.log(box.dataset['age']);
+        //data-my-name='zs' 用驼峰命名来获取
+        console.log(box.dataset['myName']);
+
+        box.dataset['myName']='李狗蛋';
+    </script>
+</body>
+</html>

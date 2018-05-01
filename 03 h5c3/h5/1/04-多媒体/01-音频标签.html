@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--
+        html5 新增 多媒体标签
+        图片 img
+        视频  video
+        音频  audio
+        画布  canvas
+        
+        在之前：网页播放视频和音频都要依赖于第三方插件
+        flash插件
+        快播 
+        mediaplayer 
+            
+    -->
+
+    <!--<img src="1.jpg" alt=""/>-->
+    <!--
+        controls:控制条
+        autoplay:自动发播放
+        loop 循环播放
+    -->
+    <!--<audio src="music/hlw.mp3" controls autoplay loop></audio>-->
+
+    <!--兼容写法-->
+    <audio controls>
+        <source src="music/yinyue.mp3" />
+        <source src="music/yinyue.wav" />
+        <source src="music/yinyue.ogg" />
+        抱歉，浏览器版本过低，无法支撑音频标签，请更新！
+    </audio>
+</body>
+</html>

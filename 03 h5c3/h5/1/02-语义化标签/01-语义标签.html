@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .header,.nav,.section,.footer{
+            width: 1000px;
+            margin:5px auto;
+            border: 1px solid #000;
+        }
+        
+        .header{
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .nav{
+            height: 60px;
+            background-color: purple;
+        }
+        
+        .section{
+            background-color: #ccc;
+            height: 400px;
+        }
+
+        .aside{
+            float: left;
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .article{
+            float: right;
+            width: 600px;
+            height: 400px;
+            background-color: #daa520; /*金麒麟*/
+        }
+        
+        .footer{
+            background-color: #222;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        标签语义化： 在合适的地方用合适的标签  p   img    h1
+    -->
+
+    <!--div+css  问题：语义化不够好-->
+    <div class="header">头部</div>
+    <div class="nav">导航发</div>
+    <div class="section">
+        <div class="aside">侧边栏</div>
+        <div class="article">文章</div>
+    </div>
+    <div class="footer">底部</div>
+</body>
+</html>

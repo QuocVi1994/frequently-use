@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .test{
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>添加类名</button>
+    <button>删除类名</button>
+    <button>判断类名</button>
+    <button>切换类名</button>
+    <script>
+        /*
+        *  $   addClass()  removeClass()  hasClass()  toggleClass()
+        *
+        *  js:  box.className+=" active";
+        *
+        *  在h5中 js 提供了非常好用操作类名放方法
+        *  box.classList.add();  添加类名
+        *  box.classList.remove();  删除类名
+        *  box.classList.toggle();  切换类名
+        *  box.classList.contains(); 判断是否包含指定类名 true  false;
+        * */
+
+        //获取需要的标签
+        var box=document.querySelector('.box');
+        var btns=document.querySelectorAll('button');
+
+        //点击按钮 操作类名
+
+        btns[0].onclick=function(){
+            box.classList.add('test');
+        }
+
+        btns[1].onclick=function(){
+            box.classList.remove('test');
+        }
+
+        btns[2].onclick=function(){
+          alert( box.classList.contains('test'));
+        }
+
+        btns[3].onclick=function(){
+            box.classList.toggle('test');
+        }
+    </script>
+</body>
+</html>

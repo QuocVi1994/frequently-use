@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title> 
+        <style>
+        header,nav,section,footer{
+            width: 1000px;
+            margin:5px auto;
+            border: 1px solid #000;
+        }
+
+        header{
+            height: 100px;
+            background-color: pink;
+        }
+
+        nav{
+            height: 60px;
+            background-color: purple;
+        }
+
+        section{
+            background-color: #ccc;
+            height: 400px;
+        }
+
+        aside{
+            float: left;
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+
+        article{
+            float: right;
+            width: 600px;
+            height: 400px;
+            background-color: #daa520; /*金麒麟*/
+        }
+
+        footer{
+            background-color: #222;
+            height: 100px;
+        }
+    </style>
+    <!-- 解决ie9以下浏览器 不识别 语义标签的插件-->
+    <!-- 条件注释  ：只有ie能够识别 ， 满足条件则执行，否则还是一个注释-->
+    <!--
+        l:less  小于
+        t:than  比较
+        e:equal 等于
+        g:great 大于
+    -->
+    <!--[if lte ie 8]>
+        <script src="html5shiv.min.js"></script>
+     <![endif]-->
+
+</head>
+<body>
+
+    <!-- 这些标签 没有特殊的地方，就是有语义的div -->
+    <header>头部</header>
+    <nav>导航</nav>
+    <!-- 区域 块-->
+    <section>
+        <aside>侧边栏</aside>
+        <article>文章</article>
+    </section>
+    <footer>底部</footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form{
+            width: 640px;
+            margin:0 auto;
+            font-family: "Microsoft Yahei";
+        }
+
+        input{
+            display: block;
+            width: 100%;
+            height: 25px;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="form1"  >
+    <!-- 表单分组-->
+    <fieldset>
+        <legend>表单属性</legend>
+        <label>
+            用户名：<input type="text" name="username" id="username"  />
+        </label>
+        <label>
+            电话：<input type="tel" name="tel" pattern="^1\d{10}$"  id="tel"/>
+        </label>
+
+
+        <input type="submit" value="提交数据"/>
+    </fieldset>
+</form>
+
+<script>
+    //        onioninput 用户输入内容时触发，可用于移动端输入字数统计
+    //        oninvalid 验证不通过时触发，通常用于设置验证不通过时的提示文字
+    //    需求：
+    //        统计 用户名中文字的个数
+    //        改变tel中 提示文字的内容
+
+    var  userName=document.getElementById('username');
+    var  tel=document.getElementById('tel');
+    //onioninput 用户输入内容时触发
+    userName.oninput=function(){
+        tel.value=this.value.length;
+    }
+
+    //oninvalid 验证不通过时触发
+    tel.oninvalid=function(){
+        //用于设置验证不通过时的提示文字
+        this.setCustomValidity('亲，会不会输手机号，11位数字！');
+    }
+
+</script>
+
+
+</body>
+</html>
+

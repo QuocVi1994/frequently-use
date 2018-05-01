@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form{
+            width: 640px;
+            margin:0 auto;
+            font-family: "Microsoft Yahei";
+        }
+
+        input{
+            display: block;
+            width: 100%;
+            height: 25px;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        autofocus:  自动聚焦
+        placeholder: 提示文字
+        required： 必填项
+        autocomplete:自动完成功能 默认开启on  off关闭
+        pattern:自定义正则的验证规则
+            电话号：1开头 后面跟10个数字 正则 ^1\d{10}$
+        multiple: 多选 上传多个文件
+        form:  指定表单 所属的表单域  form="form1"
+    -->
+    <form id="form1"  >
+        <!-- 表单分组-->
+        <fieldset>
+            <legend>表单属性</legend>
+            <label>
+                用户名：<input type="text" name="username" autofocus placeholder="例如，李狗蛋"  required  autocomplete="off" />
+            </label>
+            <label>
+                电话：<input type="tel" name="tel" pattern="^1\d{10}$" />
+            </label>
+            <label>
+                密码：<input type="password" name="pwd" />
+            </label>
+            <label>
+                头像：<input type="file" name="file" multiple />
+            </label>
+
+            <input type="submit" value="提交数据"/>
+        </fieldset>
+    </form>
+
+    <input type="text" name="other"  form="form1"  />
+
+
+</body>
+</html>
