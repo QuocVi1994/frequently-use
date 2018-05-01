@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>百度钱包</title>
+  <style>
+    body{
+      background-color: #daa520;
+    }
+    .money{
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 100px auto;
+    }
+    .money::before,
+    .money::after{
+      content:"";
+      position: absolute;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: red;
+      background: url(images/bg.png) left top;
+      transition:transform 1s;
+      /* 设置背面不可见*/
+      backface-visibility:hidden;
+    }
+    /* 默认是反面*/
+    .money::before{
+      transform:rotateY(-180deg);
+    }
+    /*默认是正面*/
+    .money::after{
+      /*left:300px;*/
+      background-position: right top;
+    }
+    /* 转到正面*/
+    .money:hover::before{
+      transform:rotateY(0deg);
+
+    }
+    /* 转到反面*/
+    .money:hover::after{
+      transform:rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="money"></div>
+</body>
+</html>

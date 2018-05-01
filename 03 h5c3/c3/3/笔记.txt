@@ -1,0 +1,110 @@
+1、3d变换
+
+    rotateX() 沿着x轴旋转
+    rotateY() 沿着y轴旋转
+    rotateZ() 沿着z轴旋转
+
+    translateX() 沿x轴位移
+    translateY() 沿Y轴位移
+    translateZ() 沿Z轴位移  translateZ 需要配合透视使用 perspective
+
+
+    旋转方向：
+        对着正方向去看 都是顺时针旋转
+
+    backface-visibility:hidden 背面不可见
+
+    伪元素 获取自定义属性的值
+        content:attr(data-text);
+        // 自定义属性的作用 存储数据
+        <span data-text="传">传</span>
+
+    透视
+         如果希望看到  3d效果 需要添加透视 近大远小
+         透视 设置是 盒子 和 用户眼睛的距离，加给变换元素的父盒子
+         透视的值越大效果越不明显  perspective:1000px;
+
+         透视产生的3d效果,只是视觉上的呈现，并不是真正的3d
+
+
+    真正的3d的盒子
+        让子盒子保持真正的3d效果
+        transform-style:perserve-3d;
+        注意点：加给 父盒子
+
+动画：
+      css3中也可以来定义动画
+
+                和 js使用函数类似     先定义 在调用
+
+                function say(){}
+
+                定义动画：
+
+                @keyframes  动画名称{
+                    from{
+                        起始状态
+                    }
+                    to{
+                        结束状态
+                    }
+                }
+
+
+                @keyframes 动画名称{
+                    0%{
+
+                    }
+                    30%{
+
+                    }
+
+                    100%{
+
+                    }
+                }
+
+
+                调用动画
+
+      animation: 动画名称 持续时间 ；
+
+
+                  调用动画: 动画名称 持续时间 执行次数  是否反向 延迟执行 运动曲线..
+
+                  动画名称： animation-name: move
+                  单次动画执行时间：animation-duration: 2s;
+                  重复次数  animation-iteration-count: 1;   infinite 无数次
+                  动画方向：animation-direction    alternate：交替  normal正常的
+                  动画延迟：animation-delay: 1s;
+                  动画结束后的所保持的状态：
+                  animation-fill-mode:
+                      backwards:保持动画开始前的状态
+                      forwards:保持动画结束后的状态
+                  运动曲线：animation-timing-function
+                    linear 运算  ease-in-out :先加速后减速  steps
+                    steps(ｎ) 让动画分步完成
+                    animation-timing-function: steps(15);
+
+
+            动画的播放状态 ：paused 暂停 running 运行
+                    animation-play-state: paused;
+
+
+
+        作业：     音乐盒  1遍
+                   百度钱包 1遍
+                   翻转文字 2遍
+                   3d导航栏 2遍
+                   立方体   2遍
+
+                  动画属性详解  1遍
+                  动画的各个案例 2遍
+
+
+
+
+
+
+
+

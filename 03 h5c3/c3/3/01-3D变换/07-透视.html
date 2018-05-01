@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    /*透视*/
+    /*如果希望看到  3d效果 需要添加透视 近大远小*/
+             /*透视 设置是 盒子 和 用户眼睛的距离，加给变换元素的父盒子*/
+             /*透视的值越大效果越不明显  perspective:1000px;*/
+
+    /*透视产生的3d效果,只是视觉上的呈现，并不是真正的3d*/
+
+    .out{
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+      background-color: deepskyblue;
+      margin:100px auto;
+
+      /* 透视*/
+      perspective:350px;
+
+      transform:rotateY(10deg);
+    }
+
+    .in{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin:100px;
+      transform-origin: right;
+      /*transition:all 1s;*/
+      transform:rotateY(100deg);
+    }
+
+    .out:hover .in{
+      transform:rotateY(100deg);
+    }
+  </style>
+</head>
+<body>
+    <div class="out">
+      <div class="in"></div>
+    </div>
+</body>
+</html>

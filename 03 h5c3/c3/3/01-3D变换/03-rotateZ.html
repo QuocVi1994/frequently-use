@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box{
+      width: 330px;
+      height: 227px;
+      border: 1px solid #000;
+      margin:100px auto;
+
+      /* 如果希望看到3d 效果 ，需要给变换元素的父盒子加 透视 perspective
+        可以实现近大远小的效果
+        透视本质上设置的用户的眼睛和 盒子的的距离  值越小效果就越明显
+      */
+      /*perspective:180px;*/
+    }
+    /* 注意： 对着正反向去看，所有旋转都是是顺时针旋转的*/
+    img{
+      transition: transform 2s;
+    }
+
+    .box:hover img{
+      transform:rotateZ(360deg);
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <img src="images/z.jpg" alt=""/>
+</div>
+</body>
+</html>
