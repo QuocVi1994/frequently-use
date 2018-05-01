@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <!-- 
+    1 使用rem去代替px 还原设计稿
+    2 rem+媒体查询去做屏幕适配
+    
+   -->
+   <img src="./images/toolbar.png" alt="">
+  <div class="view">
+    <!-- 绿色的卡片 全场优惠 .cart .all_cheap -->
+    <div class="cart all_cheap">
+      <!-- 标题 -->
+      <h3 class="cart_title">全场优惠 <span>1/1</span></h3>
+      <!-- 卡片内容 -->
+      <div class="cart_content">
+        <!-- 绿色的部分 -->
+        <div class="main_content">
+          <div class="main_title1">全场满300减10</div>
+          <div class="main_title2">双十一特价优惠全场满就减</div>
+          <div class="main_time"> <span class="icon-time"></span> 14-11-12 20:12 至 14-11-12 23:12 <a href="javascript:;">即将开始</a></div>
+        </div>
+        <!-- 工具栏 白色 -->
+        <div class="cart_tool clearfix">
+          <a href="javascript:;">
+            <span class="icon-edit"></span>
+            编辑
+          </a>
+          <a href="javascript:;">
+            <span class="icon-share"></span>
+            分享
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- 紫色 优惠券 coupon  -->
+    <div class="cart coupon">
+      <!-- 标题 -->
+      <h3 class="cart_title">优惠券 <span>2/3</span></h3>
+      <!-- 卡片内容 没有工具栏 empty_tool-->
+      <div class="cart_content empty_tool">
+        <!-- 紫色的部分 -->
+        <div class="main_content">
+          <div class="main_title1">
+            <span class="rmb">￥</span>
+            <span class="big_num">5</span>
+            <span class="sm_num">（满0.00可用） </span>
+          </div>
+          <div class="main_title2">已领取/已使用：12/22   发行总数：1230</div>
+          <div class="main_time"> <span class="icon-time"></span> 14-11-12 至 14-11-12 <a href="javascript:;">已领取完</a></div>
+        </div>
+       
+      </div>
+
+        <!-- 卡片内容 有工具栏 own_tool-->
+        <div class="cart_content own_tool">
+            <!-- 紫色的部分 -->
+        <div class="main_content">
+          <div class="main_title1">
+            <span class="rmb">￥</span>
+            <span class="big_num">20</span>
+            <span class="sm_num">（满500.00可用） </span>
+          </div>
+          <div class="main_title2">已领取/已使用：12/22   发行总数：1230</div>
+          <div class="main_time"> <span class="icon-time"></span> 14-11-12 至 14-11-12 <a href="javascript:;">正在进行</a></div>
+        </div>
+          <!-- 工具栏 白色 -->
+          <div class="cart_tool clearfix">
+            <a href="javascript:;">
+              <span class="icon-delete"></span>
+              作废
+            </a>
+            <a href="javascript:;">
+              <span class="icon-preview"></span>
+              预览
+            </a>
+            <a href="javascript:;">
+              <span class="icon-share"></span>
+              分享
+            </a>
+          </div>
+        </div>
+    </div>
+
+    <!-- 添加优惠券 add_coupon -->
+    <div class="add_coupon">
+      <a href="javascript:;">
+        <span class="icon-add"></span>
+      </a>
+      <p>添加优惠券</p>
+    </div>
+
+  </div>
+
+</body>
+<!-- 
+  在线标注工具 标你妹
+  
+ -->
+</html>

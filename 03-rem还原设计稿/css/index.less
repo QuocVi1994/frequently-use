@@ -1,0 +1,197 @@
+@import "./font.less";
+@import "./media.less";  
+/* #region 初始化*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    font-size: 0;
+}
+
+
+/* #endregion */
+
+
+.view {
+    padding: 0 .26rem;
+    background-color: #f7f4f1;
+    // background-color: greenyellow;
+    overflow: hidden;
+}
+
+.cart {
+    margin-top: 0.28rem;
+    .cart_title {
+        font-size: 0.28rem;
+        font-weight: normal;
+        >span {
+            float: right;
+            color: #888888;
+        }
+    }
+    .cart_content {
+        margin-top: .28rem;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px 2px #ccc;
+        .main_content {
+            background-color: #55bc75;
+            padding: 0 .28rem .34rem;
+            position: relative;
+            overflow: hidden;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 1.46rem;
+                height: 1.46rem;
+                background-image: url("../images/sale.png");
+                background-size: 1.46rem 1.46rem;
+                top: -.2rem;
+                right: -.06rem;
+            }
+            .main_title1 {
+                color: #fff;
+                font-size: .46rem;
+                line-height: 1;
+                padding-top: 0.32rem;
+            }
+            .main_title2 {
+                font-size: 0.24rem;
+                color: #bdf3ce;
+                margin-top: 0.18rem;
+            }
+            .main_time {
+                font-size: 0.22rem;
+                color: #ffffff;
+                margin-top: 0.58rem;
+                >a {
+                    float: right;
+                    background-color: #2a603b;
+                    color: #bdf3ce;
+                    border-radius: 5px;
+                    padding: 2px;
+                }
+            }
+        }
+        .cart_tool {
+            background-color: #fff;
+            text-align: center;
+            padding: .18rem 0;
+            position: relative;
+            &::before {
+                position: absolute;
+                content: "";
+                display: block;
+                background-image: url("../images/icon.png");
+                background-size: .24rem .08rem;
+                width: 100%;
+                height: 0.08rem;
+                top: -0.08rem;
+                left: 0;
+            }
+            >a {
+                float: left;
+                width: 50%;
+                font-size: 0.26rem;
+                color: #888888;
+                >span {
+                    color: #5cbe7b;
+                }
+            }
+            >a:first-child {
+                border-right: 1px solid #e8e2d9;
+            }
+        }
+    }
+}
+
+
+/* 紫色 优惠券 coupon */
+
+.coupon {
+    .cart_content {
+        .main_content {
+            background-color: #a974bc;
+            .main_title1 {
+                font-family: "华文细黑";
+                padding-top: 0.14rem;
+                .rmb {
+                    font-size: 0.4rem;
+                }
+                .big_num {
+                    font-size: 0.9rem;
+                }
+                .sm_num {
+                    font-size: 0.24rem;
+                    color: #eac7f7;
+                }
+            }
+            .main_title2 {
+                font-size: .22rem;
+                color: #fff;
+                margin-top: 0.4rem;
+            }
+            .main_time {
+                margin-top: 0.1rem;
+                >a {
+                    background-color: #6a4279;
+                    color: #f2d8fb;
+                }
+            }
+        }
+        .cart_tool {
+            >a {
+                width: 33.33%;
+                >span {
+                    color: #a974bc;
+                }
+            }
+            >a:nth-child(2) {
+                border-right: 1px solid #e8e2d9;
+            }
+        }
+    }
+}
+
+/* 添加优惠券 */
+.add_coupon{
+    height: 2.26rem;
+    line-height: 1;
+    border: 5px dashed #dedede;
+    margin-top: 0.26rem;
+    color: #aeaeae;
+    background-color: #fff;
+    text-align: center;
+    a{
+        margin-top: 0.34rem;
+    }
+    p{
+        font-size: 0.26rem;
+        margin-top: 0.14rem;
+    }
+}
