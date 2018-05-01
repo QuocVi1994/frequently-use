@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .demo {
+      width: 500px;
+      height: 600px;
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+<input type="button" value="设置" id="btn"/>
+<div id="box"></div>
+</body>
+</html>
+<script>
+  var box = document.getElementById("box");
+  var btn = document.getElementById("btn");
+
+//  btn.onclick = function (){
+//    box.style.backgroundColor = "blue"; // 只设置或是修改一个属性的时候，用style比较方便
+//  }
+  btn.onclick = function (){
+//      box.className = "demo";
+    box.setAttribute("class","demo");
+  }
+</script>

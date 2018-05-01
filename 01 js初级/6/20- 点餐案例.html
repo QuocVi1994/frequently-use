@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>点餐案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      width: 300px;
+      margin: 100px auto;
+    }
+
+    table {
+      border-collapse: collapse; /*倒塌，合并边框*/
+      border-spacing: 0; /*边框间隔*/
+      border: 1px solid #c0c0c0;
+      width: 300px;
+    }
+
+    th, td {
+      border: 1px solid #d0d0d0;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" name="" id="j_cbAll"/>
+      </th>
+      <th>菜名</th>
+      <th>饭店</th>
+    </tr>
+    </thead>
+    <tbody id="j_tb">
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧肉</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>西红柿炒鸡蛋</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧狮子头</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>日式肥牛</td>
+      <td>田老师</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+  // 1. 先获得要操作的对象
+  var btnAll = document.getElementById("j_cbAll");
+  var tBody = document.getElementById("j_tb");
+  var inputs = tBody.getElementsByTagName("input");
+  // 2. 给事件源注册事件
+  btnAll.onclick = function (){
+//     if(btnAll.checked==true){
+//       for(var i=0;i<inputs.length;i++){
+//         inputs[i].checked = true;
+//       }
+//     }else {
+//       for(var i=0;i<inputs.length;i++){
+//         inputs[i].checked = false;
+//       }
+//     }
+    // 让小按钮的选中状态始终 和总按钮是保持一致的
+        for(var i = 0; i < inputs.length; i++) {
+             inputs[i].checked = btnAll.checked; // 让下面小按钮的状态始终和总按钮保持一致
+        }
+  }
+
+  for(var i=0;i<inputs.length;i++){
+    inputs[i].onclick = function (){  // 给每一个下面的小按钮注册事件
+      // 有一个临界点就是，只要下面的四个小按钮中，有一个没有被选中的话，总按钮就不能被选中
+      var flag = true;//假设总按钮是一个选中的状态
+        for(var i=0;i<inputs.length;i++){
+          if(!inputs[i].checked) {
+            flag = false;// 总按钮就应该是不选中的状态
+            break;//跳出循环
+          }
+        }
+      btnAll.checked = flag; // 总按钮的选中状态和flag是一样的
+    }
+  }
+</script>
