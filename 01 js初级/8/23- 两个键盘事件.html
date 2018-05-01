@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="text" id="txt"/>
+</body>
+</html>
+<script>
+  var txt = document.getElementById("txt");
+  // keydown  键盘按下  keyup  键盘按下并抬起的时候
+//  txt.onkeydown = function (){
+//    // 当键盘按下就会触发，不会获取当前输入的内容
+//        console.log(txt.value);
+//  }
+
+  txt.onkeyup = function (){
+    // 键盘按下并抬起来的时候，才会触发的事件，如果键盘不抬起来一直按着的话，是不会触发的，会将输入的内容全部获取到
+         console.log(txt.value);
+  }
+
+
+//  var data = ["a","ab","abc","abcd","aa","cc"];
+
+  // 字符串可以看成是字符的数组
+  // indexOf
+</script>
