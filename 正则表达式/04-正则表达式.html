@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文档标题</title>
+    <script>
+
+        var reg = new RegExp("人民");
+        var reg = /人民/;
+        var str = "你好，人民我爱中华人民共和国";
+
+        /**
+         *      正则表达式的作用：
+         *          主要用来按照规律匹配字符串
+         *              匹配后，
+         *                  可能会验证数据
+         *                  替换文本
+         *      语法：
+         *          正则对象.test(字符串);
+         *      返回值：（Boolean）
+         *          满足条件返回 true，不满足返回 false
+         * */
+        console.log(reg.test(str));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

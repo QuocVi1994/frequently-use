@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文档标题</title>
+    <script>
+        /* 普通函数定义，会占用变量名 */
+//        function fn() {
+//            alert("普通函数，需要手动调用");
+//        }
+//        fn();
+//        window.fn = fn
+        var aa = 100   /**!  如果自调用函数括号代码前语句并没有结束符号，容易出bug */
+        ;(function () {
+            var aa = 100;
+            alert("自动用函数，不占用函数名称，即可执行里面的代码");
+        })();
+        ;(function () {
+            var aa = 100;
+            alert("自动用函数，不占用函数名称，即可执行里面的代码");
+        })();
+//        (function () {
+//            alert("自动用函数，不占用函数名称，即可执行里面的代码");
+//        }())
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

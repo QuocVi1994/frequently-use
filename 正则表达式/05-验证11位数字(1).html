@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文档标题</title>
+    <script>
+        window.onload = function () {
+
+            /**
+             *      正则表达式
+             *          主要是按照一定的规则去匹配字符串
+             *      作用：
+             *          1.验证表单数据，2.替换文本
+             *
+             *      创建正则对象写法：
+             *
+             *          new RegExp('规则');    比较少这么写，麻烦。
+             *
+             *          /规则/
+             *
+             *      test()    用于验证规则
+             *          语法：
+             *              规则.test(要检查的字符串);
+             *          功能：
+             *              满足规则返回 true ，不满足返回false
+             *
+             *      .replace()   其实是字符串上的方法
+             *          语法：
+             *              字符串.replace(/正则对象规则/标识,新字符串);
+             *
+             *          功能：
+             *               把匹配规则的字符串替换成新字符串
+             *          返回值：
+             *              替换完后的字符，记得接收
+             *
+             *      .match()   其实是字符串上的方法
+             *
+             *          语法：
+             *               字符串.match(/正则对象规则/g);
+             *          功能：
+             *               把匹配规则的字符串找出来
+             *           返回值：
+             *              数组格式
+             *
+             *      正则规则：
+             *          用于判断类型(元字符)
+             *              \d    匹配一个数字
+             *              \D    匹配一个非数字
+             *          用于判断个数(限定符)
+             *              {n}   重复n次
+             *          特殊符号(某种功能)
+             *              ^     开始
+             *              $     结束
+             *
+             * */
+            /* 1. 获取到手机输入框 */
+            var tel = document.getElementById('tel');
+            /* 2. 给输入框添加键盘抬起事件 */
+            tel.onkeyup = function () {
+                /* 3. 获取当前手机输入框的数据 */
+                var txt = this.value;
+                /* 匹配1位数字，包括1以上  */
+//                var reg = /\d/;
+                /* 匹配11位数字，包括11以上 */
+//                var reg = /\d{11}/;
+                /* 匹配11位数字，约束开始和结尾 */
+                var reg = /^\d{11}$/;
+                console.log(reg.test(txt));
+//                if( reg.test(txt) ){
+//
+//                }
+//                console.log(txt);
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        11位数字：<input type="text" name="tel" id="tel">
+
+    </form>
+</body>
+</html>
