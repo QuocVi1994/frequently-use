@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>scroll兼容问题</title>
+  <style>
+    body {
+      height: 2000px;
+      width: 2000px;
+    }
+  </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY。另外，旧版本IE（<9）两个属性都不支持，必须使用其他的非标准属性。
+  //window.pageYOffset   window.scrollY
+  window.onscroll = function (){
+   // console.log(window.pageYOffset);    //  谷歌和火狐支持的，而IE8及之前的浏览器不支持
+   // console.log(document.body.scrollTop); // 只有谷歌支持，而火狐和IE都不支持
+    console.log(document.documentElement.scrollTop); // 谷歌不支持，而火狐和IE支持
+//    console.log(window.pageXOffset);
+  }
+
+</script>

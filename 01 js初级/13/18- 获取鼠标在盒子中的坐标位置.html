@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body {
+      width: 2000px;
+      height: 1000px;
+    }
+    div {
+      width: 360px;
+      height: 360px;
+      background-color: pink;
+      margin: 200px auto;
+    }
+  </style>
+  <script src="common.js"></script>
+  <script>
+      window.onload = function () {
+        //1. 获得对象
+        var demo = document.getElementById("demo");
+        // 2. 给事件源注册事件
+        demo.onclick = function (e){
+              e = e || window.event;
+
+          // 获取鼠标在页面中的坐标位置 x   y
+          var x = page(e).x;
+          var y = page(e).y;
+
+          x = x - demo.offsetLeft; // offsetLeft 是自身的左边框到就近的定位的父级元素之间的距离，如果父级都没有定位的话，则默认是以页面或是body为准
+          y = y -demo.offsetTop;
+
+          demo.innerHTML = x+"==="+y;
+        }
+      }
+  </script>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>

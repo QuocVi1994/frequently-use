@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>鼠标的三个坐标</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body {
+      height: 2000px;
+      width: 2000px;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+</body>
+</html>
+<script>
+  // 由于每个浏览器支持的方式是不一样的，因此需要封装兼容性
+
+
+//  document.onclick = function (e){
+//      e = e || window.event;
+//
+//      console.log(e.clientX+"==="+ e.clientY);
+//  }
+
+  var box = document.getElementById("box");
+  box.onclick = function (e){
+        e = e || window.event; // 要么存在于形参中，要么存在于window.event中
+      console.log("clientX:"+e.clientX+"==="+"clientY:"+ e.clientY); //是以浏览器的可视区的左上角为准
+      console.log("pageX:"+e.pageX+"===="+"pageY:"+ e.pageY); // 是以页面的左上角为准
+      console.log("screenX:"+e.screenX+"==="+"screenY"+ e.screenY);  // screen是以屏幕 的左上角为准
+  }
+</script>
