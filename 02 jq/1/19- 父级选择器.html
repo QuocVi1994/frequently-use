@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>父级选择器</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function () {
+      // parentNode
+//      $("#li3").parent().css("backgroundColor","pink");
+//      $("#sp1").parents().css("backgroundColor","blue"); //所有的父级，直到DOM的最顶层
+      $("#sp1").parents("div").css("backgroundColor", "blue");
+    })
+  </script>
+</head>
+<body>
+<div id="box1">这是第一个div</div>
+<h2>这是第一个h2标签</h2>
+
+<p>这是第一个p标签</p>
+<span>这是第一个span标签</span>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li id="li3">这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+  <li>这是第5个li标签</li>
+  <li>这是第6个li标签</li>
+</ul>
+<p>这是第二个p标签</p>
+<span>这是第二个span标签</span>
+
+<div id="d1">
+  这是盒子d1的内容
+  <div id="d2">
+    这是盒子d2的内容
+    <div id="d3">
+      这是盒子d3的内容
+      <span id="sp1">这是最里面的span标签</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

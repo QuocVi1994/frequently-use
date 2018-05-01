@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>隔行变色</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+       $(document).ready(function(){
+         // DOM对象 就是使用原生的JS的方法获取的标签对象就是DOM对象
+         // jQuery对象 就是使用jQuery中的方法获取的标签对象，使用jQuery的方法获取的标签对象，无论是几个，都是一个包装集的形式，也就是说是存在于一个伪数组当中
+         // 两者的API是不能乱用的，要想让当前DOM对象使用jQuery的API或是jQuery对象使用原生 的API的话，必须进行转换
+
+
+          // 1. 先获取对象
+//          var lis = document.getElementsByTagName("li");
+//         var btn = document.getElementById("btn");
+//         // 2. 给事件源注册事件设置隔行变色
+//         btn.onclick = function (){
+//           for(var i = 0; i < lis.length; i++) {
+//             if(i%2==0){
+//               lis[i].style.backgroundColor= "red";
+//             }else {
+//               lis[i].style.backgroundColor = "blue";
+//             }
+//           }
+//         }
+         var lis = $("li"); // 包装集，就是一个伪数组
+         var btn = $("#btn");
+
+         btn[0].onclick = function (){
+             for(var i=0;i<lis.length;i++){
+               if(i%2==0){
+                 lis[i].style.backgroundColor = "red";
+               }else {
+                 lis.get(i).style.backgroundColor = "blue";
+               }
+             }
+         }
+//         btn.click(function (){
+//             for(var i=0;i<lis.length;i++){
+//               if(i%2==0){
+//                 lis[i].style.backgroundColor = "red";
+//               }else {
+//                 lis.get(i).style.backgroundColor = "blue";
+//               }
+//             }
+//         })
+
+
+
+
+//        var btn1 = document.getElementsByTagName("input");// 虽然只有一个input标签，但是是使用的标签名的方式来获取的，也是存在于伪数组当中
+//         btn1[0].onclick = function (){
+//
+//         }
+       })
+
+
+    // 选择器和方法    getText   setText    text()
+    // css()
+
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li>这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>显示和隐藏</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+//           $("#btnHide").click(function (){
+//              $("#box").hide(1000,function(){
+//                $("#box").show(1000,function(){
+//                  $("#box").hide(1000);
+//                });
+//              });
+//           })
+//        $("#btnShow").click(function (){
+//               $("#box").show(1000);
+//        });
+
+        $("#btnHide").click(function (){
+//               $("#box").hide("fast");
+//               $("#box").hide("normal");
+//               $("#box").hide("slow");
+               $("#box").hide("你能不能快点啊"); // normal
+        })
+        // display:
+        // jQuery当中所有的动画都支持时间和回调函数
+
+        // width  height  opacity   display
+
+        // fast200   normal400   slow600
+
+        $("#btn").click(function (){
+               $("#box").toggle(1000);
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btnShow" value="显示"/>
+<input type="button" id="btnHide" value="隐藏"/>
+<input type="button" id="btn" value="切换"/>
+<div id="box"></div>
+</body>
+</html>

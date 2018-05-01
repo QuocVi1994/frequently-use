@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>层级选择器二</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+      // children   find
+      // 当然生js中是childNodes  children
+      // 学习jQuery就是学习别人已经封装好的方法 方法就是函数  函数名称  参数   返回值
+//      $("#dv").children().css("backgroundColor","pink"); // 没有参数的时候，表示所有的子级标签
+//      $("#dv").children("span").css("backgroundColor","pink"); // 没有参数的时候，表示所有的子级标签
+      // 如果有参数，表示从所有的子级当中，再筛选符合参数要求的那些标签对象
+
+//      $("#dv").find().css("backgroundColor","red");//
+      $("#dv").find("span").css("backgroundColor","red");// 这个方法必须提供参数，表示从当前元素查找所有的子级当中符合参数要求的标签对象
+
+
+    })
+  </script>
+</head>
+<body>
+<div id="dv">
+  这是div的文本
+  <div id="d6">这是大的DIV中p1前面的DIV</div>
+  <p id="p1">
+    这是p元素的文本pp
+    <span> 这是 span 元素的文本span</span>
+  </p>
+  <div>这是一个新加的div=============</div>
+  <span>这是div的亲儿子span</span>
+  <div id="d1">
+    这是div的文本---------------------
+    <p>
+      这是p元素的文本---------------
+      <span> 这是 span 元素的文本---------------</span>
+    </p>
+    <div>
+      <div>
+        <p>这是隐藏的很深的p元素</p>
+        <span>这是 span 元素的文本00000000</span>
+      </div>
+    </div>
+  </div>
+  <span>这是最后的一个span标签</span>
+</div>
+</body>
+
+</html>

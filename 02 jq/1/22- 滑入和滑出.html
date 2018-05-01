@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>滑入与滑出</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+      var box = $("#box");// 变量的本地化
+       $("#btn1").click(function (){
+            box.slideDown(1000);
+       })
+      $("#btn2").click(function (){
+          box.slideUp(1000,function (){
+            box.slideDown(1000,function (){
+              box.slideUp(1000);
+            });
+          });
+      })
+
+      $("#btn3").click(function (){
+           box.slideToggle(1000);
+      })
+      // 都支持和回调函数
+      // fast  normal  slow
+      // 控制的属性是height
+
+      // 淡入淡出  fadeIn   fadeOut  fadeTo  fadeToggle
+      // animate()   对象  时间   曲线   回调函数
+
+      // 链式编程的原理  始终在调用完了此方法的时候，还要返回当前对象  一般用于设置的时候，可以使用链式编程
+    })
+  </script>
+</head>
+<body>
+<input type="button" id="btn1" value="滑入"/>
+<input type="button" id="btn2" value="滑出"/>
+<input type="button" id="btn3" value="切换"/>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>设置或是获取属性二</title>
+  <style>
+      li {
+        font-size: 20px;
+      }
+    .one {
+      font-size: 28px;
+    }
+    .two {
+      font-size: 24px;
+    }
+    .three {
+      font-size: 16px;
+    }
+    .four {
+      font-size: 40px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+//       var lis = document.getElementsByTagName("li");
+//
+//      for(var i = 0; i < lis.length; i++) {
+//           lis[i].innerhtml
+//      }
+//      var lis = $("li");
+//      lis.text("这是用jQuery的方式设置的内容");
+      // jQuery支持隐式迭代   迭代就是遍历的意思
+
+      console.log($("li").css("fontSize")); // 如果有多个标签对象的话，在获取属性值的时候，默认是以第一个为主
+
+      $("li").css("font-size","50px");
+    })
+  </script>
+</head>
+<body>
+<ul>
+  <li class="one">这是第1个li标签</li>
+  <li class="two">这是第2个li标签</li>
+  <li class="three">这是第3个li标签</li>
+  <li class="four">这是第4个li标签</li>
+</ul>
+</body>
+</html>

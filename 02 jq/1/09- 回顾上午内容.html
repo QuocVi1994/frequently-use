@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    /**
+     * 1. 为什么要学习jQuery    原生js开发中的痛点
+     * 2. jQuery是什么
+     *      jQuery就是一个库， 方法库  是别人已经封装好的一个方法库   ()
+     * 3. jQuery的特点    write less  do more
+     * 4. jQuery 的版本        原生的JS执行的效率更高一些   jQuery开发的效率更高一些
+     *      1.x       还在支持IE6 7 8
+     *      2.x
+     *      3.x       已经不支持IE6 7 8 了
+     * 5. 使用jQuery的步骤
+     *      1. 引包  引入jQuery的库文件
+     *      2. 写入口函数
+     *      3. 写功能实现    就是写代码
+     * 6. 入口函数的区别
+     *      原生JS的入口函数是： window.onload = function(){}
+     *      执行的时机，是当页面中的所有的资源都加载完毕之后才会执行
+     *      所有的资源包括： DOM树渲染完毕 ，请求的外部图片加载完毕，请求外部其它文件加载完毕
+     *
+     *      而jQuery中的入口函数有两个：
+     *      $(document).ready(function(){})
+     *      $(function(){})
+     *      执行进机，要比原生JS的入口函数的执行时机，要早一些，是只要DOM树渲染完毕就会执行
+     * 7. $就是一个封装好的函数
+     *      根据传入的参数不同，实现不同的功能
+     *      $(function(){})
+     *      $("#id")    通过id获取标签对象
+     *      $(".类名")   通过类名来获取标签
+     *      与$功能一模一样的，还有另一个jQuery
+     * 8. DOM对象与jQuery对象的互换
+     *      DOM对象： 就是使用原生js的方式获取的标签对象就是DOM对象，DOM对象只能使用原生JS的那些API
+     *      jQuery对象： 就是使用jQuery的API获取的标签对象，就是jQuery对象，获取的标签对象是一个包装集，就是一个伪数组，jQuery的对象只能使用jQuery的API        意义是一样的，只不过名字不一样
+     *
+     *      DOM对象--jQuery对象：
+     *      $(dom对象)
+     *
+     *      jQuery对象--DOM对象：
+     *      jQuery对象[索引]
+     *      jQuery对象.get(索引)
+     *
+     *
+     *      选择器和一些常用的方法
+     *
+     */
+  </script>
+</head>
+<body>
+
+</body>
+</html>

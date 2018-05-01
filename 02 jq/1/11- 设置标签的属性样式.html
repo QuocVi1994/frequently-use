@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>获取或是设置属性一</title>
+  <style>
+    #demo {
+      width: 200px;
+      background-color: rgb(255, 0, 0);
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+        // jQuery把获取或是设置标签间的样式都封装到一个方法中 css()
+      // 原生js中的获取标签内嵌属性： currentStyle    getComputedStyle
+//       var wid = $("#demo").css("width");
+//      console.log(wid);
+//      console.log($("#demo").css("width"));
+//
+//      console.log($("#demo").css("height"));
+////      console.log($("#demo").css("backgroundColor"));
+//      console.log($("#demo").css("background-color"));
+
+//      $("#demo").css("height","300");
+//      $("#demo").css("width","350px");
+//      var json = {
+//        width:320,
+//        height:360,
+//        backgroundColor: "blue"
+//      }
+//        $("#demo").css(json);
+//        $("#demo").css({
+//          width:320,
+//          height:360,
+//          backgroundColor: "blue"
+//        });
+        $("#demo").css({
+          "width":420,
+          "height":460,
+          "background-color":"purple"
+        })
+    })
+  </script>
+</head>
+<body>
+<div id="demo" style="height:220px"></div>
+</body>
+</html>

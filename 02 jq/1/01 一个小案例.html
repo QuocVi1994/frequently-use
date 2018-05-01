@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>原生js开发</title>
+  <style>
+    div {
+      height: 200px;
+      background-color: pink;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        // 1. 现有的知识点已经不能满足我们的新的业务需求
+        //  2. 用现有的知识去解决问题的时候，效率偏低
+
+
+      // 使用原生的js开发中遇到的一些问题
+      // 1. 兼容性的问题      封装 兼容性
+      // 2. API比较麻烦       $$    $
+      // 3. 入口函数只能有一个   也可以解决
+      // 4. 容错性比较差    只要有一行出错，后面的代码都不会执行
+
+      //1. 获取对象
+      var btnShow = document.getElementById("btnShowDiv");
+      var btnSet = document.getElementById("btnSetDiv");
+      var divs = document.getElementsByTagName("div");
+      // 2. 给事件源注册事件
+      btnShow1.onclick = function (){
+             for(var i=0;i<divs.length;i++){
+               divs[i].style.display = "block";
+             }
+      }
+
+      btnSet.onclick = function (){
+             for(var i=0;i<divs.length;i++){
+//               divs[i].innerHTML = "这是用JS的方式设置的内容";
+//               divs[i].innerText = "这是用JS的方式设置的内容";
+             }
+
+        // innerText/textContent:
+        //1. 可以用来获取标签间的文本内容，如果标签间只有纯文本的话，则是直接获取，如果还有标签的话，会将忽略
+        //2. 可以用来设置标签间的内容，如果是纯文本，则是直接设置，如果有嵌套的标签的话，则会将标签进行转义
+        //3. 有兼容性的问题
+
+        //innerHTML:
+        // 1. 用来获取标签间的文本内容的话，如果标签间只有纯文本的话，则是直接获取，如果标签间还有嵌套标签的话，则会将标签一并获取
+        // 2. 用来设置标签间的文本内容，如果设置的是纯文本的话，则是直接设置，如果有标签的话，则会标签在浏览器中渲染出来
+        // 3. 没有兼容性的问题
+      }
+    }
+
+//    window.onload = function (){
+//           console.log(123);
+//    }
+  </script>
+</head>
+<body>
+<input type="button" value="设置样式" id="btnShowDiv"/>
+<input type="button" value="设置内容" id="btnSetDiv"/>
+
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

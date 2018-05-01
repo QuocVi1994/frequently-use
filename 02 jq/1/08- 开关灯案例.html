@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>开关灯案例</title>
+    <script src="js/jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+//            var btn = document.getElementById("btn");
+//            var isOpen = true;
+//            btn.onclick = function () {
+//                if (isOpen) {
+//                    document.body.style.backgroundColor = "black";
+//                    this.value = "开灯";
+//                } else {
+//                    document.body.style.backgroundColor = "#fff";
+//                    this.value = "关灯";
+//                }
+//                isOpen = !isOpen;
+//            }
+
+         var btn = $("#btn");
+         var isOpen = true;
+         btn.click(function (){
+            if(isOpen){
+              document.body.style.backgroundColor = "black";
+              this.value = "开灯";
+           }else {
+              document.body.style.backgroundColor = "#fff";
+              this.value = "关灯";
+            }
+           isOpen = !isOpen;
+         })
+
+
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="关灯"/>
+</body>
+</html>

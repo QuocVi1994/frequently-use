@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>jQuery对象与DOM对象的互转</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+       $(document).ready(function(){
+          var lis = document.getElementsByTagName("li"); // 用原生的js的API来获取的标签对象就是DOM对象
+         $(lis).click(function (){
+                console.log(789);
+         })
+
+//         console.log(lis.length);
+//         lis.onclick = function (){
+//
+//         }
+
+         var lis1 = $("li"); //  通过标签名获取的所有的li标签  用jQuery的API来获取的标签对象就是jQuery对象
+         console.log(lis1.length); // jQuery获取的标签对象都是伪数组的形式 是一个包装集
+
+         var btn = document.getElementById("btn"); // 单一的标签对象
+//         btn.onclick = function (){
+//                console.log(123);
+//         }
+//         btn.click(function (){
+//                console.log(456);
+//         })
+
+//         $(btn).click(function (){
+//                console.log(123);
+//         })
+//         var btn1 = $("#btn");//仍然是一个包装集，也就是说是一个伪数组
+////         btn1[0].onclick = function (){
+////                console.log(456);
+////         }
+//         btn1.get(0).onclick = function (){
+//                console.log(789);
+//         }
+//
+//         btn1.click(function (){
+//                console.log(456);
+//         })
+//          btn1.onclick = function (){
+//                 console.log(123);
+//          }
+         // jQuery支持隐式迭代   迭代就是遍历
+
+         // DOM对象只能使用DOM中的原生的方法或是属性
+         // jQuery对象只能使用jQuery中的API  方法
+
+         //用原生的js的API来获取的标签对象就是DOM对象
+         //用jQuery的API来获取的标签对象就是jQuery对象，就一个包装集，就相当于是一个伪数组
+         // 如果想让DOM对象使用jQuery的API则要先进行转换：
+         //DOM---jQuery
+         // $(DOM对象)
+
+         // jQuery对象--DOM对象
+          // 1.   jQuery对象[]
+         // 2. 使用get方法
+
+
+//         var lis2 = $("li");
+//         lis2.click(function (){ // 支持隐式迭代   迭代就是遍历
+//              console.log(123);
+//         })
+       })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li>这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+</ul>
+</body>
+</html>

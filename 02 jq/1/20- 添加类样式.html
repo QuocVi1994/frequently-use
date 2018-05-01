@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>添加类样式</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 220px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+//           $("#box").css("height","260px") ;
+//        .className =
+//        $("#box").addClass("box");
+//        $("#box").removeClass("aa");
+
+        // 判断某个类是否存在   hasClass   boolean类型的值
+        $("#btn").click(function (){
+//          if($("#box").hasClass("box")){
+//              $("#box").removeClass("box");
+//          }  else {
+//            $("#box").addClass("box");
+//          }
+
+          $("#box").toggleClass("box");
+        })
+        //addClass  添加类
+        //removeClass   移除类
+        //hasClass    判断某个类是否存在
+        //toggleClass   切换类   如果有的话，移除掉类，如果没有的话，则添加
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<div id="box" class="aa"></div>
+</body>
+</html>

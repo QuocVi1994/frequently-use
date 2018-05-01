@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>基本选择器</title>
+  <style>
+    /*#id{*/
+    /**/
+    /*}*/
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function () {
+      // 考虑兼容性的话，原生的JS中的选择DOM元素的API有两个
+      // ID     document.getElementById("");
+      // 标签名     document.getElementsByTagName("");
+
+      // 而jQuery当中整合了原来的  css中的选择，原来css中的选择器怎么用，几乎现在还是怎么用
+      // 基本选择器
+      // id 选择器       $("#id")
+      // 类选择器        $(".类名")
+      // 标签选择器      $("标签名")
+      // 并集选择器      $("sepator,....,")
+      // 交集选择器或是标签指定式    $("li.current")
+
+
+      //抗日开始，action      司令   军师族团营  连排小工兵
+      //首先，司令官发表讲话
+      //司令官官比较大，要把司令官变得大一点。
+      // id选择器
+      // 格式：$("#id")
+      // 作用：通过id来获取页面中的元素
+      $("#slg").css("font-size", "50px");
+
+      // 军师族团营 连排 工兵
+
+      //团长回去讲话
+      //团长官也比较大,要把团长弄大一点，但是团长官能大过司令官吗？？我们要把团战弄二
+      // 类选择器
+      // 格式：$(".class");
+      // 作用：获取页面中一类元素，通过class属性来获取
+      // jQuery中支持隐式迭代，迭代就是遍历的意思
+      $(".tz").css("font-size", "40px");
+
+
+      //接下来，要上战场，全军出击!!
+      //要把所有的并都派上去,上战场，前线的兵背景色都是粉红色。
+      // 标签选择器
+      // 格式；$("标签名");
+      // 通过标签来获取对应元素
+      $("li").css("background-color", "red");
+
+      // jQuery支持隐式迭代，迭代就是遍历的意思
+
+      //在战场上发现有人背着锅，伙夫和卫生员是没有战斗力的，应该撤下来。
+      //需要把伙夫和卫生员的背景色改成白色。
+      // 伙夫和卫生员也想着要帮忙为抗日做贡献。
+      // 并集选择器
+      // 格式：$("selector1,selector2,...");
+      // 功能：获取多个选择器的并集
+
+      $(".hf,.wsy").css("backgroundColor", "white");
+
+
+      //现在，突然发现老打败仗。为什么呢？现在在国共联合军里面出现内奸。
+      //现在把联合军里面的内奸找出来，不能干扰到老百姓
+      // 交集选择器   li.current
+      // 格式： $("selector1selector2");注意，中间没有任何的空格
+      // 获取两个选择器之间的交集。
+
+      $("li.nj").css("backgroundColor", "black");
+    })
+
+  </script>
+</head>
+<body>
+<div>
+  <ul>
+    <li id="slg">国共联合司令官</li>
+  </ul>
+  <!-- 独立团 -->
+  <ul id="dlt">
+    <li class="tz">独立团团长-李云龙</li>
+    <li>狙击手</li>
+    <li>士兵</li>
+    <li>士兵</li>
+    <li>士兵</li>
+    <li class="hf">伙夫</li>
+    <li class="wsy">卫生员</li>
+  </ul>
+  <!-- 358团 -->
+  <ul id="t358">
+    <li class="tz">358团团长-楚云飞</li>
+    <li>狙击手</li>
+    <li class="nj">士兵</li>
+    <li>士兵</li>
+    <li>士兵</li>
+    <li class="hf">伙夫</li>
+    <li class="wsy">卫生员</li>
+  </ul>
+</div>
+<div>
+  <p class="nj">老百姓</p>
+
+  <p class="nj">老百姓</p>
+
+  <p>老百姓</p>
+
+  <p>老百姓</p>
+
+  <p>老百姓</p>
+
+  <p>老百姓</p>
+
+  <p>老百姓</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>体验jQuery开发</title>
+  <style>
+    div {
+      height: 200px;
+      background-color: pink;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+//    window.onload = function(){
+//        // 1. 现有的知识点已经不能满足我们的新的业务需求
+//        //  2. 用现有的知识去解决问题的时候，效率偏低
+//
+//
+//      // 使用原生的js开发中遇到的一些问题
+//      // 1. 兼容性的问题      封装 兼容性
+//      // 2. API比较麻烦       $$    $
+//      // 3. 入口函数只能有一个   也可以解决
+//      // 4. 容错性比较差    只要有一行出错，后面的代码都不会执行
+//
+//      //1. 获取对象
+//      var btnShow = document.getElementById("btnShowDiv");
+//      var btnSet = document.getElementById("btnSetDiv");
+//      var divs = document.getElementsByTagName("div");
+//      // 2. 给事件源注册事件
+//      btnShow1.onclick = function (){
+//             for(var i=0;i<divs.length;i++){
+//               divs[i].style.display = "block";
+//             }
+//      }
+//
+//      btnSet.onclick = function (){
+//             for(var i=0;i<divs.length;i++){
+////               divs[i].innerHTML = "这是用JS的方式设置的内容";
+////               divs[i].innerText = "这是用JS的方式设置的内容";
+//             }
+//      }
+//    }
+
+//    $(document).ready(function (){
+//
+//    })
+
+    $(function(){
+        //1. 先获得对象
+        $("#btnShowDiv").click(function (){
+               $("div").show();
+        })
+        $("#btnSetDiv").click(function (){
+               $("div").text("这是用jQuery的方式设置的文字");
+        })
+    })
+
+    $(function (){
+           console.log(123);
+    })
+    $(function (){
+           console.log(456);
+    })
+  </script>
+</head>
+<body>
+<input type="button" value="设置样式" id="btnShowDiv"/>
+<input type="button" value="设置内容" id="btnSetDiv"/>
+
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>下一个或是上一个兄弟选择器</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // 括号里面是没有参数的
+//         $("#li3").next().css("backgroundColor","pink");
+//         3$("#li3").nextAll().css("backgroundColor","pink");
+//        $("#li3").prev().css("backgroundColor","purple");
+        $("#li3").prevAll().css("backgroundColor","purple");
+      })
+  </script>
+</head>
+<body>
+<div id="box1">这是第一个div</div>
+<h2>这是第一个h2标签</h2>
+<p>这是第一个p标签</p>
+<span>这是第一个span标签</span>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li id="li3">这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+  <li>这是第5个li标签</li>
+  <li>这是第6个li标签</li>
+</ul>
+<p>这是第二个p标签</p>
+<span>这是第二个span标签</span>
+</body>
+</html>

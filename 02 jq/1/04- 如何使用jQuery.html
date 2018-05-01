@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>如何使用jQuery</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    // 1. 引包   引jQuery文件
+    // 2. 写入口函数
+    // 3. 写功能实现
+    window.onload = function (){
+           console.log(123);
+    }
+
+    $(document).ready(function (){
+           console.log(456);
+    })
+
+    // 两个入口函数的异同
+    // 1. 原生js中的入口函数只能有一个 而jQuery可以有多个
+    // 2. 执行的时机jQuery要早于原生js的入口函数
+
+    // 1. 原生js的入口函数是当页面中所有的资源(DOM树，图片资源，外部其它文件)加载完毕 才会执行
+    // 2. jQuery的入口函数执行时机，是只要dom树加载完毕 就开始执行
+//    $(function (){
+//
+//    })
+  </script>
+</head>
+<body>
+
+</body>
+</html>

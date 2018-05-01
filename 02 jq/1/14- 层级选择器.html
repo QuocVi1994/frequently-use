@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>层级选择器</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+        // 子代选择器    >   $(选择器>选择器)
+      $("#dv> p").css("backgroundColor","pink");
+      // 后代选择器    空格
+//      $("#dv p span").css("backgroundColor","blue");
+      $("#dv #p1 span").css("backgroundColor","blue");
+      // 相邻选择器  +   只能是自己后面相邻，不能隔开
+//      $("#p1 + div").css("backgroundColor","purple");
+//      $("#p1 + span").css("backgroundColor","purple");
+      // 兄弟选择器   ~  自身元素的后面所有符合要求的兄弟级标签
+
+      $("#p1 ~ div").css("backgroundColor","red");
+    })
+  </script>
+</head>
+<body>
+<div id="dv">
+  这是div的文本
+  <div id="d6">这是大的DIV中p1前面的DIV</div>
+  <p id="p1">
+    这是p元素的文本pp
+    <span> 这是 span 元素的文本span</span>
+  </p>
+  <div>这是一个新加的div=============</div>
+  <span>这是div的亲儿子span</span>
+  <div id="d1">
+    这是div的文本---------------------
+    <p>
+      这是p元素的文本---------------
+      <span> 这是 span 元素的文本---------------</span>
+    </p>
+    <div>
+      <div>
+        <p>这是隐藏的很深的p元素</p>
+        <span>这是 span 元素的文本00000000</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

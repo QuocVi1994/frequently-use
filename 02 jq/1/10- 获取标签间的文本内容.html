@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>获取标签间的文本内容</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(document).ready(function(){
+//          var p1 = document.getElementById("p1");
+//          console.log(p1.innerText);
+
+//      var p1 = $("#p1");
+//      var value = p1.text();  // 没有参数的时候，表示获取标签间的内容
+//      console.log(value);
+      console.log($("#p1").text());
+
+      $("#p2").text("这是通过jQuery的方式更改的内容..."); // 里面有参数的时候，表示设置内容
+
+      // setText()   getText()
+
+      console.log($("#p3").text());
+//      $("#box").text("<p>这是div中的p标签中的内容</p>");
+
+      console.log($("#p3").html());
+
+      $("#box").html("<p>这是div中的p标签中的内容</p>");
+
+      // 是字符中，要么是对象 或是是函数
+
+      //  能穿多少穿 多少
+      //  能穿多少穿 多少
+
+      // 中国有两种球是很无奈的
+      // 中国男足     谁都赢不了
+      // 中国乒乓球   谁都赢不了
+
+      // ID   类   标签    后代选择  子代选择   兄弟选择器
+    })
+  </script>
+</head>
+<body>
+<p id="p1">这是P标签间的文本内容</p>
+<p id="p2">这是P标签间的文本内容</p>
+<p id="p3">
+  <span>这是一p标签下面的span标签</span>
+</p>
+<div id="box"></div>
+</body>
+</html>

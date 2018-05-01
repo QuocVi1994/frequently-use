@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>过滤(筛选选择器)</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // :是过滤选择器    筛选选择器都是方法
+//        $("li:eq(4)").css("backgroundColor","purple");
+//        $("li").eq(1).css("backgroundColor","blue");
+
+        // jQuery支持隐式迭代
+//        $("li:odd").css("backgroundColor","blue");
+//        $("li:even").css("backgroundColor","red");
+
+        $("li:first").css("backgroundColor","pink");
+        $("li:last").css("backgroundColor","purple");
+
+      })
+  </script>
+</head>
+<body>
+<div id="box1">这是第一个div</div>
+<h2>这是第一个h2标签</h2>
+<p>这是第一个p标签</p>
+<span>这是第一个span标签</span>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li id="li3">这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+  <li>这是第5个li标签</li>
+  <li>这是第6个li标签</li>
+</ul>
+<p>这是第二个p标签</p>
+<span>这是第二个span标签</span>
+</body>
+</html>
