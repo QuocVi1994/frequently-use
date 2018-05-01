@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .out{
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+            font-size: 20px;
+        }
+
+        .in{
+            width: 15em;
+            height: 10em;
+            border: 1px solid green;
+            font-size: 1em; /*20px*/
+            /* em 要设置自己盒子的字体小  使用不够灵活 ，推荐使用rem  */
+        }
+    </style>
+</head>
+<body>
+    <!--
+        rem:
+        r:root 根  根标签  html
+        em: 一个字大小
+        rem: html标签的字体的大小
+    -->
+    <h4>rem单位可以实现 盒子宽高都自适应的布局</h4>
+
+    <div class="out">
+        <div class="in">再牛逼的梦想也抵不住傻逼似的坚持! </div>
+    </div>
+</body>
+</html>

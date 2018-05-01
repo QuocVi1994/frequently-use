@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+.nav {
+  height: 80px;
+  padding: 10px;
+  background-color: pink;
+  position: relative;
+}
+.nav ul li {
+  float: left;
+  width: 80px;
+  height: 60px;
+  background-color: green;
+  color: #fff;
+  margin: 0 15px;
+  line-height: 60px;
+  text-align: center;
+}
+.nav ul li:hover {
+  background-color: red;
+}
+.nav .m-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 70px;
+  height: 60px;
+  background-color: red;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+}
+.banner .pc-img {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(to right, red, yellow);
+}
+.banner .m-img {
+  width: 100%;
+  max-width: 768px;
+  height: 350px;
+  background: radial-gradient(at center, yellow, green);
+}
+.product {
+  padding: 10px 0;
+  background-color: #eee;
+}
+.product .container div {
+  height: 120px;
+  background-color: #daa520;
+  width: 30%;
+  margin: 5px 1.2%;
+  float: left;
+}
+.footer {
+  height: 200px;
+  background-color: #222;
+}
+/*���ĳ���*/
+/*����*/
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+  .hidden-lg {
+    display: none;
+  }
+}
+/*����*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    width: 970px;
+  }
+  .hidden-md {
+    display: none;
+  }
+}
+/*pad*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 768px;
+  }
+  .hidden-sm {
+    display: none;
+  }
+  .product .container div {
+    width: 45%;
+  }
+}
+/*mobile*/
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+  .hidden-xs {
+    display: none;
+  }
+  .nav {
+    position: relative;
+  }
+  .nav ul {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+  }
+  .nav ul li {
+    margin: 2px 0;
+    width: 100%;
+  }
+  .nav .m-btn {
+    display: block;
+  }
+  .product .container div {
+    width: 95%;
+  }
+}

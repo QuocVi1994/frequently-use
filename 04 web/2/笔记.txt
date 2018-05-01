@@ -1,0 +1,74 @@
+
+1、标签属性
+    这些属性都是提供给屏幕阅读器的，我们可以忽略。
+    role
+    aria-*
+    class="sr-only"
+
+指定插件类型，和被控制的目标元素
+    data-toggle
+    data-target
+    /*a标签也可以通过href来指定被控制的目标元素*/
+
+
+3、Touch事件
+
+    事件类型
+    touchstart: 手指触摸屏幕时触发
+    touchmove: 手指在屏幕上移动时触发
+    touchend: 手指离开屏幕时触发
+
+
+	TouchEvent对象
+      Touches: 位于屏幕上的所有手指的列表
+      targetTouches: 位于该元素上的所有手指的列表
+      changedTouches：只会记录最后一次改变的数据
+      touchstart时包含刚与触摸屏接触的触点，touchend时包含离开触摸屏的触点
+      注：没有对比出touches同targetTouches的差异，推荐使用targetTouches
+      注意：在touchend事件结束时候 event只会记录changedtouches
+
+Touch对象
+    clientX:触摸目标在视口中的X坐标。
+    clientY:触摸目标在视口中的Y坐标。
+    pageX：触摸目标在页面中的x坐标。
+    pageY：触摸目标在页面中的y坐标。
+    screenX:触摸目标在屏幕中的x坐标。
+    screenY:触摸目标在屏幕中的y坐标。
+
+Carousel 控制
+    $(.carousel）.carousel('prev')切换到上张
+    $(.carousel）.carousel('next')切换到第下张
+    $(.carousel）.carousel(n)    切换到第n张
+    $(.carousel）.carousel('pause') 暂停
+    $(.carousel）.carousel('cycle') 轮播
+
+jq获取宽度
+    width()         获取的是content的宽度
+    innerWidth()    获取的是content+padding的宽度
+    outerWidth()    获取的是content+padding+border 的宽度
+    outerWidth(true) 获取的是content+padding+border+margin的宽度
+
+1.1.6.	Less安装
+  1、关闭杀毒软件
+  2、安装node ， 下一步 ...   不要出现中文路径
+           2.1安装成功   win+r  输入cmd 打开 控制台
+           2.2 输入 node -v 可以看到版本号 即安装成功
+   3、 拷贝npm文件夹中 的文件
+           3.1打开  文件夹 C:\Users\wcs\AppData\Roaming\npm
+           3.2把npm.zip 文件解压中的文件，复制到
+                  C:\Users\wcs \AppData\ Roaming\npm文件夹中（不要外面的npm文件）
+          3.3拷贝完成后， win+r  输入cmd 打开 控制台输入lessc -v
+          看到版本号 即安装成功
+
+
+
+
+
+
+
+
+
+
+
+
+

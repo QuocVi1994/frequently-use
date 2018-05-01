@@ -1,0 +1,62 @@
+/*变量*/
+.box {
+  width: 50px;
+  height: 200px;
+  background-color: #daa522;
+  color: #daa522;
+  border: 1px solid #daa522;
+}
+.box1 {
+  width: 300px;
+  height: 200px;
+}
+.box2 {
+  background-color: pink;
+  border-radius: 50%;
+}
+.box3 {
+  width: 300px;
+  height: 200px;
+  background-color: pink;
+  border-radius: 50%;
+  -webkit-background-size: 300px 200px;
+  -moz-background-size: 300px 200px;
+  -ms-background-size: 300px 200px;
+  -o-background-size: 300px 200px;
+  background-size: 300px 200px;
+}
+.box5 {
+  -webkit-background-size: 100px 50px;
+  -moz-background-size: 100px 50px;
+  -ms-background-size: 100px 50px;
+  -o-background-size: 100px 50px;
+  background-size: 100px 50px;
+  border: 3px solid red;
+  border-radius: 5px;
+  padding: 20px;
+}
+.nav {
+  width: 100%;
+}
+.nav ul {
+  overflow: hidden;
+}
+.nav ul li {
+  float: left;
+  width: 100px;
+}
+.nav ul li a {
+  display: block;
+  width: 100px;
+  height: 30px;
+}
+.nav ul li a:hover {
+  color: blue;
+}
+.nav ul li a::before {
+  content: "";
+}
+.box {
+  width: 265.66666667px;
+  height: 189.975px;
+}

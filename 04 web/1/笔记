@@ -1,0 +1,33 @@
+1-视口
+     在移动端网页的布局 默认以视口来进行布局，并不是以浏览器的窗口的宽度进行布局
+     视口默认宽度(980px)，
+     视口：用于在移动承载网页的区域
+
+         <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"/>
+
+              width=device-width  设置视口的宽为当前设备的宽度
+              user-scalable=no   用户不能手动缩放页面
+              initial-scale=1.0  默认人缩放比例1.0
+              maximum-scale=1.0  最大缩放比例1.0
+              minimum-scale=1.0  最小缩放比例1.0
+
+
+      px em  相对单位
+      pt  cm  km  mm  都是绝对单位
+      point
+
+
+2-CSS3中的 Media Query（媒体查询）
+    通过查询screen的宽度来指定某个宽度区间的网页布局。
+    @media screen and (max-width: 992px) and (min-width: 768px){
+       .box{
+          color:red;
+         }
+    }
+    超小屏幕（移动设备）    768px以下
+    小屏设备    768px-992px
+    中等屏幕    992px-1200px
+    宽屏设备    1200px以上
+
+
+

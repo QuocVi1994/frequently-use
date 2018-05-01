@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- 设置网页编码 -->
+  <meta charset="utf-8">
+  <!-- 如果是ie浏览器，使用最新IE渲染引擎来解析页面  -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适口设置 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>Bootstrap 模板</title>
+
+  <!-- Bootstrap 引入核心css文件 -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--  为了让低版本浏览器支持html5语义标签 和 css3的媒体查询-->
+  <!--[if lt IE 9]>
+  <script src="lib/html5shiv/html5shiv.min.js"></script>
+  <script src="lib/respond/respond.js"></script>
+  <![endif]-->
+  <style>
+    .container{
+      height: 100px;
+      background-color: pink;
+      border: 1px solid #000;
+    }
+
+    .container-fluid{
+      height: 100px;
+      background-color: greenyellow;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container"> 带有版心 宽度固定的布局容器</div>
+
+  <div class="container-fluid">width 100%的容器</div>
+
+<!-- 注意： bootstrap框架 依赖于 jquery  务必先引入-->
+<script src="lib/jquery/jquery.min.js"></script>
+<!-- Bootstrap的核心js -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

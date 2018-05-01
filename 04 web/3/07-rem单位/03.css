@@ -1,0 +1,32 @@
+header {
+  height: 150px;
+  width: 20rem;
+  height: 4.6875rem;
+  background-color: greenyellow;
+  text-align: center;
+  line-height: 4.6875rem;
+  font-size: 1.25rem;
+}
+header h4 {
+  font-weight: 400;
+}
+header h4 span {
+  color: red;
+  font-size: 1.875rem;
+}
+nav {
+  width: 20rem;
+  height: 6.25rem;
+  position: relative;
+  background: url(wm.png) no-repeat right top #daa520;
+  -webkit-background-size: 8.75rem 6.25rem;
+  background-size: 8.75rem 6.25rem;
+}
+nav .box {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  width: 11.25rem;
+  height: 5rem;
+  background-color: pink;
+}

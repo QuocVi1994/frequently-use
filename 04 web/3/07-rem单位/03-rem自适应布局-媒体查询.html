@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="03.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        .layout{
+            max-width: 640px;
+            height: 800px;
+            background-color: #fff;
+            margin:0 auto;
+        }
+
+        html{
+            /* 1rem =屏幕的宽度/20
+                w     1rem
+                640   32px
+                480   24px
+                320   16px
+            */
+            font-size:32px;
+        }
+
+
+        @media  screen and (min-width: 640px){
+            html{
+                font-size: 32px;
+            }
+        }
+        
+        @media screen and (min-width: 425px) and (max-width: 639px){
+            html{
+                font-size: 21.25px;
+            }
+        }
+        /*ip6p*/
+        @media screen and (min-width: 414px) and (max-width: 424px){
+            html{
+                font-size: 20.7px;
+            }
+        }
+        /*ip6*/
+        @media screen and (min-width: 375px) and (max-width: 413px){
+            html{
+                font-size: 18.75px;
+            }
+        }
+        /*ip5*/
+        @media screen and (min-width: 320px) and (max-width: 374px){
+            html{
+                font-size: 16px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <h4> <span class="icon-github-alt"></span>传智播客前端学院</h4>
+        </header>
+        <nav>
+            <div class="box"></div>
+        </nav>
+    </div>
+</body>
+</html>

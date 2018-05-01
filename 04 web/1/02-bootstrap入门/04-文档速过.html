@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- 设置网页编码 -->
+  <meta charset="utf-8">
+  <!-- 如果是ie浏览器，使用最新IE渲染引擎来解析页面  -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适口设置 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>Bootstrap 模板</title>
+
+  <!-- Bootstrap 引入核心css文件 -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--  为了让低版本浏览器支持html5语义标签 和 css3的媒体查询-->
+  <!--[if lt IE 9]>
+  <script src="lib/html5shiv/html5shiv.min.js"></script>
+  <script src="lib/respond/respond.js"></script>
+  <![endif]-->
+  <style>
+    .container{
+      border: 1px solid #000;
+      padding-top:20px;
+      padding-bottom:20px;
+    }
+
+    .out{
+      border: 1px solid #000;
+    }
+
+    .in{
+      width: 150px;
+      height: 150px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>传智播客<small>前端学院</small></h1>
+    <p class="text-left">苍茫的天涯我的爱</p>
+    <p class="text-center">苍茫的天涯我的爱</p>
+    <p class="text-right">苍茫的天涯我的爱</p>
+
+    <table class="table text-center table-striped table-bordered">
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+      <tr>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+        <td>嘿嘿</td>
+      </tr>
+    </table>
+
+    <div class="input-group">
+      <div class="input-group-addon">email</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="请请输入邮箱！">
+      <div class="input-group-addon">@qq.com</div>
+    </div>
+
+
+    <button type="button" class="btn btn-primary ">（首选项）Primary <span class="glyphicon glyphicon-send"></span> </button>
+    <div class="out clearfix">
+      <div class="in pull-right show"></div>
+    </div>
+
+    <p class="glyphicon glyphicon-sd-video"></p>
+
+    <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>
+
+
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">1</div>
+        <div role="tabpanel" class="tab-pane" id="profile">2</div>
+        <div role="tabpanel" class="tab-pane" id="messages">3</div>
+        <div role="tabpanel" class="tab-pane" id="settings">4</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+<!-- 注意： bootstrap框架 依赖于 jquery  务必先引入-->
+<script src="lib/jquery/jquery.min.js"></script>
+<!-- Bootstrap的核心js -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

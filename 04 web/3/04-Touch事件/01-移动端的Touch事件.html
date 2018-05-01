@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- 移动断点适口设置-->
+    <meta name="viewport"  content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" >
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 200px;
+            background-color: #daa520;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box=document.querySelector('.box');
+
+        //给box绑定触屏 touch事件
+        box.addEventListener('touchstart',function(e){
+            console.log('start');
+            console.log(e);
+//            console.log(e.changedTouches[0].clientX);
+            console.log(e.targetTouches[0].clientX);
+//            console.log(e.touches[0].clientX);
+        });
+
+        box.addEventListener('touchmove',function(e){
+            console.log('move');
+//            console.log(e.changedTouches[0].clientX);
+            console.log(e.targetTouches[0].clientX);
+//            console.log(e.touches[0].clientX);
+        });
+
+        box.addEventListener('touchend',function(e){
+            console.log('end');
+            //触屏结束后，只有changedTouches里面存放的有数据
+            console.log(e.changedTouches[0].clientX);
+//            console.log(e.targetTouches[0].clientX);
+//            console.log(e.touches[0].clientX);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="03.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        .layout{
+            max-width: 640px;
+            height: 800px;
+            background-color: #fff;
+            margin:0 auto;
+        }
+
+        html{
+            /* 1rem =屏幕的宽度/20
+                w     1rem
+                640   32px
+                480   24px
+                320   16px
+            */
+            font-size:32px;
+        }
+
+
+    </style>
+    <script>
+
+        function setRem(){
+            //1rem =屏幕宽度/20
+            var w=document.documentElement.clientWidth; /* 获取可是区域宽度*/
+            console.log(w);
+            w=w>640?640:w;
+
+            document.querySelector('html').style.fontSize=w/20+'px';//设置rem
+        }
+        setRem();
+
+        window.onresize=function(){
+            setRem();
+        }
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <h4> <span class="icon-github-alt"></span>传智播客前端学院</h4>
+        </header>
+        <nav>
+            <div class="box"></div>
+        </nav>
+    </div>
+</body>
+</html>

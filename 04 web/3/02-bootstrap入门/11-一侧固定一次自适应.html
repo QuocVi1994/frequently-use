@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .left{
+            height: 200px;
+            width: 200px;
+            background-color: orange;
+            float: left;
+        }
+
+        .right{
+            /*给盒子 添加了ovreflow:hidden; 此时会让这个盒子变成一个绝缘的 盒子，
+                这个绝缘的 盒子 不会和其他的盒子有交集；
+            */
+            height: 300px;
+            background-color: royalblue;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>

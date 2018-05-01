@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--移动端的适口-->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <title>媒体查询</title>
+  <style>
+    /*
+        针对任意设备，网页内容进行 完美布局的一种显示机制
+
+        1、能够监测当前的设备  宽高   宽度 --》
+            检测设备宽度  -->js
+            css3 新增功能 媒体查询
+
+        2、根据不同的设备，改变网页的布局 css，让网页在当前设备中能完美的显示
+           根据不同的屏幕宽度，改变盒子的css样式，让盒子能够完美布局
+    */
+    .container{
+      width: 1200px;
+      height: 1000px;
+      border: 1px solid #000;
+      background-color: pink;
+      margin:0 auto;
+    }
+    
+    /* 媒体查询*/
+    /*@media tv{*/
+      /*.container{*/
+        /*background-color: yellow;*/
+      /*}*/
+    /*}*/
+  /*大屏幕*/
+    @media screen and (min-width: 1200px){
+      .container{
+        background-color: hotpink;
+      }
+    }
+
+    /*中等屏幕 992-1199*/
+    @media screen and (min-width: 992px) and (max-width: 1199px){
+      .container{
+        width: 980px;
+        background-color: green;
+      }
+    }
+
+    /*小屏幕 pad */
+    @media screen and (min-width: 768px)  and (max-width: 991px){
+      .container{
+        width:768px;
+        background-color: deepskyblue;
+      }
+    }
+
+    /*手机屏幕*/
+    @media screen  and (max-width: 767px){
+      .container{
+        width: 100%;
+        background-color: #daa520;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+  </div>
+</body>
+</html>

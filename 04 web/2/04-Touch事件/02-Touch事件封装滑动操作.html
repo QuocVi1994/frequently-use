@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 200px;
+            background-color: #daa520;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        var box=document.querySelector('.box');
+
+        //给 box 绑定touch事件
+        //定义变量存放数据
+        var startX=0;
+        var moveX=0;
+        var distanceX=0;
+        box.addEventListener('touchstart',function(e){
+            console.log('start');
+            //记录触屏开始的位置
+            startX= e.targetTouches[0].clientX;
+        });
+
+        box.addEventListener('touchmove',function(e){
+            console.log('move');
+            //记录移动点后的触屏位置
+            moveX= e.targetTouches[0].clientX;
+            distanceX=moveX-startX; //算出距离差
+        });
+
+        box.addEventListener('touchend',function(e){
+            console.log('end');
+            //在触屏结束后 判断用户的操作方式
+            if(distanceX>0){
+                console.log('right');
+            }
+
+            if(distanceX<0){
+                console.log('left');
+            }
+
+            //数据重置
+            startX=0;
+            moveX=0;
+            distanceX=0;
+        });
+    </script>
+</body>
+</html>

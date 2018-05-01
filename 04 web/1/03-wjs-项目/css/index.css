@@ -1,0 +1,140 @@
+body{
+    font-size: 12px;
+    color:#333;
+}
+a,a:hover{
+    color:#333;
+    text-decoration: none;
+}
+.wjs-header{
+    border-bottom:1px solid #ccc;
+    height: 40px;
+}
+
+.wjs-header .row>div{
+    border-right:1px solid #ccc;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.wjs-header .row>div:last-child{
+    border-right: none;
+}
+
+/*引入字体*/
+@font-face {
+    font-family: wjs;
+    src: url('../fonts/MiFie-Web-Font.eot') format('embedded-opentype'),
+    url('../fonts/MiFie-Web-Font.svg') format('svg'),
+    url('../fonts/MiFie-Web-Font.ttf') format('truetype'),
+    url('../fonts/MiFie-Web-Font.woff') format('woff');
+}
+
+
+[class^='wjs-icon-']{
+    font-family: wjs;
+}
+
+.wjs-icon-phone::before{
+    content:"\e908";
+}
+
+.wjs-icon-tel::before{
+    content:"\e909";
+}
+
+.wjs-icon-logo::before{
+    content:"\e920";
+}
+
+.wjs-icon-text::before{
+    content:"\e93e";
+}
+
+/*头部按钮样式*/
+.btn-register,
+.btn-register:hover{
+    background-color: red;
+    color:#fff;
+    padding:5px 10px;
+    border:none;
+}
+
+.btn-login,
+.btn-login:hover{
+    border:none;
+    background-color: #fff;
+}
+
+/*导航条样式*/
+.wjs-navbar {
+    background-color: #fff;
+    border:none;
+    border-bottom:1px solid #ccc;
+    border-radius: 0;
+}
+.wjs-navbar .navbar-brand {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+}
+.wjs-navbar .navbar-brand .wjs-icon-logo{
+    font-size: 50px;
+    color:red;
+    vertical-align: middle;
+}
+
+.wjs-navbar .navbar-brand .wjs-icon-text{
+    font-size: 30px;
+    color:#000;
+    vertical-align: middle;
+}
+.wjs-navbar .navbar-brand:hover,
+.wjs-navbar .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+.wjs-navbar .navbar-text {
+    color: #777;
+}
+
+.wjs-navbar .navbar-nav > li > a {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+    font-size: 14px;
+}
+.wjs-navbar .navbar-nav > li > a:hover,
+.wjs-navbar .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom:3px solid red;
+}
+.wjs-navbar .navbar-nav > .active > a,
+.wjs-navbar .navbar-nav > .active > a:hover,
+.wjs-navbar .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+.wjs-navbar .navbar-nav > .disabled > a,
+.wjs-navbar .navbar-nav > .disabled > a:hover,
+.wjs-navbar .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+.wjs-navbar .navbar-toggle {
+    border-color: #ddd;
+    margin-top:23px;
+}
+.wjs-navbar .navbar-toggle:hover,
+.wjs-navbar .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.wjs-navbar .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.wjs-navbar .navbar-collapse,
+.wjs-navbar .navbar-form {
+    border-color: #e7e7e7;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 设置网页编码 -->
+    <meta charset="utf-8">
+    <!-- 如果是ie浏览器，使用最新IE渲染引擎来解析页面  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端适口设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>wjs-07</title>
+
+    <!-- Bootstrap 引入核心css文件 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--  为了让低版本浏览器支持html5语义标签 和 css3的媒体查询-->
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 微金所头部-->
+    <div class="wjs-header hidden-xs hidden-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <span class="wjs-icon-phone"></span>
+                    <a href="#">手机微金所</a>
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                </div>
+                <div class="col-md-5">
+                    <span class="wjs-icon-tel"></span>
+                    <span>4006-89-4006（服务时间：9:00-21:00）</span>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">常见问题</a>
+                    <a href="#">财富登录</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="btn btn-default btn-xs btn-register">免费注册</a>
+                    <a href="#" class="btn btn-default btn-xs btn-login">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航-->
+    <nav class="navbar wjs-navbar">
+        <div class="container">
+            <!--导航条头部-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"  >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span class="wjs-icon-logo"></span>
+                    <span class="wjs-icon-text"></span>
+                </a>
+            </div>
+            <!-- 导航条的主体部分-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- 左侧导航-->
+                <ul class="nav navbar-nav">
+                    <li><a href="#">我要投资</a></li>
+                    <li><a href="#">我要借贷</a></li>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">新手专区</a></li>
+                    <li><a href="#">最新动态</a></li>
+                    <li><a href="#">微平台</a></li>
+                </ul>
+                <!-- 右侧导航-->
+                <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+                    <li><a href="#">个人中心 </a></li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+<!-- 注意： bootstrap框架 依赖于 jquery  务必先引入-->
+<script src="lib/jquery/jquery.min.js"></script>
+<!-- Bootstrap的核心js -->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!--引入自己的js-->
+<script src="js/index.js"></script>
+</body>
+</html>

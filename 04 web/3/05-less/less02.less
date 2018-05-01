@@ -1,0 +1,81 @@
+//变量
+/*变量*/
+@color:#daa522;
+
+.box{
+  width: 50px;
+  height: 200px;
+  background-color: @color;
+  color:@color;
+  border: 1px solid @color;
+}
+
+//混合
+
+.box1{
+  width: 300px;
+  height: 200px;
+}
+
+.box2{
+  background-color: pink;
+  border-radius: 50%;
+}
+
+.box3{
+  .box1;
+  .box2;
+  .bgz(300px,200px);
+}
+
+//函数
+
+.bgz(@w,@h){
+  -webkit-background-size:@w @h ;
+  -moz-background-size:@w @h ;
+  -ms-background-size: @w @h;
+  -o-background-size:@w @h ;
+  background-size: @w @h;
+}
+
+.bs(@w,@c,@r,@p){
+  border: @w solid @c;
+  border-radius: @r;
+  padding:@p;
+}
+
+.box5{
+  .bgz(100px,50px);
+  .bs(3px,red,5px,20px);
+}
+
+//嵌套 导航
+.nav{
+  width: 100%;
+  ul{
+    overflow: hidden;
+    li{
+      float: left;
+      width: 100px;
+      a{
+        display: block;
+        width: 100px;
+        height: 30px;
+        &:hover{
+          color:blue;
+        }
+        &::before{
+          content:"";
+        }
+      }
+
+    }
+  }
+}
+
+//计算
+.box{
+  width: 797/3px;
+  height: 253.3/4*3px;
+}
+
