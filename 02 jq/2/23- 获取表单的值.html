@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+             $("#btn").click(function (){
+                  // 原生js当中是用的value属性
+               console.log($("#txt").val());
+
+               // 如果没有参数表示获取值
+               // 如果有参数，表示设置值
+             })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<input type="text" id="txt"/>
+</body>
+</html>

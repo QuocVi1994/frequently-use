@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>动态创建表格</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+
+    $(function () {
+      // 模拟从后台拿到的数据
+      var data = [
+        {
+          name: "清华大学",
+          url: "http://www.tsinghua.edu.cn/",
+          type: "中国理科最强大学"
+        },
+        {
+          name: "北京大学",
+          url: "http://www.pku.edu.cn/",
+          type: "中国文科最强大学"
+        },
+        {
+          name: "蓝翔技校",
+          url: "http://www.lxjx.cn/",
+          type: "中国挖掘机培训最强"
+        },
+        {
+          name: "黑马程序员",
+          url: "http://itheima.com",
+          type: "中国IT最强"
+        },
+        {
+          name: "新东方厨师",
+              url:"http://xingdongfang.cn",
+          type:"炒菜香吗"
+        }
+
+      ];
+
+      // 1. 遍历数组，根据数组中元素的长度来动态的创建元素
+      var arr = [];
+      for(var i=0;i<data.length;i++){
+        var item = data[i];
+        var str = '<tr>' +
+            '<td>'+item.name+'</td>' +
+            '<td>'+item.url+'</td>' +
+            ' <td>'+item.type+'</td>' +
+            '</tr>';
+        arr.push(str);
+      }
+      // 2. 给按钮注册事件 ，触发事件的时候，创建列表
+      $("input").click(function (){
+        $("#j_tbData").html(arr.join(""));
+      })
+
+    })
+  </script>
+</head>
+
+<body>
+<input type="button" value="获取数据生成元素" id="j_btnGetData"/>
+<table>
+  <thead>
+  <tr>
+    <th>标题</th>
+    <th>地址</th>
+    <th>说明</th>
+  </tr>
+  </thead>
+  <tbody id="j_tbData">
+  <!--<tr>-->
+    <!--<td>清华大学</td>-->
+    <!--<td>http://www.tsinghua.edu.cn/</td>-->
+    <!--<td>中国理科最强大学</td>-->
+  <!--</tr>-->
+  </tbody>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>animate</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        var box = $("div");
+           $("input").click(function (){
+//                box.animate("width",360);  参数是对象，要传对象进来，传单个的属性不起作用
+//              box.animate({
+//                width:360,
+//                height:380,
+//                left: 390,
+//                top: 280
+//              },1000);
+
+             box.animate({
+               width:360,
+               height:380,
+               left: 390,
+               top: 280
+             },1000,function(){
+               box.animate({
+                 "width":60,
+                 "height":80,
+                 "left":1400,
+                 "top":20
+               },2000,function(){
+                 box.animate({
+                   "width":"80px",
+                   "height":"220px",
+                   "left":"1500px",
+                   "top":"600px"
+                 })
+               })
+             });
+           })
+      })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮"/>
+<div></div>
+</body>
+</html>

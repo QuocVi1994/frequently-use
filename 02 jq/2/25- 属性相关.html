@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+             $("#btn").click(function (){
+//                  $("input:eq(1)").addClass("box");
+
+               // getAttribute   setAttribute   removeAttribute
+
+//               console.log($("input:eq(1)").attr("type"));// 有一个参数的时候，表示获取属性值
+//               $("input:eq(1)").attr("class","box2");
+//               $("input:eq(1)").attr("mmm","ccc");
+
+                $("input:eq(1)").removeAttr("aaa"); //
+               // css("")
+               // attr   如果是一个参数的时候，表示获取对应的属性值
+               //         如果是两个参数的话，表示设置对应的属性值
+               // removeAttr   表示移除对应的属性值
+             })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<input type="text" value="默认的值..." aaa="bbb"/>
+</body>
+</html>

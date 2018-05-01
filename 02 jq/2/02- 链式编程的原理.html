@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>链式编程的原理</title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+//     btn.css("width","200px").slideDown().show()
+
+    function Stu(name,age,sex){
+      this.name = name,
+          this.age = age,
+          this.sex = sex,
+          this.sayHi = function (){
+                 console.log("大家好，我叫"+this.name+"，我今年"+this.age+"岁了，我是"+this.sex+"生");
+                return this;
+          },
+        this.sayHello = function (){
+                 console.log("这是打招呼的方法.............");
+                return this;
+          }
+    }
+    var zs = new Stu("张三",20,"男");
+    zs.sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi().sayHello().sayHi();
+//    zs.sayHello();
+
+    // 链式编程多用于设置的时候
+    // 获取的时候，还是获取的内容
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

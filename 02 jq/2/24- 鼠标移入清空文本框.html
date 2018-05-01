@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+//        $("#txt").focus(function (){
+//          if($(this).val()=="请输入一个值...")  {
+//            $(this).val("");
+//          }else {
+////               var value = $(this).val();//获取输入框内的值;
+////               $(this).val(value);
+//            $(this).val($(this).val());
+//          }
+//        });
+//        $("#txt").blur(function (){
+//          if($(this).val()=="")  {
+//            $(this).val("请输入一个值...");
+//          }else {
+////               var value = $(this).val();//获取输入框内的值;
+////               $(this).val(value);
+//            $(this).val($(this).val());
+//          }
+//        })
+
+        $("#txt").focus(function (){
+          if($(this).val()=="请输入一个值...")  {
+            $(this).val("");
+          }else {
+//               var value = $(this).val();//获取输入框内的值;
+//               $(this).val(value);
+            $(this).val($(this).val());
+          }
+        }).blur(function (){
+          if($(this).val()=="")  {
+            $(this).val("请输入一个值...");
+          }else {
+//               var value = $(this).val();//获取输入框内的值;
+//               $(this).val(value);
+            $(this).val($(this).val());
+          }
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="text" value="请输入一个值..." id="txt"/>
+</body>
+</html>

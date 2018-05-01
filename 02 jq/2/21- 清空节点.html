@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           // jQuery中的清空节点有三个
+        $("input").click(function (){
+//               $("p").empty(); // 标签还存在，但是内容没有了
+//            $("p").html("");// 标签还存在，但是内容没有了
+
+          $("p").remove(); // 彻底删除，连自身的标签也没有了
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div>这是第1个DIV</div>
+<div>这是第2个DIV</div>
+<div>这是第3个DIV</div>
+<p>
+  <span>待我长发及腰，遮住一身肥膘</span>
+</p>
+</body>
+</html>

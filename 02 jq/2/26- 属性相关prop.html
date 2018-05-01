@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+             $("#btn").click(function (){
+
+               // attr   如果是一个参数的时候，表示获取对应的属性值
+               //         如果是两个参数的话，表示设置对应的属性值
+               // removeAttr   表示移除对应的属性值
+//               $("input:eq(2)").attr("checked",true);
+               $("input:eq(2)").prop("checked",true); // proptype   原型属性
+
+               // selected   disabled   checked   属性里面，只有一个属性值的时候，只能使用prop
+             })
+
+        // width()  height()   clientWidth  clientHeight    浏览器的宽度   $(window).width()
+        // window是BOM对象，用jQueryAPI的时候，也需要将BOM对象转换成jQuery对象
+        // offset()   返回的是一个对象，里面有两个属性   top   left
+        // 与原生的offset不一样    原生的offsetLeft 是自身的左边框到离自己最近的定位的元素的距离
+        //  jQuery中的offset().left 或是 offset().top 与父级元素的定位没有关系，获取的始终是自己的左边框或是上边框到页面的距离  可读写的属性，也可以获取，也可以设置
+        // position() 也是返回一个对象，里面有两个属性  left top  与offsetLeft和offsetTop是一样的
+        //  position 是只读的属性
+
+        // scrollTop()   scrollLeft()  与js中的一样
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<input type="text" value="默认的值..." aaa="bbb"/>
+<input type="checkbox" />
+</body>
+</html>

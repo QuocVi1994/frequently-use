@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    p {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+    }
+    span {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      display: block;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+          // 1. 先获得对象
+        var box = document.getElementById("box");
+        var p = document.getElementById("p1");
+        var sp = document.getElementById("sp1");
+        // 2. 分别 注册事件
+//        box.onmouseover = function (){
+//              console.log("box的mouseover事件被触发了boxboxboxboxbox...");
+//        };
+//        p.addEventListener("mouseover",function (){
+//               console.log("p标签中的mouseover移入事件被触发了pppppppppppp");
+//        },false);
+//        sp.addEventListener("mouseover",function (){
+//               console.log("span标签中的mouseover事件被触发了spanspanspan...");
+//        });
+//        box.addEventListener("mouseout",function (){
+//          console.log("box的mouseout事件被触发了boxboxboxboxbox...");
+//        });
+//        p.addEventListener("mouseout",function (){
+//          console.log("p的mouseout事件被触发了pppppppppppp...");
+//        });
+//        sp.addEventListener("mouseout",function (){
+//          console.log("span的mouseout事件被触发了spanspanspan...");
+//        })
+
+        $("#box").mouseenter(function (){
+          console.log("box的mouseenter事件被触发了boxboxboxboxbox...");
+        });
+        $("#p1").mouseenter(function (){
+          console.log("p标签中的mouseenter移入事件被触发了pppppppppppp");
+        });
+        $("#sp1").mouseenter(function (){
+          console.log("span标签中的mouseenter事件被触发了spanspanspan...");
+        });
+        $("#box").mouseleave(function (){
+          console.log("box的mouseleave事件被触发了boxboxboxboxbox...");
+        });
+        $("#p1").mouseleave(function (){
+          console.log("p标签中的mouseleave移入事件被触发了pppppppppppp");
+        });
+        $("#sp1").mouseleave(function (){
+          console.log("span标签中的mouseleave事件被触发了spanspanspan...");
+        });
+
+        // mouseenter  mouseleaver 取消了冒泡
+        // mouseover  mouseout
+      })
+  </script>
+</head>
+<body>
+<div id="box">
+  <p id="p1">
+    <span id="sp1"></span>
+  </p>
+</div>
+</body>
+</html>

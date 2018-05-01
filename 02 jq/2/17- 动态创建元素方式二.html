@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+             // innerHTML
+        // html()
+        // 没有参数的时候，表示获取标签间的内容，如果是纯文本，则是直接获取
+        // 如果里面有标签话，则是连标签一并获取
+
+        // 在设置内容的时候，如果是纯文本，则是直接设置，如果内容里面有嵌套的标签，则会将标签渲染出来
+        $("input").click(function (){
+//               console.log($("div").html());
+//          $("div").html("使用jQuery的方式设置内容");
+          $("div").html("<ul><li>这是第1个li标签</li><li>这是第2个li标签</li><li>这是第3个li标签</li><li>这是第4个li标签</li></ul>");
+
+          // 动态创建元素的第二种方式   html()
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div>
+  <p>原有的文字</p>
+</div>
+</body>
+</html>

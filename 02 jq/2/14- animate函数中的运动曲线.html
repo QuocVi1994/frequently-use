@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>animate运动曲线</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+    .box2 {
+      top:160px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           $("#btn").click(function (){
+               $(".box1").animate({
+                 left:800
+               },2000,"swing")   ;  // 先慢后快，再慢
+             $(".box2").animate({
+               left:800
+             },2000,"linear"); // 匀速
+           })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="开始"/>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>

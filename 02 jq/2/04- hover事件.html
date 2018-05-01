@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: purple;
+    }
+    /*div:hover {*/
+      /*background-color: red;*/
+    /*}*/
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           // 鼠标移入div的时候，要显示红色，鼠标离开的时候，要显示一个原来的颜色
+//        $("div").mouseenter(function (){
+//          // this是DOM中的事件对象
+//
+//            $(this).css("backgroundColor","red");
+//        })
+//        $("div").mouseleave(function (){
+//          $(this).css("backgroundColor","purple");
+//        })
+        $("div").hover(function (){
+          $(this).css("backgroundColor","red");
+        },function (){
+          $(this).css("backgroundColor","purple");
+        });
+
+//        $("div").hover(function(){},function(){});
+      })
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

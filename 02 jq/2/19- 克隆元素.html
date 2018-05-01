@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           // 原生JS中是 cloneNode(boolean)   true 深度克隆  false浅度克隆
+//        var p = $("p").clone();
+//        var p = $("p").clone(false);
+        // 原生js中的操作节点           jQuery
+        // cloneNode                clone
+        // appendChild              append
+        // insertBefore             prepend
+        // removeChild
+        // replaceChild
+         //                         after()
+        //                          before()
+        //                          appendTo()
+
+        var p = $("p").clone(true); // 无论是true还是false 在jQuery当中的克隆都是深度克隆
+        // true还可以克隆事件   false不克隆事件
+//        console.log(p);
+//        console.log(p[0]);
+        //
+        $("input").click(function (){
+//          $("div").append(p);   在当前元素的最后一个子元素的后面追加
+//          $("div").prepend(p);   在前面追加
+          //$("div").after(p);    // 是在同级的后面追加
+//          $("div").before(p);
+
+          p.appendTo($("div"));
+
+        });
+
+      })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div>这是第1个DIV</div>
+<div>这是第2个DIV</div>
+<div>这是第3个DIV</div>
+<p>
+  <span>待我长发及腰，遮住一身肥膘</span>
+</p>
+</body>
+</html>
