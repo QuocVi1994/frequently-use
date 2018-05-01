@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--<iframe src="" frameborder="0"></iframe>-->
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,$http) {
+        //jsonp 反向代理 domain src  postmessage
+
+        // 跨域只出现在浏览器端
+        // cors 添加数据头Access-Control-Allow-Origin'
+        // jsonp https://api.douban.com/v2/book/1220562？callback=jsonp
+        // 反向代理 通过服务器转发给你的网站使用
+         $http(
+             {
+                 method:'GET',
+                 url:'https://api.douban.com/v2/book/1220562'
+             }
+         )
+             .then(function (data) {
+                 console.log(data);
+             },function (error) {
+                 console.log(error);
+             })
+    })
+</script>
+</body>
+</html>

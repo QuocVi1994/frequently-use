@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<p>{{date}}</p>
+<script src="./js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,$interval) {
+        //定时器
+        //每一秒钟跳一下
+
+        //$scope具有双向数据绑定的功能， $scope对于异步操作的数据将无法跟踪，不具有双向数据绑定功能
+
+        //$interval和setInterval都是一样的功能，但是$interval中内部会帮你去调用 $scope.$apply();
+        setInterval(function () {
+            $scope.date=new Date();
+            console.log($scope.date);
+            //$apply用来告诉angular开始更新数据
+            $scope.$apply();
+
+            //双向数据绑定通过$watch 监视数据变化，最后在监视完成数据有发生改变的情况下
+            //会去调用$scope.$apply()，重新更新$scope
+        },1000);
+
+    })
+</script>
+</body>
+</html>

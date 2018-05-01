@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--app指令 表示angular从这里开始，用来处理这个范围内的angular代码-->
+<body ng-app>
+<!--model指令 用来绑定input中value属性-->
+<input type="range"   ng-model="num1">
++
+<input type="number" ng-model="num2">
+<!--click指令 点击事件-->
+<input type="button" value="=" id="add" ng-click="num3=+num1+num2">
+<input type="text" ng-model="num3">
+<!-- 1 引用angular的包-->
+<script src="angular-1.5.8/angular.js"></script>
+</body>
+</html

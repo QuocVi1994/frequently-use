@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--<h1>{{text}}</h1>-->
+<div ng-bind-html="text"></div>
+<script src="angular-1.5.8/angular.js"></script>
+<!--用来解决不安全代码渲染模块-->
+<script src="angular-1.5.8/angular-sanitize.js"></script>
+<script>
+    <!--创建模快的后面数组是用来添加引用模块-->
+    //在angular中引用不安全的html代码渲染需要一下操作
+    //1.引用angular-sanitize.js
+    //2.在创建模块初期添加引用模块名称
+    //3.在需要渲染html代码的位置使用ng-bind-html
+    var app=angular.module('myApp',['ngSanitize']);
+    app.controller('myCtrl',function ($scope) {
+       // $scope.text='测试绑定';
+
+        //angular中不允许有风险的代码进行html渲染
+        $scope.text='<h1>测试h1标签</h1>'
+    })
+</script>
+</body>
+</html>

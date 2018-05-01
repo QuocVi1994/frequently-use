@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moviecat</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+
+
+</head>
+
+<body ng-app="movieApp">
+<!--上面搜索-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Moviecat</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" ng-controller="searchCtrl">
+            <form class="navbar-form navbar-right" ng-submit="searchMoive()">
+                <input type="text" class="form-control" placeholder="搜索" ng-model="searchText">
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <!--左侧部分-->
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="#/movie/in_theaters">正在热映</a></li>
+                <li><a href="#/movie/coming_soon">即将上映</a></li>
+                <li><a href="#/movie/top250">TOP250</a></li>
+            </ul>
+        </div>
+        <!-- 主要的内容区域 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+            <!--<h1 class="page-header">正在上映的电影-北京</h1>
+            <div class="list-group ">
+                <a  href="#/" class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" alt="封神传奇" src="img/1.jpg">
+                        </div>
+                        <div class="media-body">
+                            <span class="badge pull-right">3.3</span>
+                            <h3 class="media-heading ">封神传奇</h3>
+                            <p>类型：<span>剧情、动作、奇幻</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >2016</span></p>
+                            <p>导演：
+                                <span>许安</span> </p>
+                            <p>主演：
+                                <span>李连杰、</span>
+                                <span>范冰冰、</span>
+                                <span>黄晓明</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a  href="#/" class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" alt="封神传奇" src="img/1.jpg">
+                        </div>
+                        <div class="media-body">
+                            <span class="badge pull-right">3.3</span>
+                            <h3 class="media-heading ">封神传奇</h3>
+                            <p>类型：<span>剧情、动作、奇幻</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >2016</span></p>
+                            <p>导演：
+                                <span>许安</span> </p>
+                            <p>主演：
+                                <span>李连杰、</span>
+                                <span>范冰冰、</span>
+                                <span>黄晓明</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a  href="#/" class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" alt="封神传奇" src="img/1.jpg">
+                        </div>
+                        <div class="media-body">
+                            <span class="badge pull-right">3.3</span>
+                            <h3 class="media-heading ">封神传奇</h3>
+                            <p>类型：<span>剧情、动作、奇幻</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >2016</span></p>
+                            <p>导演：
+                                <span>许安</span> </p>
+                            <p>主演：
+                                <span>李连杰、</span>
+                                <span>范冰冰、</span>
+                                <span>黄晓明</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a  href="#/" class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" alt="封神传奇" src="img/1.jpg">
+                        </div>
+                        <div class="media-body">
+                            <span class="badge pull-right">3.3</span>
+                            <h3 class="media-heading ">封神传奇</h3>
+                            <p>类型：<span>剧情、动作、奇幻</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >2016</span></p>
+                            <p>导演：
+                                <span>许安</span> </p>
+                            <p>主演：
+                                <span>李连杰、</span>
+                                <span>范冰冰、</span>
+                                <span>黄晓明</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a  href="#/" class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" alt="封神传奇" src="img/1.jpg">
+                        </div>
+                        <div class="media-body">
+                            <span class="badge pull-right">3.3</span>
+                            <h3 class="media-heading ">封神传奇</h3>
+                            <p>类型：<span>剧情、动作、奇幻</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >2016</span></p>
+                            <p>导演：
+                                <span>许安</span> </p>
+                            <p>主演：
+                                <span>李连杰、</span>
+                                <span>范冰冰、</span>
+                                <span>黄晓明</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>-->
+            <!--<div>-->
+                <!--<p>总共：25条记录，第1/5页</p>-->
+                <!--<nav>
+                    <ul class="pager">
+                        <li class="disabled"><a>上一页</a></li>
+                        <li class=""><a>下一页</a></li>
+                    </ul>
+                </nav>
+            </div>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+<!--angular-->
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route.js"></script>
+
+<!--自定义模块-->
+<script src="module/main.js"></script>
+<script src="module/services.js"></script>
+<script src="module/route.js"></script>
+<script src="module/controller.js"></script>
+</html>

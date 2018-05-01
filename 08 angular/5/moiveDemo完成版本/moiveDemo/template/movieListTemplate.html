@@ -1,0 +1,32 @@
+<h1 class="page-header">{{movieData.title}}</h1>
+<div class="list-group ">
+    <a ng-href="{{'#/moviedetail/'+movie.id}}" class="list-group-item" ng-repeat="movie in movieData.subjects track by movie.id">
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" alt="{{movie.title}}" ng-src="{{movie.images.large}}">
+            </div>
+            <div class="media-body">
+                <span class="badge pull-right">{{movie.rating.average}}</span>
+                <h3 class="media-heading ">{{movie.title}}</h3>
+                <p>类型：<span 0="genre in movie.genres">{{genre}}{{$last?'':'、'}}</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span >{{movie.year}}</span></p>
+                <p>导演：
+                    <span ng-repeat="director in movie.directors">{{director.name}}{{$last?'':'、'}}</span>&nbsp;
+                </p>
+                <p>主演：
+                    <span ng-repeat="cast in movie.casts">{{cast.name}}{{$last?'':'、'}}</span>&nbsp;
+                </p>
+            </div>
+        </div>
+    </a>
+
+</div>
+<div>
+    <p>总共：{{movieData.total}}条记录，第{{page}}/{{maxPage}}页</p>
+    <nav>
+        <ul class="pager">
+            <!--<li class="disabled"><a>上一页</a></li>-->
+            <li ng-class="{'disabled':page<=1}" ng-click="upPage()"  ><a>上一页</a></li>
+            <li ng-class="{'disabled':page>=maxPage}" ng-click="downPage()"  ><a>下一页</a></li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,212 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:README</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">模块</h1>
+<p>###需要记住的知识点　</p>
+<ul>
+<li>模块的创建　多模块的使用　寻找模块　</li>
+<li>控制器防止压缩　多控制器的使用</li>
+<li>全局angular方法了解</li>
+<li>表单验证<h2 id="-">创建模块</h2>
+<pre><code>angular.module(&#39;myApp&#39;,[]);
+</code></pre><h3 id="-">相同模块名</h3>
+</li>
+<li>即便是相同的模块创建出来以后也是不同的模块<pre><code>//创建一个模块
+  var app=angular.module(&#39;myApp&#39;,[]);
+  var app2=angular.module(&#39;myApp&#39;,[]);
+  console.log(app === app2); // false
+</code></pre><h3 id="-">寻找模块</h3>
+</li>
+<li>寻找模块, 通过模块名字找到对应的模块(在自执行函数中寻找对应的模块)<pre><code class="lang-angular2html"> //创建一个模块
+  //var app=angular.module(&#39;myApp&#39;,[]); 
+  //寻找模块, 通过模块名字找到对应的模块(在自执行函数中寻找对应的模块)
+  var app3=angular.module(&#39;myApp&#39;); 
+  console.log(app === app3); //true
+</code></pre>
+<h3 id="-">常用模块使用</h3>
+</li>
+<li>在公司使用中一般会有主模块和多个子模块配套使用<pre><code>  var app=angular.module(&#39;myApp&#39;,[&#39;myApp2&#39;]);
+  app.controller(&#39;myCtrl1&#39;,function ($scope) {
+      $scope.text=&#39;myAppmyCtrl&#39;
+  });
+//    //子模块
+  var app2=angular.module(&#39;myApp2&#39;,[]);
+  app2.controller(&#39;myCtrl2&#39;,function ($scope) {
+      console.log(&#39;myApp2myCtrl2被调用了&#39;);
+      $scope.text=&#39;myApp2myCtrl&#39;
+  })
+</code></pre><h3 id="-">不常用的模块使用</h3>
+</li>
+<li>通过bootstrap方式来使用多个模块<pre><code>var app=angular.module(&#39;myApp&#39;,[]);
+  app.controller(&#39;myCtrl&#39;,function ($scope) {
+      $scope.text=&#39;myAppmyCtrl&#39;
+  });
+  var app2=angular.module(&#39;myApp2&#39;,[]);
+  app2.controller(&#39;myCtrl2&#39;,function ($scope) {
+      $scope.text=&#39;myApp2myCtrl2&#39;
+  });
+  //ngApp可以被多次使用
+  //bootstrap用来手动注册ngApp
+  //了解
+  angular.bootstrap(document.getElementById(&#39;my&#39;),[&#39;myApp&#39;]);
+  angular.bootstrap(document.getElementById(&#39;my2&#39;),[&#39;myApp2&#39;])
+</code></pre><h1 id="-">控制器</h1>
+<h3 id="-">多个控制器使用</h3>
+</li>
+<li>ngController只能放在ngApp中使用</li>
+<li>会有多个controller一起使用，controller的使用采用就近原则来使用controller</li>
+<li>$scope会有一个类似继承的关系,每一个主模块的页面中都会有一个$roorScope(主作用域)，所有的控制器都会创建自己的scope（子作用域）</li>
+<li>$scope中没有的变量会去上一级scope寻找直到$rootScope终止<pre><code>app.controller(&#39;myCtrl&#39;,function ($scope) {
+    $scope.text=&#39;hellomyCtrl&#39;
+ });
+ app.controller(&#39;myCtrl2&#39;,function ($scope) {
+     $scope.text=&#39;hellomyCtrl2 嵌套&#39;
+ })
+</code></pre></li>
+</ul>
+<h3 id="-">控制器防止压缩</h3>
+<ul>
+<li>下面这种方式使用angular在js压缩过程中会报错，爆出参数找不到<pre><code>var app=angular.module(&#39;myApp&#39;,[]);
+  app.controller(&#39;myCtrl&#39;,function ($scope) {
+     $scope.text=&#39;hellomyCtrl&#39;
+  });
+</code></pre></li>
+<li>防止压缩</li>
+<li>在使用function时先添加中括号，然后再把function添加到中括号中</li>
+<li>在中括号前面添加依赖注入参数，参数以字符串的形式出现</li>
+<li>最后将依赖注入的参数写到function</li>
+<li>防止压缩时需要注意参数的名字需要见名知意，在function中的顺序需要按照数组中的参数顺序使用<pre><code> var app=angular.module(&#39;myApp&#39;,[]);
+  app.controller(&#39;myCtrl&#39;,[&#39;$scope&#39;,&#39;$log&#39;,function ($scope,$log) {
+      $scope.text=&#39;防止压缩的controller&#39;
+      $log.log(&#39;$log&#39;)
+  }])
+</code></pre></li>
+</ul>
+<h3 id="-2">防止压缩2</h3>
+<ul>
+<li>通过使用$inject来将需要依赖注入的服务,在外部添加进来，同时也能做到防止压缩<pre><code>var app=angular.module(&#39;myApp&#39;,[]);
+  var myCtrl2=function (a) {
+      a.text=&#39;外部引用的ctrl,$inject_a&#39;
+  };
+  //$inject用来注入服务，可以用来防止压缩
+  myCtrl2.$inject=[&#39;$scope&#39;]
+ app.controller(&#39;myCtrl&#39;,myCtrl2)
+</code></pre><h1 id="angular-">Angular全局方法</h1>
+</li>
+<li>$$的方法或者属性尽量不要使用</li>
+<li>bootstrap 用来手动添加ngApp</li>
+<li>module 用来创建模块</li>
+<li>version 查看版本</li>
+<li>凡属于is开头的都是用来做判断 返回布尔值</li>
+<li>toJson 将对象转换成Json字符串</li>
+<li>fromJson 将Json字符串 转换成json对象</li>
+<li>merge（obj1,obj2） 用来将后面obj2对象合并到obj1中</li>
+<li>copy(obj1,obj3) 深拷贝obj1到obj3中</li>
+<li>uppercase  lowercase 转换大小写</li>
+<li>element（精简版）element返回的是jqLite 缺少了很多东西(在angular做页面时候有些地方angular做不到的情况下才用 jqLite或者jquery使用)<h1 id="-">表单验证</h1>
+</li>
+<li>angular 中有自己的表单验证方式<h2 id="-angular-">使用angular表单验证步骤</h2>
+</li>
+<li>给你的表单form添加name，同时会在$scope上面添加验证信息</li>
+<li>给你表单中所有的表单元素添加name ng-model</li>
+</ul>
+<h2 id="-">需要用到的验证属性</h2>
+<ul>
+<li>required 用来标识表单是否为空</li>
+<li>ng-maxlength最大字符串</li>
+<li>ng-minlength 最小字符串</li>
+<li>novalidate=&quot;false&quot; 禁用required </li>
+<li>touched 表示已经获取过焦点</li>
+<li>untouched 表示没有获取过焦点 </li>
+<li>pristine 没有使用过</li>
+<li>dirty 已经使用过 </li>
+<li>valid 已经通过验证</li>
+<li>invalid 未通过验证 </li>
+<li>error 未通过的错误信息</li>
+</ul>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

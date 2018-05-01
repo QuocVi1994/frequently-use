@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+        .context{
+            margin: 30px auto;
+            width: 400px;
+        }
+        .error{
+            border:1px solid red;
+        }
+        .infoe{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+<div ng-app="what">
+    <!--sigUpCtrl用来控制注册-->
+    <div ng-controller="whatcon">
+        <!--使用angular表单一定要添加name-->
+        <!--给表单中的所有表单元素添加name-->
+        <form  name="signupform"  ng-submit="signup()" class="context"  novalidate="false">
+            <div class="form-group">
+                <label>用户名</label>
+                <pre>{{signupform.username | json}}</pre>
+                <input ng-class='{"error":signupform.username.$invalid&&signupform.username.$touched}' type="text" name='username' ng-maxlength='7' ng-minlength='2'  required class="form-control" placeholder="用户名" ng-model="username">
+                <p ng-class='{"infoe":true}' ng-show='signupform.username.$error.required&&signupform.username.$touched'>用户名不能为空</p>
+                <p ng-class='{"infoe":true}' ng-show='signupform.username.$error.maxlength||signupform.username.$error.minlength'>长度为2~7</p>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input ng-class='{"error":signupform.pwd.$invalid&&signupform.pwd.$touched}' type="password" name='pwd' ng-maxlength='7' ng-minlength='2'  required class="form-control" placeholder="密码" ng-model="pwd">
+                <p ng-class='{"infoe":true}'  ng-show='signupform.pwd.$error.required&&signupform.pwd.$touched'>用户名不能为空</p>
+                <p ng-class='{"infoe":true}' ng-show='signupform.pwd.$error.maxlength||signupform.pwd.$error.minlength'>长度为2~7</p>
+            </div>
+            <div class="form-group">
+                <label>密码确认</label>
+                <input ng-class='{"error":signupform.pwd2.$invalid&&signupform.pwd2.$touched}' type="password" name='pwd2' required class="form-control" placeholder="确认密码" ng-model="pwd2">
+                <p ng-class='{"infoe":true}' ng-show='(pwd!=pwd2)&&signupform.pwd.$touched'>两次密码不一致</p>
+            </div>
+
+            <div>
+                <button class="btn btn-primary"  >注册</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/angular.js"></script>
+    <script>
+        var app=angular.module('what',[]);
+        app.controller('whatcon',function($scope) {
+            $scope.signup=function() {
+                console.log('0000');
+            }
+        })
+    </script>
+</div>
+</body>
+</html>

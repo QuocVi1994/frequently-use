@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-app="myApp">
+    <my-hello text='这是第一个text' text2='这是第二个text'></my-hello>
+
+    <!--<my-hello></my-hello>-->
+    <!--<my-hello></my-hello>-->
+</div>
+<script src="js/angular.js"></script>
+<script>
+    //创建模块
+    var app=angular.module('myApp',[]);
+
+    app.directive('myHello',function () {
+        //transclude用替换当前标签中的innerHtml
+        //template在使用时需要有根标签
+        return {
+            template:'<div><h2>{{text}}</h2><h1 ng-bind="text2"></h1></div>',
+
+            //@表示从外部获取的值, 如果只有一个@表示 key:@=> key:@key
+            scope:{
+                text:'@',
+                text2:'@text2'
+            }
+//            replace:true
+
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/angular.js"></script>
+<script>
+    //创建一个模块
+    var app=angular.module('myApp',[]);
+    // (var app=angular.module('myApp',[]);)()
+    //创建一个模块
+    //var app2=angular.module('myApp',[]);
+    //寻找模块, 通过模块名字找到对应的模块(在自执行函数中寻找对应的模块)
+    var app3=angular.module('myApp');
+    //console.log(app === app2);
+    console.log(app === app3);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [ng-cloak]{
+            display:none
+        }
+    </style>
+    <script src="angular-1.5.8/angular.js"></script>
+</head>
+<!--2app指令-->
+<!--cloak指令 用来遮盖闪一闪的问题-->
+<body ng-app ng-cloak>
+<!--3表达式 差值表达式 胡子函数-->
+<!--通过表达式写字符串-->
+{{'hello world'}}
+<!--bind指令 用来绑定标签中的html内容-->
+<p ng-bind=" 'hello world' "></p>
+<!--1引包-->
+
+<!--出现闪现问题原因是angularjs未能加载完成-->
+<!--1.将angularjs 放在上面（网速差的情况下依然会出现这个问题）-->
+<!--2.给你的代码添加上ng-cloak隐藏 表达式显示内容，还需要手动添加[ng-cloak]{display:none}-->
+<!--3. 通过ng-bind的方式来解决闪一闪的问题-->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" >
+<div ng-controller="myCtrl">
+    <my-dir text2='这是text2@' text3='text3' clickme='dirClick()'></my-dir>
+    <input type="text" ng-model="text3">
+</div>
+
+<script src="js/angular.js"></script>
+<script>
+     var app=angular.module('myApp',[]);
+     app.directive('myDir',function () {
+         return {
+             template:'<div> <button ng-click="cliCkme()">ClickMe</button><p>mydir</p><p >{{text}}</p> <p>{{text2}}</p><p>{{text3}}</p> <input type="text"ng-model="text3"> </div>',
+             //{} true false
+             //@是传递内容
+             //= 传递变量 双向数据绑定  在使用过程中尽量小写
+             //$scope.text2=@text2\
+             //$scope.cliCkme
+             scope:{
+                 text2:'@text2',
+                 text3:'=text3',
+                 cliCkme:'&clickme'
+             }
+         }
+     })
+    app.controller('myCtrl',function ($scope) {
+        $scope.text='这是ctrl中传递过来的内容'
+        $scope.text3='这是text3='
+        $scope.dirClick=function () {
+            console.log('这是从ctrl中出来的');
+        }
+    })
+</script>
+</body>
+</html>

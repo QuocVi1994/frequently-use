@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //封装jsonp
+    function getJSONP(url,callback) {
+        //添加一个随机名字
+        var name='jsonp'+Math.random().toString().substring(2);
+        //1. 创建全局jsonp方法 被script标签调用
+        window[name]=function (data) {
+            //console.log(data);
+            //将发送过来的数据通过回调函数传递出去
+            callback(data);
+            //最后获取到数据将当前的script删除
+            document.head.removeChild(script)
+            window[name]=undefined;
+        };
+        //2 .创建script标签
+        var script=document.createElement('script');
+        //3 .将src属性添加到script标签上
+        script.src=url+'?callback='+name;
+        //4 .将script标签添加到head
+        document.head.appendChild(script);
+    }
+    //豆瓣api
+    var url='https://api.douban.com/v2/book/1220562';
+//    getJSONP(url,function (data) {
+    //        console.log('getJSONP数据');
+    //        console.log(data);
+    //    })
+    getJSONP(url,function (data) {
+        console.log('1');
+        console.log(data);
+    })
+    getJSONP(url,function (data) {
+        console.log('2');
+        console.log(data);
+    })
+//    $.ajax({
+//        url:'',
+//        success:function (data) {
+//
+//        }
+//    })
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+        .context{
+            margin: 30px auto;
+            width: 400px;
+        }
+        .error{
+            border: 1px solid red;
+        }
+        .infoerror{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="myApp">
+    <!--sigUpCtrl用来控制注册-->
+    <div ng-controller="sigUpCtrl">
+        <!--使用angular表单验证步骤-->
+        <!--1.给你的表单form添加name，同时会在$scope上面添加验证信息-->
+        <!--2.给你表单中所有的表单元素添加name-->
+        <form  name="sigUpForm"  ng-submit="sigUpSubmit()" class="context"  novalidate="false">
+            <!--<pre>{{sigUpForm|json}}</pre>-->
+            <div class="form-group">
+                <label>用户名</label>
+                <!--
+                required 用来标识表单是否为空
+                ng-maxlength最大字符串
+                ng-minlength 最小字符串
+                novalidate="false" 禁用required
+
+                touched 表示已经获取过焦点
+                untouched 表示没有获取过焦点
+
+                pristine 没有使用过
+                dirty 已经使用过
+
+                valid 已经通过验证
+                invalid 未通过验证
+
+                error 未通过的错误信息
+                -->
+               <!--<pre>{{sigUpForm.username | json}}</pre>-->
+                <input ng-class="{'error':sigUpForm.username.$invalid&&sigUpForm.username.$touched}" name="username" required type="text"  ng-maxlength="7" ng-minlength="3" class="form-control" placeholder="用户名" ng-model="userdata.username"/>
+                <p ng-class="{'infoerror':true}"  ng-show="sigUpForm.username.$error.required&&sigUpForm.username.$touched">用户名为空</p>
+                <p  ng-class="{'infoerror':true}" ng-show="sigUpForm.username.$error.minlength||sigUpForm.username.$error.maxlength">长度不能少于3位并且长度不能大于7位</p>
+                <!--{{username}}-->
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input ng-class="{'error':sigUpForm.pwd.$invalid&&sigUpForm.pwd.$touched}" name="pwd" required type="password"  ng-maxlength="7" ng-minlength="3" class="form-control" placeholder="密码" ng-model="userdata.pwd"/>
+                <p ng-class="{'infoerror':true}"  ng-show="sigUpForm.pwd.$error.required&&sigUpForm.pwd.$touched">密码为空</p>
+                <p  ng-class="{'infoerror':true}" ng-show="sigUpForm.pwd.$error.minlength||sigUpForm.pwd.$error.maxlength">密码长度不能少于3位并且长度不能大于7位</p>
+            </div>
+            <div class="form-group">
+                <label>确认密码</label>
+                <input ng-class="{'error':sigUpForm.pwd2.$invalid&&sigUpForm.pwd2.$touched}" name="pwd2" required type="password"   class="form-control" placeholder="密码" ng-model="pwd2"/>
+                <p ng-class="{'infoerror':true}"  ng-show="sigUpForm.pwd2.$error.required&&sigUpForm.pwd2.$touched">密码为空</p>
+                <p  ng-class="{'infoerror':true}" ng-show="(userdata.pwd!=pwd2)&&sigUpForm.pwd2.$touched">两次输入密码不一致</p>
+            </div>
+            <div class="form-group">
+                <label>邮箱验证</label>
+                <!--邮箱可以采用默认形式的验证-->
+                <input ng-class="{'error':sigUpForm.email.$invalid&&sigUpForm.email.$touched}" class="form-control" type="email" name="email" ng-model="userdata.email" required>
+                <p  ng-class="{'infoerror':true}"  ng-show="sigUpForm.email.$touched&&(sigUpForm.email.$error.email||sigUpForm.email.$error.required)">邮箱格式不正确</p>
+            </div>
+            <div class="form-group">
+                <!--<pre>{{sigUpForm.phone|json}}</pre>-->
+                <label>手机验证</label>
+                <!--邮箱可以采用默认形式的验证-->
+                <!--ngPattern正则验证-->
+                <input ng-class="{'error':sigUpForm.phone.$invalid&&sigUpForm.phone.$touched}" ng-pattern="/^1(3|4|5|7|8)\d{9}$/" class="form-control" type="tel" name="phone" ng-model="userdata.phone" required  >
+                <p ng-class="{'infoerror':true}" ng-show="sigUpForm.phone.$touched&&(sigUpForm.phone.$error.pattern||sigUpForm.phone.$error.required)">手机号码有误</p>
+            </div>
+            <div>
+                <!--未通过验证禁止使用这个按钮-->
+                <button class="btn btn-primary" ng-disabled="sigUpForm.$invalid"  >注册</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/angular.js"></script>
+    <script>
+        //通过表单验证后存数据
+        function Users(userData) {
+            this.userData=userData
+        }
+        Users.prototype.AddUser=function () {
+            //模拟Ajax存储数据
+            //先去获取localStorage中用户数据
+            var str=localStorage["userList"]||'[]';
+            //转换成json
+            var list=JSON.parse(str);
+            //保存数据到list中
+            //判断数据中的用户名是否重名，如果重名则不添加
+            for(var i=0;i<list.length;i++){
+                if(list[i].username===this.userData.username){
+                    //重名则返回false
+                    return false
+                }
+            }
+            list.push(this.userData)
+            //获取完成后再添加用户数据
+            localStorage["userList"]=JSON.stringify(list);
+            //不重名返回true
+            return true;
+        }
+        var app=angular.module('myApp',[]);
+        app.controller('sigUpCtrl',function ($scope) {
+            $scope.userdata={}
+            $scope.sigUpSubmit=function () {
+                //获取到真实数据以后需要将数据保存起来localStorage
+               // localStorage key value型保存方式 并且这种保存只能保存字符串
+                console.log( $scope.userdata);
+                //添加用户信息
+                var user=new Users($scope.userdata)
+                //保存用户信息
+                if(user.AddUser()){
+                    alert('注册成功')
+                }else{
+                    alert('注册失败')
+                }
+            }
+        })
+    </script>
+</div>
+</body>
+</html>

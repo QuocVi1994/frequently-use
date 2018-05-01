@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<img ng-src=" {{imgSrc}} " alt="">
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        $scope.imgSrc='https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1036600364,3808248400&fm=85&s=4BB916C544436F535085ED2D0300F043'
+    })
+</script>
+</body>
+</html>

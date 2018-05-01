@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 桑世龙 -->
+</head>
+<!--app指令使用myApp模块 controller指令使用myCtrl这个控制器-->
+<body ng-app="myApp" ng-controller="myCtrl">
+{{text}}
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+    //1.引包
+    //2.创建模块
+    //通过module创建模块
+    //参数1.模块名 2.空数组
+
+    var app=angular.module('myApp',[]);
+    //controller 创建控制器
+    //$scope scope服务 凡属于前面有$都是angular官方服务
+    //$scope用来将myCtrl中的数据传递到页面上
+
+    //在使用服务中1.名字千万别写错了 2.参数的顺序可以调换
+
+    //依赖注入： 我不需要你别来，我一旦需要你必须来
+    //依赖注入本质就是将当前的方法变成字符串，然后通过正则表达式来获取到方法中的变量，
+    //最后在调用的过程中在将方法中所需要的参数传递进去即可。
+    app.controller('myCtrl',function ($log,$scope) {
+        //在控制器中操作页面上面的代码
+        $scope.text='这是从myCtrl中传递过来的数据'
+        $log.log('这是$log.log');
+        console.log('这是console.log');
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--init指令 初始化数据-->
+<body ng-app ng-init=" text='初始化数据'">
+
+<p>{{text}}</p>
+<!--这种函数表达式不支持-->
+{{add(2,3)}}
+<!--对象表达式-->
+<pre>{{ {a:100,b:'小强'} }}</pre>
+<!--数组表达式-->
+<p>{{[1,2,3,4,5,6,7]}} </p>
+<!--布尔表达式-->
+{{true}} {{false}} {{true? '真的':'假的'}}
+<!--数字表达式-->
+{{1+1}} {{2-1}} {{33*2}} {{ 4/2}}
+{{12345678}}
+<!--字符串表达式-->
+{{'hello world'}}
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+    <!--这种直接写函数表达式不支持-->
+    function add(a,b) {
+        return a+b
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" >
+<div ng-controller="myCtrl">
+    <div ng-controller="myCtrl2">
+        {{text}}
+    </div>
+    <my-dir text='123' ></my-dir>
+</div>
+
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.directive('myDir',function () {
+        return {
+            template:'<div>{{text}}</div>',
+            // {}也会增加作用域，此时这个作用于不会找父类中的引用参数 true 会增加属于自己的作用域scope false
+            scope:{
+                text:'@text'
+            }
+        }
+    })
+    app.controller('myCtrl',function ($scope) {
+        $scope.text='这是ctrl中传递过来的内容'
+    })
+    app.controller('myCtrl2',function ($scope) {
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app ng-init=" isShow=false ">
+    <!--ngif-->
+    <!--ngif通过注释的方式达到显示与隐藏-->
+    <input type="checkbox" ng-model="isShow">
+    <p  ng-if="isShow">ng-if:{{isShow}}</p>
+    <!--show和hide做显示和隐藏是样式的隐藏-->
+    <p  ng-show="isShow">ng-show:{{isShow}}</p>
+    <p  ng-hide="isShow">ng-hide:{{isShow}}</p>
+
+</body>
+<script src="./angular-1.5.8/angular.js"></script>
+</html>

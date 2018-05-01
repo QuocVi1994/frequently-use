@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app>
+<!--双向数据绑定-->
+<!--双向数据绑定能够做到变量修改的同时所有引用改变量的位置参数也发生修改-->
+<input type="number" ng-model="text1">
+<input type="number" ng-model="text2">
+{{text1+text2}}
+<h1>{{text1}}</h1>
+<script src="angular-1.5.8/angular.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="#/home">首页</a></li>
+    <li><a href="#/news">新闻</a></li>
+    <li><a href="#/shop">商店</a></li>
+</ul>
+<div id="view">
+
+</div>
+<script>
+    //获取view
+    var view=document.getElementById('view');
+    //监视hashchange这个事件 ，如果有hash值的改变这个方法会被触发
+
+    window.addEventListener('hashchange',function () {
+        console.log(location);
+        switch(location.hash){
+            case '#/home':
+                view.innerHTML='首页';
+                break;
+            case '#/news':
+                view.innerHTML='新闻'
+                break;
+            case '#/shop':
+                view.innerHTML='商店'
+                break;
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="my" ng-controller="myCtrl">
+        {{text}}
+    </div>
+    <div id="my2" ng-controller="myCtrl2">
+        {{text}}
+    </div>
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        $scope.text='myAppmyCtrl'
+    });
+    var app2=angular.module('myApp2',[]);
+    app2.controller('myCtrl2',function ($scope) {
+        $scope.text='myApp2myCtrl2'
+    });
+    //ngApp可以被多次使用
+    //bootstrap用来手动注册ngApp
+    //了解
+    angular.bootstrap(document.getElementById('my'),['myApp']);
+    angular.bootstrap(document.getElementById('my2'),['myApp2'])
+</script>
+</body>
+</html>

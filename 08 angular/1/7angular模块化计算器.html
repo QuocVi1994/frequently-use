@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<input type="number" ng-model="num1">
++
+<input type="number" ng-model="num2">
+<input type="button" value="=" id="add" ng-click="add()"  >
+<input type="number" ng-model="num3">
+</body>
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+    //1 引包
+    //2 创建模块和控制器
+    //3 添加ngapp和ngcontroller
+    //在angular中大部分功能都是通过模块来实现的
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+     //在页面上面只要有关angular变量或者方法都可以通过$scope获取到
+        $scope.num1=0;
+        $scope.num2=0;
+        $scope.num3=0;
+        $scope.add=function () {
+            $scope.num3=$scope.num1+$scope.num2;
+        }
+    })
+</script>
+</html>

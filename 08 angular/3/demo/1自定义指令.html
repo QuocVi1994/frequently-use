@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-app="myApp">
+        <!--注释的方式使用-->
+        <!-- directive:my-hello  -->
+        <!--以类的形式-->
+        <div class=" my-hello">
+
+        </div>
+        <!--标签的形式-->
+        <my-hello></my-hello>
+        <!--以属性的形式-->
+        <div my-hello>
+
+        </div  >
+    </div>
+<script src="js/angular.js"></script>
+<script>
+    //创建模块
+    var app=angular.module('myApp',[]);
+    //directive是用来创建自定义指令的方法
+    //自定义指令的好处 将常用的代码和复杂的代码前期封装好以后，后期简易调用
+    //第一个参数是名称 第二个参数是你自定义指令的创建
+    //自定义指令中的命名采用驼峰命名法来使用，最后在页面的使用去掉原有的大写改成小写并且在小写前面加上-
+    app.directive('myHello',function () {
+        //所有的自定义指令内容都是从返回值开始的
+        return {
+            //模板
+            template:'<h1>hello directive</h1>',
+            //去壳
+            replace:true,
+            //用来限制自定义指令的各种形态
+            //A E C M
+            // attribute 属性
+            //element 标签
+            // class 类名
+            // comment 注释 注释的方式写的指令需要配合replace:true一起使用
+            restrict:'AECM'
+        }
+    })
+</script>
+</body>
+</html>

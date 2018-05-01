@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+        .context{
+            margin: 30px auto;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+ <div ng-app="myApp">
+     <!--sigUpCtrl用来控制注册-->
+     <div ng-controller="sigUpCtrl">
+         <form class="context">
+             <div class="form-group">
+                 <label>用户名</label>
+                 <input type="text" class="form-control" placeholder="用户名" ng-model="username"/>
+             </div>
+             <div class="form-group">
+                 {{msg}}
+             </div>
+             <div>
+
+                 <button class="btn btn-primary" ng-click="sinUpClick()">注册</button>
+             </div>
+         </form>
+     </div>
+
+     <script src="js/angular.js"></script>
+     <script>
+         var app=angular.module('myApp',[]);
+         app.controller('sigUpCtrl',function ($scope) {
+             //用户名
+             $scope.username='';
+             $scope.msg='';
+             //注册
+             $scope.sinUpClick=function () {
+                 if($scope.username.length<=0)
+                 {
+                     $scope.msg='请输入用户名'
+                 }
+             }
+         })
+     </script>
+ </div>
+</body>
+</html>

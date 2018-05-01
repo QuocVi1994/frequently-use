@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" id="context1">
+{{text}}
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    var myCtrl2=function (a) {
+        a.text='外部引用的ctrl,$inject_a'
+    };
+    //$inject用来注入服务，可以用来防止压缩
+    myCtrl2.$inject=['$scope']
+   app.controller('myCtrl',myCtrl2)
+    //写在外部的controller防止压缩
+//    var myCtrl2=function ($scope) {
+//        $scope.text='外部引用的ctrl'
+//    };
+//   app.controller('myCtrl',['$scope',myCtrl2])
+</script>
+</body>
+</html>

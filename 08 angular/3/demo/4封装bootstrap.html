@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+
+</head>
+<body>
+    <div ng-app="myApp" class="row">
+        <div  class="col-md-3">
+            <my-panel title2='标题一' body='内容一' type='success' >从外部传递过来的1</my-panel>
+        </div>
+
+        <div  class="col-md-3">
+            <my-panel  title2='标题2' body='内容二' type='primary' >从外部传递过来的2</my-panel>
+        </div>
+
+
+    </div>
+
+<script src="js/angular.js"></script>
+<!--template模板,通过text/ng-template将当前的script变成一个模板-->
+<script id="mypaneltemplate" type="text/ng-template">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+</script>
+<script>
+    var  app=angular.module('myApp',[]);
+    //以bootstrap来定义的panel
+    app.directive('myPanel',function () {
+        return {
+            //templateUrl 放模板的id/路径
+            templateUrl:'./mypaneltemplate.html',
+            //$scope.title
+            scope:{
+                titlea:'@title2',
+                body:'@',
+                type:'@'
+            },
+            transclude:true
+        }
+    })
+</script>
+
+</body>
+</html>

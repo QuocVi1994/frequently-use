@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($http) {
+        var douban='https://api.douban.com/v2/book/1220562?callback=JSON_CALLBACK';
+
+        //angular中的jsonp使用方法
+        //1 在你的url中添加？callback=JSON_CALLBACK
+        //2 使用$http.jsonp 发送数据请求
+        //3 接受jsonp数据
+        //4.* 注意angular中的jsonp会带有.,某些服务器不支持.（豆瓣）
+        var angularJSONP='https://angularjs.org/greet.php?callback=JSON_CALLBACK&name=Super%20Hero'
+        $http.jsonp(douban)
+            .then(function (data) {
+                console.log(data);
+            },function (error) {
+                console.log(error);
+            })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.css">
+</head>
+<body ng-app="myApp" >
+<my-dir class="col-md-3"></my-dir>
+<my-dir class="col-md-3"></my-dir>
+<my-dir class="col-md-3"></my-dir>
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.directive('myDir',function () {
+        return {
+            templateUrl:'mypaneltemplate2.html',
+            scope:{}
+        }
+    });
+    app.controller('myCtrl',function ($scope) {
+
+    })
+</script>
+</body>
+</html>

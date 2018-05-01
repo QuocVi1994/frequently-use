@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <!--遍历对象-->
+    <div>
+        <p ng-repeat="(key,value) in person1">{{key}}:{{value}}</p>
+    </div>
+    <!--遍历数组-->
+    <div>
+        <p ng-repeat="item in list">
+            name：{{item.name}}，age:{{item.age}},gender:{{item.gender}}
+        </p>
+    </div>
+    <!--遍历重复数组-->
+    <ul>
+        <!-- repeate指令用循环遍历当前标签-->
+        <li ng-repeat="number in arr track by $index ">
+            {{number}}下标:{{$index}}第一个:{{$first}}中间的{{$middle}}结尾的{{$last}}偶数{{$even}}奇数{{$odd}}
+        </li>
+    </ul>
+    <!--{{arr}}-->
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        //在使用ngrepeate是系统会自动生成$index
+        //$index在循环过程中就是当前循环的下标
+        $scope.arr=[1,1,2,3,4,5,6,7,8];
+        var ajaxList=[
+                {name:'John', age:25, gender:'boy'},
+                {name:'Jessie', age:30, gender:'girl'},
+                {name:'Johanna', age:28, gender:'girl'},
+                {name:'Joy', age:15, gender:'girl'},
+                {name:'Mary', age:28, gender:'girl'},
+                {name:'Peter', age:95, gender:'boy'},
+                {name:'Sebastian', age:50, gender:'boy'},
+                {name:'Erika', age:27, gender:'girl'},
+                {name:'Patrick', age:40, gender:'boy'},
+                {name:'Samantha', age:60, gender:'girl'}
+            ];
+        $scope.list=ajaxList;
+        $scope.person1= {name:'张三', age:18, gender:'小鲜肉'};
+    });
+
+</script>
+</body>
+</html>

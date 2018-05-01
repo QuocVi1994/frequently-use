@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div ng-app="myApp">
+        <ul>
+            <li><a href="#/home">首页</a></li>
+            <li><a href="#/news">新闻</a></li>
+            <li><a href="#/shop">商店</a></li>
+        </ul>
+        <div ng-view>
+
+        </div>
+    </div>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script>
+    //1.angular spa 先引用angularjs和angular routejs
+    //2 在模块中引用ngRoute
+    //3 创建路由表
+    //4 在你需要做路由切换的位置使用ng-view
+    var app=angular.module('myApp',['ngRoute']);
+    //创建路由表
+    //config配置是用来配置全局的使用
+    //通过$routeProvider来配置路由表
+    app.config(function ($routeProvider) {
+        //里面每一条路由就是一个when
+        $routeProvider
+            .when('/home',{
+                template:'<h1>home</h1>'
+            })
+            .when('/shop',{
+                template:'<h1>shop</h1>'
+            })
+            .when('/news',{
+                template:'<h1>news</h1>'
+            })
+    })
+</script>
+</body>
+</html>

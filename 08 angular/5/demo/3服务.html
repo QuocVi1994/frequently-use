@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<script src="js/angular.js"></script>
+<script>
+//    function abc() {
+//        this.
+//    }
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,myService,myfactory) {
+        //angular中myService交给angular帮我们完成new的操作
+        console.log(myService.name);
+        console.log(myService.getAge(18));
+        console.log(myfactory.name);
+        console.log(myfactory.getAge(30));
+    });
+    //自定义服务
+    //service服务
+    app.service('myService',function () {
+      this.name='张三';
+      this.getAge=function (age) {
+          return age
+      }
+    })
+    //fatory服务
+    app.factory('myfactory',function () {
+      return {
+          name:'李哲思',
+          getAge:function (age) {
+              return age
+          }
+      }
+    })
+</script>
+</body>
+</html>

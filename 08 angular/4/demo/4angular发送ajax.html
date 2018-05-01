@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<h1>{{bookDate.title}}</h1>
+<span>{{bookDate.summary}}</span>
+<img ng-src="{{bookDate.images.large}}" alt="">
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,$http) {
+        $scope.bookDate={}
+        $http({
+            method:'GET', //发送类型
+            url:'./myjson.json' //url地址
+        })     //then 是用来接受回函数的一种方式 promise语法
+            .then(function (data) {
+                //成功的回调函数
+                console.log('成功');
+                console.log(data.data);
+                $scope.bookDate=data.data;
+                //虽然当前数据是异步操作但是在$http中会自动调用$scope.$apply
+                //$scope.$apply();
+            },function (error) {
+                //失败的回调函数
+                console.log('失败');
+                console.log(error);
+
+            })
+        //发送ajax请求
+//        $.ajax({
+//            type:'GET',
+//            url:'',
+//            data:{},
+//            success:function () {
+//
+//            }
+//        })
+
+    })
+</script>
+</body>
+</html>

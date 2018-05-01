@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="num1">
++
+<input type="number" id="num2">
+<input type="button" value="=" id="add">
+<input type="number" id="num3">
+<script>
+    //js和jquery本质操作都是先获取dom元素然后再写业务逻辑代码
+    //1.写页面
+    //2 获取dom元素
+    var num1=document.getElementById('num1');
+    var num2=document.getElementById('num2');
+    var num3=document.getElementById('num3');
+    var add=document.getElementById('add');
+    add.onclick=function () {
+        //3 业务逻辑代码
+        num3.value=parseInt(num1.value)+parseInt(num2.value)
+    }
+</script>
+</body>
+</html>

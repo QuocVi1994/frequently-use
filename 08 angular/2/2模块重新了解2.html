@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<div ng-app="myApp" >
+    <div  ng-controller="myCtrl1">
+        {{text}}
+    </div>
+    <div  ng-controller="myCtrl2">
+        {{text}}
+    </div>
+
+</div>
+<!--<div ng-app="myApp2"  ng-controller="myCtrl">-->
+    <!--{{text}}-->
+<!--</div>-->
+
+<script src="js/angular.js"></script>
+<script>
+    //创建一个模块
+    //ngApp 可以放在任何闭合标签中，但是一定要是可以管理到你想管理angular代码
+    // ngApp 以就近原则放置，哪里需要ngapp来管理我就放在那里，因为这样可以减少angular对于页面的处理时间
+    // ngApp页面上只会存在一个ngApp, 创建出来的模块可以有多个
+
+    //主模块引用子模块 通过名字去找到对应的模块， 即便找到对应的模块也不会去执行
+    // 当你模块中的控制器在页面上被使用才会被调用
+    //主模块
+    var app=angular.module('myApp',['myApp2']);
+    app.controller('myCtrl1',function ($scope) {
+        $scope.text='myAppmyCtrl'
+    });
+//    //子模块
+    var app2=angular.module('myApp2',[]);
+    app2.controller('myCtrl2',function ($scope) {
+        console.log('myApp2myCtrl2被调用了');
+        $scope.text='myApp2myCtrl'
+    })
+</script>
+</body>
+</html>

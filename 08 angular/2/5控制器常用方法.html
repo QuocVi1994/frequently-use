@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+{{text}}
+<script src="js/angular.js"></script>
+<script>
+    //你写的angular代码
+    //下面这种方式使用angular在js压缩过程中会报错，爆出参数找不到
+    //防止压缩
+    //1.在使用function时先添加中括号，然后再把function添加到中括号中
+    //2. 在中括号前面添加依赖注入参数，参数以字符串的形式出现
+    //3. 最后将依赖注入的参数写到function
+    //防止压缩时需要注意参数的名字需要见名知意，在function中的顺序需要按照数组中的参数顺序使用
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',['$scope','$log',function ($log,$scope) {
+        $scope.text='防止压缩的controller'
+        $log.log('$log')
+    }])
+    //var app=angular.module("myApp",[]);app.controller("myCtrl",["$scope",function(a){a.text="防止压缩的controller2"}]);
+    //var app=angular.module("myApp",[]);app.controller("myCtrl",function(a){a.text="hello"});
+</script>
+</body>
+</html>

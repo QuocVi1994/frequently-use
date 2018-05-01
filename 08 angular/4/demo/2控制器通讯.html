@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" >
+<div ng-controller="fatherCtrl">
+    <input type="button" value="toSon" ng-click="toSonMsg()">
+    <div ng-controller="sonCtrl">
+        <input type="button" value="toFather" ng-click="toFatherMsg()">
+    </div>
+</div>
+
+<script src="./js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    //父控制器
+    app.controller('fatherCtrl',function ($scope) {
+        $scope.text='fatherCtrl'
+        //给儿子发信息 要不要生活费
+       $scope.toSonMsg=function () {
+           //通过$broadcast对所有子控制器进行广播
+           $scope.$broadcast('sonmsg',{'msg':'要不要生活费？'})
+       }
+
+       //接受儿子传递过来的数据
+        $scope.$on('fasthermsg',function (scope,msg) {
+            console.log(scope);
+            console.log(msg);
+        });
+    });
+    //子控制器
+    app.controller('sonCtrl',function ($scope) {
+        $scope.text='sonCtrl'
+        //通过$on来接受广播过来的数据
+        //scope是获取发送者的scope
+        // msg 是获取发送者传递过来的信息
+        $scope.$on('sonmsg',function (scope,msg) {
+            console.log(scope);
+            console.log(msg);
+        });
+
+        //向父亲发送消息
+        $scope.toFatherMsg=function () {
+            //通过$broadcast对所有子控制器进行广播
+            $scope.$emit('fasthermsg',{'msg':'要20000000'})
+        }
+    })
+</script>
+</body>
+</html>

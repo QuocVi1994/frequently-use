@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-init=" text='hello'">
+        {{text}}
+        <div ng-controller="myCtrl">
+            {{text}}
+            <div ng-controller="myCtrl2">
+                {{text}}
+            </div>
+        </div>
+        <div  ng-controller="myCtrl3">
+            {{text}}
+        </div>
+    </div>
+
+<script src="js/angular.js"></script>
+<script>
+    //1. ngController只能放在ngApp中使用
+    // 2. 会有多个controller一起使用，controller的使用采用就近原则来使用controller
+    //3. $scope会有一个类似继承的关系,每一个主模块的页面中都会有一个$roorScope(主作用域)，所有的控制器都会创建自己的scope（子作用域）
+    // 4. $scope中没有的变量会去上一级scope寻找直到$rootScope终止
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+       $scope.text='hellomyCtrl'
+    });
+    app.controller('myCtrl2',function ($scope) {
+        $scope.text='hellomyCtrl2 嵌套'
+    })
+    app.controller('myCtrl3',function ($scope) {
+
+    })
+</script>
+</body>
+</html>

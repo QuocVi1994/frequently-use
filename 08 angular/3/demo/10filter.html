@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+    <div ng-app="myApp">
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="search" >
+            <ul>
+                <!--filter过滤器用来数组或者是对象 用在repeate中-->
+                <li ng-repeat="use in list | filter:{name:search}">
+                     <span>name:{{use.name}}</span>
+                     <span>phone:{{use.phone}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+<script src="js/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        $scope.search=''
+        $scope.list=[
+            {name:'John', phone:'555-1276'},
+            {name:'Mary', phone:'800-BIG-MARYJ'},
+            {name:'Mike', phone:'555-4321'},
+            {name:'Adam', phone:'555-5678'},
+            {name:'Julie', phone:'555-8765'},
+            {name:'Juliette', phone:'555-5678'}]
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div>
+        <!--奇偶变色-->
+        <p ng-class="{'red':$even,'blue':$odd}" ng-repeat="item in list">name:{{item.name}}</p>
+        <!--<p ng-class-even="{'red':true}" ng-class-odd="{'blue':true}" ng-repeat="item in list">name:{{item.name}}</p>-->
+    </div>
+    <input type="checkbox" ng-model="check">
+    <!--class指令 用来控制当前标签的样式-->
+    <p ng-class="{'red':check}">{{text}}</p>
+<script src="angular-1.5.8/angular.js"></script>
+<script>
+     var app=angular.module('myApp',[]);
+     app.controller('myCtrl',function ($scope) {
+         $scope.text='初始化内容';
+         console.log($scope.check);
+         $scope.list=[
+             {name:'John', age:25, gender:'boy'},
+             {name:'Jessie', age:30, gender:'girl'},
+             {name:'Johanna', age:28, gender:'girl'},
+             {name:'Joy', age:15, gender:'girl'},
+             {name:'Mary', age:28, gender:'girl'},
+             {name:'Peter', age:95, gender:'boy'},
+             {name:'Sebastian', age:50, gender:'boy'},
+             {name:'Erika', age:27, gender:'girl'},
+             {name:'Patrick', age:40, gender:'boy'},
+             {name:'Samantha', age:60, gender:'girl'}
+         ];
+     })
+</script>
+</body>
+</html>

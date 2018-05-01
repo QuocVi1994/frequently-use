@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div test></div>
+<script src="./js/angular.js"></script>
+
+<script  id="test" type="text/ng-template">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+</script>
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('test', function () {
+        return {
+            templateUrl: 'test',
+            scope:{
+                title:'@',
+                body:'@',
+                type:'@'
+            },
+            transclude:true
+        }
+    })
+</script>
+</body>
+</html>

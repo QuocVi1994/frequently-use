@@ -1,0 +1,252 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:README</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">自定义指令</h1>
+<ul>
+<li>在之间都是使用以ng-开头的官方指令，angular内部可以通过自定义指令来创建属于你的指令</li>
+</ul>
+<h2 id="-">模板</h2>
+<blockquote>
+<p>template里面是使用字符串形式的模板</p>
+</blockquote>
+<pre><code> app.directive(&#39;myHello&#39;,function () {
+        //所有的自定义指令内容都是从返回值开始的
+        return {
+            //模板
+            template:&#39;&lt;h1&gt;hello directive&lt;/h1&gt;&#39;
+        }
+    })
+</code></pre><blockquote>
+<p>如果模板的内容过于复杂,所以使用templateUrl来完成模板的使用，</p>
+<ol>
+<li>使用templateUrl模板放置的是模板的路径（放置id）</li>
+<li>如果是路径的形式出现，那么在对应的路径文件中需要有一个空的html页面存放你的模板</li>
+</ol>
+</blockquote>
+<pre><code>//一个空模版 里面不能含有 body head html标签
+&lt;div class=&quot;panel&quot; ng-class=&quot;{&#39;panel-primary&#39;:type==&#39;primary&#39;,&#39;panel-success&#39;:type==&#39;success&#39;}&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot;&gt;
+        &lt;h3 class=&quot;panel-title&quot;&gt;{{title}}&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;panel-body&quot;&gt;
+        &lt;div  ng-transclude&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="-">去壳</h2>
+<blockquote>
+<p>因为在使用自定义指令的同时会将当前指令的外壳标签一并渲染，所以在某一些情况下需要去除指令外壳采用replace:true</p>
+</blockquote>
+<h2 id="-">指令的使用形式</h2>
+<blockquote>
+<p>使用指令一共有四种方式 </p>
+</blockquote>
+<ul>
+<li>attribute 属性</li>
+</ul>
+<pre><code>    &lt;!--以属性的形式--&gt;
+        &lt;div my-hello&gt;
+
+        &lt;/div  &gt;
+</code></pre><ul>
+<li>element 标签</li>
+</ul>
+<pre><code>        &lt;!--标签的形式--&gt;
+         &lt;my-hello&gt;&lt;/my-hello&gt;
+</code></pre><ul>
+<li>class 类名</li>
+</ul>
+<pre><code>        &lt;!--以类的形式--&gt;
+        &lt;div class=&quot; my-hello&quot;&gt;
+</code></pre><ul>
+<li>comment 注释 注释的方式写的指令需要配合replace:true一起使用</li>
+</ul>
+<pre><code>        &lt;!--注释的方式使用--&gt;
+        &lt;!-- directive:my-hello  --&gt;
+</code></pre><h2 id="-">由外部传递内容到指令中来</h2>
+<h3 id="transclude-">transclude传递内容</h3>
+<ol>
+<li>在自定义属性中添加 <code>transclude:true</code></li>
+<li>在你的模板中又需要从外部替换内容的标签上 添加属性 <code>ng-transclude</code> ，加上ng-transclude属性以后，改标签中的内容将有外部内容替换
+3.　在使用该指令时　在指令标签的中间添加上的内容将会替换ng-transclude所在位置的标签内容
+４.　注意多次使用ng-transclude只是进行原有内容的复制</li>
+</ol>
+<h3 id="scope-">scope传递内容</h3>
+<p>1．在属性中scope以对象的形式出现</p>
+<ol>
+<li>如果外部有需要传递内容进来需要在scope中添加对应的属性 </li>
+<li>scope有三中参数 true、{}、false不会创建独立作用域</li>
+<li>（true和{}）用来创建独立作用于域 ，区别true还会附带继承父作用域，{}不会继承</li>
+<li>false不会创建独立作用域</li>
+</ol>
+<h4 id="scope-3-">scope 参数传递有3个符号</h4>
+<ul>
+<li>@ 用来传递字符串</li>
+<li>= 传递变量 并且有双向数据绑定功能</li>
+<li>&amp; 传递方法</li>
+</ul>
+<h2 id="link">link</h2>
+<ul>
+<li>在angular中鼓励使用dom操作的位置</li>
+<li><p>link后面的fuction 中的三个参数</p>
+</li>
+<li><p>scope  能够访问到当前的作用域</p>
+</li>
+<li>ele 获取到当前自定义指令中的jqLite对象</li>
+<li>atts 获取到当前自定义指令中的所有属性</li>
+</ul>
+<pre><code> app.directive(&#39;myLink&#39;,function () {
+        //angular中不鼓励在除了link之外的地方操作dom元素
+        //link 用来在angular中操作dom
+        return {
+            link:function (scope,ele,atts) {
+                //scope 能够访问到当前的作用域
+               // console.log(scope);
+                //ele 获取到当前自定义指令中的jqLite对象
+               // console.log(ele[0]);
+                console.log(atts);
+            }
+        }
+    })
+</code></pre><h1 id="-">过滤器</h1>
+<ul>
+<li>金钱过滤器</li>
+</ul>
+<pre><code>&lt;p&gt;金钱过滤器:{{1000|currency}}&lt;/p&gt;
+</code></pre><ul>
+<li>时间过滤器</li>
+</ul>
+<pre><code>&lt;p&gt;{{1497080646471|date:&#39;yyyy-MM-dd HH:mm:ss Z&#39;}}&lt;/p&gt;
+</code></pre><ul>
+<li>json过滤器</li>
+</ul>
+<pre><code>&lt;pre&gt;{{ {
+    &quot;id&quot;:&quot;1220562&quot;,
+    &quot;alt&quot;:&quot;https:\/\/book.douban.com\/book\/1220562&quot;,
+    &quot;rating&quot;:{&quot;max&quot;:10, &quot;average&quot;:&quot;7.0&quot;, &quot;numRaters&quot;:282, &quot;min&quot;:0},
+    &quot;author&quot;:[{&quot;name&quot;:&quot;片山恭一&quot;}, {&quot;name&quot;:&quot;豫人&quot;}],
+    &quot;alt_title&quot;:&quot;&quot;,
+    &quot;image&quot;:&quot;https://img3.doubanio.com\/spic\/s1747553.jpg&quot;,
+    &quot;title&quot;:&quot;满月之夜白鲸现&quot;,
+    &quot;mobile_link&quot;:&quot;https:\/\/m.douban.com\/book\/subject\/1220562\/&quot;,
+    &quot;summary&quot;:&quot;那一年，是听莫扎特、钓鲈鱼和家庭破裂的一年。说到家庭破裂，母亲怪自己当初没有找到好男人，父亲则认为当时是被狐狸精迷住了眼，失常的是母亲，但出问题的是父亲……。&quot;,
+    &quot;attrs&quot;:{
+       &quot;publisher&quot;:[&quot;青岛出版社&quot;],
+        &quot;pubdate&quot;:[&quot;2005-01-01&quot;],
+        &quot;author&quot;:[&quot;片山恭一&quot;, &quot;豫人&quot;],
+        &quot;price&quot;:[&quot;18.00元&quot;],
+        &quot;title&quot;:[&quot;满月之夜白鲸现&quot;],
+        &quot;binding&quot;:[&quot;平装(无盘)&quot;],
+        &quot;translator&quot;:[&quot;豫人&quot;],
+        &quot;pages&quot;:[&quot;180&quot;]
+    },
+    &quot;tags&quot;:[
+        {&quot;count&quot;:106, &quot;name&quot;:&quot;片山恭一&quot;},
+        {&quot;count&quot;:50, &quot;name&quot;:&quot;日本&quot;},
+        {&quot;count&quot;:42, &quot;name&quot;:&quot;日本文学&quot;},
+        {&quot;count&quot;:30, &quot;name&quot;:&quot;满月之夜白鲸现&quot;},
+        {&quot;count&quot;:28, &quot;name&quot;:&quot;小说&quot;},
+        {&quot;count&quot;:10, &quot;name&quot;:&quot;爱情&quot;},
+        {&quot;count&quot;:7, &quot;name&quot;:&quot;純愛&quot;},
+        {&quot;count&quot;:6, &quot;name&quot;:&quot;外国文学&quot;}
+    ]
+} | json:5}}&lt;/pre&gt;
+</code></pre><ul>
+<li>limitTo</li>
+</ul>
+<pre><code>&lt;!--3表示显示个数，2表示起始位置--&gt;
+&lt;p&gt;{{[1,2,3,4,5,6,7]|limitTo:3:2}}&lt;/p&gt;
+</code></pre><ul>
+<li>number过滤器</li>
+</ul>
+<pre><code>&lt;!--number过滤器--&gt;
+&lt;p&gt;{{1000.126|number:2}}&lt;/p&gt;
+</code></pre><h1 id="todomvc-crud-">TodoMVC（CRUD 增删查改）</h1>
+<blockquote>
+<p>www.todomvc.com</p>
+</blockquote>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
