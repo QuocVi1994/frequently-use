@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        var pObject = {
+                name: "小米",
+                age: 18,
+                address: "天上人间"
+            }
+            // var pName = pObject.name;
+            // console.log(pName);
+
+
+        var test = "address";
+        console.log(pObject[test]); // 天上人间
+
+        /*-----------------------------------*/
+        // O: 1, a:2
+        var str = "ooasstsstdda";
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            var temp = str[i]; // o o
+            if (obj[temp]) { // obj[temp] ==>null --> false
+                obj[temp]++; // obj[temp] = obj[temp] + 1
+                // obj = {
+                //   o : 2
+                // }
+            } else {
+                //    假设对象obj里面有字符串里面的某个字母
+                obj[temp] = 1;
+                // obj = {
+                //   o : 1
+                // }
+                // obj["o"] --> 1
+            }
+        }
+
+        console.log(obj);
+        //obj = {o: 2, a: 2, s: 4, t: 2, d: 2}
+        var max = 0;
+        var ziMu = "";
+        for (var key in obj) {
+            if (max < obj[key]) {
+                max = obj[key];
+                ziMu = key;
+            }
+        }
+        console.log(ziMu, max);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <script>
+        window.onload = function() {
+            var oDiv = document.getElementById('div1');
+
+            function timeleft() {
+                var now = new Date();
+                var future = new Date(2020, 8, 12, 24, 0, 0);
+                var lefts = parseInt((future - now) / 1000);
+                var day = parseInt(lefts / 86400);
+                var hour = parseInt(lefts % 86400 / 3600);
+                var min = parseInt(lefts % 86400 % 3600 / 60);
+                var sec = lefts % 60;
+                str = '距离2020年9月12日晚24点还剩下' + day + '天' + hour + '时' + min + '分' + sec + '秒';
+                oDiv.innerHTML = str;
+            }
+            timeleft();
+            setInterval(timeleft, 1000);
+        }
+    </script>
+</body>
+
+</html>

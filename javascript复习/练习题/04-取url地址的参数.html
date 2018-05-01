@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //        console.log(location);
+        //从浏览器的url处得到的参数存在了  location.search里面，还是  ?键=值&键=值
+        //分隔开，得到自己想要的数据
+        var arr = location.search.substring(1).split("&");
+        //        console.log(arr);
+        //此时数组里面还是 键=值的形式，如果要获取id的值，还是比较麻烦
+        //把键值对使用对象管理起来
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            var temp = arr[i].split("=");
+            //            console.log(temp);
+            obj[temp[0]] = temp[1];
+        }
+        //        console.log(obj);
+        //把id从obj中获取出来
+        var id = obj.id;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //找出1到100之间的素数
+        //分析:　素数从２开始，只能被１和本身整除
+        // 1.从2开始一步一步开始找到100, 每一个都假设是素数都需要遍历(循环)到,第一个for循环,自增的变量为i;
+        // 2.每个数都从2开始到它自己(i)为止,是否能被整除,是否需要推翻假设,第二个for循环,
+
+
+
+        //   按分析看下面的解析和代码
+        //
+        // 1.第一个for循环,遍历2到100之间的数(i)
+        for (var i = 2; i <= 100; i++) {
+            var flag = true; //3.flag为ture的时候,就可以打印出i;
+            //2.第二个for循环,i  被 从2开始到i本身的数整除,如果可以整除既  i%j=0,就跳出第二个for循环
+            for (var j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    // 4.如果i可以被j整除,就证明i不是素数, 那么flag的值为false,不打印i
+                    flag = false;
+                    break;
+                }
+            }
+            //5.判断flag是否为true, 为true证明是素数,打印i;   为false证明不是素数,不变打印i
+            if (flag == true) {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>
