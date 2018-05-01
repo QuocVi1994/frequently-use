@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-刮刮乐</title>
+    <style>
+        body {
+            width: 100%;
+        }
+       
+        canvas {  
+            margin: 0 auto;
+            display: block;          
+            border: 1px solid #000;
+            background: url(./g15_up.jpg);
+            background-size: 300px 200px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="200"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        var flag = false;
+        // context.globalCompositeOperation = 'destination-out';
+        // context.beginPath();
+        // context.arc( w / 2, h / 2, 30, 0, 2 * Math.PI );
+        // context.fill();
+        // 随机生成奖品
+        var awards = [ '美女一只', 'sorry 很遗憾。再接再厉', '抓住一只单身狗', '再来一坨代码', 'sorry 很遗憾。再接再厉', '美女一只', '抓住一只单身狗', '再来一坨代码', '抓住一只单身狗', 'sorry 很遗憾。再接再厉',
+        '抓住一只单身狗' ];
+        var award = awards[ Math.floor( Math.random() * awards.length ) ];
+        // 将奖品信息绘制在canvas
+        context.font='bold 32px sans-serif';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText( award, w / 2, h / 2 );
+        // 然后在将奖品信息转换成canvas的 背景图
+        var dataurl = canvas.toDataURL( 'image/png', 1 );
+        canvas.style.background = 'url( ' + dataurl + ')';
+        context.clearRect( 0, 0, w, h );
+        
+        // 定义canvas蒙版
+        context.fillStyle = '#ddd';
+        context.fillRect( 0, 0, w, h );
+
+        canvas.addEventListener( 'mousedown', function(){
+            flag = true;
+            context.globalCompositeOperation = 'destination-out';
+        } );
+        canvas.addEventListener( 'mousemove', function( e ){
+            if( flag ){
+                var x = e.clientX - canvas.offsetLeft;
+                var y = e.clientY - canvas.offsetTop;
+                context.beginPath();
+                context.arc( x, y, 10, 0, 2 * Math.PI );
+                context.fill();
+            }
+        } );
+        canvas.addEventListener( 'mouseup', function(){
+            flag = false;
+            context.globalCompositeOperation = 'source-over';
+        } );
+    </script>
+</body>
+</html>

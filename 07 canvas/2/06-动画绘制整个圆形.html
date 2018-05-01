@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-动画绘制整个圆形</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+        
+        var w = canvas.width,
+            h = canvas.height; 
+
+        var x0 = w / 2,
+            y0 = h / 2,
+            r = 160;
+
+        var start = -Math.PI / 2;
+        var step = 1; // ( 度数 )
+        var end;
+
+        var timer;
+        timer = window.setInterval( function(){
+            end = start + toRadian( step );
+            if( end > Math.PI / 6 ){
+                window.clearInterval( timer );
+                alert( 'over' );
+                return;
+            }
+            context.beginPath();
+            context.moveTo( x0, y0 );
+            context.arc( x0, y0, r, start, end );
+            context.closePath();
+            context.strokeStyle = context.fillStyle = '#daa520';
+            context.stroke();  
+            context.fill();
+            start = end;         
+        }, 20 );
+
+        function toRadian( angle ){
+            return angle * Math.PI / 180;
+        }
+    </script>
+</body>
+</html>

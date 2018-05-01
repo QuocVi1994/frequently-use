@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-数组排序</title>
+</head>
+<body>
+    <script>
+        var arr = [ 1, 9, 13, 2, 6 ];
+        // arr.sort(); // 默认是按照 Unicode编码来排序 归并排序
+        // 可以通过指定sort方法一个回调函数。
+        // a 和 b 是有相对位置， a 在 b 前面
+        // 如果回调函数的返回值 > 0 就交换 a 和 b 的位置 
+        //                    < 0 就不交换
+        //                    = 0 保持相对位置
+        arr.sort( function( a, b ){
+            return a > b ? -1 : 1;
+        } );
+
+       /* arr.sort( function( c, d ){
+            return d - c;
+        } );*/
+        console.log( arr );
+
+        arr = [ 
+            { name: 'g', age: 18 },
+            { name: 'j', age: 17 },
+            { name: 'k', age: 38 }
+        ];
+
+        arr.sort( function( a, b ){
+            return a.age < b.age ? 1 : -1;
+        } );
+        console.log( arr );
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-根据实际数据绘制饼图</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        // 圆心点坐标
+        var x0 = w / 2,
+            y0 = h / 2 + 32;
+
+        function toRadian( angle ){
+            return angle * Math.PI / 180;
+        }
+        // 统计即时通讯工具的使用情况
+        var data = { 
+            title: '统计即时通讯工具的使用情况',
+            list: [ 
+                { name: 'QQ', value: 500 },
+                { name: 'wechat', value: 600 },
+                { name: 'feiQ', value: 50 },
+                { name: 'momo', value: 200 },
+                { name: 'tantan', value: 300 },
+                { name: 'YY', value: 150 },
+                { name: 'DingDing', value: 100 }
+             ] };
+
+        // 1 求样本总数
+        var sum = 0;
+        data.list.forEach( function( v ){
+            sum += v.value;
+        } );
+        // 2 求每个通讯工具所占用的弧度
+        data.list.forEach( function( v ){
+           v.angle = v.value * 2 * Math.PI / sum;
+        } );
+
+        // 3 遍历所有通讯工具，根据其angle来绘制扇形
+        var colors = 'darkolivegreen,darkorange,darkorchid,darkred,darksalmon,darkseagreen,darkslateblue,darkslategray'.split( ',' );
+
+        var start = -Math.PI / 2,
+            end;
+
+        data.list.forEach( function( v, i ){
+           end = start + v.angle;
+           context.beginPath();
+           context.moveTo( x0, y0 );
+           context.arc( x0, y0, 140, start, end );
+           context.strokeStyle = context.fillStyle = colors[ i ];
+           context.stroke();
+           context.fill();
+           start = end;
+        } );
+
+        // 4 绘制标题
+        context.font = '32px simsum';
+        context.textAlign='center';
+        context.textBaseline = 'middle';
+        context.fillStyle = 'black';
+        
+        context.fillText( data.title, x0, 32 );
+        
+    </script>
+</body>
+</html>

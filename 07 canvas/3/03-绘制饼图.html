@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-绘制饼图</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        // 圆心点坐标
+        var x0 = w / 2,
+            y0 = h / 2;
+
+        function toRadian( angle ){
+            return angle * Math.PI / 180;
+        }
+
+        // 绘制三等分的饼图
+        var start = toRadian( -90 ),
+            end,
+            colors = [ 'red', 'green', 'blue' ];
+        // 循环绘制三个扇形
+        for( var i = 0; i < 3; i++,  start = end ){
+            context.beginPath();
+            end = start +　toRadian( 120 );
+            context.moveTo( x0, y0 );
+            context.arc( x0, y0, 160, start, end );
+            context.closePath();
+            context.strokeStyle = context.fillStyle = colors[ i ];
+            context.stroke();
+            context.fill();
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-反馈</title>
+</head>
+<body>
+    <script>
+       /* for (var i = 0; i < 5; i++) { 
+             setTimeout(function(){ console.log(new Date()-0) }, 0);
+        } 
+        console.log((new Date()-0) + "---此时，for循环完毕 可以看到是几毫秒之后再执行 setTimeout") ;console.log("%c下面是五个定时器的输出内容","background-image:linear-gradient(to right,#f0f,red,#ff0,#000);-webkit-background-clip:text;color:transparent;font-size:3rem;");
+
+        // bind方法兼容处理*/
+ if( !Function.prototype.bind ){
+     Function.prototype.bind = function(){
+         var self = this,
+             thisObj = arguments[ 0 ],
+             args = Array.prototype.slice.call( arguments, 1 );
+
+        return function(){
+            args.push.apply( args, arguments );
+            return self.apply( thisObj, args );
+        };
+    }
+ }
+
+ var obj = { name: 'jingjing' };
+ function foo( n, m ){
+     console.log( n );
+     console.log( m );
+     console.log( this );
+     return n + m;
+ }
+
+ var f = foo.bind( obj, 1 );
+ console.log( f( 2 ) );
+    </script>
+</body>
+</html>

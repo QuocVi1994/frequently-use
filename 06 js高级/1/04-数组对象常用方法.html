@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-数组对象常用方法</title>
+</head>
+<body>
+    <div>        
+    </div>
+    <p></p>
+    <script>
+        var arr = [];
+        arr.push( 1 );
+        arr.push( 2, 3, 4 );
+       
+        arr.unshift( -1 );
+        arr.unshift( -3, -2 );
+        
+        var lastvalue = arr.pop();
+        var firstvalue = arr.shift();
+        var dels = arr.splice( 0, 2, -1, 0 );
+        var newArr = arr.slice();
+        newArr[ 0 ] = -2;
+        var conArr = arr.concat( newArr );
+        console.log( lastvalue );
+        console.log( firstvalue );
+        console.log( dels );
+        console.log( arr );
+        console.log( newArr );
+        console.log( conArr );
+        console.log( arr.join( '|' ) );
+        console.log( arr.indexOf( 0 ) );
+        arr.forEach( function( v, i, a ) {
+            console.log( 'index: ' + i + ' value: ' + v );
+            console.log( a );
+        } );
+        var maparr = arr.map( function( v, i ) {
+            return v + i;
+        } );
+        console.log( maparr );
+    </script>
+</body>
+</html>

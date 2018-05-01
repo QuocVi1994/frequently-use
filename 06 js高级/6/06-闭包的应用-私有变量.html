@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-闭包的应用-私有变量</title>
+</head>
+<body>
+    <script>
+        var obj = { name: 'guoguo' };
+        obj.name = 'jingjing';
+        function person( name, age ){
+            return {
+                getName: function(){
+                    return name;
+                },
+                getAge: function(){
+                    return age;
+                },
+                setAge: function( val ){
+                    age = val;
+                }
+            };
+        }
+
+        var guo = person( 'guoguo', 19 );
+        console.log( guo.getName() );
+        console.log( guo.getName() );
+        guo.name = 'jingjing';
+        console.log( guo.getName() );
+        console.log( guo.name );
+        console.log( 'one year later');
+        console.log( 'last year i am ' + guo.getAge() + ' years old.'  );
+        guo.setAge( 20 );
+        console.log( 'now i am ' + guo.getAge() + ' years old.'  );
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-封装extend函数实现混入式多继承</title>
+</head>
+<body>
+    <script>
+        function extend( target ){
+            // 容错处理
+            if( !target ){
+                return;
+            }
+
+            var args = arguments,
+                i = 1,
+                l = args.length;
+
+            var obj, // 临时存储被继承的对象
+                k;
+
+            for( ; i < l; i++ ){
+                obj = args[ i ];
+                for( k in obj ){
+                target[ k ] = obj[ k ]; 
+                }
+            }
+            // 将继承者 作为extend函数的返回值
+            return target;
+        }
+
+        var grandpa = {
+            talk: function(){
+                console.log( 'cheduzi' );
+            }
+        };
+        var parent = {
+            name: 'child',
+            sayHello: function(){
+                console.log( 'i am ' + this.name + ', go play' );
+            }
+        };
+
+        var child = extend( {}, parent, grandpa );
+
+        console.log( child );
+    </script>
+</body>
+</html>

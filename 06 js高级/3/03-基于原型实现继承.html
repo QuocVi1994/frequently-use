@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-基于原型实现继承</title>
+</head>
+<body>
+    <script>
+        function Person( name ){
+            this.name = name;
+        }
+
+       /* Person.prototype.buy = function(){
+            console.log( '老王买了个假苹果' );
+        };
+        Person.prototype.sale = function(){
+            console.log( '老王卖了个假苹果' );
+        };*/
+        Person.prototype = {
+            buy: function(){
+                console.log( '老王又买了个假苹果' );
+            },
+            sale:  function(){
+                console.log( '老王又卖了个假苹果' );
+            }
+        };
+
+        var laowang = new Person( '老王' );
+        var laosong = new Person( '老宋' );
+
+        laowang.buy();
+        laosong.buy();
+
+        console.log( laowang.buy == laosong.buy ); // true
+    </script>
+</body>
+</html>

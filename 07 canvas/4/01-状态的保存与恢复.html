@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-状态的保存与恢复</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        context.strokeRect( 0, 0, 50, 50 );
+        context.save();
+        context.strokeStyle = 'red';
+        context.translate( 50, 50 );
+        context.strokeRect( 0, 0, 50, 50 );
+        context.save();
+        context.strokeStyle = 'green';
+        context.translate( 50, 50 );
+        context.strokeRect( 0, 0, 50, 50 );
+        context.save();
+        context.strokeStyle = 'blue';
+        context.translate( 50, 50 );
+        context.strokeRect( 0, 0, 50, 50 );
+        context.beginPath();
+        context.arc( 25, 25, 20, 0, 2 * Math.PI );
+        context.stroke();
+        context.restore();
+        context.beginPath();
+        context.arc( 25, 25, 20, 0, 2 * Math.PI );
+        context.stroke();        
+        context.restore();
+        context.beginPath();
+        context.arc( 25, 25, 20, 0, 2 * Math.PI );
+        context.stroke();
+        context.restore();
+        context.beginPath();
+        context.arc( 25, 25, 20, 0, 2 * Math.PI );
+        context.stroke();
+    </script>
+</body>
+</html>

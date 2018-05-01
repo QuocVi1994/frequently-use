@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-绘制多个图形</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var x = 50,
+            y = 50,
+            w = 100,
+            h = 100;
+        // 绘制正方形
+        context.moveTo( x, y );
+        context.lineTo( x + w, y );
+        context.lineTo( x + w, y + h );
+        context.lineTo( x, y + h );
+        context.lineTo( x, y );
+
+        // 绘制三角形
+        x += w * 2;
+        context.moveTo( x, y );
+        context.lineTo( x + w, y + w );
+        context.lineTo( x, y + w );
+        context.lineTo( x, y );
+      
+        // 绘制梯形
+        x += 2 * w;
+        context.moveTo( x, y );
+        context.lineTo( x + w / 2, y );
+        context.lineTo( x + w, y + w );
+        context.lineTo( x, y + w );
+        context.lineTo( x, y );
+
+        context.stroke();        
+
+        // 绘制填充的
+        // 开启一个新的路径
+        context.beginPath();
+        
+        y += h + 50;
+        x = 50;
+        // 绘制正方形
+        context.moveTo( x, y );
+        context.lineTo( x + w, y );
+        context.lineTo( x + w, y + h );
+        context.lineTo( x, y + h );
+        context.lineTo( x, y );
+
+        // 绘制三角形
+        x += w * 2;
+        context.moveTo( x, y );
+        context.lineTo( x + w, y + w );
+        context.lineTo( x, y + w );
+        context.lineTo( x, y );
+      
+        // 绘制梯形
+        x += 2 * w;
+        context.moveTo( x, y );
+        context.lineTo( x + w / 2, y );
+        context.lineTo( x + w, y + w );
+        context.lineTo( x, y + w );
+        context.lineTo( x, y );
+
+        context.fill();
+        
+    </script>
+</body>
+</html>

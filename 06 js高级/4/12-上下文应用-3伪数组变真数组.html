@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-上下文应用-3伪数组变真数组</title>
+</head>
+<body>
+    <script>
+        var likeArray = {
+            0: 1,
+            1: 2,
+            length: 2,
+            name: 'guoguo'
+        };
+
+        likeArray[ 2 ] = 3;
+        likeArray[ 3 ] = 4;
+        likeArray.length = 4;
+
+        console.log( likeArray );
+
+        var arr;
+
+        // arr = [];
+
+        // arr.push.apply( arr, likeArray );
+        arr = Array.prototype.slice.call( likeArray );
+
+        console.log( arr );
+    </script>
+</body>
+</html>

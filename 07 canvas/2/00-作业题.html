@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-作业题</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var flag = false; // 当flag值为true时，触发mousemove事件
+
+        var x, y, x1, y1;
+
+        // 1：绑定mousedown
+        canvas.addEventListener( 'mousedown', function( e ){
+            flag = true;
+            // 获取鼠标当前所在点
+            x = e.clientX - canvas.offsetLeft;
+            y = e.clientY - canvas.offsetTop;
+        } );
+         // 2：绑定mousemove
+        canvas.addEventListener( 'mousemove', function( e ){
+            if( flag ){
+                x1 = e.clientX - canvas.offsetLeft;
+                y1 = e.clientY - canvas.offsetTop;
+                context.clearRect( 0, 0, 600, 400 );
+                context.beginPath();
+                context.moveTo( x, y );
+                context.lineTo( x1, y1 );
+                context.stroke();
+            }
+        } );
+         // 3：绑定mouseup
+        canvas.addEventListener( 'mouseup', function( e ){
+            flag = false;
+        } );
+    </script>
+</body>
+</html>

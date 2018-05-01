@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-设置线段末端样式</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        var x = 100,
+            y = 80;
+
+        context.lineWidth = 32;
+        var cap = [ 'butt', 'round', 'square' ];
+        for( var i = 0; i < 3; i++, y += 40 ){
+            context.beginPath();
+            context.lineCap = cap[ i ];
+            context.moveTo( x, y );
+            context.lineTo( w - x, y );
+            context.stroke();
+        }
+        
+    </script>
+</body>
+</html>

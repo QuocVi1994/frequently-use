@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-闭包的深入</title>
+</head>
+<body>
+    <script>
+        function foo(){
+            var n = 1;
+            var m = 2;
+
+            function getN(){
+                return n;
+            }
+            function getM(){
+                return m + n;
+            }
+
+            return {
+                getN: getN,
+                getM: getM
+            };
+        }
+
+        var obj = foo();
+        console.log( obj.getN() );
+        console.log( obj.getN() );
+        console.log( obj.getM() );
+        console.log( obj.getM() );
+    </script>
+</body>
+</html>

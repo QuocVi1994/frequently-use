@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-构造函数问题</title>
+</head>
+<body>
+    <script>
+        function Person( name ){
+            this.name = name;
+        }
+
+        var obj = {
+            buy: function(){
+                console.log( '是真滴不？' );
+            },
+            sale: function(){
+                console.log( '假的 我就买了它');
+            }
+        };
+
+        var laowang = new Person( '老王' );
+        var laosong = new Person( '老宋' );
+
+        // 想要老王和老宋 去访问obj对象的成员，那么就要使用继承
+
+        laowang.buy();
+        laosong.buy();
+
+        console.log( laowang.buy == laosong.buy ); // false
+    </script>
+</body>
+</html>

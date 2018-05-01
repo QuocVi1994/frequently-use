@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-Function构造函数的使用</title>
+</head>
+<body>
+    <script>
+        var fn1 = new Function( 'console.log( 1 );' );
+        fn1();
+        var fn2 = new Function( 'n', 'm', 'console.log( n + m );' )
+        // ==
+        // function fn2( n, m ){
+        //     console.log( n );
+        // }
+        fn2( 2, 3 );
+    </script>
+</body>
+</html>

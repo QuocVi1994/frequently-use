@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-作用域链</title>
+</head>
+<body>
+    <script>
+        var n = 10;
+
+        function foo(){
+            // var n = 100;
+            function fn( n ){
+                var m = 1010;
+                console.log( m );
+                console.log( n );
+            }
+            fn( n );
+        }
+
+        function f(){
+            console.log( n );
+        }
+
+        foo();
+        // f();
+    </script>
+</body>
+</html>

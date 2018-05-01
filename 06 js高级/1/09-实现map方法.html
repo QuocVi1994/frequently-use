@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-实现map方法</title>
+</head>
+<body>
+    <script>
+        // map
+        function map( arr, callback ){
+            var i = 0,
+                l = arr.length;
+
+            var res = [];
+
+            for( ; i < l; i++ ){
+                var ret = callback( arr[ i ], i );
+                res.push( ret );
+            }
+
+            return res;
+        }
+        // each
+        function each( arr, callback ){
+            var i = 0,
+                l = arr.length;
+
+            for( ; i < l; i++ ){
+                callback( arr[ i ], i );
+            }
+        }
+         // 实现可以在each中 根据回调函数返回值 结束循环
+         /*function each( arr, callback ){
+            var i = 0,
+                l = arr.length;
+
+            for( ; i < l; i++ ){
+                if( callback( arr[ i ], i ) === false ){
+                    break;
+                }
+            }
+        }*/
+
+        var arr = [ 1, 2, 3 ];
+        each( arr, function( v, i ) {
+            console.log( 'index ' + i + ' value ' + v );
+        } );
+
+        var newArr = map( arr, function( v, i ){
+            return v + i;
+        } );
+        console.log( newArr );
+    </script>
+</body>
+</html>

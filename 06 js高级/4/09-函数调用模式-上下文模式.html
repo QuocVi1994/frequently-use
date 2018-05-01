@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-函数调用模式-上下文模式</title>
+</head>
+<body>
+    <script>
+       var name = 'global';
+        var obj = {
+            name: 'obj'
+        };
+
+        function fn( n, m ){
+            // this = obj; error
+            console.log( m + n );
+            console.log( this.name );
+        }
+
+        fn(); // global
+        fn.call( obj, 1, 2 );
+        fn.apply( obj, [ 2, 2 ] ); // obj
+
+    </script>
+</body>
+</html>

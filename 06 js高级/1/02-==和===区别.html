@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-==和===区别</title>
+</head>
+<body>
+    <script>
+        console.log( [] == ![] ); // true
+        // [] == false 
+        // [] == 0 将[]转换成简单类型 调用valueOf方法 失败。因此调用toString方法
+        // "" == 0
+        // 0  == 0
+        // true
+        console.log( {} == !{} ); // false
+        //  {} == false
+        //  {} == 0
+        //  "[object Object]" == 0
+        //  NaN == 0
+        //  false
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-字符串常用方法</title>
+</head>
+<body>
+    <script>
+        // 1 indexOf
+        var str = 'ajfdklfda';
+        console.log( str.indexOf( 'fd' ) ); // 2
+        console.log( str.indexOf( 'fdh' ) );// -1
+        // 2 match
+        console.log( str.match( /fd/g ) );
+        // 3 search
+        console.log( str.search( /fd/g ) );
+        console.log( str.search( /fd/g ) );
+        // 4 replace
+        // str = str.replace( 'fd', 'FD' );
+        str = str.replace( /fd/g, 'FD' );
+        console.log( str );
+        str = str.replace( /fd/gi, '' );
+        console.log( str );
+        // 5 slice
+        str = str.slice( 1, -1 );
+        console.log( str );
+        // 6 split
+        str = 'name=guo&age=19&gender=boy';
+        var parts = str.split( /&/ ); // str.split( '&' );
+        console.log( parts );
+    </script>
+</body>
+</html>

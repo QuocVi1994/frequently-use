@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-查询dom方法</title>
+</head>
+<body>
+    <a href="" name="aa">aaa</a> 
+    <a href="" name="aa">aaaa</a>
+    <div id="dv">
+        
+    </div>
+    <script>
+        var div = document.getElementById( 'dv' );
+        console.log( div );
+        var divs = document.getElementsByTagName( 'div' );
+        console.log( divs );
+        var aes = document.getElementsByName( 'aa' );
+        console.log( aes );
+        div = document.querySelector( '#dv' );
+        console.log( div );
+        var aes = document.querySelectorAll( 'a[name=aa]' );
+        console.log( aes );
+    </script>
+</body>
+</html>

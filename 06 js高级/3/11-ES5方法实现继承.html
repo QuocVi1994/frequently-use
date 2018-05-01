@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-ES5方法实现继承</title>
+</head>
+<body>
+    <script>
+        var parent = {
+            talk: function(){
+                console.log( 'i am talking with girls' );
+            }
+        };
+
+        var child =  Object.create( parent, {
+            name: {
+                value: 'guoguo'
+            },
+            age: {
+                value: 19
+            }
+        } );
+
+        child.talk();
+    </script>
+</body>
+</html>

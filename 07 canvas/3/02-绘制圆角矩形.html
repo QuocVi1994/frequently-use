@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-绘制圆角矩形</title>
+    <style>
+         canvas {
+             border: 1px solid #000;
+         }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        function roundRect( x, y, w, h, r ){
+            context.beginPath();
+            context.moveTo( x, y + r );
+            context.arcTo( x, y + h, x + w, y + h, r );
+            context.arcTo( x + w, y + h, x + w, y, r );
+            context.arcTo( x + w, y, x, y, r );
+            context.arcTo( x, y, x, y + h, r );
+                        
+            context.stroke();
+            // 绘制文字
+            context.font = 'bold 32px simsum';
+            context.textAlign='center';
+            context.textBaseline='middle';
+            context.fillStyle = 'rgb( 0, 255, 0 )';
+
+            context.fillText( '圆角矩形', x + w / 2, y + h / 2 );
+            
+        }
+
+        roundRect( 50, 50, 300, 200, 40 );
+    </script>
+</body>
+</html>

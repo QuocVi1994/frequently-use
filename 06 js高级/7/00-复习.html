@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-复习</title>
+</head>
+<body>
+    <script>
+        var fib = ( function(){
+        var cache = [];
+        return function( n ){
+            if( n < 1 ){
+                return undefined;
+            }
+
+            var ret = cache[ n ];
+            if( !ret ){
+                if( n == 1 || n == 2 ){
+                    ret = 1;
+                } else {
+                    ret = arguments.callee( n - 1 ) + arguments.callee( n - 2 );
+                }
+                cache[ n ] = ret;
+                
+            }
+            
+            return ret;
+        };
+    } )();
+    var start = +new Date(); // 将日期转换成毫秒
+    for( var i = 1; i < 51; i++ ){
+        fib( i );
+    }
+    var end = new Date().getTime();
+    console.log( end - start );
+    start = +new Date();
+     fib( 5 );
+    end = +new Date();
+     console.log( end - start );
+      start = +new Date();
+     ( fib( 6 ) );
+     end = +new Date();
+     console.log( end - start );
+      start = +new Date();     
+   fib( 49 );
+     fib( 35 ) ;
+    end = +new Date();
+    console.log( end - start );
+    </script>
+</body>
+</html>

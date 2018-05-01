@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-实现insertAfter方法</title>
+</head>
+<body>
+    <div>
+        <p id="pp">123</p></div>
+    <script>
+        // 在dom节点后边 添加一个新节点node
+        function insertAfter( dom, node ){
+            dom.parentNode.insertBefore( node, dom.nextSibling );
+        }
+        var nn = document.createElement( 'p' );
+        nn.innerHTML = '456';
+        insertAfter( document.getElementById( 'pp' ), nn );
+    </script>
+</body>
+</html>

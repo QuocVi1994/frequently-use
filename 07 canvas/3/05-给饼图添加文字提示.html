@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-给饼图添加文字提示</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        // 圆心点坐标
+        var x0 = w / 2,
+            y0 = h / 2 + 32,
+            r = 140;
+
+        function toRadian( angle ){
+            return angle * Math.PI / 180;
+        }
+        // 统计即时通讯工具的使用情况
+        var data = { 
+            title: '统计即时通讯工具的使用情况',
+            list: [ 
+                { name: 'QQ', value: 500 },
+                { name: 'wechat', value: 600 },
+                { name: 'feiQ', value: 50 },
+                { name: 'momo', value: 200 },
+                { name: 'tantan', value: 300 },
+                { name: 'YY', value: 150 },
+                { name: 'DingDing', value: 100 }
+             ] };
+        
+        var sum = 0,
+            colors = 'darkolivegreen,darkorange,darkorchid,darkred,darksalmon,darkseagreen,darkslateblue,darkslategray'.split( ',' ),
+            start = -Math.PI / 2,
+            end;
+
+        context.font = '24px simsum';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText( data.title, x0, 32 );
+
+        data.list.forEach( function( v ){
+            sum += v.value;
+        } );
+
+        data.list.forEach( function( v, i ){
+            v.angle = v.value * 2 * Math.PI / sum;
+            end = start + v.angle;
+            context.beginPath();            
+            context.moveTo( x0, y0 );
+            context.arc( x0, y0, r, start, end );
+            context.closePath();
+            context.strokeStyle = context.fillStyle = colors[ i ];
+            context.stroke();
+            context.fill();
+            
+            // 绘制提示文字
+            var tipAngle = start + v.angle / 2;
+            var tipLength = r + 16,
+                tipExtend = -16,
+                align = 'right';
+            var x1 = x0 + tipLength * Math.cos( tipAngle ),
+                y1 = y0 + tipLength * Math.sin( tipAngle );
+
+            if( tipAngle > -Math.PI / 2 && tipAngle <= Math.PI / 2 ){
+                tipExtend = -tipExtend;
+                align = 'left';
+            }
+            
+            context.beginPath();
+            context.moveTo( x0, y0 );
+            context.lineTo( x1, y1 );
+            context.lineTo( x1 + tipExtend, y1 );
+            context.stroke();
+
+            // 绘制文字
+            context.font = '12px simsum';
+            context.textAlign = align;
+            context.textBaseline = 'bottom';
+            context.fillText( ' ' + v.name  + ' : ' + v.value + ' ', x1 + tipExtend, y1 );
+            context.textBaseline = 'top';
+            context.fillText( ' percent : ' + (v.value * 100 / sum).toFixed( 2 ) + '% ', 
+                    x1 + tipExtend, y1 );
+            // 将下一个扇形的起始角度 设置为 当次的终止角度
+            start = end;
+        } );
+    </script>
+</body>
+</html>

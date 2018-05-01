@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-原型链</title>
+</head>
+<body>
+    <script>
+        var obj = {}; // Object
+        // obj -> Object.prototype -> null
+        console.log( obj.__proto__ );
+        console.log( obj.__proto__  == Object.prototype ); // true
+        console.log( obj.__proto__.__proto__ ); // null
+
+        var arr = [];
+        // arr -> Array.prototype -> Object.prototype -> null
+        console.log( arr.__proto__ );
+        console.log( arr.__proto__ == Array.prototype );
+        console.log( arr.__proto__.__proto__ == Object.prototype );
+
+        var date = new Date();
+        // date -> Date.prototype -> Object.prototype -> null
+        function Parent(){
+
+        }
+        var p = new Parent();
+        // p -> Parent.prototype -> Object.prototype -> null
+        function Child(){}
+        
+        Child.prototype = p;
+        var c = new Child();
+        // c -> Child.prototype( p ) -> Parent.prototype -> Object.prototype -> null
+    </script>
+</body>
+</html>

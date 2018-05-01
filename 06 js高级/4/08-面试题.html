@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-面试题</title>
+</head>
+<body>
+    <script>
+        var name = 'global';
+
+        obj = {
+            name: 'obj',
+            foo: function( callback ){
+                console.log( this.name ); // obj
+                callback(); // global
+                arguments[ 0 ](); // undefined
+                fn(); // global
+            }
+        };
+
+        function fn(){
+            console.log( this.name );
+        }
+
+        obj.foo( fn );
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-对象冒充实现继承</title>
+</head>
+<body>
+    <script>
+        function Parent( name, age, gender ){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        function Child( name, age, gender, address ){
+            this.parent = Parent;
+            this.parent( name, age, gender );
+            delete this.parent;
+            this.address = address;
+        }
+
+        var ch = new Child( 'guoguo', 19, 'boy', 'china' );
+        console.log( ch );
+    </script>
+</body>
+</html>

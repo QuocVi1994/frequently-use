@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-动画队列</title>
+    <style>
+        body {
+            width: 100%;
+        }
+       
+        canvas {  
+            margin: 0 auto;
+            display: block;          
+            border: 1px solid #000;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="eee" width="600" height="400"></canvas>
+    <script src="animate.js"></script>
+    <script>
+        var canvas = document.getElementById( 'eee' ),
+            ctx = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+        animate( {
+            x: w / 2,
+            y: h / 2,
+            r: 160,
+            step: 2 * Math.PI / 180,
+            start: -Math.PI / 2,
+            end: 30 * Math.PI / 180,
+            color: 'red'
+        }, 'fast' );
+
+        animate( {
+            x: w / 2,
+            y: h / 2,
+            r: 160,
+            step:  2 * Math.PI / 180,
+            start: -Math.PI / 2 + 2 * Math.PI / 3,
+            end: -Math.PI / 2 + 4 * Math.PI / 3,
+            color: 'green'
+        }, 'fast' );
+
+        animate( {
+            x: w / 2,
+            y: h / 2,
+            r: 160,
+            step:  2 * Math.PI / 180,
+            start: -Math.PI / 2 + 4 * Math.PI / 3,
+            end: -Math.PI / 2 + 2 * Math.PI,
+            color: 'blue'
+        }, 'fast' );
+    </script>
+</body>
+</html>

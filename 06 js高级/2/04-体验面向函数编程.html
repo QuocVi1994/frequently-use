@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-体验面向函数编程</title>
+    <style>
+        div, p {
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+    </div>
+    <div>
+    </div>
+    <p></p>
+    <p></p>
+    <script>
+        // 获取dom元素
+        function getDOM( selector ){
+            return document.querySelectorAll( selector );
+        }
+      
+
+        setStyles( getDOM( 'div' ), function( dom ){
+            dom.style.backgroundColor = 'hotpink';
+        } );
+        setStyles( getDOM( 'p' ), function( dom ){
+            dom.style.backgroundColor = 'red';
+        } );
+        function setStyles( doms, callback ){
+            for( var i = 0, l = doms.length; i < l; i++ ){
+               callback( doms[ i ] );
+            }
+        }
+    </script>
+</body>
+</html>

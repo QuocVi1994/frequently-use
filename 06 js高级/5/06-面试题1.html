@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-面试题1</title>
+</head>
+<body>
+   <script>
+        // 全局变量是window对象的属性
+        /*var a;
+        if( 'a' in window ){
+            var a = 10;
+        } else {
+            var a = 20;
+        }*/
+       //  变式1
+        /*if( a in window ){
+            var a = 10;
+        } else {
+            var a = 20
+        }
+        undefined = 123;
+        console.log( undefined );*/
+        // A 10 B 20 C undefined D error E unknown
+        //  变式2
+        /*var a = 100;
+        window[ a ] = a;
+        if( a in window ){
+            var a = 10;
+        } else {
+            var a = 20;
+        }
+       console.log( a ); */
+   </script> 
+</body>
+</html>

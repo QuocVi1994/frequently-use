@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-值类型与引用类型</title>
+</head>
+<body>
+   <script>
+        /*var num = 123;
+        var num1 = num;
+        num1 = 456;
+        console.log( num ); // 123
+
+        var obj = { name: 'guoguo' };
+        var obj1 = obj;
+        obj1.name = 'jingjing';
+        console.log( obj.name ); // jingjing
+        */
+        var obj = {name: 'guoguo'};
+        function foo( obj ){
+            obj.age = 19;
+            // obj = {name: 'jingjing'};
+            console.log( obj.age ); // ?undefined 19
+        }
+        foo( obj );
+        console.log( obj.name ); // 'guoguo'
+        console.log( obj.age );  // ?19
+   </script> 
+</body>
+</html>

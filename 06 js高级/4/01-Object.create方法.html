@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-Object.create方法</title>
+</head>
+<body>
+    <script>
+        var parent = {
+            talk: function(){
+                console.log( 'talking' );
+            }
+        };
+
+        var child = Object.create( parent, {
+            name: {
+                value: 'guoguo',
+                writalbe: false,
+                enumerable: true,
+                configurable: false
+            }
+        } );
+
+        child.name = 'jingjing'; // 坑? 不会报错，默默的失败
+        console.log( child.name ); // guoguo
+        for( var k in child ){
+            console.log( k );
+        }
+
+        var obj = Object.create( null, {
+            name: {
+                value: 'obj',
+                writable: true
+            }
+        } );
+
+        console.log( obj.name ); // obj
+
+        obj.name = 'local';
+
+        console.log( obj.name ); // local
+
+        console.log( obj.__proto__ ); // null
+
+        obj.toString();
+    </script>
+</body>
+</html>

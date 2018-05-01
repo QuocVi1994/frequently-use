@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-属性搜索原则</title>
+</head>
+<body>
+    <script>
+        function Parent( name ){
+            this.name = name;
+        }
+        // 在Parent.prototype上去重写继承下来的toString方法
+        Parent.prototype.toString = function(){
+            return 'my name is ' + this.name;
+        };
+
+        function Child( name ){
+           this.name = name;
+        }
+
+        var p = new Parent( 'parent' );
+        p.__proto__.name = 'Parent';
+        console.log( p.name ); // parent
+        // p -> Parent.prototype -> Object.prototype -> null
+        Child.prototype = p;
+        var c = new Child( 'child' );
+        var c1 = new Child( '' )
+        console.log( c.name ); // parent
+        // c -> p -> Parent.prototype -> Object.prototype -> null
+
+        console.log(  c.toString() );
+        console.log( c instanceof Child );
+        console.log( c instanceof Parent );
+        console.log( c instanceof Object );
+    </script>
+</body>
+</html>

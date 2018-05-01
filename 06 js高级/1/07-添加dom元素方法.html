@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-添加dom元素方法</title>
+</head>
+<body>
+    <div>
+        <p>123</p>
+    </div>
+    <script>
+        var p = document.createElement( 'p' );
+        p.innerHTML = '456';
+        p.setAttribute( 'id', 'pp' );
+        document.querySelector( 'div' ).appendChild( p );
+    
+        var np = document.createElement( 'p' );
+        np.innerHTML = '789';
+
+        document.querySelector( 'div' ).insertBefore( np, null );
+        var a = document.createElement( 'a' );
+        a.innerHTML = 'a';
+        document.querySelector( 'div' ).replaceChild( a, p );
+        a.parentNode.removeChild( a );
+        document.body.appendChild( document.querySelector( 'div' ).cloneNode( true ) );
+    </script>
+</body>
+</html>

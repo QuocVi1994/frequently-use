@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14-绘制虚线</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        var x = 50,
+            y = 50;
+        
+        context.moveTo( x, 0 );
+        context.lineTo( x, h );
+        context.stroke();
+        
+        context.beginPath();
+        context.lineDashOffset = -4;
+        context.setLineDash( [ 8, 5, 8 ] );
+        context.moveTo( x, y );
+        context.lineTo( 550, y );
+        context.stroke();
+        var setting = context.getLineDash();
+        console.log( setting );
+    </script>
+</body>
+</html>

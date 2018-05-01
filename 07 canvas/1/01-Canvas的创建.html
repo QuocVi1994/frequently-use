@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-Canvas的创建</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+            /*width: 800px;
+            height: 600px;*/
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="800"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        context.strokeRect( 100, 100, 100, 100 );
+        
+    </script>
+</body>
+</html>

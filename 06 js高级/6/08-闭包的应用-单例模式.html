@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-闭包的应用-单例模式</title>
+</head>
+<body>
+    <script>
+        /*var singleton = function(){
+            var instance;
+            function Manager( options ){
+                this.name = options.name;
+            }
+            return {
+                getInstance: function( args ){
+                    if( !instance ){
+                        instance = new Manager( args );
+                    }
+
+                    return instance;
+                }
+            };
+        }();
+        var s1 = singleton.getInstance( { name: 'guoguo' } );
+        var s2 = singleton.getInstance( { name: 'jingjing' } );
+        console.log( s1 == s2 );
+        */
+        /*var singleton = function(){
+            var instance;
+            return {
+                getInstance: function( factory, args ){
+                    if( !instance ){
+                        instance = new factory( args );
+                    }
+
+                    return instance;
+                }
+            };
+        }();
+
+        var s1 = singleton.getInstance( function( args ){
+            this.name = args.name;
+        }, { name: 'guoguo' } );
+        var s2 = singleton.getInstance( function( args ){
+            this.name = args.name;
+        }, { name: 'jingjing' } );
+
+        console.log( s1 == s2 );*/
+        var singleton = function(){
+            var instance;
+            return {
+                getInstance: function(){
+                    return instance;
+                },
+                init: function( factory, args ){
+                    instance = new factory( args );
+                    return this;
+                }
+            };
+        }();
+
+        var s1 = singleton.init( function( args ){
+            this.name = args.name;
+        }, { name: 'guoguo' }  ).getInstance();
+
+        var s2 = singleton.getInstance();
+
+        console.log( s1 == s2 );
+        
+    </script>
+</body>
+</html>

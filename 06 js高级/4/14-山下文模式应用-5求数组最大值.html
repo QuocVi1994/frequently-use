@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14-山下文模式应用-5求数组最大值</title>
+</head>
+<body>
+    <script>
+        var arr = [ 1, 20, 40, 21, 34, 56 ];
+        /*var max = arr[ 0 ];
+        for( var i = 1; i < arr.length; i++ ){
+            if( max < arr[ i ] ){
+                max = arr[ i ];
+            }
+        }*/
+
+        // Math.max( 1, 20, 40, 21, 34, 56 );
+
+        var max = Math.max.apply( null, arr );
+
+        console.log( max );
+    </script>
+</body>
+</html>

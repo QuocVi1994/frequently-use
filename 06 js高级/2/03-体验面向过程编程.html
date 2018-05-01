@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-体验面向过程编程</title>
+    <style>
+        div, p {
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+    </div>
+    <div>
+    </div>
+    <p></p>
+    <p></p>
+    <script>
+        // 给所有div添加样式
+        // 1 获取所有div
+        var divs = document.querySelectorAll( 'div' );
+        // 2 遍历div
+        for( var i = 0, l = divs.length; i < l; i++ ){
+             // 3 添加样式
+            divs[ i ].style.backgroundColor = 'hotpink';
+            divs[ i ].style.border = '2px solid black';
+        }       
+        // 给所有p添加样式
+        var ps = document.querySelectorAll( 'p' );
+        for( i = 0, l = ps.length; i < l; i++ ){
+            ps[ i ].style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+</html>

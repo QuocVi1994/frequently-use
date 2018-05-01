@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-DOM相关属性</title>
+</head>
+<body>
+    <div id="dv">
+        <p>p</p>
+        <span>sp</span>
+        <a href="javascript:;">wo shi a</a>
+        <div>dd</div>
+    </div>
+    <script>
+        // 1 childNodes
+        var div = document.getElementById( 'dv' );
+       /* 
+        var childs = div.childNodes;
+        var ret = []; // 存储div下所有元素节点
+
+        var i = 0, 
+            l = childs.length;
+        for( ; i < l; i++ ){
+            if( childs[ i ].nodeType == 1 ){
+                ret.push( childs[ i ] );
+            }
+        }*/
+        // 2 自己遍历div下所有子节点
+        var node = div.firstChild;
+        var ret = [];
+       /* while( node ){
+            if( node.nodeType == 1 ){
+                ret.push( node );
+            }
+            node = node.nextSibling;
+        }*/
+        for( ; node; node = node.nextSibling ){
+            if( node.nodeType == 1 ){
+                ret.push( node );
+            }
+        }
+        console.log( ret );
+    </script>
+</body>
+</html>

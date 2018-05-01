@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-绘制坐标系</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+        
+        var w = canvas.width,
+            h = canvas.height;
+
+        var padding = 20; // 坐标系与Canvas边距
+
+        var arrowWidth = 16, // 箭宽
+            arrowHeight = 16;// 箭高
+
+        // 1 绘制坐标轴
+        context.moveTo( padding, padding );
+        context.lineTo( padding, h - padding );
+        context.lineTo( w - padding, h - padding );
+        context.stroke();
+        // 2 绘制箭头
+        // 2.1 绘制y轴的箭头
+        context.beginPath();
+        context.moveTo( padding, padding );
+        context.lineTo( padding - arrowWidth / 2,
+                        padding + arrowHeight );
+        context.lineTo( padding,
+                        padding + arrowHeight / 2 );
+        context.lineTo( padding + arrowWidth / 2,
+                        padding + arrowHeight);
+        
+        // 2.2 绘制x轴的箭头
+        context.moveTo( w - padding,
+                        h - padding );
+        context.lineTo( w - padding - arrowHeight,
+                        h - padding - arrowWidth / 2 );
+        context.lineTo( w - padding - arrowHeight / 2,
+                        h - padding );
+        context.lineTo( w - padding - arrowHeight,
+                        h - padding + arrowWidth / 2 );
+        
+        context.fill(); 
+    </script>
+</body>
+</html>

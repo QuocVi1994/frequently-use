@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-绘制图像</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <img src="./beauty/big.jpg" alt="真biu" id='biu'>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        context.strokeRect( 0, 0, 50, 50 );
+                
+        // 1 普通绘制
+        var image = new Image();
+        image.src = './beauty/littlegirl.jpg';
+        image.onload = function(){
+            context.drawImage( image, 50, 50 );
+        };
+
+        var biu = document.getElementById( 'biu' );
+        biu.onload = function(){
+            context.drawImage( biu, 150, 150 );
+        };
+
+    </script>
+</body>
+</html>

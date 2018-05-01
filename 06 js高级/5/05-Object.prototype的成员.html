@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-Object.prototype的成员</title>
+</head>
+<body>
+    <script>
+        console.log( Object.prototype );
+        var obj = { name: 'guoguo' };
+        console.log( obj.hasOwnProperty( 'name' ) ); // true
+        console.log( obj.hasOwnProperty( 'constructor' ) ); // false 
+        console.log( Object.prototype.isPrototypeOf( Function.prototype ) ); // false
+        console.log( Object.prototype.isPrototypeOf( Function ) ); // true
+        console.log( Function.prototype.isPrototypeOf( Object ) );
+        console.log( Function.prototype.isPrototypeOf( Function ) );
+
+        var parent = { sex: 'girl' };
+        var obj = Object.create( parent, {
+            name: {
+                value: 'guoguo',
+                enumerable: true
+            },
+            age: {
+                value: '19',
+                enumerable: false
+            }
+        } );
+
+        console.log( obj.propertyIsEnumerable( 'name' ) ); // true
+        console.log( obj.propertyIsEnumerable( 'age' ) );  // false
+        console.log( obj.propertyIsEnumerable( 'sex' ) );  // false
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border: 1px solid #000;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>	
+	<canvas id="b" width="400" height="400"></canvas>
+	<canvas id="f" width="400" height="400"></canvas>
+</body>
+<script>
+	function toAngle( radian ) {
+		return 180 * radian / Math.PI;
+	}
+	function toRadian( angle ) {
+		return Math.PI * angle / 180;
+	}
+	var f = document.getElementById( 'f' ),
+			f_ctx = f.getContext( '2d' );
+
+	var b = document.getElementById( 'b' ),
+			b_ctx = b.getContext( '2d' );
+
+	b_ctx.font = "bold 48px Simsum";
+	b_ctx.textAlign = "center";
+	b_ctx.textBaseline = "middle";
+	b_ctx.fillText( '很遗憾。。', b.width / 2, b.height / 2 );
+
+	f_ctx.fillStyle = '#eee';
+	f_ctx.fillRect( 0, 0, 400, 400 );
+
+	f_ctx.clearRect( 0, 0, 10, 10 );
+	f_ctx.clearRect( 100, 100, 200, 200 );
+</script>
+</html>

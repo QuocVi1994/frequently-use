@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-面试题4</title>
+</head>
+<body>
+    <ul>
+		<li>1li</li>
+		<li>2li</li>
+		<li>3li</li>
+		<li>4li</li>
+		<li>5li</li>
+	</ul>
+	<script>
+		/*var lis = document.getElementsByTagName( 'li' );
+		for( var i = 0, l = lis.length;i < l; i++ ){
+			// 1 自定义属性
+			// lis[ i ].index = i + 1;
+			lis[ i ].onclick = function(){
+				console.log( i );
+				// console.log( this.index );
+			};
+			// 2 让i的值运算一次
+			// lis[ i ].onclick = new Function( 'console.log( ' + ( i + 1 ) + ' );' );
+			// 3 闭包
+			lis[ i ].onclick = function( j ){
+				return function(){
+					console.log( j + 1 );
+				}
+			}( i );
+		}*/
+
+		// i = 5
+		// setTimeout setInterval
+		for( var i = 0; i < 3; i++ ){
+			setTimeout( function() {
+				// console.log( i );
+				alert( i );
+			}, 0 );
+		}
+		// i = 3
+	</script>
+</body>
+</html>

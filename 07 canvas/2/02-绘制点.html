@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-绘制点</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+        
+        var w = canvas.width,
+            h = canvas.height;
+
+        var padding = 20; // 坐标系与Canvas边距
+
+         // 坐标系原点
+        var x0 = padding,
+            y0 = h - padding;
+
+        var arrowWidth = 16, // 箭宽
+            arrowHeight = 16;// 箭高
+
+        // 1 绘制坐标轴
+        context.moveTo( padding, padding );
+        context.lineTo( padding, h - padding );
+        context.lineTo( w - padding, h - padding );
+        context.stroke();
+        // 2 绘制箭头
+        // 2.1 绘制y轴的箭头
+        context.beginPath();
+        context.moveTo( padding, padding );
+        context.lineTo( padding - arrowWidth / 2,
+                        padding + arrowHeight );
+        context.lineTo( padding,
+                        padding + arrowHeight / 2 );
+        context.lineTo( padding + arrowWidth / 2,
+                        padding + arrowHeight);
+        
+        // 2.2 绘制x轴的箭头
+        context.moveTo( w - padding,
+                        h - padding );
+        context.lineTo( w - padding - arrowHeight,
+                        h - padding - arrowWidth / 2 );
+        context.lineTo( w - padding - arrowHeight / 2,
+                        h - padding );
+        context.lineTo( w - padding - arrowHeight,
+                        h - padding + arrowWidth / 2 );
+        
+        context.fill(); 
+
+        // 3. 绘制点
+        // ( 20, 80 ) ( 40, 120 ) ( 80, 1280 ) ( 200, 300 ) ( 400, 150 )
+        // 描绘点
+        function drawPoint( x, y, size, color ){
+            size = size || 8;
+            color = color || 'rgb( 0, 0, 0 )';
+            context.beginPath();
+            context.moveTo( x - size / 2, y - size / 2 );
+            context.lineTo( x - size / 2, y + size / 2 );
+            context.lineTo( x + size / 2, y + size / 2 );
+            context.lineTo( x + size / 2, y - size / 2 );
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        // 指定点的大小
+        var size = 8;
+        var points = [ [120, 80],[40, 120],[480, 1280], [200, 300], [400, 1150], [ 300, 300 ] ];
+        // 对初始点进行按照x轴坐标值 升序排序
+        points.sort( function( a, b ){
+            return a[ 0 ] - b[ 0 ];
+        } );
+
+         // 获取坐标轴的有效长度
+        var xLength = w - 2 * padding - arrowHeight - size;
+        var yLength = h - 2 * padding - arrowHeight - size;
+
+        var yMax = Math.max.apply( null, points.map( function( p ){
+            return p[ 1 ];
+        } ) );
+
+        var xMax = points[ points.length - 1 ][ 0 ];
+
+        var renderPoints = points.map( function( p ){
+            var x, y;
+           
+            // 缩放坐标点
+            // xLength = xMax;
+            // a       = 40 ==> a/xLength = 40 / xMax ==> a = 40 * xLength / xMax;
+            x = p[ 0 ] * xLength / xMax;
+            y = p[ 1 ] * yLength / yMax;
+            // 坐标系原点变换
+            x += x0;
+            y = y0 - y;
+            return [ x, y ];
+        } );
+        renderPoints.forEach( function( p ){
+            drawPoint( p[ 0 ], p[ 1 ], size, '#daa520' );
+        } );
+
+        // 4 绘制点之间的线段
+        var lineColor = 'rgb( 255, 0, 0 )';
+        context.beginPath();
+        context.moveTo( renderPoints[ 0 ][ 0 ], renderPoints[ 0 ][ 1 ] );
+        renderPoints.forEach( function( p, i ){
+            if( i != 0 ){
+                context.lineTo( p[ 0 ], p[ 1 ] );
+            }
+        } );
+        context.strokeStyle = lineColor;
+        context.stroke();
+    </script>
+</body>
+</html>

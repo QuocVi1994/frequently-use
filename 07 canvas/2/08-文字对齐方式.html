@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-文字对齐方式</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+        
+        var w = canvas.width,
+            h = canvas.height;
+
+        var x = w / 2,
+            y = 40;
+
+       /* // 水平
+        var aligns = [ 'start', 'end', 'center', 'left', 'right' ];
+        var colors = [ 'red', 'green', 'blue', 'hotpink', '#daa520' ];
+        context.font = 'bold 32px Simsum';
+        for( var i = 0; i < 5; i++, y += 60 ){
+            context.beginPath();
+            context.arc( x, y, 6, 8, Math.PI * 2 );
+            context.fillStyle = colors[ i ];
+            context.fill();
+            
+            context.textAlign = aligns[ i ];
+            context.fillText( aligns[ i ], x, y );
+        } */
+
+        // 垂直
+        var baseline = [ 'top', 'bottom', 'middle', 'hanging', 'alphabetic', 'ideographic' ]; 
+        context.font = 'bold 32px simsum';
+        for( var i = 0; i < 6; i++, y += 100 ){
+            context.beginPath();
+            context.arc( x, y, 6, 0, Math.PI * 2 );
+            context.fill();
+            context.textAlign = 'center';
+            context.textBaseline = baseline[ i ];
+            context.fillText( baseline[ i ], x, y );
+            // 画基线
+            context.moveTo( 0, y );
+            context.lineTo( w, y );
+            context.stroke();
+        }
+        
+    </script>
+</body>
+</html>

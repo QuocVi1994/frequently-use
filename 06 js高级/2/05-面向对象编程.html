@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-面向对象编程</title>
+    <style>
+        div, p {
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+    </div>
+    <div>
+    </div>
+    <p></p>
+    <p></p>
+    <script>
+       /* var DOMHandler = {
+            selector: 'div',
+            getDOM: function( selector ){
+                return document.querySelectorAll( selector );
+            },
+            setStyles: function( callback ){
+                var doms = this.getDOM( this.selector ),
+                    i = 0,
+                    l = doms.length;
+
+                for( ; i < l; i++ ){
+                    callback( doms[ i ] );
+                }
+            }
+        };
+        DOMHandler.setStyles( function( el ){
+            el.style.backgroundColor = 'red';
+        } );
+        DOMHandler = {
+            selector: 'p',
+            getDOM: function( selector ){
+                return document.querySelectorAll( selector );
+            },
+            setStyles: function( callback ){
+                var doms = this.getDOM( this.selector ),
+                    i = 0,
+                    l = doms.length;
+
+                for( ; i < l; i++ ){
+                    callback( doms[ i ] );
+                }
+            }
+        };
+        DOMHandler.setStyles( function( el ){
+            el.style.backgroundColor = 'hotpink';
+        } );*/
+        function DOMHandler( selector ){
+            this.selector = selector;
+            this.getDOM = function(){
+                return document.querySelectorAll( this.selector );
+            };
+            this.setStyles = function( callback ){
+                var doms = this.getDOM(),
+                    i = 0,
+                    l = doms.length;
+
+                for( ; i < l; i++ ){
+                    callback( doms[ i ] );
+                }
+            };
+        }
+
+        function domHandler( selector ){
+            return new DOMHandler( selector );
+        }
+
+        var dh = domHandler( 'span' );
+
+        domHandler( 'div' ).setStyles( function( el ){
+            el.style.backgroundColor = 'red';
+        } );
+
+        domHandler( 'p' ).setStyles(function( el ){
+            el.style.backgroundColor = 'hotpink';
+        } )
+    </script>
+</body>
+</html>

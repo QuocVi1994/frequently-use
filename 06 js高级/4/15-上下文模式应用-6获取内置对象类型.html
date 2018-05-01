@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-上下文模式应用-6获取内置对象类型</title>
+</head>
+<body>
+    <script>
+        function getType( obj ){
+            // null undefined
+            if( obj == null ){
+                return obj + '';
+            }
+            // 如果obj是简单数据
+            /* if( typeof obj != 'object' ){
+                return typeof obj;
+            } else { // 如果 obj 是 复杂数据
+                return Object.prototype.toString.call( obj ).slice( 8, -1 ).toLowerCase();
+            }*/
+            return typeof obj == 'object' ?
+                Object.prototype.toString.call( obj ).slice( 8, -1 ).toLowerCase() :
+                typeof obj;
+        }
+
+        console.log( getType( [] ) );
+        console.log( getType( new Date() ) );
+        console.log( getType( /gg/ ) );
+        console.log( getType( null ) );
+        console.log( getType( undefined ) );
+        console.log( getType( 1 ) );
+        console.log( getType( '1' ) );
+        console.log( getType( false ) );
+        console.log( getType( Object ) );
+        console.log( getType( Function ) );
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-构造函数执行过程</title>
+</head>
+<body>
+    <script>
+        
+        var Person = function( name, age ){
+            this.name = name;
+            this.age = age;
+            console.log( this ); // window
+            // return 1; // number
+            // return '1';  // string
+            // return true; // bool
+            // return null;
+            // return undefined;
+            // return [];
+            return new Date();
+        };
+
+
+        var laowang = new Person( 'laowang' );
+        console.log( laowang );
+        var laosong = Person( 'laosong' );
+    </script>
+</body>
+</html>

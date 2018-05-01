@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-走马灯效果</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+
+        var w = canvas.width,
+            h = canvas.height;
+        
+        var x = 50,
+            y = 50;
+
+        context.setLineDash( [ 8, 4, 2 ] );
+        context.moveTo( x, y );
+        context.lineTo( x + 300, y );
+        context.lineTo( x + 300, y + 200 );
+        context.lineTo( x, y + 200 );
+        context.closePath();
+        context.stroke();
+
+        var offset = 0;
+
+        window.setInterval( function(){
+            // 清除画布上的所有图形
+            context.clearRect( 0, 0, w, h );
+            context.beginPath();
+            // 每隔一定周期，更新虚线的偏移量
+            context.lineDashOffset = ++offset;
+            context.setLineDash( [ 8 ] );
+            context.moveTo( x, y );
+            context.lineTo( x + 300, y );
+            context.lineTo( x + 300, y + 200 );
+            context.lineTo( x, y + 200 );
+            context.closePath();
+            context.stroke();
+        }, 60 );
+    </script>
+</body>
+</html>

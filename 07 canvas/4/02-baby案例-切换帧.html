@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-baby案例-切换帧</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        var babyWidth = 40,
+            babyHeight = 65;
+
+        var frame = 0;
+        // 更新帧
+        function update(){
+            frame = ++frame % 4;
+        }
+        // 根据当前帧 绘制图像
+        function draw(){
+            // 1 清除画布
+            context.clearRect( 0, 0, w, h );
+            // 2 绘制图像
+            context.drawImage( img, 
+                    frame * babyWidth, 0, babyWidth, babyHeight, 
+                    0, 0, babyWidth, babyHeight );
+        }
+
+        var img = new Image();
+        img.addEventListener( 'load', function(){
+            context.drawImage( img, 0, 0, 40, 65, 0, 0, 40, 65 );
+            window.setInterval( function(){
+                update();
+                draw();
+            } , 120 );
+        } );
+        img.src = './imgs/NPCrabbitbaby.png';
+    </script>
+</body>
+</html>

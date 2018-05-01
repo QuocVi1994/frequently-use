@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-旋转坐标系</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById( 'canvas' ),
+            context = canvas.getContext( '2d' );
+
+        var w = canvas.width,
+            h = canvas.height;
+
+        context.translate( w / 2, h / 2 );
+        context.beginPath();
+        context.moveTo( w / 2, 0 );
+        context.lineTo( 0, 0 );
+        context.lineTo( 0, h / 2 );
+        context.strokeStyle = 'red';
+        context.stroke();
+
+        // 旋转
+        context.rotate( Math.PI / 6 );
+        context.beginPath();
+        context.moveTo( w / 2, 0 );
+        context.lineTo( 0, 0 );
+        context.lineTo( 0, h / 2 );
+        context.strokeStyle = 'green';
+        context.stroke();
+
+        context.rotate( -Math.PI / 3 );
+        context.beginPath();
+        context.moveTo( w / 2, 0 );
+        context.lineTo( 0, 0 );
+        context.lineTo( 0, h / 2 );
+        context.strokeStyle = 'blue';
+        context.stroke();
+
+        context.rotate( -Math.PI / 3 );
+        context.beginPath();
+        context.moveTo( w / 2, 0 );
+        context.lineTo( 0, 0 );
+        context.lineTo( 0, h / 2 );
+        context.strokeStyle = '#daa520';
+        context.stroke();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-面试题3</title>
+</head>
+<body>
+    <script>
+		// 函数定义的形参 也是 函数内部的局部变量
+  		/*function foo( a ) {
+			console.log( a ); // 100
+			console.log( arguments[ 0 ] ); // 100
+			a = 10;
+			console.log( a ); // 10
+			console.log( arguments[ 0 ] );// 10
+		}
+		
+		foo( 100 );*/
+		// 变式
+		/*function foo( a ) {
+			function a(){}
+			console.log( a ); // function
+			a = 10;
+			
+			console.log(a); // 10
+		}
+		foo( 100 );*/
+
+		function foo() {
+			
+			function a(){}
+			var a;
+			console.log( a );			
+			a = 10;
+			
+			console.log(a); 
+		}
+		foo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-上下文模式应用-借用构造函数</title>
+</head>
+<body>
+    <script>
+        function Parent( name, age, gender ){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        function Child(  name, age, gender, address ){
+            Parent.call( this, name, age, gender );
+            this.address = address;
+        }
+
+        var c = new Child( 'child', 19, 'girl', 'beijing china' );
+        console.log( c );
+    </script>
+</body>
+</html>
