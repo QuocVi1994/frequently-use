@@ -1,0 +1,8 @@
+/**********************************************
+Desiged by Jason.Leung
+QQ, 147430218
+SinaWB, @切片麵包
+任何企业或个人在使用过程中，不得删除作者出处。违者必究。
+**********************************************/
+#plugin_qq_box {width:114px; height:197px; position:fixed; right:10px; background:url('../images/plugin_bg.png') no-repeat; background-size:cover;}
+.inner_box {width:92px; height:146px; position:relative; overflow:hidden; margin:25px 10px; cursor:pointer;}

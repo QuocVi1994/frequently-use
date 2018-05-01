@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+body,li,ul,dl,dt,dd{
+	margin:0;padding:0;list-style:none;
+	}
+body{
+	font-family:"黑体";
+	font-size:14px;
+	color:#000;
+	line-height:1.5em;
+	}
+img{
+	border:0;
+	}
+.l{
+	float:left;
+	display:inline;
+	}<!--左浮动可能在IE6下出现双倍边距，所以加上display:inline;-->
+.r{
+	float:right;
+	display:inline;
+	}
+a{
+	text-decoration:none;
+	font-size:14px;
+	}
+.box{
+	width:780px;
+	height:360px;
+	margin:0 auto;
+	margin-top:50px;
+	}
+.box .one{
+	width:20%;
+	height:100%;
+	float:left;
+	}
+.box .one .top{
+	width:100%;
+	height:50%;
+	overflow:hidden;
+	position:relative;
+	}
+.box .one .top .text{
+	position:absolute;
+	z-index:1; 
+	left:0;top:0;
+	}
+.box .one .top .img{
+	position:absolute; 
+	width:100%;
+	height:100%;	
+	background-color:black;
+	}
+.box .one .top .img img{
+	position:absolute;
+	left:0;top:0;
+	}
+.box .two{
+	width:20%;
+	height:100%;
+	float:left;
+	position:relative;
+	overflow:hidden;
+}
+.box .two .text{
+	position:absolute;
+	z-index:1; 
+	left:0 top:0;
+	}
+.box .two .img{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;top:0;
+	background-color:black;
+	}
+.box .two .img img{
+	position:absolute;
+	}

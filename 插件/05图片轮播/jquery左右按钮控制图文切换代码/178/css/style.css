@@ -1,0 +1,29 @@
+@charset "utf-8";
+*{padding:0;margin:0;list-style:none;border:none;}
+body{font:normal 12px/normal Verdana, Geneva, sans-serif;}
+a{color:#333;text-decoration:none;}
+
+/* drama-poster */
+.content{height:335px;width:600px;margin:40px auto 0 auto;position:relative;overflow:hidden;}
+.drama-poster{margin:0 auto;width:447px;height:335px;overflow:hidden;position:relative}
+.drama-poster ul{width:10000px}
+.drama-poster li{padding:0 7px}
+.show-poster-3{width:135px;float:left}
+.show-poster-3 .img{display:block;width:135px;height:180px}
+.show-poster-3 .title{display:none;width:105px;height:42px;background:url(../images/bg-index-img.png) 0 0 no-repeat;_background:url(../images/bg-index-img2.png) 0 0 no-repeat;position:absolute;color:#fff;padding:138px 15px 0 15px;line-height:1.5;top:0;}
+.show-poster-3 .title:hover{color:#fff}
+.drama-poster li.current .title{display:block}
+.show-poster-3 .price{width:135px;height:20px;display:block;margin-top:10px;text-align:center;font-weight:bold;}
+.show-poster-3 .arrow{display: none;position: absolute;bottom: 107px;width: 135px;height: 7px;overflow: hidden;background: url(../images/bg-channel-drama.png) 50% -350px no-repeat}
+.current .arrow{display:block}
+.show-poster-3 p{display:none;color:#999;line-height:20px;position:absolute;width:447px;height:94px;left:0;bottom:2px;border-top:1px dashed #ccc;z-index:10px;padding-top:10px}
+.show-poster-3 p strong{color:#333;font-weight:normal;text-align:center;}
+.drama-poster li.current p{display:block}
+.drama-slide li{position:absolute;top:93px}
+.drama-slide li.prev{left:0}
+.drama-slide li.next{right:0}
+.drama-slide li a{display:block;width:13px;height:25px;background:url(../images/bg-slide.png) no-repeat;text-indent:-1000em}
+.drama-slide li.prev a{background-position:0 -122px}
+.drama-slide li.prev a:hover{background-position:0 -147px}
+.drama-slide li.next a{background-position:-13px -122px}
+.drama-slide li.next a:hover{background-position:-13px -147px}

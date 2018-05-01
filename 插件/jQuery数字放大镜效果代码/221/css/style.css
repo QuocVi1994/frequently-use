@@ -1,0 +1,7 @@
+@charset "utf-8";
+ul{margin:0;padding:0;}
+ul li{list-style-type:none;}
+/*bigGlass*/
+#bigGlass{height:45px;position:absolute;background-color:#8AD151;display:none;line-height:45px;font-size:30px;font-weight:bold;padding:0 5px;}
+#bigGlass span{margin-left:8px;}
+#bigGlass span:first-child{margin-left:0;}

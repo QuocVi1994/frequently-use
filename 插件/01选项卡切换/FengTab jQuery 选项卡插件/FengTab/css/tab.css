@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/* reset */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input,abbr,article,aside,command,details,figcaption,figure,footer,header,hgroup,mark,meter,nav,output,progress,section,summary,time {margin: 0; padding: 0;}
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th,figcaption {font-size: 1em; font-weight: normal; font-style: normal;}
+fieldset,iframe,img {border: none;}
+caption,th {text-align: left;}
+table {border-collapse: collapse; border-spacing: 0;}
+article,aside,footer,header,hgroup,nav,section,figure,figcaption {display: block;}
+ul,li,ol,dl,dt,dd {list-style: none;}
+
+/*scrollbar*/
+
+html {scrollbar-face-color:#97aac1;
+scrollbar-highlight-color:#ffffff;
+scrollbar-3dlight-color:#97aac1;
+scrollbar-darkshadow-color:#97aac1;
+scrollbar-shadow-color:#ffffff;
+scrollbar-arrow-color:#ffffff;
+scrollbar-track-color:#d7e0eb;}
+::-webkit-scrollbar {width: 5px;height: 5px;}                        
+::-webkit-scrollbar-track,::-webkit-scrollbar-thumb {border-radius: 999px;border:0px solid transparent;}
+::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(100,100,100,.7) inset;}
+::-webkit-scrollbar-thumb {min-height: 20px;background-clip: content-box;box-shadow: 0 0 0 5px rgba(100,100,100,.5) inset;}
+::-webkit-scrollbar-corner {background:;transparent}
+
+/*baes*/
+
+body {font-family:tahoma,"\5B8B\4F53"; font-size:12px;color:#555;}
+h1,h2,h3,h4,h5,h6 {font-family:tahoma,"\5FAE\8F6F\96C5\9ED1";}
+img {border: none;}
+a {text-decoration: none;color: #f60;font-weight: bold;}
+a:hover {text-decoration: underline;color: #06f;}
+a:focus,input:focus {outline:none;}
+a * {cursor: pointer;}
+.gehang {height: 20px;width: 20px;clear: both;}
+/* 网站局中盒子样式 */
+.cf:before, .cf:after {content:"";display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+
+/* 选项卡示例样式 */
+.main,.main2,.box {width: 700px;margin:40px auto;}
+.tab {
+	overflow: hidden;
+	width: 498px;
+	height: 32px;
+	background: #ddd;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+.tab li {
+	float: left;
+	width: 100px;
+	text-align: center;
+	line-height: 32px;
+	border-right: 1px solid #fff;
+}
+.tab li.on {
+	background: #fff;
+}
+.con {
+	width: 480px;
+	padding: 9px;
+	border: 1px solid #ddd;
+	border-top: none;
+}
+
+
+
+/* 其他样式 */
+.box h1 {text-align: center;font:bold 26px/2 tahoma,"\5FAE\8F6F\96C5\9ED1";cursor: pointer;color: #f60;}
+.info {border: 1px dashed #ddd;padding: 10px;line-height: 2;background: #f4f4f4;}
+.info p {padding:3px 0;text-indent: 2em;}
+	.code {font-family:Fixedsys;font-size: 12px;color: #06f;}
+	.info pre {padding-left: 2em;}
+.h3 {font-size: 16px;color: #06f;font-weight: bold;line-height: 1.5;margin-top: 20px;}
+.down {}
+	.down a {display: block;width: 300px;height: 40px;line-height: 40px;margin: 20px auto;border: 1px solid #ddd;text-align: center;background: #f4f4f4;border-radius:8px;font-size: 14px;}
+	.down a:hover {background: #f60;border: 1px solid #f60;color: #fff;text-decoration: none;}
+#copy {text-align: center;padding: 20px;}
+.good {}
+	.good li {line-height: 2;font-size: 14px;}

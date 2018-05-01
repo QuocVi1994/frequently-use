@@ -1,0 +1,254 @@
+﻿/* ---------------------
+Author: Meghdad Hadidi
+Facebook: /meghdad.hadidi
+Twitter: @meghdadhadidi
+Gmail: meghdadhadidi1@gmail.com
+URI: http://powerup.ir/projects/smarticker
+------------------------*/
+
+body{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+pre.prettyprint{
+	padding: 15px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	font-size: 12px;
+	/*color: #777;
+	font-size: 13px;
+	display: block;
+	margin: 10px 0 20px;
+	background: #fefefe;*/
+}
+
+pre.prettyprint:hover{
+	overflow: auto;
+}
+
+pre strong{
+	color: #cd2122;
+}
+
+pre.small{	
+}
+
+pre span.com{
+	color: #999;
+}
+
+h3{
+	font-size:20px;
+}
+
+code {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 1px 5px;
+	background: #fff;
+	color: #a1a1a1;
+	font-size: 12px;
+}
+
+.container{
+	width: 70%;
+	margin: 0 auto;
+	min-height: 100px;
+	background: #fcfcfc;
+	box-shadow: 0px 0px 3px #ccc;
+}
+
+.top-bar{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	/*background: #f9f9f9;
+	border-bottom:3px solid #e6e6e6;*/
+	z-index: 10;
+}
+
+.top-bar div{
+	width: 12.5%;
+	float: left;
+}
+
+.logo{
+	float: left;
+}
+
+.scroll-nav{
+	position: fixed;
+	top: 20px;
+}
+
+.scroll-nav ol{
+	list-style: none;
+	direction: ltr;
+	text-align: left;
+	padding: 0 0 0 10px;
+	margin: 0;
+}
+
+.scroll-nav ol li a{
+	text-decoration: none;
+	font-family: Calibri, Tahoma;
+	font-size: 13px;
+	color: #666;
+}
+
+.scroll-nav ol li.active a{
+	font-weight: bold;
+}
+
+.header{
+	font-family: Times New Roman;
+}
+
+.container .header h1{
+	font-style: italic;
+	font-weight: bold;
+	color: #666;
+	margin-top: 0;
+	margin-bottom: 0px;
+	padding-top: 20px;
+}
+
+.container .header h5{
+	margin-top: 5px;
+	margin-bottom: 0px;
+	color: #666;
+	font-weight: normal;
+}
+
+.container .header h6{
+	font-weight: normal;
+	color: #999;
+	margin-top: 10px;
+	font-style: italic;
+	font-family: calibri, Tahoma;
+	font-size: 13px;
+
+}
+
+.content{
+	direction: ltr;
+	text-align: left;
+	line-height: 21px;
+	font-family: Calibri, Tahoma;
+	font-size: 14px;
+	color: #666;
+}
+
+.col{
+	float: left;
+	min-height: 50px;
+}
+
+.col1{
+	width: 33%;
+}
+
+.col2{
+	width: 66%;
+}
+
+.right{
+	float: right;
+}
+
+.content .col:last-child, .cf{
+	clear: both;
+	float: none;
+	display: block;
+	min-height: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+.padding{
+	padding: 15px 25px;
+}
+
+.border-bottom{
+	border-bottom: 3px solid #ccc;
+}
+
+.border-top{
+	border-top: 3px solid #ccc;
+}
+
+.blue{
+	background: #3498db;
+	color: #f9f9f9;
+	border-color: #3498db;
+}
+
+.yellow{
+	border-color:#f4ec0b;
+}
+
+.green{
+	border-color: #2ecc71;
+}
+
+.darkgreen{
+	border-color: #16a085;
+}
+
+.darkblue{
+	border-color: #2980b9;
+}
+
+.red{
+	border-color: #fe331e;
+}
+
+.gray{
+	background: #eee;
+	color: #666;
+}
+
+.purple{
+	border-color: #9b59b6;
+}
+
+.orange{
+	border-color: #f39c12;
+}
+
+.purple1{
+	border-color: #ef00c5;
+}
+
+.lightgray{
+	background-color: #fcfcfc;
+	color: #666;
+}
+
+.red::selection {
+	background: #ffb7b7;
+}
+.red::-moz-selection {
+	background: #ffb7b7;
+}
+p.blue::selection {
+	background: #f1c40f;
+}
+p.blue::-moz-selection {
+	background: #f1c40f;
+}
+.yellow::selection {
+	background: #fff2a8;
+}
+.yellow::-moz-selection {
+	background: #fff2a8;
+}
+
+
+.smarticker {
+	margin-bottom:30px;
+}

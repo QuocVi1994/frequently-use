@@ -1,0 +1,98 @@
+html, body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0 20px;
+    color: #777;
+	background:#fafafa;
+	font: normal 13px/19px tahoma, arial, serif;
+	text-shadow: 1px 1px 1px #fff;
+	-webkit-text-size-adjust: none;
+}
+
+#content {
+	width: 381px;
+	margin: 30px auto 30px auto;
+}
+
+h1 {
+	margin: 30px 0 15px 0;
+	font: bold 30px/30px arial, sans-serif;
+	color: #000;
+}
+
+h1 span {
+	font-size: 50%;
+	letter-spacing: -0.05em;
+}
+
+h2.first,
+h3.first, 
+h4.first {
+	margin-top: 0;
+}
+
+h3 {
+	margin: 0 0 5px 0;
+	font:normal 16px/2 'microsoft yahei';
+}
+
+hr {
+	clear: both;
+	margin: 20px 0;
+	border-style: solid;
+	border-width: 1px 0;
+	border-top-color: #ccc;
+	border-bottom-color: #fff;
+}
+
+p {
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+p.createdBy {
+	margin: -15px 0 0 0;
+	font-size: 11px;
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+	color: #000;
+}
+a:hover,
+a:focus {
+	color: #777;
+}
+a:focus {
+	outline: 1px dotted #000;
+}
+
+li a {
+	padding-left:5px;
+}
+
+ul {
+	list-style: none;
+}
+
+	/* thumbs */
+.thumbs a {
+	display: inline-block;
+	margin: 0 20px 20px 0;
+}
+.thumbs a.last {
+	margin-right: 0;	
+}
+.thumbs a img {
+	vertical-align: top;
+	border: 1px solid #fff;
+	
+	-moz-box-shadow: 0 0 7px #bbb;
+	-webkit-box-shadow: 0 0 7px #bbb;
+	box-shadow: 0 0 7px #bbb;
+}

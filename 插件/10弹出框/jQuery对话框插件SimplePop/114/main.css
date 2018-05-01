@@ -1,0 +1,34 @@
+﻿body {
+	font-size: 12px;
+}
+h1 {
+	text-align: center;
+}
+.table {
+	width: 80%;
+	border-collapse: collapse;
+	border: 1px solid #999;
+	margin: 5px  auto;
+}
+.table caption {
+	background: teal;
+	line-height: 30px;
+	border: 1px solid #999;
+	font-weight: bold;
+}
+.table th {
+	border: 1px solid #999;
+	text-align: center;
+	line-height: 22px;
+}
+.table td {
+	border: 1px solid #999;
+}
+.table td.example {
+	text-align: center;
+	padding: 10px;
+}
+.table td.code {
+	text-indent: 10px;
+	background: #eee;
+}

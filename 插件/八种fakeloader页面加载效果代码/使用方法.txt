@@ -1,0 +1,27 @@
+8种fakeloader页面加载效果代码，支持7种效果和自定义图片，兼容主流浏览器，懒人图库推荐下载！
+
+使用方法：
+1、body中插入以下html代码
+<div id="fakeLoader"></div>
+2、head标签里嵌入
+<link rel="stylesheet" href="css/fakeloader.css">
+
+3、引入js库
+<script src="js/jquery.min.js">
+<script src="js/fakeloader.min.js">
+
+4 调用fakeloader
+<script type="text/javascript">
+$(".fakeloader").fakeLoader();
+</script>
+
+5 选项解释
+$(".fakeloader").fakeLoader({
+timeToHide:1200, //加载效果的持续时间
+zIndex:"999",//
+spinner:"spinner1",//可选值 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7' 对应有7种效果
+bgColor:"#2ecc71", //加载时的背景颜色
+imagePath:"yourPath/customizedImage.gif" //自定义的加载图片，见demo8.html
+});
+
+*更多代码请访问：懒人图库 www.lanrentuku.com/js/

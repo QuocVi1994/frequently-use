@@ -1,0 +1,148 @@
+/* controller */
+.controller, .home_tuan{ font-size:0; margin:0 auto; height:0; position:relative; z-index:2;}
+.controller .triggers{ position:absolute; left:20px; top:390px;}
+.controller .triggers a{ display:inline-block; background:#737373; border-radius:100%; box-shadow:0 1px 0 rgba(255,255,255,.6), inset 0 2px 3px rgba(0,0,0,.2); margin-right:8px; height:13px; width:13px; overflow:hidden; vertical-align:top;}
+.controller .triggers a:hover, .controller .triggers a.current{ background-color:#4062a7;}
+.controller .prev, .controller .next{ background:#fff; background:rgba(255,255,255,.4); border-radius:0 56px 56px 0; height:56px; width:28px; position:absolute; left:0; top:186px; filter:Alpha(opacity=40);}
+.controller .prev:hover, .controller .next:hover{ background:rgba(255,255,255,.8); filter:Alpha(opacity=80);}
+.controller .prev span, .controller .next span{ display:block; background:url(../images/bg_hor.png) no-repeat 0 -14px; cursor:pointer; margin:18px 0 0 4px; height:20px; width:15px; overflow:hidden; text-indent:-99px;}
+.controller .next{ border-radius:56px 0 0 56px; left:880px;}
+.controller .next span{ background-position:-15px -14px; margin-left:9px;}
+
+/* banner */
+.home_banner{ margin-bottom:20px; height:420px; position:relative;}
+.home_banner .inner{ height:420px; width:100%; position:absolute; left:0; z-index:1; overflow:hidden;}
+.home_banner .inner ul, .home_banner .inner li{ height:100%; width:100%; position:absolute; left:0; top:0;}
+.home_banner .inner li{ background:url(../images/place.png) no-repeat 50% 0;}
+.home_banner .inner a{ display:block; margin:0 auto; height:100%; width:1186px; text-align:center;}
+.home_banner .inner img{ display:none;}
+.home_banner .controller .prev, .home_banner .controller .next{ background:none; border-radius:0; padding:0 5px; height:auto; width:auto; top:166px; visibility:hidden; opacity:0; filter:none; -webkit-transition:all linear .4s; -moz-transition:all linear .4s; -ms-transition:all linear .4s; transition:all linear .4s;}
+.home_banner:hover .controller .prev, .home_banner:hover .controller .next{ visibility:visible; opacity:1;}
+.home_banner .controller .prev span, .home_banner .controller .next span{ background:url(../images/home_banner.png) no-repeat; margin:0; height:72px; width:32px;}
+.home_banner .controller .next span{ background-position:-32px 0;}
+.home_tuan .tuan_inner{ background:#fff; border:1px solid #DDD; font-size:12px; height:418px; width:258px; position:absolute; right:0; top:0;}
+.home_tuan .title{ background:#F61E3B; border:1px solid #CD081B; box-shadow:0 1px 2px rgba(0,0,0,.3); margin:10px -1px 0; position:relative; z-index:2; text-align:center; text-shadow:0 -1px 0 #9d1325; *zoom:1;}
+.home_tuan .title h2{ background:url(../images/home_box.png) repeat-x 0 -220px; box-shadow:inset 0 1px 0 rgba(255,255,255,.3); color:#fff; font-size:20px; font-weight:normal; line-height:42px; height:42px;}
+.home_tuan .title i{ background:url(../images/home_banner.png) no-repeat 0 -108px; margin-left:-20px; height:42px; width:20px; overflow:hidden; position:absolute; left:0; top:4px; _display:none;}
+.home_tuan .title .f_r{ background-position:-20px -108px; margin:0 -20px 0 0; left:auto; right:0;}
+.home_tuan .tuan_main{ background:#FFF; height:288px; width:240px; overflow:hidden; position:absolute; left:9px; top:54px; z-index:1;}
+.home_tuan .tuan_main ul{ width:560%; position:absolute; left:0; top:0;}
+.home_tuan .tuan_main li{ float:left;}
+.home_tuan .tuan_main li img{ background:#FFF url(../images/img_place.png) no-repeat 50% 50%; vertical-align:top;}
+.home_tuan .tuan_main .controller{ position:static;}
+.home_tuan .tuan_main .triggers{ left:auto; top:auto; right:4px; bottom:10px;}
+.home_tuan .tuan_main .triggers a{ height:10px; width:10px;}
+.home_tuan .buy_btn{ position:absolute; top:360px; right:-5px;}
+.home_tuan .buy_btn a, .home_tuan .buy_btn a:hover{ background:url(../images/home_banner.png) no-repeat 0 -72px; color:#FFF; font-size:16px; padding:0; height:36px; width:104px; text-shadow:none; text-indent:24px;}
+.home_tuan .timer{ color:#333; font:20px/38px Arial; height:38px; position:absolute; left:9px; top:360px;}
+.home_tuan .timer em{ float:left; background:url(../images/counter.png) no-repeat 0 -190px; height:38px; width:19px; overflow:hidden; text-indent:99px;}
+.home_tuan .timer .n1{ background-position:0 -418px;}
+.home_tuan .timer .n2{ background-position:0 -646px;}
+.home_tuan .timer .n3{ background-position:0 -874px;}
+.home_tuan .timer .n4{ background-position:0 -1102px;}
+.home_tuan .timer .n5{ background-position:0 -1330px;}
+.home_tuan .timer .n6{ background-position:0 -1558px;}
+.home_tuan .timer .n7{ background-position:0 -1786px;}
+.home_tuan .timer .n8{ background-position:0 -2014px;}
+.home_tuan .timer .n9{ background-position:0 -2242px;}
+.home_tuan .timer .nn{ background-position:4px -2280px; width:11px;}
+.home_tuan .timer .nl{ background-position:0 -2318px; margin-right:5px; width:38px;}
+.home_tuan .timer .nd{ background-position:0 -2356px; margin-left:5px; width:38px;}
+
+/* home_box */
+.home_box{ background:#fff; border:1px solid #f3f3f3; margin-bottom:20px; padding:12px 0 24px; width:1184px;}
+.home_box .title{ background:#fff url(../images/home_box.png) repeat-x 0 18px; height:44px; margin:0 24px 16px;}
+.home_box .title h2{ float:left; background:#fff; color:#666; font-size:20px; line-height:44px; padding-right:15px;}
+.home_box .title i{ display:inline-block; background:url(../images/home_box.png) no-repeat 0 -64px; margin:-3px 5px 0 0; height:36px; width:30px; vertical-align:middle; *margin-top:0;}
+.home_box .title .ipad{ background-position:-30px -64px;}
+.home_box .title .sound{ background-position:-60px -64px; margin-right:8px;}
+.home_box .title .power{ background-position:-90px -64px;}
+.home_box .title .mac{ background-position:0 -100px; height:30px; width:38px;}
+.home_box .title .bag{ background-position:-90px -100px; height:30px; width:30px;}
+.home_box .title .apple{ background-position: -66px -100px; height: 30px; width: 24px}
+.home_box .title .good{ background-position:-40px -100px; height:30px; width:26px;}
+.home_box .title .more{ display:inline; float:right; background:#fff; color:#7b7b7b; font-size:14px; line-height:20px; margin-top:13px; padding-left:10px;}
+.home_box .title .more:hover{ color:#4062a7;}
+.home_box .title .more i{ background-position:0 -50px; margin-left:5px; height:12px; width:8px; overflow:hidden; *margin-top:1px;}
+.home_box .title .more:hover i{ background-position:-8px -50px;}
+.home_box .inner{ margin:0 24px;}
+.home_box .list_main li{ display:inline; float:left; margin-right:20px; width:200px; word-break:break-all; word-wrap:break-word; overflow:hidden;}
+.home_box .list_main .pic{ display:block; margin-bottom:15px;}
+.home_box .list_main .pic img{ background:#fff url(../images/img_place.png) no-repeat 50% 50%; vertical-align:top;}
+.home_box .list_main .tit{ display:inline-block; color:#949494; line-height:1.8; margin:10px 0; height:3.5em; overflow:hidden; vertical-align:top;}
+.home_box .list_main .tit:hover{ color:#09F;}
+.home_box .list_main .price, .home_box .list_main .count{ color:#b9b9b9;}
+.home_box .list_main .price em, .home_box .list_main .count em{ color:#900; font:bold 13px Arial;}
+.home_box .controller .prev, .home_box .controller .next{ background:#fff; margin:0 6px; top:120px; filter:none; visibility:hidden; opacity:0; -webkit-transition:all linear .36s; -moz-transition:all linear .36s; -ms-transition:all linear .36s; transition:all linear .36s;}
+.home_box .controller .next{ left:auto; right:0;}
+.home_box .list_main:hover .controller .prev, .home_box .list_main:hover .controller .next{ visibility:visible; opacity:1; margin:0;}
+.home_box .controller .prev:hover, .home_box .controller .next:hover{ background-color:#446aac; -webkit-transition:none; -moz-transition:none; -ms-transition:none; transition:none;}
+.home_box .controller .prev:hover span{ background-position:-30px -14px;}
+.home_box .controller .next:hover span{ background-position:-45px -14px;}
+.home_box .controller .triggers{ background:#fff; padding:2px 4px 2px 15px; left:auto; right:48px; top:-44px;}
+.home_box .floor_treasure{ float:left; height:330px; width:250px; overflow:hidden;}
+.home_box .floor_treasure img{ vertical-align:top;}
+
+/* home_tops */
+.home_tops{ float:left; padding-bottom:0; height:518px; width:900px;}
+.home_tops .title{ background:none; border-bottom:2px solid #E0E0E0; margin:0 24px 8px 20px;}
+.home_tops .title h2{ display:inline; margin:0 20px -2px 0; padding-right:0; height:46px; position:relative;}
+.home_tops .title a{ float:left; border-bottom:2px solid #E0E0E0; padding-right:4px; height:44px;}
+.home_tops .title a:hover, .home_tops .title a.current{ border-bottom-color:#446AAC; color:#4165a3;}
+.home_tops .title i{ background-position:0 -130px; cursor:pointer; height:30px; width:30px;}
+.home_tops .title a:hover i, .home_tops .title .current i{ background-position:0 -160px;}
+.home_tops .title .good{ background-position:-30px -130px;}
+.home_tops .title a:hover .good, .home_tops .title .current .good{ background-position:-30px -160px;}
+.home_tops .title .new{ background-position:-60px -130px;}
+.home_tops .title a:hover .new, .home_tops .title .current .new{ background-position:-60px -160px;}
+.home_tops .inner{ margin:0 0 0 20px; padding-top:30px;}
+.home_tops .order{ margin-top:-30px; height:30px; width:844px; overflow:hidden; position:absolute;}
+.home_tops .order a{ float:left; background:#FFF; color:#999; font-size:14px; margin-right:12px; padding:3px 10px;}
+.home_tops .order a:hover, .home_tops .order .current{ background-color:#5271AF; color:#FFF;}
+.home_tops .list_main li{ margin-bottom:10px; margin-right:18px; height:200px; position:relative; overflow:hidden;}
+.home_tops .list_main .props_wrap, .home_tops .list_main .props_mask{ height:78px; width:100%; position:absolute; left:0; top:100%;}
+.home_tops .list_main .props_wrap{ -webkit-transition:margin ease .4s; -moz-transition:margin ease .4s; -ms-transition:margin ease .4s; -o-transition:margin ease .4s; transition:margin ease .4s;}
+.home_tops .list_main li:hover .props_wrap{ margin-top:-78px;}
+.home_tops .list_main .props_mask{ background:#000; top:0; z-index:1; opacity:.5; filter:Alpha(opacity=50);}
+.home_tops .list_main .props{ width:100%; position:absolute; z-index:2;}
+.home_tops .list_main .pro_tag_inner{ bottom:2px;}
+.home_tops .list_main .tit{ color:#fff; margin:6px 10px;}
+.home_tops .list_main .tit:hover{ color:#fff; text-decoration:underline;}
+.home_tops .list_main .star{ background-position:-70px -34px; margin:0 0 5px 10px;}
+.home_tops .list_main .star em{ background-position:-70px -48px;}
+.home_tops .list_main .count{ color:#fff; margin:0 0 2px 10px;}
+.home_tops .list_main .count em, .home_tops .list_main .price em{ color:#ffc000;}
+.home_tops .list_main .price{ color:#fff; margin-top:-20px; position:absolute; right:10px;}
+.home_tops_slider{ float:right; background:#fff; border:1px solid #e2e2e2; margin-bottom:20px; width:270px;}
+.home_tops_slider .title{ display:none;}
+.home_tops_slider .inner{ height:530px; width:100%; position:relative; overflow:hidden;}
+.home_tops_slider .inner ul{ width:500%; position:absolute; left:0; top:0;}
+.home_tops_slider .inner li{ float:left;}
+.home_tops_slider .inner li img{ background:#fff url(../images/img_place.png) no-repeat 50% 50%; vertical-align:top;}
+.home_tops_slider .controller .triggers{ left:auto; top:auto; bottom:12px; right:10px;}
+.home_tops_slider .controller .triggers a{ height:10px; width:10px;}
+
+/* home_shareorder */
+.home_shareorder .title .sun{ background-position:0 -190px; height:30px; width:30px;}
+.home_shareorder .controller{ z-index:3;}
+.home_shareorder .controller .prev, .home_shareorder .controller .next{ top:36px;}
+.home_shareorder .inner:hover .controller .prev, .home_shareorder .inner:hover .controller .next{ visibility:visible; opacity:1; margin:0;}
+.home_shareorder .list_main{ height:132px; overflow:hidden; position:relative;}
+.home_shareorder .list_main ul{ margin-left:-31px; width:600%; position:absolute; left:0; top:0;}
+.home_shareorder .list_main li{ border-left:1px dotted #D9D9D9; margin:0; padding:0 40px 10px 170px; width:188px;}
+.home_shareorder .list_main .pic{ margin-left:-130px; position:absolute;}
+.home_shareorder .list_main .pic img{ vertical-align:top;}
+.home_shareorder .list_main .tag{ background:#4062a7; border-radius:3px; color:#FFF; font-size:16px; line-height:1; padding:6px; height:1em; width:1em; position:absolute; left:0; top:0;}
+.home_shareorder .list_main .tag i{ border-color:#4062a7 transparent; border-style:solid dashed; border-width:0 6px 4px; margin-left:-7px; height:0; width:0; overflow:hidden; position:absolute; left:100%; bottom:0;}
+.home_shareorder .list_main .tit{ color:#4062a7; font-size:14px;}
+.home_shareorder .list_main .desc{ color:#999;}
+
+/* floors */
+.one_floor{ height:390px;}
+.one_floor .list_main{ float:right; width:860px;}
+.one_floor .floor_rack{ height:330px; position:relative; overflow:hidden;}
+.one_floor .floor_rack ul{ width:400%; position:absolute; left:0; top:0;}
+.one_floor .floor_rack li{ padding-top:20px;}
+.floor_even .controller .triggers{ margin-right:-276px;}
+.floor_even .list_main{ float:left;}
+.floor_even .floor_treasure{ float:right;}

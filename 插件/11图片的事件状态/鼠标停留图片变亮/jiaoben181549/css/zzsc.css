@@ -1,0 +1,14 @@
+@charset "utf-8";
+*{ margin:0; padding:0; list-style:none;}
+img{ border:0; cursor:pointer;}
+
+.zzsc{ width:1002px; height:500px; border:1px solid #ff0000; margin:10px auto; position:relative; overflow:hidden;}
+.zzsc:hover li{ background:#000;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.zzsc:hover img{ opacity:0.5;filter:alpha(opacity=50);-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.zzsc li:hover img{ opacity:1;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.zzsc01{ width:667px; height:332px; position:absolute; left:0; top:0;}
+.zzsc02{ width:333px; height:165px; position:absolute; left:0; bottom:0;}
+.zzsc03{ width:165px; height:165px; position:absolute; left:335px; bottom:0;}
+.zzsc04{ width:165px; height:165px; position:absolute; left:503px; bottom:0;}
+.zzsc05{ width:332px; height:165px; position:absolute; right:0; top:0;}
+.zzsc06{ width:332px; height:332px; position:absolute; right:0; bottom:0;}

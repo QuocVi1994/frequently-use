@@ -1,0 +1,7 @@
+支持响应的TAB手风琴效果代码，有多种切换效果。兼容主流浏览器，懒人图库推荐下载！
+
+使用方法：
+1、head区域引用文件bellows.css, bellows-theme.css, lrtk.css及jquery.js, velocity.js, bellows.js
+2、在文件中加入<!-- 代码 开始 --><!-- 代码 结束 -->区域代码
+
+*更多代码请访问：懒人图库 www.lanrentuku.com/js/

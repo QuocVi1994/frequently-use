@@ -1,0 +1,8 @@
+手机端抽屉式搜索框，点击放大镜弹出搜索框，兼容主流浏览器，懒人图库推荐下载！
+
+使用方法：
+1、head区域引用文件default.css，component.css，modernizr.custom.js
+2、在文件中加入<!-- 代码 开始 --><!-- 代码 结束 -->区域代码
+3、复制fonts文件夹里的图片到相应的路径
+
+*更多代码请访问：懒人图库 www.lanrentuku.com/js/

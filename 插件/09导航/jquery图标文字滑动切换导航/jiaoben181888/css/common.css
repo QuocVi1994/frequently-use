@@ -1,0 +1,12 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.nav{border-bottom:1px solid #dfe0e2;border-top:1px solid #dfe0e2;height:43px;}
+.nav li{float:left;height:43px;position:relative;overflow:hidden;}
+.nav li a{width:100%;height:86px;display:block;position:absolute;left:0;top:0;}
+.nav li a p{text-align:center;height:43px;background:#dfe0e2;width:100%;}
+.nav li a div.navwz{height:43px;background:#fff;line-height:43px;position:absolute;display:none;width:100%;z-index:9;left:0;top:0;cursor:pointer;}
+.nav li a div.navwz h1{color:#222;font-size:14px;font-weight:bold;width:49%;text-align:right;height:43px;top:-43px;position:absolute;left:0;}
+.nav li a div.navwz h2{color:#222;font-weight:normal;font-size:12px;font-family:Arial;line-height:43px;width:49%;text-align:left;height:43px;top:43px;position:absolute;right:0;}
+.nav li a div.navdq{height:43px;background:#fff;line-height:43px;position:absolute;width:100%;z-index:9;left:0;top:0;cursor:pointer;}
+.nav li a div.navdq h1{color:#222;font-size:14px;font-weight:bold;width:49%;text-align:right;height:43px;top:0px;position:absolute;left:0;}
+.nav li a div.navdq h2{color:#222;font-weight:normal;font-size:12px;font-family:Arial;line-height:43px;width:49%;text-align:left;height:43px;top:0px;position:absolute;right:0;}

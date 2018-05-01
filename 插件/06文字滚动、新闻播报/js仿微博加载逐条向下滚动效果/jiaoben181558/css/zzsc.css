@@ -1,0 +1,10 @@
+@charset "utf-8";
+*{ margin:0; padding:0; list-style:none;}
+img{ border:0;}
+body{ font-size:12px; background:#f2f2f2; line-height:180%;}
+
+.zzsc {	position:relative;width:300px;height:420px;	overflow:hidden; background:#fff; margin:100px auto;}
+.downpaly {	position:absolute;width:280px;padding:0px 10px;left:0;top:0;}
+.fl {float:left}
+.downpaly img {	display:block;	max-width:150px;}
+.downpaly li {border-bottom:1px dashed #ccc;padding:10px 0px;overflow:hidden;}

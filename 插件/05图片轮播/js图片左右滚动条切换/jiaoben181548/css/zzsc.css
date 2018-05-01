@@ -1,0 +1,14 @@
+@charset "utf-8";
+*{ margin:0; padding:0; list-style:none;}
+img{ border:0;}
+body{ background:#23375C; padding-top:150px;}
+#ztbox {width:970px; height:420px; margin:0 auto;}
+#ztbox #left { width:35px; height:63px; float:left; cursor:pointer;background:url(../images/banner_pre.jpg) no-repeat; margin-top:140px;}
+#ztbox #right{ width:35px; height:63px; float:left; cursor:pointer;background:url(../images/banner_next.jpg) no-repeat;  margin-top:140px;}
+
+#ztbox #conter { width:880px; height:400px; float:left; display:inline; overflow:hidden; position:relative; margin:0px 10px;}
+#ztbox #conter ul { width:auto; height:357px; top:0px; left:0px; position:absolute; overflow:hidden;}
+#ztbox #conter li { width:167px; height:357px; float:left;padding:0px 5px; position:relative;}
+#ztbox #conter li img { width:167px; height:357px;}
+#ztbox #scroll { width:880px; height:18px; left:0px; bottom:8px; cursor:pointer; position:absolute; background:url(../images/banner_bg2.jpg) repeat-x left center; }
+#ztbox #scroll span { width:48px; height:18px; left:0px; bottom:0px; cursor:pointer; position:absolute; background:#FFEA00; }

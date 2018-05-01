@@ -1,0 +1,28 @@
+@charset "utf-8";
+body{font-family:Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#666666;margin:0px;padding:0px;background:#fff;}
+p,from,h1,h2,h3,h4,h5,h6{margin:0px;padding:0px;}
+ul,ol{margin:0px;padding:0px;list-style-type:none;}
+img{border:none;}
+a{color:#333333;text-decoration:none;}
+a:hover{color:#666666;text-decoration:underline;}
+.clear{clear:both;}
+
+/*以上为通用选择器*/
+
+
+.xxk{width:629px;height:368px;margin:40px auto 0 auto;border:1px solid #dedede;background:#fff;}
+
+.xxk .xxktit{height:42px;line-height:42px;background:#eeeeee;border-bottom:2px solid #ddd;position:relative;}
+.xxk .xxktit ul li{float:left;width:313px;height:42px;border-left:1px solid #dedede;font-size:16px;color:#333;text-align:center;}
+.xxk .xxktit ul li a{color:#333;}
+.xxk .xxktit ul li a:hover,.xxk .xxktit ul li a.cur{color:#245fa0;}
+#khxgd{padding:10px 20px 0 50px;clear:both;width:559px;margin:0 auto;margin-top:10px;position:absolute;}
+#kmtbd{padding:10px 20px 0 50px;clear:both;width:559px;margin:0 auto;margin-top:10px;filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;position:absolute;}
+
+.main1_r_l{width:430px;float:left;border-bottom:1px dashed #dddddd;padding-bottom:15px;margin-bottom:15px;}
+.main1_r_bt{font-size:14px;color:#333;font-weight:bold;margin-bottom:5px;}
+.main1_r_bt a{color:#333;}
+.main1_r_bt a:hover{color:#0068ce;}
+.main1_r_nr{font-size:12px;color:#666;line-height:22px;}
+.main1_r_r{width:88px;height:73px;float:right;background:url(../images/rq_bj.jpg) no-repeat;color:#fff;font-size:26px;font-weight:bold;text-align:center;line-height:38px;}
+.main1_r_r span{color:#333;font-size:14px;text-align:center;display:block;font-weight:normal;}
