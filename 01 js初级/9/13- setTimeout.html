@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>setTimeout</title>
+  <script>
+    window.onload = function(){
+
+//      var fn = function (){
+//             alert("又爆炸了。。。")
+//      };
+      var timeId;
+        document.getElementById("btn1").onclick = function (){
+              // setTimeout(function(){
+              //   alert("爆炸了。。。")
+              // },1000); // 1000    间隔多少毫秒之后执行匿名函数里面的代码，只执行一次
+
+
+       timeId =   setTimeout(fn,1000);
+          console.log(timeId);
+        };
+
+      function fn(){
+        alert("又爆炸了。。。");
+      }
+        btn2.onclick = function (){
+            clearTimeout(timeId); // 清除定时器
+        }
+
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="设置定时器" id="btn1"/>
+<input type="button" value="清除定时器" id="btn2"/>
+</body>
+</html>
