@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+            伪元素
+            伪    假的
+            元素  标签
+
+            伪元素：   伪元素的符号::
+
+            用样式模拟出结构的效果  用css模拟出html标签的效果 
+
+            伪元素有2个  ::before  ::after
+            伪元素 会分别在元素的内部的前后模拟出两个标签的效果 ，默认为行内显示模式
+            伪元素必须有content属性，内容可还有为空 content:"", 但是不能不写content
+
+        */
+        span{
+            border: 1px solid green;
+        }
+        span::before{
+            content:"今天 ";
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            border-radius: 30px;
+        }
+
+        span::after{
+            content:" 又帅了";
+        }
+    </style>
+</head>
+<body>
+     <span>春哥</span>
+</body>
+</html>

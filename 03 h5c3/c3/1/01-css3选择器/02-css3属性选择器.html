@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    /*
+      类名选择器 类名  .
+      id选择器  id    #
+      属性选择器 属性 []
+     */
+     div{
+       width: 400px;
+       height: 50px;
+       border: 1px solid #000;
+       margin:20px auto;
+       text-align: center;
+       line-height: 50px;
+     }
+
+      /*input[type="button"]*/
+
+    /*
+      div[title] 选中页面中带有title属性的div
+      div[title="aa"] 选中页面中带有title属性的div，并且title的值为aa
+      div[title^="aa"] 选中页面中带有title属性的div，并且title的值以aa开头
+      div[title$="aa"] 选中页面中带有title属性的div，并且title的值以aa结束
+      div[title*="aa"] 选中页面中带有title属性的div，并且title的值包含aa
+    */
+
+    /*div[title]{*/
+      /*background-color: red;*/
+    /*}*/
+    /**/
+
+    /*div[title="aa"]{*/
+      /*background-color: blue;*/
+    /*}*/
+    
+    /* ^开始  $结束  * 通配符  */
+    /*div[title^="aa"]{*/
+      /*background-color: hotpink;*/
+    /*}*/
+
+    /*div[title$="aa"]{*/
+      /*background-color: #daa520;*/
+    /*}*/
+
+    div[title*="aa"]{
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div title="aa">aa</div>
+  <div title="aabb">aabb</div>
+  <div title="bbaa">bbaa</div>
+  <div title="ccbb">ccbb</div>
+  <div title="bbcc">bbcc</div>
+  <div title="aabbcc">aabbcc</div>
+  <div title="ccbbaa">ccbbaa</div>
+  <div>no-title</div>
+</body>
+</html>

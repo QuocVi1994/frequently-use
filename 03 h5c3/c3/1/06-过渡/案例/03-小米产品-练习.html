@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color: #eee;
+        }
+        .items{
+            width: 1100px;
+            margin:100px auto;
+        }
+
+        .item{
+            float: left;
+            width: 234px;
+            height: 300px;
+            background-color: #fff;
+            margin-right:20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            transition:all 0.5s;
+
+
+        }
+
+        .item span{
+            position: absolute;
+            width: 100%;
+            height: 70px;
+            background-color: orangered;
+            left:0;
+            bottom:-70px;
+
+            /*过渡属性*/
+            transition:all 0.5s;
+        }
+
+        .item:hover span{
+            bottom:0px;
+        }
+
+        .item:hover{
+            margin-top:-5px;
+
+            /*边框阴影*/
+            box-shadow: 0px -6px 36px 0px #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item">
+            <img src="images/1.jpg" alt=""/>
+        </div>
+        <div class="item">
+            <img src="images/01.jpg" alt=""/>
+            <span></span>
+        </div>
+
+        <div class="item">
+            <img src="images/02.jpg" alt=""/>
+            <span></span>
+        </div>
+
+        <div class="item">
+            <img src="images/03.jpg" alt=""/>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

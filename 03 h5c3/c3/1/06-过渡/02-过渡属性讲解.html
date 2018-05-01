@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      margin:100px auto;
+      background-color: #daa520;
+
+      /*过渡*/
+      /*transition:width 1s 1s ;*/
+
+      transition:width 3s 1s  ease-in-out;
+      /*/!*过渡的属性*!/*/
+      /*transition-property:width ;*/
+      /*/!*过渡的持续时间*!/*/
+      /*transition-duration:3s;*/
+      /*/!*延迟执行*!/*/
+      /*/!*transition-delay:1s;*!/*/
+      /*/!*动画类型 linear 匀速 ease-in:加速 ease-out 减速  ease-in-out 先加速后减速   *!/*/
+      /*transition-timing-function: ease-in-out;*/
+    }
+
+    .box:hover{
+      width: 1000px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

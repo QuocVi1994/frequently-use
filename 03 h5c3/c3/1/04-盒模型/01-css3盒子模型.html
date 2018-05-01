@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-bottom:5px;
+    }
+
+    div:nth-child(1),
+    div:nth-child(3){
+      border: 20px solid green;
+      padding:20px;
+    }
+    div:nth-child(1){
+      box-sizing: content-box; /* css2中的默认取值*/
+    }
+    div:nth-child(3){
+      box-sizing: border-box; /* css3的盒子模型的取值*/
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+</html>

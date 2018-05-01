@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .out{
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+      /*background-color: red;*/
+      margin:100px auto;
+     /* 问题：opactiy设置透明会影响子盒子，子盒子无法消除*/
+      /*opacity: 0.4;*/
+      background-color: transparent; /*透明的颜色 全透明*/
+    }
+    .in{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      margin:100px;
+
+      /*opacity: 1;*/
+    }
+  </style>
+</head>
+<body>
+  <div class="out">
+    <div class="in"></div>
+  </div>
+</body>
+</html>

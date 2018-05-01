@@ -1,0 +1,169 @@
+
+1、css3简介
+    html5是html4 升级版
+        html-->html5
+        css2-->css3
+       坚持渐进增强原则
+             在低版本浏览器保证最基本功能，
+             高版本的浏览器有更好的用户体验；
+
+
+2、css3选择器
+
+    jq: $('div .box');
+    css2中的选择器：
+
+        div 标签选择器
+        .box  类名选择器
+        #box id选择器
+        *  通配符
+        div .box  后代
+        div,p   并集
+        div.box 交集
+        div>p  子代选择器
+
+        div+p  div后面的第一个p 相邻
+        div~p  div后面所有的P （兄弟 同级）
+
+
+        选择器；
+        js    jq
+
+    1、属性选择器
+        id 通过id 进行选择 #
+        类名 通过 类名选择 .
+        属性 通过属性选择  []
+
+        语法：
+        符号：^ :开始   $:结束  *：包含
+
+        div[title]  选择页面中带有title属性的div
+        div[title="aa"]  选择页面中带有title属性的div,并且值为aa
+        div[title^="aa"]  选择页面中带有title属性的div,并且值以aa开头
+        div[title$="aa"]  选择页面中带有title属性的div,并且值以aa结尾
+        div[title*="aa"]  选择页面中带有title属性的div,并且值包含aa
+
+    2、结构伪类选择器  :
+        ：hover      :active    符号： 冒号
+        E:fisrt-child  E元素的父盒子中的第一个子元素
+        E:last-child   E元素的父盒子中的最后一个子元素
+        E：nth-child(n) E元素的父盒子中第n个子元素
+        E：nth-last-child(n)  E元素的父盒子中倒数第n个子元素
+
+        n是从0开始的整数 0,1,2,3,4,5。。。。
+         但是：n小于1无效
+
+         2n even 偶数
+         2n-1 odd 奇数
+         -n+5  选择中前5个  -n+5  7n
+
+         ul>li{$}*35 快速生成 35个li标签
+
+         子元素的排序不分类型，但是选择时 分类型  p:nth-child(2);
+
+
+
+         其他伪类选择器：
+
+         E:empty 当元素为空是会选中
+
+         E:not(:nth-child(2)); 排除括号中指定的元素
+
+         E:target 表示 E元素被激活是的状态 必须配合锚点使用
+
+    3-伪元素
+        符号：::   ::before
+             css2  e:before
+
+              伪元素：
+                假的  标签 ，标记
+                用css的样式 模拟出 标签的效果    seo
+        E::before
+        E::after
+
+
+        用样式 模拟出 标签的效果
+        伪元素   E::before  E::after  行内显示模式
+        必须有content  content:"";
+
+        .clearfix::after,.clearfix::before{
+            content:"";
+            height:0;
+            line-height:0;
+            display:block;
+            clear:both;
+            visibilty:hidden;
+        }
+
+        .clearfix{
+            zoom:1;
+        }
+
+        E::first-line 选中第一行
+        E::first-letter  选中第一个字
+        E::selection   选中的区域  设置 背景颜色 和文字颜色
+
+
+2、文字阴影
+    css3懂你的美
+
+    text-shadow
+
+    text-shadow:1px 1px 1px red , 2px 2px 2px blue;
+
+    border:1px solid red;
+
+    background:red no-repeat;
+
+    文本阴影 : 阴影水平位移  阴影垂直位移  模糊程度 阴影颜色
+
+    加多个阴影，每个阴影按标准的语法来写，多个阴影之间使用 逗号隔开；
+
+3、css3中的颜色模式
+    css2设置透明的颜色：
+        opacity:  给大盒子设置半透明会直接污染小盒子
+        transparent 透明颜色 只能设置全透明
+
+    css3中的颜色模式：
+        RGBA:
+        red： 0-255
+        green: 0-255
+        blue: 0-255
+        alpha:透明度  0-1
+
+        HSLA:
+        H:色调  0-360
+        S:饱和度 0-100%
+        L:亮度 0-100%
+        A:alpha  0-1
+
+4、css3中的盒子模型
+     css2 盒子模型： margin+paddidng+border+内容
+     css3 盒子模式：内减模式  box-sizing:border-box;   content-box
+
+    win+R  画图：mspaint　　计算器：calc
+
+5、浏览器私有前缀
+    解决浏览器兼容问题
+    -webkit- : 谷歌 苹果
+    -ms-:  IE  微软
+    -moz-: 火狐
+    -o-: opear   欧朋
+
+6 过渡
+
+     过渡：有一种状态 贱贱(渐渐)的 过渡另一种状态
+
+     transition:过渡属性  持续时间 延迟  运动曲线；
+     transition：all 1s;
+     all:所有的属性都发生过渡；
+
+     transition-property:过渡的属性 all  width
+     transition-duration:持续时间 1s
+     transition-timing-function:运动曲线
+        linear 线性匀速
+        ease-in-out　先加速 后减速
+     transition-delay: 延迟执行
+
+作业：
+     选择器 、 过渡、代码3遍  剩下的两遍

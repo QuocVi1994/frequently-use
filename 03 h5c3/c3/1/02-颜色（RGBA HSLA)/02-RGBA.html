@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+            css3新增的颜色模式
+            RGBA:
+               R:red     0-255
+               G:green   0-255
+               B:blue    0-255
+               A:alpha 透明度  0-1
+            HSLA:
+                H:色调
+                S:饱和度
+                L:亮度
+                A:alpha 透明度  0-1
+
+            只要是设置颜色的地方 都可以用rgba hsla
+        */
+
+
+        .out{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            background-color: rgba(255,0,0,0.4);
+            margin:100px auto;
+
+        }
+        .in{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin:100px;
+
+
+        }
+
+        .test{
+            width: 200px;
+            height: 200px;
+            border: 25px solid rgba(0,0,255,0.3);
+            background-color: rgba(0,255,0,0.3);
+            font: 50px/50px "Microsoft Yahei";
+            color:rgba(255,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="out">
+    <div class="in"></div>
+</div>
+
+<div class="test">哈哈哈哈</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 400px;
+      height: 200px;
+      border: 1px solid #000;
+      margin:100px auto;
+      background-color: red;
+      /*过渡 :过渡属性  持续时间*/
+      /*transition:  border-radius 1s ,background 2s,width 1s ;*/
+
+      transition:all 1s;
+    }
+    /*过渡：transition
+      过渡 ：从一种状态  贱贱（渐渐）的 过渡另状态
+     */
+    .box:hover{
+      border-radius: 50%;
+      background-color: green;
+      width: 1000px;
+    }
+
+    .progress{
+      width: 200px;
+      height: 100px;
+      background-color: greenyellow;
+      /*过渡*/
+      transition:width 2s;
+    }
+
+    .progress:hover{
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+  <div class="progress"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*div+p{*/
+            /*color:red;*/
+        /*}*/
+
+        div~p{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        js :getElementById();
+        jq:$('div')  $('.box')；
+
+        css2中的选择器：
+            div  标签选择器
+           .box  类
+           #box  id
+           div  p  后代
+           div>p  子代
+           div+p  相邻
+           div.box  交集
+           div,p   并集
+           div~p   兄弟
+           *       通配符
+    -->
+
+    <div>ddddddddddddddddddd</div>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+
+    <div>ddddddddddddddddddd</div>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+    <p>pppppppppppppppppppppp</p>
+</body>
+</html>

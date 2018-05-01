@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .items{
+            width: 500px;
+            margin:0 auto;
+        }
+        h4{
+            background-color: blue;
+            line-height: 36px;
+            height: 36px;
+            padding-left:20px;
+            border-bottom:2px solid yellow;
+        }
+        p{
+            background-color: pink;
+            height: 0px;
+            /*过渡效果*/
+            transition:all 0.5s;
+        }
+
+        .item:hover p{
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item">
+            <h4>新闻标题</h4>
+            <p></p>
+        </div>
+        <div class="item">
+            <h4>新闻标题</h4>
+            <p></p>
+        </div>
+        <div class="item">
+            <h4>新闻标题</h4>
+            <p></p>
+        </div>
+        <div class="item">
+            <h4>新闻标题</h4>
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>
