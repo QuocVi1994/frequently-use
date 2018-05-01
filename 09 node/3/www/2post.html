@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<button ng-click="postSend()">getSend</button>
+<script src="./bower_component/angular/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,$http) {
+        //向node发送post请求
+        $scope.postSend=function () {
+                $http({
+                    method: 'POST',
+                    url: './postData',
+                    data: {
+                        "name": "张三"
+                    }
+                })
+                    .then(function(data) {
+                        console.log(data)
+                    })
+       }
+    })
+</script>
+</body>
+</html>

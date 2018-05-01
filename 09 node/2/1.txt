@@ -1,0 +1,1 @@
+{"name":"这是修改后的名字","version":"1.0.0","main":"2global.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"keywords":[],"author":"","license":"ISC","description":""}

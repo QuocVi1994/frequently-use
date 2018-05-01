@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "description": "",
+  "main": "1app.js",
+  "authors": [
+    "123 <'333@qq.com'>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_component",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "jquery": "^3.2.1"
+  }
+}

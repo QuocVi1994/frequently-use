@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //arrow function 箭头函数 语法糖
+    //es5
+    function getName(name) {
+        return `你好${name}`
+    }
+    //es6
+    //推荐，
+     let getName_Arrow=(name)=>{
+         return `你好${name}`
+     };
+    var arr=[1,2,3,4,5,6,7];
+    arr.forEach((item)=>{
+        console.log(item);
+    })
+    //尽量不要使用以下代码
+    //如果只有一个参数
+     let getName_Arrow2=name=>{
+         return `你好${name}`
+     };
+     //只有一条语句，返回值中的{}都可以省去
+     let getName_Arrow3=name=>`你好${name}`
+    console.log(getName_Arrow('小强1'));
+    console.log(getName_Arrow2('小强2'));
+    console.log(getName_Arrow3('小强3'));
+</script>
+</body>
+</html>

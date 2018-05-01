@@ -1,0 +1,1 @@
+"use strict";var showlog=function(){console.log("es6测试")};showlog();

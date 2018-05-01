@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="app.js"></script>-->
+</head>
+<body>
+<script>
+    var a=10;
+    var a=2000; //通过使用var可以重新定义
+    //let 作为变量
+    let b=300;
+   // let b=3000; //let中不能重新定义变量
+    b=3000;
+    function f1() {
+        let n = 5;
+        if (true) {
+            let n = 10;
+            console.log('n内:'+n);
+        }
+        console.log('n外:'+n); // 5 如果是var 则为10
+    }
+    f1();
+
+
+    //const 常量 常量是一个固定值,不能重新定义,不能重新修改
+    const c=3.141592657;
+   // c=30000; 错误
+    const obj={};
+    obj.name='张三'; / /正确
+   // obj='123'; //错误
+    console.log(obj);
+    console.log(c);
+    console.log(a);
+    console.log(b);
+</script>
+</body>
+</html>

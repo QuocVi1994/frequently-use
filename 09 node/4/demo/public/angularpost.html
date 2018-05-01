@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <button ng-click="postSend()">postsend</button>
+<script src="./bower_component/angular/angular.js"></script>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller('myCtrl',function ($scope,$http,$httpParamSerializerJQLike) {
+        // application/json和application/x-www-form-urlencoded
+        //1angular 在对 application/x-www-form-urlencoded 这种类型的数据使用过程中需要添加$httpParamSerializerJQLike对数据进行转换
+        //2添加请求类型
+        $scope.postSend=function () {
+            $http({
+                url:'./postdata',
+                method:'POST',
+                data:$httpParamSerializerJQLike({"name":"小明"}),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+                .then(function (data) {
+                    console.log(data);
+                })
+        }
+    })
+</script>
+</body>
+</html>

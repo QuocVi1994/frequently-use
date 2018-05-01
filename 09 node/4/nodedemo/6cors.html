@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <button ng-click="corsdata()">corsdata</button>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope,$http) {
+        $scope.corsdata=function () {
+            $http({
+                url:'http://127.0.0.1:3000/getdata',
+                method:"GET"
+            })
+                .then(function (data) {
+                    console.log(data);
+                })
+        }
+    })
+</script>
+</body>
+</html>
