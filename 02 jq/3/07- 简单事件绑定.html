@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // 原生JS中的事件绑定方式有两种
+        // on   对于同一事件源，同样的事件，只能注册一个
+        // addEventListner/attachEvent  同一事件源可以注册多个相同的事件,但有兼容性的问题
+
+        // jQuery中的简单事件注册支持同一事件源，注册多个相同的事件
+        $("#btn").click(function (){
+            alert("纵然一身肥膘");
+        });
+        $("#btn").click(function (){
+          alert("也要高冷傲娇");
+        });
+        $("#btn").mouseenter(function (){
+          alert("纵然一身肥膘");
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+</body>
+</html>

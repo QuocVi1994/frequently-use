@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offset获取值</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+//      $("div").on("click",function (){
+//        // 冒泡： 当我们触发一个事件的时候，比如单击了某个按钮，那么同样的事件也会在这个元素的所有祖先级元素中被依次触发，这种现象叫做冒泡
+//             console.log($(this)[0]);
+//      })
+      $("#d1").on("click",function (){
+             console.log("d1");
+      });
+      $("#d2").on("click",function (){
+        console.log("d2");
+      });
+      $("#d3").on("click",function (e){
+        console.log("d3");
+        e.stopPropagation();// jQuery当中，使用这一个就可以了
+
+
+
+        //  e.cancelBubble = true; 原生JS中ie浏览器的阻止 冒泡
+      });
+    })
+  </script>
+</head>
+<body>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+
+</body>
+</html>

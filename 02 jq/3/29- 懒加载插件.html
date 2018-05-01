@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      height: 2000px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js" type="text/javascript"></script>
+  <script src="jQuery-plugins/jquery.lazyload.js" type="text/javascript"></script>
+  <script>
+    $(function(){
+      $("img.lazy").lazyload(); // 可以大大的减轻服务器的压力
+
+      // 1. 引入 jQuery库文件
+      // 2. 引入插件文件
+      // 3. 按要求写代码标签
+      // 4. 调用对应的方法
+    })
+  </script>
+</head>
+<body>
+<div></div>
+<!--<img src="images/apple_3_bigger.jpg" alt=""/>-->
+<img class="lazy" data-original="images/apple_3_bigger.jpg" width="840" height="680">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    /**
+     * 1. 特效中的内容
+     *      offset   client   scroll
+     *      offset() 此方法的返回值是一个对象，包括两个属性 left  top
+     *      相对于页面或是文档获取的值，与父元素的定位没有关系
+     *      offset()是可读写的属性，不但可以用来获取值，还可以用来设置值
+     *      offsetParent()  获取的是与自己最近的定位的父级元素
+     *
+     *      position()  只读的属性  返回值也是一个对象，也有两个属性   left  top
+     *      自己到离自己最近的定位的父级元素之间的距离   css()
+     *      margin  border
+     *
+     *      width()   height()  一般是用于获取浏览器可视区的大小 window.innerWidth
+     *          $(window).width()   $(window).height()
+     *
+     *      scrollLeft()  scrollTop()  封装成了这两个方法
+     *          是可读写的属性，可以用来获取值，也可以用来设置值
+     *       $(window).scroll()
+     *
+     * 2. 事件绑定相关
+     *      jQuery中的事件经历了几个阶段
+     *        简单事件绑定--bind---delegate---on(重点)
+     *
+     *        bind: 如果多个事件的事件处理程序是一样的话，可以直接用bind来注册
+     *          缺点是不支持动态创建出来的元素
+     *          $("#btn").bind("click mouseenter",function(){})
+     *
+     *        delegate: 支持给动态创建出来的元素注册事件
+     *         $("ul").delegate("li","click mouseenter",function(){})
+     *
+     *        on的方式注册事件： 具有以上所有的注册事件的优点
+     *        $("div").on("click mouseenter","p,span",data,function(e){})
+     */
+  </script>
+</head>
+<body>
+
+</body>
+</html>

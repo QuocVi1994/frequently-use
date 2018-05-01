@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offset设置值</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      margin-left: 60px;
+      position: absolute;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+      margin-left: 60px;
+      /*position: absolute;*/
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-left: 40px;
+      position:absolute;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+       // jQuery中的offset()是可读写的属性
+//           console.log($("#d3").offset().left);
+          $("#btn").click(function (){
+//               $("#d3").offset("left",200);// 没有起作用
+//            $("#d3").offset({
+//              "left":200,
+//              "top":300
+//            });
+//
+//           console.log($("#d3").offset().left);
+            //我们在设置的时候，如果没有定位的话，则会给添加一个position: relative 的属性，
+            // 如果原来有定位的话，则是以原来的定位为准
+            // 默认是以页面为主，与父元素是否有定位没有关系 offset().left还是页面的左上角为主
+            // 传值的时候，一定要传一个对象进来，如果传的是单个的属性的话，是没有效果的
+
+
+            console.log($("#d3").offsetParent());
+            // offsetParent
+          })
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+
+</body>
+</html>

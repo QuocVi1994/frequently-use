@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    #box {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    p {
+      width: 100%;
+      height: 60px;
+      background-color: purple;
+    }
+    span {
+      width: 100%;
+      height: 80px;
+      display: block;
+      background-color: blue;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+      var p1 = $("<p>这是动态创建p标签</p>")
+      // on注册事件的方式 有之所有的注册事件的优点
+      // js代码的执行顺序，是从上往下执行的
+      // 事件在被注册了的时候，只有被触发的时候，才会执行事件处理程序
+      $("#box").on("click","p",function (e){
+             alert("这是第一次注册的单击事件,是触发的p标签");
+//        console.log(num); //10是错的  20是对的
+//        console.log(e.data);
+      });
+      $("#box").on("mouseenter","span",function (e){
+        alert("这是第一次注册的鼠标移入事件，是触发的span标签");
+//        console.log(num); // 20
+//        console.log(e.data);
+      });
+
+      $("p").on("click",function (){
+             alert("这是p标签自己单独注册的事件......");
+      });
+
+      $("#btn").on("click",function (){
+//             $("#box").off();  // 没有参数的时候，表示解绑上面的所有的事件
+//             $("#box").off("mouseenter");  // 有参数的时候，解绑指定参数的事件
+             $("#box").off("click","**");  // 解绑所有代理的事件，元素本身自己注册的事件不会被解绑
+
+      })
+    })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="事件解绑"/>
+<div id="box">
+  <p id="p">这是一个p标签</p>
+  <span id="sp">这是一个span标签</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           var nums = [10,20,30,40,50,60,70,80,90];
+
+        // each对象有两个参数，第一个参数，待遍历的数组 第二个是回调函数
+//        $.each(nums,function(index,ele){
+//          console.log(index+"==="+ele);
+        // 遍历数组的时候，index表示数组中元素的索引   ele 表示元素
+//        });
+
+//        var json = {
+//          name:"张三",
+//          age:20,
+//          sex:"男"
+//        };
+//        $.each(json,function(index,ele){
+//          console.log(index+"===="+ele);
+//          // 遍历对象的时候  index 表示属性
+//          // ele 表示属性值
+//        });
+        // forEach
+        nums.forEach(function (index,ele){
+               console.log(ele+"==="+index);
+        })
+      })
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // 对于同一个事件源来说，如果有多个事件，而且多个事件的事件处理程序是一样的话，我们可以用bind来绑定事件
+        // 不支持动态创建的元素绑定事件
+        $("#btn").bind("click mouseenter",function (){
+          alert("纵然一身肥膘");
+        });
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+</body>
+</html>

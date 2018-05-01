@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           $("a").on("click",function (e){
+//                  return false;
+//             e.preventDefault();//
+             alert("弹出一句话");
+             // jQuery中的事件对象没有兼容性，直接用即可
+           });
+        $("#btn").on("click",function (){
+               $("a").triggerHandler("click");
+        });
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<a href="http://www.itheima.com">黑马程序员</a>
+</body>
+</html>

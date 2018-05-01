@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body {
+      height: 2000px;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           $("div").on("click",function (e){
+               console.log(e.clientX+"===="+ e.clientY);
+             console.log(e.screenX+"===="+ e.screenY);
+             console.log(e.pageX+"===="+ e.pageY);
+
+             // jQuery中没有兼容性    用法和原来是一样的
+           })
+      })
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

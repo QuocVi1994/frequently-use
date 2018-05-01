@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offset获取值</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      margin-left: 60px;
+      position: absolute;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+      margin-left: 60px;
+      position: absolute;
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-left: 40px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // 原生JS中的offsetLeft: 是自己的左边框到离自己最近的定位的父级元素之间的距离
+        // jQuery中的offset(),返回值是一个对象，对象里面有两个属性，一个是left,一个是top,始终获取的是自己到页面或是文档之间的距离，与父元素有无定位没有关系。
+        // 而且offset()是一个可读写的
+           console.log($("#d3").offset().left);
+
+        // position()   left  top  只读
+
+//        function client(){
+//          return {
+//            clientWidth:
+//                clientHeight
+//          }
+//        }
+//
+//       var obj =  client();
+//        client().clientWidth
+      })
+  </script>
+</head>
+<body>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+
+</body>
+</html>

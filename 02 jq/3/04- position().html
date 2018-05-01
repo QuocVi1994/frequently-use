@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>position()</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #out {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      padding: 30px;
+      margin-left: 60px;
+      border: 20px solid #000;
+      position: absolute;
+    }
+    #inner {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      border: 10px solid #000;
+      margin-left: 20px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        // offsetLeft是以自己的左边框为准
+        // 就像原生js中的特效animate函数一样，在获取值的时候，没有margin或是border的情况下，一般用offsetLeft来获取值  ，而用style.left来设置值
+        // jQuery当中的position() 如果当前对象没有margin，也没有border的时候，也是用position().left或是top来获取值
+        // 始终获取的是离自己最近的带有定位的父元素之间的距离，如果父元素没有定位的话，则默认是以页面为准
+        // 是一个只读的属性，只能用来获取属性值，不能用来设置值
+        var n = $("#inner").position().left;
+        console.log(typeof n);
+            console.log(n);// 以margin为主
+      })
+  </script>
+</head>
+<body>
+<div id="out">
+  <div id="inner"></div>
+</div>
+</body>
+</html>

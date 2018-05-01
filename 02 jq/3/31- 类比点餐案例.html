@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function () {
+      //1. 当点击总按钮的时候，要获取一下总按钮的选中状态
+      $("#j_cbAll").on("click",function (){
+        // 1. 当总按钮选中的时候，要把所有的子按钮也选中
+
+//        var isChecked = $("#j_cbAll").prop("checked");
+//        $("#j_tb input").prop("checked",isChecked);
+        $("#j_tb input").prop("checked",$("#j_cbAll").prop("checked"));
+      })
+
+      // 2. 给所有的小按钮注册点击事件
+      $("#j_tb input").on("click",function (){
+           //先获取一下所有的小按钮的个数    判断个数
+         var allLength = $("#j_tb input").length;
+        var selLength = $("#j_tb input:checked").length; // 小按钮中被选中的个数
+        if(allLength==selLength){
+          $("#j_cbAll").prop("checked",true);
+        }else {
+          $("#j_cbAll").prop("checked",false);
+        }
+      })
+
+    });
+  </script>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" id="j_cbAll" />
+      </th>
+      <th>课程名称</th>
+      <th>所属学院</th>
+    </tr>
+    </thead>
+    <tbody id="j_tb">
+    <tr>
+      <td>
+        <input type="checkbox" />
+      </td>
+      <td>JavaScript</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" />
+      </td>
+      <td>css</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" />
+      </td>
+      <td>html</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" />
+      </td>
+      <td>jQuery</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>

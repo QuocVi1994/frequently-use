@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+           $("input:eq(1)").on("click",function (){
+                  alert("这是第二个按钮的单击事件被触发了...");
+           });
+        // 我想点击第一个按钮的时候，就让第二个按钮的单击事件被触发
+
+        $("input").eq(0).on("click",function (){
+//               $("input:eq(1)").click();
+//               $("input:eq(1)").trigger("click");
+//               $("input:eq(1)").triggerHandler("click");
+
+//              $("input:eq(2)").trigger("focus");
+          // 会触发默认的行为
+              $("input:eq(2)").triggerHandler("focus");
+          // 不会触发默认的行为
+        });
+        $("input:eq(2)").on("focus",function (){
+              $(this).next().text("输入框获得焦点了");
+        })
+      })
+  </script>
+</head>
+<body>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="text"/><span></span>
+</body>
+</html>

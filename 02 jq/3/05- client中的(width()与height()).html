@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>clientWidth()与clientTop()</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #out {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #inner {
+      width: 100px;
+      /*padding: 20px;*/
+      /*border: 10px solid #000;*/
+      background-color: purple;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+        var inner = $("#inner");
+       //   console.log(inner.height());  //如果没有参数的话，表示获取
+       // console.log(inner.width()); // 一般获取的是浏览器的宽度或是高度
+
+//        inner.width(220);
+//        inner.height(260);
+
+        // width()   height() 两个方法多用于获取浏览器可视区的宽度和高度 相当于原生js中的clientWidth  clientHeight
+
+        // window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth||0;
+
+       // window 是一个BOM对象
+       console.log( $(window).width());
+       console.log( $(window).height());
+
+        // 原生js中window有三个事件  load  scroll   resize
+
+        $(window).scroll(function (){
+
+        })
+
+
+
+
+//        console.log(inner.css("height")); // 一般注重的是当前标签的宽度或是高度
+//        console.log(inner.css("width"));
+      })
+  </script>
+</head>
+<body>
+<div id="out">
+  <div id="inner" style="height: 120px;"></div>
+</div>
+</body>
+</html>

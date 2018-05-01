@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      /*background-color: pink;*/
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script src="jQuery-plugins/jquery.color.js"></script>
+  <script>
+      $(function(){
+           $("input").on("click",function (){
+              $("div").animate({
+//                backgroundColor: "blue"
+                backgroundColor: "#FFC0CB"
+              },2000);
+           })
+        // 所谓插件就是一个单独的小文件，依赖某个库文件，对其中的某些方法进行的一些小的扩展
+
+        // 1. 引入jQuery库文件    jQuery的插件都是依赖于jQuery 库的
+        // 2. 引入插件文件
+        // 3. 调用对应的方法
+
+        //
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<div></div>
+</body>
+</html>

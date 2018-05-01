@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>五角星评分案例</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .comment {
+      font-size: 40px;
+      color: teal;
+    }
+
+    .comment li {
+      float: left;
+    }
+
+    ul {
+      list-style: none;
+      width: 300px;
+      margin: 100px auto;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function () {
+      var wjx_k = "☆";
+      var wjx_s = "★";
+
+
+      // 1. 当鼠标移入当前li标签的时候，要让当前的这个标签的五角星变成实心的，当前的这个之前的所有的五角星也要变成实心的
+      $(".comment li").on("mouseenter",function (){
+          // end() 相当于向前翻一层，找到之前的那个对象   相当将之前断了后链式再连接起来
+             $(this).text(wjx_s).prevAll().text(wjx_s).end().nextAll().text(wjx_k);
+            // 当前的这个对象后面的所有的标签都应该变成空心的
+//              $(this).nextAll().text(wjx_k);
+      });
+
+      $(".comment").on("mouseleave",function (){
+          $(this).children().text(wjx_k); //是先将所有的设置为空心的五角星
+          $(".aa").text(wjx_s).prevAll().text(wjx_s);// 将之前点过的那个设置成实心的，以及之前的所有的也要设置成实心的
+      })
+      $(".comment li").on("click",function (){
+//        $(this).text(wjx_s).prevAll().text(wjx_s);
+        // 至少应该做个记号
+        $(this).addClass("aa");  // 添加一个类，做一个标记
+      })
+
+      // end     几个事件的顺序得弄明白  mouseenter  mouseleave
+    });
+  </script>
+</head>
+
+<body>
+<ul class="comment">
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+</ul>
+</body>
+
+</html>

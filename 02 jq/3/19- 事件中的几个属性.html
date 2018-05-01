@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>offset获取值</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    #d1 {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #d2 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+    }
+    #d3 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+        $("div").on("click",function (e){
+//          console.log(this.id); // 表示当前对象  始终表示当前正在执行事件处理程序的事件源
+//          console.log(e.target.id);// 表示最原始被触发的那个事件源  最最原始的事件源
+//          console.log(e.currentTarget.id);// 和this是一样的，始终表示当前正在执行事件处理程序的事件源
+          console.log(e.delegateTarget.id);// 和this 是一样的，表示当前对象  始终表示当前正在执行事件处理程序的事件源
+          // jQuery中没有兼容性的问题
+        })
+    })
+  </script>
+</head>
+<body>
+<div id="d1">
+  <div id="d2">
+    <div id="d3"></div>
+  </div>
+</div>
+
+</body>
+</html>

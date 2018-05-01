@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<div></div>
+</body>
+</html>
+<script src="js/jquery-1.12.2.js"></script>
+<script src="js/jquery-2.2.2.js"></script>
+<script>
+
+  // 在大型项目的开发当中，引入的库文件，有可能 有很多个 ，他们入口函数和内部的方法有可能名字相同，这样就造成了冲突
+//  console.log($.fn.jquery);
+//  $("#btn").on("click",function (){
+//         alert(123);
+//  })
+
+   var itcast =   $.noConflict();// conflict   冲突   矛盾的意思   noConflict()意思就是将$的控制权让出来了，重新赋值给一个新的变量
+//  console.log($.fn.jquery);
+
+//  jd-  tb-
+
+
+//  jQuery("div").css({
+//    width:300,
+//    height:360,
+//    backgroundColor:"red"
+//  })
+
+//  itcast("div").css({
+//    width:300,
+//    height:360,
+//    backgroundColor:"pink"
+//  })
+  //在遇到多个库文件中使用同样的$符号的时候，可以让后面的$符号的控制权让出来
+
+//  var fn = function(a,b){
+//    return a + b ;
+//  }
+//
+//  fn(10,20);
+//  (function(a,b){
+//    return a + b ;
+//  })(10,20);
+
+  (function(_){
+    // 相当于在函数的内部，又恢复了$这个形参原来的$函数功能
+    _("input").on("click",function (){
+           alert(456);
+    });
+    // 只要是变量命名规则可以允许的，都可以进行设置
+  })(itcast);
+</script>

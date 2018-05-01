@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>scrollTop()与scrollLeft()</title>
+  <style>
+    body {
+      width: 2000px;
+      height: 2000px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+             // scrollLeft() 与 scrollTop方法，对应原生js中的scrollLeft  scrollTop
+        // 获取的是页面卷去的左侧距离 或是卷去的高度
+//        $(window).scroll(function (){
+////          console.log($(window).scrollLeft());
+////          console.log($(window).scrollTop());
+//        })
+        $("#btn").click(function (){
+             $(window).scrollLeft(360);
+          $(window).scrollTop(480); // 设置页面卷去的高度或是左侧距离
+        })
+        // 中午的时候，做一个腾讯导航栏，再一个模拟响应式
+      })
+  </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+</body>
+</html>

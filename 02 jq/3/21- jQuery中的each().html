@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    ul {
+      list-style: none;
+    }
+    ul li {
+      width: 120px;
+      height: 120px;
+      background-color: red;
+      float: left;
+      margin-left: 10px;
+    }
+  </style>
+  <script src="js/jquery-1.12.2.js"></script>
+  <script>
+      $(function(){
+//           $("ul li").css("opacity",0.6)  ;
+        // 新的要求： 是要求依次的变的更显示 透明度变的更亮一些
+      //  第1个是0.1  第2个是0.2  第3个是0.3
+//        var lis = $("ul li");
+//        for(var i=0;i<lis.length;i++){
+//          $(lis[i]).css("opacity",(i+1)/10);
+//        }
+        // each() 用来遍历jQuery包装集的每一个元素
+//        $("ul li").each(function(a,b){
+//           console.log(a+"==="+ b.innerText);
+//          // a是当前元素的 索引
+//          // b 是对象 确切的说是一个DOM对象
+//        })
+
+        $("ul li").each(function(index,ele){
+            $(ele).css("opacity",(index+1)/10);
+        });
+        // each()是jQuery中的方法
+
+      })
+  </script>
+</head>
+<body>
+<ul>
+  <li>这是第1个li标签</li>
+  <li>这是第2个li标签</li>
+  <li>这是第3个li标签</li>
+  <li>这是第4个li标签</li>
+  <li>这是第5个li标签</li>
+  <li>这是第6个li标签</li>
+  <li>这是第7个li标签</li>
+  <li>这是第8个li标签</li>
+  <li>这是第9个li标签</li>
+  <li>这是第10个li标签</li>
+</ul>
+</body>
+</html>
