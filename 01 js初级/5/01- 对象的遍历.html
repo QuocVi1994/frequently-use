@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>对象的遍历</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  var arr = [
+          "abc",null,true,123,
+    {
+      name:"张三",
+      age:20,
+      sex:"男"
+    },
+    {
+      "name":"李四",
+      "age":22,
+      "address":"广州市天河区1号",
+      "o":{
+        "name":"田七",
+        "age":26,
+        "address":"广州市天河区2号"
+      }
+    }
+  ];
+
+//  console.log(arr[5].o.address);
+  //  console.log(arr[5]["o"]["address"]);
+
+  var json = {
+    "name":"李四",
+    "age":22,
+    "address":"广州市天河区1号"
+  }
+
+  for(var key in json){
+    console.log(key+"===="+json[key]);
+  }
+
+
+  var arr =[
+    {
+      "name":"李三",
+      "age":22,
+      "address":"广州市天河区1号"
+    },
+    {
+      "name":"李四",
+      "age":23,
+      "address":"广州市天河区2号"
+    },
+    {
+      "name":"李五",
+      "age":24,
+      "address":"广州市天河区3号"
+    },
+  ];
+  for(var i = 0; i < arr.length; i++) { // 外层循环是用来遍历数组中的每一项元素，每一项都是对象
+       for(var key in arr[i]){ //这层循环是用来遍历对象中的属性值的
+        console.log(key+"===="+arr[i][key]);
+       }
+  }
+  // application   programming  interface   方法
+  // 10--20
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<a href="images/1.jpg" id="a1" onclick="turn1();return false;" ><img src="images/1-small.jpg" alt=""/></a>
+<a href="images/2.jpg" id="a2"  onclick="turn2();return false;"><img src="images/2-small.jpg" alt=""/></a>
+<br/>
+<img src="images/placeholder.png" alt="" width="600" id="img"/>
+<br/>
+<a href="http://www.baidu.com" onclick="return false">百度</a>
+</body>
+</html>
+<script>
+  // 1. 先获得要操作的对象
+  var img = document.getElementById("img");
+  var link1 = document.getElementById("a1");
+  var link2 = document.getElementById("a2");
+  // 2. 定义函数
+  function turn1(){
+    img.src = link1.href;
+  }
+
+  function turn2(){
+    img.src = link2.href;
+  }
+
+  // 取消a标签的默认跳转行为  return false
+</script>
