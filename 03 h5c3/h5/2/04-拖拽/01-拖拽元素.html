@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true"></div>
+
+    <script>
+    //        ondrag 		应用于拖拽元素，整个拖拽过程都会调用
+    //        ondragstart	应用于拖拽元素，当拖拽开始时调用
+    //        ondragleave	应用于拖拽元素，当鼠标离开拖拽元素时调用
+    //        ondragend	应用于拖拽元素，当拖拽结束时调用
+
+        var box=document.querySelector('.box');
+
+        box.ondragstart=function(){
+            console.log('start');
+        }
+        box.ondragleave=function(){
+            console.log('离开leave');
+        }
+        box.ondragend=function(){
+            console.log('end');
+        }
+
+        box.ondrag=function(){
+            console.log('拖拽中...')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <!--
+    cookie 存储   问题： 存储空间小 4k左右    解析数据复杂
+
+    storage存储：HTML5
+    sessionStorage 会话存储
+      大小：5M
+      生命周期：浏览器窗口关闭，数据丢失   存在内存中
+    localStorage 本地存储
+     大小：20M
+     生命周期：永久生效，除非手动删除    存储硬盘上
+
+  -->
+
+  <input type="text"/>
+  <button>sessionStorage存储</button>
+  <button>sessionStorage获取</button>
+  <button>sessionStorage删除</button>
+  <button>sessionStorage清空</button>
+
+
+  <script>
+    var input=document.querySelector('input');
+
+    var btns=document.querySelectorAll('button');
+
+    // 存储数据
+    btns[0].onclick=function(){
+       sessionStorage.setItem('name',input.value);
+       sessionStorage.setItem('age',18);
+       sessionStorage.setItem('gender','弯');
+    }
+
+    // 获取数据
+    btns[1].onclick=function(){
+     input.value= sessionStorage.getItem('name');
+    }
+
+    //删除数据
+    btns[2].onclick=function(){
+      sessionStorage.removeItem('name');
+    }
+
+    //清空数据
+    btns[3].onclick=function(){
+      sessionStorage.clear();
+    }
+  </script>
+</body>
+</html>

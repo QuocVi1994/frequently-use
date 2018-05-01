@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box,
+    .target{
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+    
+    span{
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background-color: deeppink;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 100px;
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .target{
+      position: absolute;
+      left:500px;
+      top:100px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span draggable="true">1</span>
+    <span draggable="true">2</span>
+    <span draggable="true">3</span>
+    <span draggable="true">4</span>
+    <span draggable="true">5</span>
+    <span draggable="true">6</span>
+    <span draggable="true">7</span>
+    <span draggable="true">8</span>
+  </div>
+  <div class="target"></div>
+
+  <iframe width="604" height="881" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/E0xDe"></iframe>
+  <script>
+    /*
+    * 如果将某个span标签 拖拽到target上面，并且松开鼠标，将此span追加到target中
+    * */
+
+    var current=null;/*用于存放当前被拖拽的元素*/
+
+    var spans=document.querySelectorAll('span');
+    var target=document.querySelector('.target');
+
+    for(var i=0;i<spans.length;i++){
+      spans[i].ondragstart=function(){
+        current=this; //current 来记录被拖拽的元素
+        console.log(current);
+      }
+
+    }
+    /*阻止浏览器的默认行为 ：不允许拖拽*/
+    target.ondragover=function(e){
+      e.preventDefault();
+    }
+    target.ondrop=function(){
+     // 把拖拽的span 添加到 target中
+      this.appendChild(current);
+    }
+
+
+
+  </script>
+</body>
+</html>

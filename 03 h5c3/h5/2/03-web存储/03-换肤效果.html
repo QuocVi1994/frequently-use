@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body{
+      background-color: #000;
+    }
+    ul{
+      width: 500px;
+      margin:100px auto;
+    }
+
+    li{
+      float: left;
+      width: 50px;
+      height: 50px;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      margin-right:40px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <script>
+
+    var colors=['#000','#123456','#654321','#449449','#daa520'];
+
+    var lis=document.querySelectorAll('li');
+
+    for(var i=0;i<lis.length;i++){
+      lis[i].style.background=colors[i];
+      lis[i].index=i;/*自定义索引值*/
+
+      //给所有的li绑定点击事件
+      lis[i].onclick=function(){
+        document.body.style.background=colors[this.index];
+        //保存用户的设置
+        localStorage.setItem('bgc',colors[this.index]);
+      }
+    }
+
+    window.onload=function(){
+      document.body.style.background=localStorage.getItem('bgc');
+    }
+  </script>
+</body>
+</html>

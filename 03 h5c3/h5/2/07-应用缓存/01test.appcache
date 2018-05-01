@@ -1,0 +1,19 @@
+CACHE MANIFEST
+
+#这是一个注释
+
+# CACHE下面写要缓存的文件
+
+CACHE:
+    http://www.itcast.cn/images/slidead/BEIJING/2017441409442800.jpg
+    ../test.js
+    index.css
+
+# NETWORK 下面写必须联网才能访问的资源 不缓存的文件
+NETWORK:
+    http://www.itcast.cn/images/slidead/BEIJING/2017411010413200.jpg
+    other.js
+
+#FALLBACK 当前页面无法显示是 回退的页面
+FALLBACK:
+    index.html   notFound.html

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background-color: red;
+    }
+    .target{
+      border: 1px solid #000;
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      left:400px;
+      top:100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" draggable="true"></div>
+  <div class="target"></div>
+
+<script>
+//  ondragenter	应用于目标元素，当拖拽元素进入时调用
+//  ondragover	应用于目标元素，当停留在目标元素上时调用
+//  ondrop		应用于目标元素，当在目标元素上松开鼠标时调用
+//  ondragleave	应用于目标元素，当鼠标离开目标元素时调用
+
+  var target=document.querySelector('.target');
+
+  target.ondragenter=function(){
+    console.log('你来了');
+  }
+
+  target.ondragleave=function(){
+    console.log('你又走了');
+  }
+//默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+  target.ondragover=function(e){
+    e.preventDefault(); //阻止浏览器的默认行为
+    console.log('over');
+  }
+
+  target.ondrop=function(){
+    console.log('drop');
+  }
+</script>
+</body>
+</html>

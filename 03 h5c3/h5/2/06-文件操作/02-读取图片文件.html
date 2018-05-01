@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    input{
+      margin:100px;
+    }
+    .info{
+      width: 500px;
+      min-height: 200px;
+      border: 1px solid red;
+      margin:100px;
+      margin-top: -50px;
+
+      color:red;
+      text-shadow: 3px 3px 3px #666 ;
+    }
+  </style>
+</head>
+<body>
+<input type="file" id="file" multiple/>
+<div class="info"></div>
+
+<script>
+  /*
+   *  input.files  是一个文件列表 Filelist对象
+   * */
+  var input=document.querySelector('input');
+  var info=document.querySelector('.info');
+
+
+  //获取 选中的图片文件
+  input.onchange=function(){
+    var file=input.files[0]; //获取选中的第一个文件
+    // 读取选中图片的路径
+
+    var  fr=new FileReader(); //具备读取文件的能力
+    fr.readAsDataURL(file);   //以url的形式读取文件
+
+    fr.onload=function(){ //文件读取完成后获取文件的读取结果
+      var url=fr.result;
+    //console.log(url);
+      info.innerHTML='<img src="'+url+'"/>'
+    }
+  }
+
+</script>
+</body>
+</html>

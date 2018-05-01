@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script>
+    // navigator 导航
+    //兼容性
+    if(navigator.geolocation){
+      /*
+      * success: 获取位置成功后的 回调函数
+      * error: 获取位置失败后的 回调函数
+      * */
+      navigator.geolocation.getCurrentPosition(success,error);
+    }else{
+      console.log('你的浏览器不支持地理定位！');
+    }
+
+
+    function success(position){
+      console.log('获取位置成功！');
+
+      var jd=position.coords.longitude; //经度
+      var wd=position.coords.latitude; //纬度
+
+      console.log('jd:'+jd+'---wd:'+wd);
+    }
+    //jd:113.421855-----------wd:23.1318975
+    //jd:113.27328899999999---wd:23.15729
+
+    function error(error){
+      console.log('获取位置失败！');
+      console.log(error);
+    }
+
+
+  </script>
+</body>
+</html>

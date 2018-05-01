@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            margin:100px;
+        }
+        .info{
+            width: 500px;
+            min-height: 200px;
+            border: 1px solid red;
+            margin:100px;
+            margin-top: -50px;
+
+            color:red;
+            text-shadow: 3px 3px 3px #666 ;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="file" multiple/>
+    <div class="info"></div>
+
+    <script>
+        /*
+        *  input.files  是一个文件列表 Filelist对象
+        * */
+        var input=document.querySelector('input');
+        var info=document.querySelector('.info');
+        //表单状态发送改变的事件
+        input.onchange=function(){
+            console.log(input.files[0]);
+            var file=input.files[0]; //获取选中的第一个文件
+
+            //读取文件内容
+            // var date=new Date();    Math.abs();。。。。。
+            // FileReader 具备读取文件的能力
+
+            var fr=new FileReader();
+
+            fr.readAsText(file); //读取file文件中的内容
+
+            //由于大文件的 读取需要时间 ，不能确定文件何时读取完成
+            fr.onload=function(){ //当文件读取完成后的事件
+               var r= fr.result;  //读取结果
+                console.log(r);
+                //把读取结果显示在info中
+                info.innerHTML=r;
+            }
+
+        }
+    </script>
+</body>
+</html>

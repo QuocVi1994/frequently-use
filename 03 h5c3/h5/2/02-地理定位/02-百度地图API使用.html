@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>普通地图&全景图</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=NsGTBiDpgGQpI7KDmYNAPGuHWGjCh1zk"></script>
+  <style type="text/css">
+    body, html{width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    #panorama {height: 100%;overflow: hidden;}
+    #normal_map {height:50%;overflow: hidden; display: none}
+  </style>
+</head>
+<body>
+<div id="panorama"></div>
+<div id="normal_map"></div>
+<script type="text/javascript">
+  //jd:113.421855-----------wd:23.1318975
+  //jd:113.27328899999999---wd:23.15729
+
+//  var jd=113.421855;
+//  var wd=23.131898;
+  var jd=113.434439;
+  var wd=23.135259;
+
+//
+//  谷歌地图：23.1291874031,113.4279726563
+//  百度地图：23.1352590000,113.4344390000
+//  腾讯高德：23.1291729057,113.4279665801
+  //全景图展示
+  var panorama = new BMap.Panorama('panorama');
+  panorama.setPosition(new BMap.Point(jd, wd)); //根据经纬度坐标展示全景图
+  panorama.setPov({heading: -40, pitch: 6});
+
+  panorama.addEventListener('position_changed', function(e){ //全景图位置改变后，普通地图中心点也随之改变
+    var pos = panorama.getPosition();
+    map.setCenter(new BMap.Point(pos.lng, pos.lat));
+    marker.setPosition(pos);
+  });
+  //普通地图展示
+  var mapOption = {
+    mapType: BMAP_NORMAL_MAP,
+    maxZoom: 18,
+    drawMargin:0,
+    enableFulltimeSpotClick: true,
+    enableHighResolution:true
+  }
+  var map = new BMap.Map("normal_map", mapOption);
+  var testpoint = new BMap.Point(jd, wd);
+  map.centerAndZoom(testpoint, 18);
+  var marker=new BMap.Marker(testpoint);
+  marker.enableDragging();
+  map.addOverlay(marker);
+  marker.addEventListener('dragend',function(e){
+            panorama.setPosition(e.point); //拖动marker后，全景图位置也随着改变
+            panorama.setPov({heading: -40, pitch: 6});}
+  );
+</script>
+</body>
+</html>

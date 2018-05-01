@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/font-awesome.min.css"/>
+  <style>
+    figure{
+      text-align: center;
+      font-family: "Microsoft Yahei";
+    }
+
+    figcaption{
+      font-size: 22px;
+    }
+
+    .player{
+      position: relative;
+      width: 720px;
+      height: 360px;
+      border: 1px solid red;
+      margin:100px auto;
+      background-color: #000;
+      border-radius: 15px;
+
+    }
+
+    video{
+      height: 100%;
+    }
+    /* 控制条*/
+    .contorls{
+      position: absolute;
+      left:10px;
+      bottom:10px;
+      width: 700px;
+      height: 40px;
+      background-color: rgba(0,0,255,0.4);
+      border-radius: 10px;
+    }
+
+    .play-btn{
+      position: absolute;
+      left:10px;
+      top:10px;
+      width: 20px;
+      height: 20px;
+      color: yellow;
+      line-height: 20px;
+
+    }
+
+    .progress{
+      position: absolute;
+      left:40px;
+      top:15px;
+      width: 440px;
+      height: 10px;
+      background-color: rgba(255,255,0,0.5);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .curr-progress{
+      width: 10%;
+      height: 100%;
+      background-color: #fff;
+    }
+
+    .time{
+      position: absolute;
+      left:520px;
+      top:10px;
+      width: 120px;
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      color:#fff;
+    }
+
+    .full-btn{
+      position: absolute;
+      right:10px;
+      top:10px;
+      width: 20px;
+      height: 20px;
+      color: yellow;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 媒体标签  header  nav footer-->
+   <figure>
+     <!-- 媒体的标题-->
+      <figcaption>视频播放器</figcaption>
+     <div class="player">
+       <video src="video/fun.mp4"></video>
+       <!-- 自定义控制条-->
+       <div class="contorls">
+         <!-- 播放按钮-->
+         <a class="play-btn icon-play" href="javascript:;"></a>
+         <!-- 进度条-->
+         <div class="progress">
+           <div class="curr-progress"></div>
+         </div>
+         <!-- 时间-->
+         <div class="time">
+           <span class="curr-time">00:00:00</span>/
+           <span class="total-time">00:00:00</span>
+         </div>
+         <!-- 全屏-->
+         <a class="full-btn icon-resize-full" href="javascript:;"></a>
+       </div>
+     </div>
+
+     <script>
+       /*
+       *  1-点击播放按钮 视频播放暂停
+       *  2-当视频加载完成后，需要或视频的总时长
+       *  3-当视频播放时，进度更新 当前播放时间也更新
+       *  4-全屏
+       *
+       *  属性：
+       *  　paused:视频是否暂停
+       *    duration:持续时间 s
+       *    currentTime 当前播放事件
+       *
+       *  方法：
+       *    play() 播放 pause() 暂停
+       *
+       *  事件：
+       *   oncanplay:当时加载完成的事件
+       *   ontimeupdate: 当视频当前时间更新的事件
+       * */
+
+       //1-点击播放按钮 视频播放暂停
+       var playBtn=document.querySelector('.play-btn');
+       var video=document.querySelector('video');
+       var totalTime=document.querySelector('.total-time');
+       var currTime=document.querySelector('.curr-time');
+       var currProgress=document.querySelector('.curr-progress');
+
+       playBtn.onclick=function(){
+         //如果视频播放 则暂停 否则播放
+         if(video.paused){
+           video.play();
+         } else{
+            video.pause();
+         }
+         //播放和暂停按钮切换
+         this.classList.toggle('icon-play');
+         this.classList.toggle('icon-pause');
+       }
+        var tTime=0;
+       // 2-当视频加载完成后，需要或视频的总时长
+       // oncanplay  当视频加载完成后的事件
+       video.oncanplay=function(){
+          tTime=video.duration; //获取视频的总时长
+          console.log(tTime); //164.815238
+
+         totalTime.innerHTML=changeTime(tTime);  //显示
+       }
+
+       //3-当视频播放时，进度更新 当前播放时间也更新
+       //当视频当前时间更新的事件
+       video.ontimeupdate=function(){
+         var cTime=video.currentTime; //获取视频的当前播放时间
+         console.log(cTime); // 9.923353
+         //把时间转成00:00:00
+         currTime.innerHTML=changeTime(cTime); //显示当前播放时间
+
+         var value=cTime/tTime*100+"%"; // 当前播放时间/总时间= 当前进度/总进度
+
+         currProgress.style.width=value; //更新当前进度条的宽度
+       }
+
+       //4-全屏
+
+       document.querySelector('.full-btn').onclick=function(){
+         video.webkitRequestFullScreen(); //h5提供的全屏的方法
+       }
+
+
+       //把时间转为00:00:00
+       function changeTime(time){
+         //把时间转为 时分秒
+         var h=Math.floor(time/3600);
+         var m=Math.floor(time%3600/60);
+         var s=Math.floor(time%60);
+
+         //转为00:00:00
+         h=h<10?'0'+h:h;
+         m=m<10?'0'+m:m;
+         s=s<10?'0'+s:s;
+
+         var t=h+':'+m+':'+s;
+
+         return t;
+       }
+
+     </script>
+   </figure>
+</body>
+</html>
