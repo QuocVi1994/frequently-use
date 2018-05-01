@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 250px;
+            height: 100px;
+            background-color: green;
+            margin:200px auto;
+
+            animation:down 1s;
+        }
+
+        @keyframes down {
+            0%{
+                transform:translateY(-1000px);
+            }
+
+            60%{
+                transform:translateY(15px);
+            }
+
+            80%{
+                transform:translateY(-8px);
+            }
+
+            100%{
+                transform:translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        .box{
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<script src="common.js"></script>
+<script>
+    /*
+     * 由于在移动端click会有300ms左右的延时
+     * 为了响应速度更快 移动端一般会封装一个加tap的事件,本质是用touch事件来优化click
+     * click事件的特点： 用户手指接触屏幕，然后离开，手指不会移动，并且手指接触屏幕的时间很短
+     * touch模拟： touch必须是没有触发touchemove事件 ，手指接触屏幕的时间很短
+     */
+
+    var box=document.querySelector('.box');
+    itcast.tap(box,function(e){
+        alert('tap');
+        console.log(e);
+    })
+</script>
+</body>
+</html>

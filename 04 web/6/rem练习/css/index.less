@@ -1,0 +1,125 @@
+/* 需要页面宽高自适应，使用单位必须是rem
+   根据设计稿测量出来的是基于640宽度的尺寸，测量出来的单位是px  将px 转成rem
+
+    在屏幕宽度为640px的尺寸是   1rem=640/20 =32/32rem;
+
+*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 32px;
+}
+body{
+  font-size: 16px;
+}
+a,a:hover{
+  color:#333;
+  text-decoration: none;
+}
+body{
+  background-color: #ccc;
+}
+.layout{
+  width: 100%;
+  max-width: 640/32rem;
+  min-width: 320/32rem;
+  background-color: #eee;
+  margin:0 auto;
+
+}
+
+.header{
+  width: 100%;
+  img{
+    width: 100%;
+  }
+}
+
+.items{
+  padding:24/32rem;
+  .item{
+    margin-bottom:1rem;
+    .item-title{
+      overflow: hidden;
+      font-size: 28/32rem;
+      h4{
+        float: left;
+        font-weight: normal;
+      }
+      span{
+        float: right;
+        color:#ccc;
+      }
+    }
+    .item-body{
+      width: 100%;
+      height: 314/32rem;
+      border-radius: 15/32rem;
+      margin-top:25/32rem;
+      overflow: hidden;
+
+      .con{
+        padding-top:34/32rem;
+        padding-left:34/32rem;
+        padding-right:27/32rem;
+        background: url(../images/sale.png) no-repeat right top #55BB75;
+        -webkit-background-size: 146/32rem;
+        background-size: 146/32rem;
+        p:nth-child(1){
+          font-size: 46/32rem;
+          color:#fff;
+        }
+        p:nth-child(2){
+          font-size: 24/32rem;
+          color:#fff;
+        }
+        .time-box{
+          overflow: hidden;
+          margin-top:52/32rem;
+          font-size: 22/32rem;
+          color:#fff;
+          .time{
+            float: left;
+          }
+          .start{
+            float: right;
+            cursor: pointer;
+            background:rgba(0,0,0,0.4);
+            border-radius: 4/32rem;
+            padding:2/32rem;
+            margin-bottom:36/32rem;
+
+          }
+        }
+
+      }
+      .option{
+        width: 100%;
+        height: 67/32rem;
+        background:url(../images/icon.png) repeat-x left top;
+        text-align: center;
+        padding-top:5/32rem;
+        margin-top:-5/32rem;
+        a{
+          line-height: 62/32rem;
+          height: 62/32rem;
+          width: 50%;
+          background-color: #fff;
+          font-size: 26/32rem;
+
+        }
+        .eidt{
+          float: left;
+          border-right: 1px solid #ccc;
+        }
+        .share{
+          float: right;
+        }
+      }
+
+    }
+  }
+}

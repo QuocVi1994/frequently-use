@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+
+      animation: move 1s;
+    }
+
+    @keyframes move {
+      0%{
+        transform:translateX(0px);
+      }
+
+      100%{
+        transform:translateX(400px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+  <script>
+    var box=document.querySelector('.box');
+    //w3c标准写法
+    box.addEventListener('animationend',function(){
+      alert(1);
+    })
+
+    //兼容问题
+
+    box.addEventListener('webkitAnimationEnd',function(){
+      alert(2);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*
+            像素和rem换算的 比例
+            1rem=适口的宽度/20
+            目前640 屏幕下 1rem =32px;
+        */
+        html{
+            font-size: 32px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #ccc;
+            font-size: 16px;
+        }
+        .layout{
+            background-color: #fff;
+            height: 700px;
+            max-width: 640px;
+            margin:0 auto;
+        }
+        .box{
+            width: 20rem;
+            height: 10rem;
+            background-color: yellowgreen;
+            position: relative;
+        }
+        .in{
+            width: 6.25rem;
+            height: 6.25rem ; /*200/32rem*/
+            background-color: red;
+            position: absolute;
+            left:5rem;
+            top:1.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="box">
+            <div class="in"></div>
+        </div>
+    </div>
+
+    <script>
+        function setRem(){
+            var w=document.documentElement.clientWidth;
+            w=w>640?640:w;
+
+            document.querySelector('html').style.fontSize=w/20+'px';
+        }
+
+        setRem();
+
+        window.onresize=function(){
+            setRem();
+        }
+
+
+    </script>
+</body>
+</html>

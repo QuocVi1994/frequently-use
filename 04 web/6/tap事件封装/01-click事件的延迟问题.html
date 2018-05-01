@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        .box{
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        /*
+        * 由于在移动端click会有300ms左右的延时
+        * 为了响应速度更快 移动端一般会封装一个加tap的事件,本质是用touch事件来优化click
+        * click事件的特点： 用户手指接触屏幕，然后离开，手指不会移动，并且手指接触屏幕的时间很短
+        * touch模拟： touch必须是没有触发touchemove事件 ，手指接触屏幕的时间很短
+        */
+
+        var box=document.querySelector('.box');
+
+        var  startTime=0; //触屏的起始时间
+        var isMove=false; //手指是否移动
+        box.addEventListener('click',function(){
+            console.log('click');
+        })
+
+        box.addEventListener('touchstart',function(){
+            console.log('start');
+            startTime=Date.now();
+        //console.log(startTime); //时间戳 1970-现在的毫秒数
+        })
+
+        box.addEventListener('touchmove',function(){
+            console.log('move');
+            isMove=true;//如果手指移动则为true
+        })
+
+        box.addEventListener('touchend',function(){
+
+            //判断触屏事件是否蛮多的click事件的条件
+            if(Date.now()-startTime<150&&!isMove){
+            //console.log('tap-click')
+                alert('click');
+            }
+
+            console.log('end');
+
+            startTime=0;
+            isMove=false;
+        })
+    </script>
+</body>
+</html>

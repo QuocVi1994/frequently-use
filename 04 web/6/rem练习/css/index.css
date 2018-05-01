@@ -1,0 +1,118 @@
+/* ��Ҫҳ����������Ӧ��ʹ�õ�λ������rem
+   �������Ƹ������������ǻ���640���ȵĳߴ磬���������ĵ�λ��px  ��px ת��rem
+
+    ����Ļ����Ϊ640px�ĳߴ���   1rem=640/20 =32/32rem;
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 32px;
+}
+body {
+  font-size: 16px;
+}
+a,
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+body {
+  background-color: #ccc;
+}
+.layout {
+  width: 100%;
+  max-width: 20rem;
+  min-width: 10rem;
+  background-color: #eee;
+  margin: 0 auto;
+}
+.header {
+  width: 100%;
+}
+.header img {
+  width: 100%;
+}
+.items {
+  padding: 0.75rem;
+}
+.items .item {
+  margin-bottom: 1rem;
+}
+.items .item .item-title {
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+.items .item .item-title h4 {
+  float: left;
+  font-weight: normal;
+}
+.items .item .item-title span {
+  float: right;
+  color: #ccc;
+}
+.items .item .item-body {
+  width: 100%;
+  height: 9.8125rem;
+  border-radius: 0.46875rem;
+  margin-top: 0.78125rem;
+  overflow: hidden;
+}
+.items .item .item-body .con {
+  padding-top: 1.0625rem;
+  padding-left: 1.0625rem;
+  padding-right: 0.84375rem;
+  background: url(../images/sale.png) no-repeat right top #55BB75;
+  -webkit-background-size: 4.5625rem;
+  background-size: 4.5625rem;
+}
+.items .item .item-body .con p:nth-child(1) {
+  font-size: 1.4375rem;
+  color: #fff;
+}
+.items .item .item-body .con p:nth-child(2) {
+  font-size: 0.75rem;
+  color: #fff;
+}
+.items .item .item-body .con .time-box {
+  overflow: hidden;
+  margin-top: 1.625rem;
+  font-size: 0.6875rem;
+  color: #fff;
+}
+.items .item .item-body .con .time-box .time {
+  float: left;
+}
+.items .item .item-body .con .time-box .start {
+  float: right;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.125rem;
+  padding: 0.0625rem;
+  margin-bottom: 1.125rem;
+}
+.items .item .item-body .option {
+  width: 100%;
+  height: 2.09375rem;
+  background: url(../images/icon.png) repeat-x left top;
+  text-align: center;
+  padding-top: 0.15625rem;
+  margin-top: -0.15625rem;
+}
+.items .item .item-body .option a {
+  line-height: 1.9375rem;
+  height: 1.9375rem;
+  width: 50%;
+  background-color: #fff;
+  font-size: 0.8125rem;
+}
+.items .item .item-body .option .eidt {
+  float: left;
+  border-right: 1px solid #ccc;
+}
+.items .item .item-body .option .share {
+  float: right;
+}

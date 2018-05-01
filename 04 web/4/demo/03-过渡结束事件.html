@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      margin:100px;
+      background-color: red;
+
+      transition:width 1s;
+    }
+
+    .box:hover{
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+   <div class="box"></div>
+
+   <script>
+     var box=document.querySelector('.box');
+
+
+     //webkit浏览器 兼容的写法
+     box.addEventListener('webkitTransitionEnd',function(){
+       alert(2);
+     });
+
+      //w3c标准的写法 mousemove  mouseenter
+     box.addEventListener('transitionend',function(){
+       alert(1);
+     });
+
+
+
+
+
+   </script>
+</body>
+</html>

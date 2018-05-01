@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="swiper-3.4.2.min.css"/>
+    <style>
+        /**{*/
+            /*margin: 0;*/
+            /*padding: 0;*/
+            /*box-sizing: border-box;*/
+        /*}*/
+        html,body{
+            height: 100%;
+        }
+        .swiper-container {
+            width: 100%;
+
+        }
+
+        .swiper-slide img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/l1.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l2.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l3.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l4.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l5.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l6.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/l7.jpg" alt=""/></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+</div>
+
+    <script src="swiper-3.4.2.min.js"></script>
+    <script>
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay : 2000,
+            longSwipesRatio:0.3,
+            speed:300,
+            // 如果需要分页器
+            pagination: '.swiper-pagination',
+            //滑动到某一屏后调用
+            onSlideChangeEnd: function(swiper){
+                console.log(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+                if(swiper.activeIndex==3){
+                    alert('aaa');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
