@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin:100px auto;
+        }
+        /*
+            径向渐变：
+            background-image:radial-gradient( 辐射半径 中心点位置，起始颜色，终止颜色);
+            中心点位置： at center left  top bottom right  , at 32px 32px
+            辐射半径： 50px 圆形  50px  100px  椭圆
+        */
+        div:nth-child(1){
+            background-image: radial-gradient(at center,yellow,green);
+        }
+
+        div:nth-child(2){
+            background-image: radial-gradient(at center,red,yellow,green,blue);
+        }
+
+        div:nth-child(3){
+            background-image: radial-gradient(at center,red 0%,yellow 20%,green 50%,blue 100%);
+        }
+
+        div:nth-child(4){
+            background-image: radial-gradient(at 60px 60px,red 0%,yellow 20%,green 50%,blue 100%);
+        }
+        
+        div:nth-child(5){
+            background-image: radial-gradient( 70px at center, yellow,green);
+        }
+
+        div:nth-child(6){
+            background-image: radial-gradient( 60px 100px at center, yellow,green);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</body>
+</html>

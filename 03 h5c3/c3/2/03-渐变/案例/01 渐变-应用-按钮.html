@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 渐变</title>
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f8fcd4;
+			/*制作背景渐变效果*/
+		/*	background-image: linear-gradient(
+				to bottom,
+				#f8fcd4 20%,
+				#dbfacb 100%
+			);*/
+		}
+		.nav {
+			width: 800px;
+			text-align: center;
+			padding-top: 50px;
+			margin: 0 auto;
+		}
+
+		/*设置按钮基本样式*/
+		.nav a {
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			font-size: 14px;
+			color: #fff;
+			text-decoration: none;
+			border: 1px solid #e59500;
+			background-color: #FFB700;
+			background-image: linear-gradient(
+				to bottom,
+				#FFB700 0%,
+				#FF8C00 100%
+			);
+		}
+
+		/*制作橙色按钮悬停效果*/
+		.nav a:hover{
+		background-color: #FFCB48;
+			background: linear-gradient(
+				to bottom,
+				#FFCB48 0%,
+				green 100%
+			);
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<a href="javascript:;">refresh</a>
+		<a href="javascript:;">shuffle</a>
+		<a href="javascript:;">preview</a>
+		<a href="javascript:;">tea</a>
+		<a href="javascript:;">wifi</a>
+		<a href="javascript:;">locator</a>
+	</div>
+</body>
+</html>

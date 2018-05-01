@@ -1,0 +1,101 @@
+
+1-边框 border
+    边框的圆角：
+        border-radius
+
+        border-top-left-raudius  : 水平半径 垂直半径
+        border-top-left-radius: 50px 100px;
+        border-top-right-radius: 50px 100px;
+        border-bottom-left-radius: 50px 100px;
+        border-bottom-right-radius: 50px 100px;
+
+        border-radius:水平半径/垂直半径  30px/60px
+        赋值顺序：
+            从左上开始 顺时针赋值，如果这个角没有值，取对角的值
+
+    边框的阴影：
+
+
+        box-shadow:水平位移 垂直位移  模糊程度  阴影大小 阴影的颜色 inset;
+
+2-背景  background
+    背景的尺寸
+        background-size:
+            100px 100px
+            50%  50%
+            cover 保证会铺满盒子，有可能不完全显示背景图片
+            contain 保证背景图片会完整的等比例的 包含在盒子中，有可能不会铺满盒子
+
+    背景的原点
+          background-origin
+            content-box
+            paddding-box
+            border-box
+          用于设置背景图片从哪个盒子开始平铺
+
+    背景裁剪
+         backgound-clip
+            content-box
+            paddding-box
+            border-box
+         用于设置背景图片从哪个盒子开始裁剪
+
+    多个背景
+        一个盒子可以设置多个背景，
+           背景的语法格式正常书写，多个背景之间使用逗号隔开；
+           背景层级：先写的背景在上面，后写的在下面；
+
+3-渐变  gradient
+    渐变属于background-image属性
+    线性渐变：linear-gradient
+        background-image:linear-gradient(方向,起始颜色,终止颜色);
+            方向： to  left  right  top bottom  30deg
+
+    径向渐变：radial-gradient
+        background-image:radial-gradient(辐射半径 中心点位置,起始颜色,终止颜色);
+            辐射半径： 50px 圆    50px  100px  椭圆2
+            中心位置： at  left  center   right  top  center   bottom   50px 5px
+
+
+4-2d 变换transform
+    缩放 scale
+        scale(水平缩放比例，垂直缩放比例）
+        如果只有一个值，等比例缩放  不能为百分比
+
+    旋转 rotate   角度 deg
+        正值  顺时针
+        负值  逆时针
+
+    位移 translate
+        tranlate(水平位移，垂直位移）；
+              -100px  40px
+              50%，50%  百分比是相对于自身的宽高而言的
+              如果只有一个值 水平位移
+
+              -50%  向左走自己的宽度一半
+              transform: translate(-50%);
+              同样可以让定位的盒子局中
+
+    扭曲 skew
+        skew(水平角度，垂直角度);
+
+
+        如果多个属性发生过渡，多个属性连写，之间使用空格隔开
+        transform:translate(-200px,200px)  rotate(45deg);
+
+    设置变换中心：
+         transform-origin：
+            取值：left  top center  right bottom    50px 50px；
+
+
+        作业：边框  背景 2遍  渐变 1遍   2d变换 3遍
+
+
+
+
+
+
+
+
+
+

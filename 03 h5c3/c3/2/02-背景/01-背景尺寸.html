@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    /*背景 css2:
+      backgournd-image
+      backgournd-position
+      backgournd-color
+      backgournd-repeat
+      background-attachment
+    */
+
+    div{
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+
+      background: url(images/baby0.jpg) no-repeat;
+
+      /*指定背景图片的大小
+        background-size:
+        50px 50px
+        50%  50%
+
+        cover  覆盖  保证背景图片等比例放大铺满盒子，但是不保证背景图片完整显示
+
+        contain: 包含 保证背景图片完成的包含在盒子中，不保证铺满盒子
+      */
+      /*background-size:300px 300px;*/
+
+      /*background-size:50% 50%;*/
+
+      /*background-size: cover;*/
+
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

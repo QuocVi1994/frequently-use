@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color: #eee;
+        }
+        .items{
+            width: 1000px;
+            margin:100px auto;
+        }
+
+        .item{
+            float: left;
+            width: 225px;
+            height: 255px;
+            background-color: #fff;
+            margin-right: 20px;
+            position: relative;
+            box-shadow: 3px 3px 20px 0px #222;
+        }
+        img{
+            display: block;
+        }
+        .item>img{
+            width: 100%;
+            height: 111px;
+        }
+
+        .item a{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+
+            left:50%;
+            margin-left:-40px;
+            top:71px;
+
+            border-radius: 50%;
+            border:5px solid #fff;
+
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item">
+            <img src="images/item_1.jpg" alt=""/>
+            <a href="#">
+                <img src="images/logo_1.jpg" alt=""/>
+            </a>
+        </div>
+        <div class="item">
+            <img src="images/item_2.jpg" alt=""/>
+            <a href="#">
+                <img src="images/logo_2.jpg" alt=""/>
+            </a>
+        </div>
+        <div class="item">
+            <img src="images/item_3.jpg" alt=""/>
+            <a href="#">
+                <img src="images/logo_3.jpg" alt=""/>
+            </a>
+        </div>
+        <div class="item">
+            <img src="images/item_4.jpg" alt=""/>
+            <a href="#">
+                <img src="images/logo_4.jpg" alt=""/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box{
+      width: 400px;
+      height: 400px;
+      border: 1px solid red;
+      margin:100px auto;
+
+      /*圆角*/
+      /*border-radius: 50px 0 0 0;*/
+
+      /*原始写法 ： 水平半径  垂直半径 */
+      /*border-top-left-radius: 50px 100px;*/
+      /*border-top-right-radius: 50px 100px;*/
+      /*border-bottom-right-radius: 50px 100px;*/
+      /*border-bottom-left-radius: 50px 100px;*/
+
+
+      /* 简写1 :  四个角的水平半径 /  四个角的垂直半径 */
+      /*border-radius: 50px 50px 50px 50px /100px 100px 100px 100px;*/
+
+
+      /*简写2*/
+      /*border-radius: 50px/100px;*/
+
+      /*border-radius: 100px/100px;*/
+
+      /*简写3*/
+      /*border-radius: 100px;*/
+
+      /*border-radius: 50px 100px;*/
+      /*border-radius: 50px 100px 140px;*/
+      border-radius: 50px 100px 140px 170px;
+
+    /*赋值规律：
+      从左上开始顺时针赋值，如果这个角没有值 去对角的值；
+    */
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

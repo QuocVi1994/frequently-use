@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .pao{
+            width: 300px;
+            height: 100px;
+            border-radius: 20px;
+
+            margin:100px auto;
+            /*注意：多背景中的背景颜色加给最后一个背景*/
+            background:url(images/paopao.png) no-repeat left top ,
+                       url(images/paopao.png) no-repeat right bottom blue;
+
+
+
+            /*过渡*/
+            transition:background 1s;
+        }
+
+        .pao:hover{
+            background-position:left bottom,right top ;
+        }
+    </style>
+</head>
+<body>
+    <div class="pao"></div>
+</body>
+</html>

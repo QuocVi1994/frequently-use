@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .box{
+      width: 623px;
+      height: 416px;
+      border: 1px solid #000;
+      margin:100px auto;
+      /*
+        多背景的语法格式：
+          给盒子加多个背景，每个背景按照标准的语法格式书写，多个背景之间使用逗号隔开；
+          先写的背景层级高，后写的层级低，改变 背景层级，只需改变吧背景的书写顺序
+      */
+      background:
+                url(images/bg1.png) no-repeat left top,
+                url(images/bg2.png) no-repeat right top,
+                url(images/bg3.png) no-repeat right bottom,
+                url(images/bg4.png) no-repeat left bottom,
+                url(images/baby0.jpg)  no-repeat center,
+                url(images/bg5.png) no-repeat center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .logo{
+      width: 250px;
+      height: 120px;
+      border: 1px solid #000;
+      margin:100px auto;
+      padding:30px 53px;
+      box-sizing: border-box;/*内减模式*/
+      /*
+        250*120
+        140*60
+        110  60
+      */
+      background: url(images/sprite.png) no-repeat;
+
+      /*背景原点*/
+      background-origin: content-box;
+      /*背景裁剪*/
+      background-clip: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+</body>
+</html>

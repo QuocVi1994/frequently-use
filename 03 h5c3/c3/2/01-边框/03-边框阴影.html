@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{
+      background-color: #ccc;
+    }
+    div{
+      width: 200px;
+      height: 300px;
+      margin:100px auto;
+      background-color: #fff;
+    }
+    /* 盒子阴影： 水平位移 垂直位移  模糊程度  阴影大小 颜色  inset（内阴影）*/
+    div:nth-child(1){
+      box-shadow: 19px 22px 43px -3px #333 ;
+    }
+
+
+    /* 盒子的内阴影  inset 内阴影 默认是 外阴影*/
+    div:nth-child(2){
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid greenyellow;
+      box-shadow: -25px -23px 75px 35px #000 inset;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</body>
+</html>
