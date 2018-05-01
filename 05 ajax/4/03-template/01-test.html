@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script>
+
+    	var  info={
+    		title:'百度首页',
+    		navs:['新闻','音乐','视频','图片','地图']
+    	}
+
+    	var html="<ul>";
+
+
+    	for(var i=-0;i<info.navs.length;i++){
+    		html+='<li>'+info.navs[i]+'</li>';
+    	}
+
+    	html+='</ul>';
+
+    	document.body.innerHTML=html;
+
+    	//在实际工作中 使用模板引擎 来进行页面渲染  
+    	// 模板引擎的作用，代替在渲染页面是的  拼接字符串的操作
+    	
+
+    	</script>
+    </body>
+</html>

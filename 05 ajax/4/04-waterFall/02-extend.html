@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script src="js/jquery.min.js"></script>
+    	<script>
+    	var laowang={
+    		name:'老王',
+    		sex:'弯',
+    		abc:'zbc'
+    	}
+
+    	var  lgd={
+    		age:18,
+    		sex:'女',
+    		name:'lgd',
+    		hobby:'游戏',
+    		album:'<<我和老王的那些事>>'
+    	}
+    	//可以将两个对象拓展成一个对象 ， 基本原则 有则覆盖 无则添加
+    	var obj=$.extend(laowang,lgd);  
+
+    	console.log(obj);
+
+
+    	</script>
+    </body>
+</html>

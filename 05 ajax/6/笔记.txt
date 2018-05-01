@@ -1,0 +1,49 @@
+1、同源跨域：
+	同源策略是浏览器的一种安全策略，
+	所谓同源是指，域名，协议，端口完全相同。
+
+	不同源则跨域跨，
+	域访问会受到限制：
+	1、不允许Javascrip进行DOM操作
+	2、不允许XMLHttpRequest（Ajax）请求 
+
+	JSONP其本质就是服务端返回了一个Javascript的一个函数调用
+	利用了<script src=""></script>标签具有可跨域的特性，
+	由服务端返回一个预先定义好的Javascript函数的调用，
+	并且将服务器数据以该函数参数的形式传递过来，此方法需要前后端配合完成。
+
+	-----dataType: 'jsonp' 设置dataType值为jsonp即开启跨域访问
+
+
+			XMLHttpRequest对象 不能跨域！			
+
+			当$.ajax()方法的dataType设置为jsonp的时候，方法内部没有使用XMLHttpRequest对象，而是使用的script的src的跨域能力来请求的服务器
+
+			//1、调用$.ajax方法后，dataType设置为jsonp是，此时浏览器不会去调用XMLHttpRequest　来请求服务器，而是动态条的创建了一个script标签， 并且url 赋值 src属性，把data里面的数据拼接在 url的后面，还会随机生成一方法名 callback=方法名的方式 去请求服务器；
+
+			//2、当服务器接受到请求后，获取callback中的方法名，把数据拼接在callback的调用的 括号中，最后callback方法的调用返回给浏览器， 浏览器会议js的方式来处理服务器的响应；
+
+			//3、当请求完成后 ，会自动删除生成的script标签；
+
+
+2、XMLHttpRequest2.0
+ 1-超时
+	a) 设置超时 xhr.timeout
+	b) 监听超时事件 xhr.ontimeout = function () {}
+	当请求超时，此事件就会被触发
+
+ 2-FormData:
+ 	a)提供了一个新的内建对象，可用于管理表单数据 
+	b) 首先要获取一个表单元素form
+	c) 然后在实例化时 new FormData(form)，将表单元素form传进去
+	d) 会返回一个对象，此对象可以直接做为xhr.send(formData)的参数
+	e) 此时我们的数据就是以二进制形式传递了
+	f) 注意我们这里只能以post形式传递，浏览器会自动为我们设置一个合适的请求头
+
+
+ 3-上传文件进度：
+ 	a) 利用XMLHttpRequest我们可以实现文件的上传
+	b) 并且我们可以通过xhr.upload.onprogress = function (ev) {}，监听上传的进度
+	c) 这时我们上传的进度信息会保存在事件对象ev里
+	d) ev.loaded 表示已上传的大小，ev.total表示文件整体的大小
+	e) var percent = ev.loaded / ev.total

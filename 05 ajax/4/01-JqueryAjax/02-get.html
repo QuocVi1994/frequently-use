@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script src="../js/jquery.min.js"></script>
+    	<script>
+    		// $.ajax({
+    		// 	type:'get',
+    		// 	url:'test.php',
+    		// 	dataType:'text'
+    		// 	。。。。
+    		// })
+
+				//只能放get请求
+				$.get('test.php',function(info){
+					alert(info);
+				})
+    	</script>
+    </body>
+</html>

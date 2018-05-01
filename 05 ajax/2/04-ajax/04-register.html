@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<input type="text">
+    	<span></span>
+
+
+    	<script>
+    		/*表单失去焦点的事件*/
+    		document.querySelector('input').onblur=function(){
+    			/*
+    				1、获取用户名 
+    				2、把用户名 以异步的方式 传递给后台服务器 
+    				3、后台判断用户名是否存在，
+    				4、把结果显示在当前页面中
+
+    			 */
+    			//1、获取用户名 
+    			var userName=this.value;
+
+    			//创建XMLHttpRequest对象
+    			var xhr=new XMLHttpRequest(); 
+
+    			//模拟http协议
+    			//请求行
+    			xhr.open('get','04-register.php?name='+userName);
+    			//请求头
+    			xhr.setRequestHeader('content-type','text/html');
+    			//请求主体
+    			xhr.send(null);
+
+    			//监听服务器响应
+    			xhr.onreadystatechange=function(){
+    				if(xhr.readyState==4&&xhr.status==200){
+    					var r=xhr.responseText;
+    					document.querySelector('span').innerHTML=r;
+    				}
+    			}
+    		}
+    	</script>
+    </body>
+</html>

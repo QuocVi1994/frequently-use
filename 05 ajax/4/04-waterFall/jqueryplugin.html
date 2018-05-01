@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			div{
+				width: 400px;
+				height: 200px;
+				border: 1px solid red;
+			}
+        </style>
+    </head>
+    <body>
+    	<div></div>
+    	<script src="js/jquery.min.js"></script>
+
+    	<script>
+    		console.log($.fn);
+
+    		// $('div').click(function(){
+    		// 	alert(1);
+    		// })
+
+    		// $.fn.test='myTest';
+
+    		// $.fn.test=function(){
+    		// 	alert('test');
+    		// }
+
+    		// $(div).text('abc');
+
+    		// $('div').test();
+    		// 封装jquery 插件 本质上就是个给jquery的 $.fn添加方法
+    		
+    		$.fn.setColor=function(bgc){
+    			$(this).css('background',bgc);
+    		}
+
+    		$('div').setColor('pink');
+    	</script>
+    </body>
+</html>

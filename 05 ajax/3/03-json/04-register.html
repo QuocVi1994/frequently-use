@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<input type="text"> <span></span>
+
+    	<script>
+
+    		var span=document.querySelector('span');
+    		document.querySelector('input').onblur=function(){
+    			var txt=this.value;
+
+    			//想服务器发送异步请求
+    			var xhr=new XMLHttpRequest();
+
+    			xhr.open('get','04-register.php?name='+txt);
+
+    			xhr.send(null);
+
+    			xhr.onreadystatechange=function(){
+    				if(xhr.readyState==4&&xhr.status==200){
+    					var r=xhr.responseText;
+    					r=JSON.parse(r);
+    					console.log(r);
+    					if(r.status==200){
+    						span.style.color='green';
+    					}else{
+    						span.style.color='red';
+    					}
+
+    					span.innerHTML=r.msg;
+    				}
+    			}
+    		}
+    	</script>
+    </body>
+</html>

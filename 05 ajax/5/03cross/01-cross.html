@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+
+			iframe{
+				height: 100%;
+				width: 100%;
+			}
+        </style>
+    </head>
+    <body>
+    	<iframe src="https://passport.jd.com/new/login.aspx?ReturnUrl=https%3A%2F%2Fgou.jd.com%2Fexp4%3Fcu%3Dtrue%26utm_source%3Dp.yiqifa.com%26utm_medium%3Duniongou%26utm_campaign%3Dt_1_866210%26utm_term%3D5ad839b249254a58ad971805e5dc0d50%26abt%3D3" ></iframe>
+
+
+    	<script>
+    		var iframe=document.querySelector('iframe');
+
+    		iframe.onload=function(){
+    			var cw=iframe.contentWindow; //获取iframe的window对象
+    			cw.document.querySelector('.btn-img.btn-entry').style.background='pink';
+    		}
+    	</script>
+    </body>
+</html>

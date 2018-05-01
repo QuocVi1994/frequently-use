@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script>
+    		 var obj={
+    		 	name:'zs',
+    		 	age:18,
+    		 	sex:'nv'
+    		 }
+
+    		 var str='{"name":"zs","age":18,"sex":"nv"}'; //json格式 字符串
+
+
+			//在各种语言中JSON字符串 欧可以很轻松的转换成对应语言可以使用 使用
+    		 //js中  JSON对象 
+    		 // console.log(obj);
+    		 // JOSN.stringify()  js对象--》json字符串
+    		 // JSON.parse()      json字符串-->js对象
+
+    		 obj=JSON.stringify(obj); //把js对象 转成 json字符串
+
+    		 // console.log(obj);  //{"name":"zs","age":18,"sex":"nv"}
+
+    		 console.log(str);
+
+    		 str=JSON.parse(str);
+
+    		 console.log(str.name);
+
+
+
+
+    	</script>
+    </body>
+</html>

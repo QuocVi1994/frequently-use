@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script src="../js/jquery.min.js"></script>
+    	<script>
+    		$.ajax({
+    			type:'get', //请求方式
+    			url:'01.php', //请求地址
+    			data:{name:'zs',age:18} , //传递给服务器的数据
+    			dataType:'json', //浏览器希望接受的数据的类型
+    			timeout:1000, //设置超时
+    			beforeSend:function(){
+    				//请求发送之前调用
+    			},
+    			succuess:function(info){
+    				//请求成功后调用
+    			},
+    			error:function(err){
+    				//请求出错是调用
+    			},
+    			complete:function(){
+    				//请求完成是调用
+    			}
+    		});
+    	</script>
+    </body>
+</html>

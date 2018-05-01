@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+         <style>
+			table{
+				border: 1px solid red;
+				width: 800px;
+			}
+
+			tr{
+				background: yellowgreen;
+			}
+
+			tr:nth-child(odd){
+				background-color: pink;
+				}
+        </style>
+    </head>
+    <body>
+    	<button>获取数据</button>
+    	<table>
+    		
+    	</table>
+
+		<script src="ajax.js"></script>
+    	<script>
+    		//点击按钮  想后台获取数据   
+    		//动态渲染在当前页面中
+
+    		document.querySelector('button').onclick=function(){
+
+    			$.ajax({
+    				data:null,
+    				url:'star.php',
+    				type:'get',    				
+    				callback:function(info){
+    					console.log(info);
+    					//渲染的方法    					
+    					var html='';
+
+    					for(var i=0;i<info.length;i++){
+    						html+='<tr>';
+    						html+='<td>'+info[i].name+'</td>';
+    						html+='<td>'+info[i].age+'</td>';
+    						html+='<td>'+info[i].sex+'</td>';
+    						html+='<td>'+info[i].photo+'</td>';
+    						html+='<td>'+info[i].album+'</td>';
+    						html+='</tr>';
+    					}
+
+    					//将拼接好的字符串 追加到table中
+    					document.querySelector('table').innerHTML=html;
+    				}	
+    			});
+
+    		}
+
+
+
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			form{
+				width: 300px;
+				margin:100px auto;
+			}
+
+			input{
+				display: block;
+				width: 100%;
+				height: 25px;
+				margin-bottom:20px;
+			}
+        </style>
+    </head>
+    <body>
+    <!-- 
+		action：用于指定表达数据提交给服务器的按个处理程序
+		method: 指定表单数据的提交方式 get  post
+		name:是必不可少的，后台获取数据需要用到name属性 
+
+		get方式提交数据： 
+			会在url后面拼接传递的数据，速度快
+			传递的数据量比较小 大约值4Kb左右
+
+
+		post方式提交数据：
+			传递数据相对安全
+			传递数据大小没有限制 ，可以传递大文件
+
+     -->
+    	<form action="02-form-post.php" method="post">
+    		<label>
+    			用户名：<input type="text" name="username" >
+    		</label>
+    		<label >
+    			密码：<input type="password" name="pwd" >
+    		</label>
+
+    		<input type="submit" value="登录">
+    	</form>
+    </body>
+</html>

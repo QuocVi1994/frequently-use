@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/template-native.js"></script>
+</head>
+<body>
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox">
+		<!-- 聊天内容 -->
+		<div class="messages">
+			<div class="self">
+				<h5>我说：</h5>
+				<p>约吗</p>
+			</div>
+			<div class="other">
+				<h5>它说：</h5>
+				<p>约</p>
+			</div>
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<!-- 输入框 -->
+			<div class="input">
+				<textarea></textarea>
+			</div>
+			<!-- 按钮 -->
+			<div class="btn">
+				<input type="button" value="发送">
+			</div>
+		</div>
+	</div>		
+
+	<script src="../../js/jquery.min.js"></script>
+	<!-- 引入模板引擎 -->
+	<script src="../../js/template-native.js"></script>
+	<script>
+		/*
+			需求：
+				1、点击发送按钮 ，获取用户输入内容 追加到页面中
+				2、把获取的消息发送给服务器，接受服务器的响应 
+				3、把服务器返回的数据 ，按照一定格式追加在页面中
+		 */
+		 $(function(){
+		 	 $('.btn input').click(function(){
+			 	var text=$('textarea').val();
+			 	//把消息进行包装 追加到页面追加页面中
+			 	// alert(text);
+			 	//使用模板引擎 
+			 	// 准备模板
+			 	// 准备数据 (包装数据)
+			 	var data={
+			 		flag:'self',
+			 		msg:text
+			 	}
+			 	// 组合数据和模板
+			 	var html=template('tmp',data);
+			 	console.log(html);
+			 	$('.messages').append(html); //追加到messages中
+			 	$('textarea').val('');
+
+
+			 	//2、把获取的消息发送给服务器，接受服务器的响应 
+			 	$.ajax({
+			 		type:'get',
+			 		url:'chat.php',			 		
+			 		success:function(info){
+			 			console.log(info);
+			 			//准备数据
+			 			var data1={
+			 				flag:'other',
+			 				msg:info
+			 			}
+			 			//组合数据和模板
+			 			var html1=template('tmp',data1);
+			 			$('.messages').append(html1);
+			 		},
+			 		error:function(err){
+			 			console.log(err)
+			 		}
+			 	});
+
+			 })
+		 })
+		
+	</script>
+	
+	<!-- 模板 -->
+	<script type="text/template" id="tmp">
+
+		<div class="<%= flag %>">
+			<% if(flag=='self') {%>
+				<h5>我说：</h5>
+			<% } else {%>
+				<h5>对方说：</h5>
+			<% } %>
+			<p><%= msg %></p>
+		</div>
+	</script>
+
+
+</body>
+</html>

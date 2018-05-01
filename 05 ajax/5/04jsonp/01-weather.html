@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			table{
+				border: 1px solid #000;
+				border-collapse: collapse;
+			}
+
+			td{
+				border: 1px solid #000;
+			}
+        </style>
+    </head>
+    <body>
+    	<button>请求天气</button>
+    	<table>
+    		
+
+    	</table>
+
+    	<script src="js/jquery.min.js"></script>
+    	<script src="js/template-native.js"></script>
+		<!-- http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=yourkey -->
+    	<script>
+    		$('button').click(function(){
+    			$.ajax({
+    				type:'get',
+    				url:'http://api.map.baidu.com/telematics/v3/weather',
+    				data:{ak:'zVo5SStav7IUiVON0kuCogecm87lonOj',location:'广州',output:'json'},
+    				dataType:'jsonp', // 跨域请求服务器  只需要将dataType设置为jsonp 
+    				success:function(info){
+    					console.log(info.results[0].weather_data);
+    					var data=info.results[0].weather_data;
+
+    					//把四天的天气渲染在页面中
+    					//数据
+    					var  info={
+    						list:data
+    					}
+
+    					var html=template('tmp',info);
+
+    					$('table').html(html); 
+    				}
+
+    			});
+    		});
+    	</script>
+
+    	<script type="text/template" id="tmp">
+    		<% for(var i=0;i<list.length;i++) { %>
+    			<tr>
+    				<td><%=list[i].date %></td>
+    				<td><%=list[i].temperature %></td>
+    				<td><%=list[i].weather %></td>
+    				<td><%=list[i].wind %></td>
+    				<td><img src="<%= list[i].dayPictureUrl %>"/></td>
+    				<td><img src="<%= list[i].nightPictureUrl %>"/></td>    				
+    			</tr>
+    		<% }　%>
+
+    	</script>
+
+    </body>
+</html>

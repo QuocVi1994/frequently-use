@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			body{
+				text-align: center;
+			}
+
+			h4{
+				margin-top:100px;
+			}
+
+			.info{
+				width: 500px;
+				height: 200px;
+				border: 1px solid red;
+				margin:50px auto;
+			}
+
+        </style>
+    </head>
+    <body>
+    	<!-- 
+    		ajax: 本质是在HTTP协议的基础上以异步的方式使用js对象与服务器进行通信。
+    		js 和服务器通信  
+    		Date   Math   FileReader
+    		XMLHttpRequest  具备和服务器通信的能力
+    	 -->
+
+    	 <h4>ajax get</h4>
+    	 <input type="text"> 
+    	 <button>发送ajax请请求</button>
+    	 <div class="info"></div>
+
+    	 <script>
+    		 //通过ajax想服务器发送请求
+    		 document.querySelector('button').onclick=function(){
+    		 	//获取表单的值
+    		 	var txt=document.querySelector('input').value; 
+
+    		 	//把获取是数据以ajax的方式发送给服务器
+
+    		 	var xhr=new XMLHttpRequest();//实例化XMLHttprequest对象 
+    		 	//模拟http协议
+    		 	
+    		 	//请求行
+    		 	xhr.open('get','02-ajax-get.php?name='+txt);
+    		 	//请求头
+    		 	xhr.setRequestHeader('content-type','text/html');
+    		 	//请求主体
+    		 	xhr.send(null); //get请求没有请求主体
+
+    		 	//监听服务器 响应
+    		 	xhr.onreadystatechange=function(){
+    		 		//如果服务期处理完成 并且成功处理请求
+    		 		if(xhr.readyState==4&&xhr.status==200){
+    		 			var r=xhr.responseText;
+    		 			document.querySelector('.info').innerHTML=r;
+    		 		}
+    		 	}  
+    		 	   		 	  		 	    		 	
+
+    		 }
+    	 </script>
+    </body>
+</html>

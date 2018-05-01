@@ -1,0 +1,86 @@
+[
+	{
+		"name": "周杰伦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花台>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "赵信",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花残>>",
+		"age": 19,
+		"sex": "女"
+	},
+	{
+		"name": "薛之谦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<丑八怪>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "周杰棍",
+		"photo": "./images/wlh.jpg",
+		"album": "<<双杰伦>>",
+		"age": 20,
+		"sex": "女"
+	},
+	{
+		"name": "周杰伦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花台>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "赵信",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花残>>",
+		"age": 19,
+		"sex": "女"
+	},
+	{
+		"name": "薛之谦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<丑八怪>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "周杰棍",
+		"photo": "./images/wlh.jpg",
+		"album": "<<双杰伦>>",
+		"age": 20,
+		"sex": "女"
+	},
+	{
+		"name": "周杰伦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花台>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "赵信",
+		"photo": "./images/wlh.jpg",
+		"album": "<<菊花残>>",
+		"age": 19,
+		"sex": "女"
+	},
+	{
+		"name": "薛之谦",
+		"photo": "./images/wlh.jpg",
+		"album": "<<丑八怪>>",
+		"age": 39,
+		"sex": "男"
+	},
+	{
+		"name": "周杰棍",
+		"photo": "./images/wlh.jpg",
+		"album": "<<双杰伦>>",
+		"age": 20,
+		"sex": "女"
+	}
+]

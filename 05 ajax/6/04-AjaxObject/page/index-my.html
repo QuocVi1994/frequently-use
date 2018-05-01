@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <style>
+        body {
+            font-family: Microsoft YaHei
+        }
+        .table-bordered > thead > tr > th {
+            border-bottom-width: 1px;
+            background: #f5f5f5;
+            text-align: center
+        }
+        .pagination {
+            margin: 0
+        }
+        .pagination>li>a{
+            padding: 2px 15px;
+        }
+        .disabled{
+            cursor: not-allowed;
+        }
+        .panel-body{
+            position: relative;
+        }
+        .loading{
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            background: url("images/loading.gif") center center no-repeat;
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        input{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>后台管理系统
+            <small>用户管理</small>
+        </h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">用户管理</div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th width="15%">用户名</th>
+                    <th width="15%">密码</th>
+                    <th width="20%">教师姓名</th>
+                    <th width="25%">所属学院</th>
+                    <th width="10%">年龄</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>杨过</td>
+                        <td>123456</td>
+                        <td>李狗蛋</td>
+                        <td>前端学院</td>
+                        <td>22</td>
+                        <td><a href="javascript:;"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav>
+                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit">添加</button>
+                <ul class="pagination pull-right">
+                    <li><a class="prve" href="javascript:;"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                    <li><a class="next" href="javascript:;"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                </ul>
+            </nav>
+            <div class="loading"></div>
+        </div>
+    </div>
+    <div class="modal fade" id="edit">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">信息录入</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="javascript:;" id="form" autocomplete="off">
+                        <input name="username" maxlength="20" class="form-control" placeholder="请输入用户名" type="text" />
+                        <input name="password" maxlength="20" class="form-control" placeholder="请输入密码" type="password"/>
+                        <input name="name" maxlength="100" class="form-control" placeholder="请输入姓名" type="text"/>
+                        <input name="school" maxlength="100" class="form-control" placeholder="请输入学校" type="text"/>
+                        <input name="age" class="form-control" placeholder="请输入年龄" type="text"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="save">保存</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+ <script src="js/jquery.min.js"></script>  
+ <script src="bootstrap/js/bootstrap.min.js"></script> 
+ <script src="js/template-native.js"></script>
+ <script>
+ 	// 微小的力量持之以恒  必将产生竟然的结果
+	//需求：
+	//1-页面加载完成， 请求服务器 获取第一屏的数据 
+	
+
+	//2-点击上一页  下一页 切换数据
+
+	//3-添加数据 
+
+	//4-删除数据
+
+
+	
+	$(function(){
+
+		//1-页面加载完成， 请求服务器 获取第一屏的数据 
+		////1-1 使用ajax技术 参照接口文档 向后台发送请  页面 一页的条数
+		//1-2 接收服务器返回的数据， 配合模板引擎来渲染数据
+		//由于请求服务器 获取数据的的方法多次调用  封装一个方法
+		//index  获取数据的页面
+		function render(index){
+			$.ajax({
+				type:'get',
+				url:'../api/findUsers.php',
+				data:{
+					pageNum:index||1,
+					pageSize:8
+				},
+				dataType:'json',
+				beforeSend:function(){
+                    $('.loading').show();  //显示加载动画
+				},
+				success:function(info){
+					console.log(info); //成分获取数据 
+                    //渲染数据
+                    //组合模板和数据
+                    var html=template('tmp',info);
+                    $('tbody').html(html); //追加到页面中
+
+                    //如果当前页是第一页 禁用 上一张 
+                    if(info.pageNum<=1){
+                        $('.prve').addClass('disabled');
+                    }else{
+                        $('.prve').removeClass('disabled');
+                    }
+                    //如果当前页是最后一页 禁用 下一张 
+                    var count=Math.ceil(info.total/info.pageSize);
+                    if(info.pageNum>=count){
+                        $('.next').addClass('disabled');
+                    }else{
+                        $('.next').removeClass('disabled');
+                    }
+
+                    //缓存上一页 和下一页 
+                    $('.prve').attr('data-page',info.pageNum-1);
+                    $('.next').attr('data-page',info.pageNum+1);
+
+                    window.currentPage=info.pageNum; //缓存当前页
+
+				},
+				error:function(error){
+					console.log(error);
+				},
+				complete:function(){
+                     $('.loading').hide(); //隐藏加载动画
+				}   
+			});
+		}
+
+        render(1); //获取第一屏的数据
+
+        //点击上一页 下一页 切换数据
+        $('.pagination a').click(function(){
+            if($(this).hasClass('disabled')){
+                return false;
+            }
+            var  page=$(this).attr('data-page');
+            render(page);//获取指定页面数据并渲染
+        });
+
+        //  $('.prve').click(function(){
+        //     if($(this).hasClass('disabled')){
+        //         return false;
+        //     }
+        //     var  page=$(this).attr('data-page');
+        //     render(page);//获取指定页面数据并渲染
+        // });
+
+        //3-添加数据
+        //3-1 点击 保存 按钮后 获取表单数据（表单序列化） 
+        //3-2 参考接口文档 把数据提交给服务器 
+        //3-3 接受服务器 的响应，判断保存是否成功
+        $('#save').click(function(){
+           // 获取表单数据
+             var formData=$('#form').serialize(); //表单序列化 name=zs&age=18
+           $.ajax({
+                type:'post',
+                url:'../api/saveUser.php',
+                data:formData,
+                dataType:'json',
+                success:function(info){
+                    console.log(info);
+                    if(info.status=='ok'){
+                        $('#form')[0].reset(); //重置表单数据的方法
+                        $(".modal").modal('hide'); //隐藏模态框
+                        render(1); //重新加载第一页的数据
+                    }
+                }
+
+           });
+        })
+
+        //4删除数据
+        // 4-1 点击删除 a标签  获取标签纵存放的数据id 
+        // 4-2 参考接口文档  请求后台服务器  给后台传递 删除数据id
+        // 4-3 接受后台的响应 判断是否删除成功
+        // 问题 ；给还有生成的元素 绑定点击事件 
+        // $('.delete').click(function(){
+        //     alert(1);
+        // });
+        $('tbody').on('click','.delete',function(){
+            //弹出确认框
+           if(confirm('确实要删除此数据吗？')){
+
+                //确定删除                
+                var  mId=$(this).attr('data-id');
+                $.ajax({
+                    type:'post',
+                    url:'../api/removeUser.php',
+                    data:{id:mId},
+                    dataType:'json',
+                    success:function(info){
+                        console.log(info);
+                        if(info.status=='ok'){
+                            //重新加载当前页的数据 
+                            render( window.currentPage);
+                        }
+                    }
+                });
+           }else{
+                alert(2);
+           }
+        })
+
+
+        
+
+	})
+
+
+
+ </script>
+<!-- 
+    pageSize:10
+    pageNum:1 
+
+    序号： (pageNum-1)*pageSize+  i+1
+
+ -->
+ <script type="text/template" id="tmp">
+     <% for(var i=0;i<list.length;i++) { %>
+        <tr>
+            <td><%= (pageNum-1)*pageSize+i+1 %></td>
+            <td><%= list[i].username %></td>
+            <td><%= list[i].password %></td>
+            <td><%= list[i].name %></td>
+            <td><%= list[i].school %></td>
+            <td><%= list[i].age %></td>
+            <td><a href='#' class="delete" data-id="<%= list[i].id %>"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+     <% } %>
+ </script>
+</body>
+</html>

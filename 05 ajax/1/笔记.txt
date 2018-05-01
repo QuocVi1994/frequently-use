@@ -1,0 +1,118 @@
+﻿1、通俗的讲，能够提供某种服务的机器（计算机）称为服务器
+
+2、按照不同的划分标准，服务可划分为以下类型：
+	1、按服务类型可分为：文件服务器、数据库服务器、邮件服务器、Web 服务器等；
+	2、按操作系统可分为：Linux服务器、Windows服务器等；
+	3、按应用软件可分为 Apache服务器、Nginx 服务器、IIS服务器、Tomcat服务器、Node服务器等。 谈资
+
+
+3、C/S结构：
+	C:client 客户端  用户必须在电脑上安装对应的客户端软件  QQ  迅雷  快播
+	S:server 服务器
+
+	优点：用户体验比较好
+	缺点： 需要下载 更新， 占用空间
+
+	B/S结构：
+	B:Browser 浏览器  用户不需要安装任何客户端软件，只需电脑有浏览器即可
+	S:服务器
+
+	优点：不需要安装任何客户端 
+	确定： 用户体验 没有c/s好
+
+	
+
+4、网络基础
+	ip： 在互联网中 每台电脑的身份证号
+		缺点：没有意义 不方便记忆
+	域名：
+		解决ip地址 难以记忆的问题
+		www.baidu.com
+		www.jd.com
+
+	DNS:记录了 ip和域名的对应关系
+	
+	本机的host文件中也记录有ip和域名的对应关系，在浏览器中输入域名是 会优先查找本地的host文件，如果拿到ip 就直接访问服务器， 如果host文件中没有记录，则再去查找dns服务器，拿到ip,在访问服务器
+	C:\Windows\System32\drivers\etc\hosts		
+	
+	端口： 定位到程序  80 
+
+
+5、服务器配置：
+	httpd.conf
+	 1、设置  根目录
+	 	documentRoot   2个地方  178  205  
+	 2、 1个权限  234
+	 	 #deny  from all  
+	 	  allow from all   
+	 3、 释放了虚拟主动的 注释   vhost  468
+
+    httpd-vhosts:
+    	复制 虚拟主机的配置 格式
+    	修改了 documetroot  根目录
+    	域名    别名 
+
+    	    DocumentRoot "e:/www/test/"
+		    ServerName  test.com
+		    ServerAlias www.test.com   
+
+    hosts文件:
+    	绑定ip域名的关系
+    	127.0.0.1   www.study.com
+    	127.0.0.1    study.com  
+6、基本语法
+	window  + apache +mysql + php
+
+	php 是一个后台的编程语言：需要编译才能执行 
+
+
+	基本语法：
+	<?php   ?>
+
+	echo 向客户端输出信息
+
+	变量：
+	 1、变量以$开头 字母/数字/下划线 不能以数字开头
+	 2、大小写敏感（区分大小写）
+	
+	
+
+	 echo 用于输出简单的数据类型
+	 print_r() 用于输出复杂的数据类型
+	 var_dump() 用于输出数据的详细信息
+
+
+	遍历关联数组的语法格式：
+	 foreach ($variable as $key => $value) {
+		# code...
+	}
+
+
+
+  7、 表单处理
+	   	name 属性的是用来提供给服务端接收所传递数据而设置的
+		action属性设置接收数据的处理程序
+		method属性设置发送数据的方式 get post 
+
+		当上传文件是需要设置 enctype="multipart/form-data"，且只能post方式
+		$_GET接收 get 传值
+		$_POST接收 post 传值
+		$_FILES接收文件上传
+
+
+		get请求：在地址栏后面拼接的方式传递数据，只能传输文本，大小有限制4kb 
+		post请求： 大小没有限制，相对安全
+
+	php常用方法：
+		in_array() 是否在数组中
+		count() 计算数组长度
+		array_key_exists ()检测数组中是否存在key
+		file_get_contents读取文件
+		move_uploaded_file() 移动上传的文件
+
+
+
+	
+
+
+

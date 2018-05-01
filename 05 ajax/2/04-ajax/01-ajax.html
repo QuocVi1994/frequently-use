@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			body{
+				text-align: center;
+			}
+
+			h4{
+				margin-top:100px;
+			}
+
+			.info{
+				width: 500px;
+				height: 200px;
+				border: 1px solid red;
+				margin:50px auto;
+			}
+
+        </style>
+    </head>
+    <body>
+    	<!-- 
+    		ajax: 本质是在HTTP协议的基础上以异步的方式使用js对象与服务器进行通信。
+    		js 和服务器通信  
+    		Date   Math   FileReader
+    		XMLHttpRequest  具备和服务器通信的能力
+    	 -->
+
+    	 <h4>ajax:可以实现在不刷新页面 情况下，请求后台服务器，局部更新页面数据</h4>
+    	 <input type="text"> 
+    	 <button>发送ajax请请求</button>
+    	 <div class="info"></div>
+
+    	 <script>
+    		 //通过ajax想服务器发送请求
+    		 document.querySelector('button').onclick=function(){
+    		 	//XMLHttpRequest 具备和服务器通信的能力
+    		 	var  xhr=new XMLHttpRequest(); //实例化XMLHttpRequest对象
+
+    		 	//请求服务器需要遵循http协议
+    		 	//请求行
+    		 	xhr.open('get','01-ajax.php');
+    		 	//请求头
+    		 	xhr.setRequestHeader('content-type','text/html');
+    		 	//请求主体  get请求没有请主体
+    		 	xhr.send(null);
+
+    		 	//需要接受服务器的响应
+    		 	//由于请求发出后 ，服务器何时响应不能确定（由于网速 等外界原因）,我们用事件来监听服务器的状态变化；
+    		 	//监听服务器状态改变的事件
+    		 	xhr.onreadystatechange=function(){
+    		 		//readyState==4  服务器响应完成
+    		 		//xhr.status==200 服务器成功处理了请求
+    		 		if(xhr.readyState==4&&xhr.status==200){
+    		 			//获取服务器返回的数据
+    		 			var r=xhr.responseText; //获取服务器响应的文本
+    		 			document.querySelector('.info').innerHTML=r;
+    		 		}
+    		 	}
+
+    		 }
+    	 </script>
+    </body>
+</html>

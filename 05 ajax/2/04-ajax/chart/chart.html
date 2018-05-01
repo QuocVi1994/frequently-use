@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox">
+		<!-- 聊天内容 -->
+		<div class="messages">
+			<div class="self">
+				<h5>我说</h5>
+				<p>你好</p>
+			</div>
+			<div class="other">
+				<h5>对方说</h5>
+				<p>你好</p>
+			</div>
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<!-- 输入框 -->
+			<div class="input">
+				<textarea></textarea>
+			</div>
+			<!-- 按钮 -->
+			<div class="btn">
+				<input type="button" value="发送">
+			</div>
+		</div>
+	</div>
+	<!-- 下面代码忽略 春哥说的 -->
+	<script type="text/template">
+		<div class="self">
+			<h5>我说</h5>
+			<p>你好</p>
+		</div>
+		<div class="other">
+			<h5>对方说</h5>
+			<p>你好</p>
+		</div>
+	</script>
+
+	<script>
+		/*
+			需求：
+				1、点击发送按钮   
+					获取聊天内容  追加到聊天窗口中
+					并且把消息发送给服务器
+				2、服务器接受到请求后，随机返回一条消息
+				3、客户端接受到消息后，你把消息追加到聊天窗口中；
+
+		*/
+		//聊天窗口
+		var messageBox=document.querySelector('.messages');
+		var textarea=document.querySelector('textarea');
+
+		document.querySelector('.btn input').onclick=function(){
+			//获取聊天内容
+			var txt=textarea.value;
+			//追加到聊天窗口中			
+
+			messageBox.appendChild(creatMsg('self',txt));
+			//清空textarea
+			textarea.value='';
+
+			//2-把消息发送给服务器
+
+			var xhr=new XMLHttpRequest(); //实例化XMLHttpRequses对象
+
+			//模拟http协议
+			xhr.open('get','chart.php?msg='+txt); //请求行
+			//get请求 可以省略请求头 setRequestHeadr();
+			xhr.send(null); //请求主体
+
+			//监听服务器的响应
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var r=xhr.responseText; //获取服务器返回的数据
+					console.log(r);
+					//把服务器返回的 内容封装后追加到聊天窗口中
+					messageBox.appendChild(creatMsg('other',r));
+				}
+			}
+
+		}
+
+		/*
+			flag:谁说的  self    other
+			msg:要封装的消息的内容
+		 */
+		function creatMsg(flag,msg){
+
+			var div=document.createElement('div');
+			var h5=document.createElement('h5');
+			var p=document.createElement('p');
+
+			if(flag=='self'){
+				div.classList.add('self'); 
+				h5.innerHTML='我说';
+			}else{
+				div.classList.add('other'); 
+				h5.innerHTML='对方说';
+			}
+			
+			p.innerHTML=msg;
+
+			div.appendChild(h5);
+			div.appendChild(p);
+
+			return div;
+		}
+	</script>
+	
+</body>
+</html>

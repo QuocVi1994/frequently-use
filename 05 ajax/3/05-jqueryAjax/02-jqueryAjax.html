@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<button>发送ajax请求</button>
+    	<script src="jquery.min.js"></script>
+    	<script>
+    		$('button').click(function(){
+    			//发送请求
+    			$.ajax({
+    				type:'post', //请求方式
+    				url:'02-jqueryAjax.php', //请求的地址
+    				data:{name:'li'}, //发送给服务器 数据
+    				dataType:'json', //告诉服务器浏览器希望接受的数据的类型  如果设置为json jquery 会自动将json字符串转成js对象或者数组
+    				timeout:3000,  //设置超时 单位ms 毫秒
+    				beforeSend:function(){ //请求发送之前会调用
+    					alert(1);
+    				},
+    				success:function(info){ //服务器成功处理请求的回到函数
+    					console.log(info);
+    					alert(2);
+    				},
+    				error:function(error){ //当请求发送错误是调用
+    					console.log(error);
+    					alert(3);
+    				},
+    				complete:function(){ //当请求完成是调用
+    					alert(4);
+    				}
+    			});
+    		})
+    	</script>
+    </body>
+</html>

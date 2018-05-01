@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			form{
+				width: 300px;
+				margin:100px auto;
+			}
+
+			input{
+				width: 100%;
+				height: 25px;
+				display: block;
+				margin-bottom:20px;
+			}
+
+			.progress{
+				width: 800px;
+				height: 30px;
+				border: 1px solid red;
+				margin:-50px auto;
+				position: relative;
+			}
+
+			.current{
+				height: 100%;
+				background-color: #daa520;
+				width: 3%;
+			}
+			span{
+				position: absolute;
+				top:0;
+				left:395px;
+				font-size: 20px;
+				color:green;
+			}	
+        </style>
+    </head>
+    <body>
+    	<form>
+    		<label >
+    			用户名：<input type="text" name="username" >
+    		</label>
+
+    		<label >
+    			密码：<input type="password" name="pwd" >
+    		</label>
+
+    		<label >
+    			头像：<input type="file" name="file" >
+    		</label>
+
+    		<input type="button" value="提交睡觉觉">
+    		<!-- <input type="submit" value=""> -->
+<!--     		<button>aaaaaa</button> -->
+    	</form>
+
+    	<div class="progress">
+    		<span>0%</span>
+    		<div class="current"></div>
+    	</div>
+
+    	<script>	
+    	document.querySelector('input[type="button"]').onclick=function(){
+    		//获取表单所有的数据
+    		var form=document.querySelector('form');
+
+    		var formData=new FormData(form); //创建一个对象管理form表单
+
+
+    		var xhr=new XMLHttpRequest();
+
+    		xhr.open('post','03-progress.php');
+
+    		xhr.upload.onprogress=function(e){
+    			var value=e.loaded/e.total;
+
+    			document.querySelector('.current').style.width=value*100+'%';
+    			document.querySelector('span').innerHTML=value*100+'%';
+    		}
+
+    		xhr.send(formData);
+
+    		xhr.onreadystatechange=function(){
+    			if(xhr.readyState==4&&xhr.status==200){
+    				console.log(xhr.responseText);
+    			}
+    		}
+
+
+    		}
+
+    	</script>
+    </body>
+</html>

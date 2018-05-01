@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script>
+    		//前端需要的就是数据  
+    		function getData(data){
+    			console.log(data);
+    		}
+
+    		// success:function(info){
+
+    		// }
+    	</script>
+
+    	<script src="http://www.test.com/five/04test.php?callback=getData"></script>
+
+    	<!-- 这就是jsonp的原理 -->
+	<!-- $.ajax({
+			type:'get',
+			url:'01.php',
+			data:{output:'json'},
+			dataType:'jsonp'
+    	}) -->
+		<!-- 
+			jsonp的原理：
+			
+				1、在跨域的情况下 XMLhttpRequest是不能发送异步 请求
+				2、当将dataType设置为jsonp后， $.ajax()方法 内部就不会再创建XMLhttpRequst对象，
+				而是利用script标签的src属性实现的跨域请求  具体步骤如下：
+
+				1.$.ajax方法会动态创建一个script标签  将url的值赋值给src属性，将data的数据拼接在src地址的后面，
+				2、并且会动态随机创建一个方法，把这个方法的名字拼接在url的后面传递给服务器
+				3、在服务器的内部 ，首先获取到前端传递过来的方法名， 然后 在方法名后面拼接需要传递回去的数据，
+					最后返回的是一个已经拼接好参数的方法的调用
+				4、前端接受到后台返回字符串 会当做js进行解析接口获取后台传递是数据
+				5、将动态创建的标签给删除
+
+		 -->
+
+    	
+    </body>
+</html>

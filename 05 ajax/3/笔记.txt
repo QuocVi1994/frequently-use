@@ -1,0 +1,114 @@
+﻿
+一、XMLHttpRequest对象详解
+
+	xhr.open() 发起请求，可以是get、post方式
+	xhr.setRequestHeader() 设置请求头
+	xhr.send() 
+
+	xhr.onreadystatechange = function () {} 监听响应状态
+
+		xhr.readyState = 4时，DONE 响应完成	
+		xhr.status表示响应码，如200
+
+		常见的有200代表成功、304文档未修改、
+		403没有权限、404未找到、500服务器错误
+		xhr.statusText表示响应信息，如OK
+
+	xhr.getAllResponseHeaders() 获取全部响应头信息
+	xhr.getResponseHeader('key') 获取指定头信息
+
+	页面跳转：
+		header('location:http://www.baidu.com'); 直接跳转
+		header('refresh:3;url="./01.html"');     定时跳转
+
+
+
+二、GET和POST请求方式的区别：(面试)
+	1、GET没有请求主体  xhr.send(null)
+	2、GET可以通过在请求URL上添加请求参数  
+	3、POST可以通过请求主体发送数据     xhr.send('name=itcast&age=10')
+	4、POST需要设置请头部    Content-Type:application/x-www-form-urlencoded
+	5、GET效率更好（应用多）
+	6、GET大小限制约4K，POST则没有限制
+
+
+
+三、XML  可扩展的标记语言
+	HTML:  超文本标记语言  
+	共同点：语法中都会用到标签  都具有描述性
+	区别：
+		HTML：用于展示数据 		
+		XML： 传输数据和存储数据
+		
+	语法规则：
+		1、必须有一个根元素
+		2、不可有空格、不可以数字或.开头、大小写敏感
+		3、不可交叉嵌套
+		4、属性双引号（浏览器自动修正成双引号了）
+		5、特殊符号要使用实体
+		6、注释和HTML一样
+
+		注意：
+			服务器需要设置： Content-Type:text/xml  
+			客户端用 xhr.responseXML来接受
+
+		其解析过于复杂并且体积较大，所以实现开发已经很少使用了。
+
+
+四、JSON数据格式
+
+	js中的数组，对象   var arr=[12,2,2,3];  var obj={ name:'zs',age:18 }
+
+	php中  $arr=array(1,2,3,4); 
+
+	JSON格式本质是就是特殊格式的字符串
+
+	语法规则：	
+		1、数据在名称/值对中
+		2、数据由逗号分隔(最后一个健/值对不能带逗号)
+		3、花括号保存对象方括号保存数组
+		4、使用双引号
+
+	JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取
+
+	1、Javascript 解析方法
+	eavl()
+	
+	JSON对象   
+	JSON.parse()   json->对象
+	JSON.stringify()； 对象->json
+	
+	2、PHP解析方法
+	json_encode()   php关联数组（对象） ->json
+	json_decode();  json->php 对象
+
+	JSON体积小、解析方便且高效，在实际开发成为首选。
+
+
+	4、jQuery为我们提供了更强大的Ajax封装
+
+		$.ajax({}) 可配置方式发起Ajax请求
+		$.get() 以GET方式发起Ajax请求
+		$.post() 以POST方式发起Ajax请求
+		$('form').serialize() 序列化表单（即格式化key=val&key=val）
+
+		url 接口地址
+		type 请求方式
+		timeout 请求超时
+		dataType 服务器返回格式
+		data 发送请求数据
+		beforeSend: function () {} 请求发起前调用
+		success 成功响应后调用
+		error 错误响应时调用
+		complete 响应完成时调用（包括成功和失败）
+
+
+
+
+
+作业：  
+h5简历  
+xml 1边 
+其他 2遍
+
+

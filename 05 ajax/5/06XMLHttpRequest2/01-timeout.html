@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<button>发送请求</button>
+
+    	<script>
+	    	document.querySelector('button').onclick=function(){
+	    		//通过XMLhttpReqeust对象 想服务器发送异步请求
+	    		var xhr=new XMLHttpRequest(); //实例化对象
+
+	    		xhr.open('get','01-timeout.php'); //请求行
+	    		
+	    		xhr.timeout=2000; //2秒钟
+
+	    		xhr.ontimeout=function(){
+	    			alert('网络超时，请重试！');
+	    		}
+
+	    		xhr.send(null);//请求头
+
+
+	    		xhr.onreadystatechange=function(){
+	    			if(xhr.readyState==4&&xhr.status==200){
+	    				console.log(xhr.responseText);
+	    			}
+	    		}
+	    	}
+    	</script>
+    </body>
+</html>

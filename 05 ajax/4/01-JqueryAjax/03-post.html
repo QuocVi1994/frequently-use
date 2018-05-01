@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script src="../js/jquery.min.js"></script>
+    	<script>
+    		// $.ajax({
+    		// 	type:'post',
+    		// 	url:'test.php',
+    		// 	dataType:'text'
+    		// 	。。。。
+    		// })
+			//只能发送post请求
+			$.post('test.php',null,function(info){
+				console.log(info);
+			})
+    	</script>
+    </body>
+</html>

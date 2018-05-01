@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Plugin</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+			font-family: '微软雅黑';
+		}
+
+		.wrapper {
+			padding: 50px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		.items {
+			position: relative;
+		}
+
+		.item {
+			/*定义固定宽度*/
+			width: 228px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="items">
+			<div class="item">
+				<img src="./images/1.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/2.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/3.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/4.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/3.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/4.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/3.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/4.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/3.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/4.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/3.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/4.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/6.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/6.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/6.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/5.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/6.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/7.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/8.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+			<div class="item">
+				<img src="./images/9.jpg" alt="">
+				<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+			</div>
+		</div>
+		<p>正在加载...</p>
+	</div>
+	<!-- 引入jquery -->
+	<script src="js/jquery.min.js"></script>
+
+	<!-- 引入jquery的瀑布流插件 -->
+	<!-- 规范 命名：jquery.插件名称.js -->
+	<script src="js/demo-jquery.waterFall.js"></script>
+
+	<script>
+		window.onload=function(){
+			$('.items').waterFall();
+		}
+	</script>
+
+</body>
+</html>

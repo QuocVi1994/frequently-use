@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			form{
+				width: 300px;
+				margin:100px auto;
+			}
+
+			input{
+				display: block;
+				width: 100%;
+				height: 25px;
+				margin-bottom:20px;
+			}
+        </style>
+    </head>
+    <body>
+    <!-- 
+		action：用于指定表达数据提交给服务器的按个处理程序
+		method: 指定表单数据的提交方式 get  post
+		name:是必不可少的，后台获取数据需要用到name属性 
+
+		上传文件
+			需要设置：enctype="multipart/form-data"
+			提交方式必须为：post
+
+     -->
+    	<form action="03-file.php" method="post"  enctype="multipart/form-data">
+    		<label>
+    			用户名：<input type="text" name="username" >
+    		</label>
+    		<label >
+    			密码：<input type="password" name="pwd" >
+    		</label>
+
+    		<label >
+    			头像：<input type="file" name="upfile" >
+    		</label>
+
+
+    		<input type="submit" value="登录">
+    	</form>
+    </body>
+</html>

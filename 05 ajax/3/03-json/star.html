@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+         <style>
+			table{
+				border: 1px solid red;
+				width: 800px;
+			}
+
+			tr{
+				background: yellowgreen;
+			}
+
+			tr:nth-child(odd){
+				background-color: pink;
+				}
+        </style>
+    </head>
+    <body>
+    	<button>获取数据</button>
+    	<table>
+    		
+    	</table>
+
+
+    	<script>
+    		//点击按钮  想后台获取数据   
+    		//动态渲染在当前页面中
+
+    		document.querySelector('button').onclick=function(){
+    			//实例化xmlHttpRequest对象
+    			var xhr=new XMLHttpRequest();
+
+    			xhr.open('get','star.php');//请求行
+    			xhr.send(null);//发送请主体
+
+    			xhr.onreadystatechange=function(){
+    				if(xhr.readyState==4&&xhr.status==200){
+    					var r=xhr.responseText;
+    					var data=JSON.parse(r); //数组
+    					console.log(data);
+
+    					//渲染数据
+    					var html='';
+
+    					for(var i=0;i<data.length;i++){
+    						html+='<tr>';
+    						html+='<td>'+data[i].name+'</td>';
+    						html+='<td>'+data[i].age+'</td>';
+    						html+='<td>'+data[i].sex+'</td>';
+    						html+='<td>'+data[i].photo+'</td>';
+    						html+='<td>'+data[i].album+'</td>';
+    						html+='</tr>';
+    					}
+
+    					//将拼接好的字符串 追加到table中
+    					document.querySelector('table').innerHTML=html;
+    				}
+    			}
+    		}
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<!-- 语法：
+			1、<% 与  %> 符号包裹起来的语句则为模板的逻辑表达式
+			2、<%= content %>为输出表达式值
+    	 -->
+    	<!-- 2、 准备模板 -->
+		<script type="text/template" id="tmp">
+			<h1><%= title %></h1>  
+			<ul>
+				<% for(var i=0;i<navs.length;i++) { %>
+					<li> <%= navs[i] %> </li>
+				<% } %>
+			</ul>
+		</script>	
+
+    	<!--1、 引入模板引擎插件 -->
+    	<script src="template-native.js"></script>
+    	<script>
+    	//3--数据准备好了，传递给模板引擎的数据 必须是对象，在模板中直接使用对象的属性名
+    	var  info={
+    		title:'百度首页',
+    		navs:['新闻','音乐','视频','图片','地图']
+    	}
+    	//需求：把服务器返回给前端是数据 渲染在前端页面中
+    	//用模板引擎来实现
+    	
+    	//使用模板引擎的步骤：
+    	//1-引入模板引擎插件
+    	//2-准备模板
+    	//3-准备数据
+    	//4-将模板书数据进行组装，然后就会生成对应用的结构
+
+    	//4-将模板书数据进行组装
+    	var html=template('tmp',info); //模板引擎的方法
+    	console.log(html);
+    	document.body.innerHTML=html;
+
+    	</script>
+    </body>
+</html>

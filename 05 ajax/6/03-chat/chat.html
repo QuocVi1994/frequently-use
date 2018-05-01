@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/template-native.js"></script>
+</head>
+<body>
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox">
+		<!-- 聊天内容 -->
+		<div class="messages">
+			<div class="self">
+				<h5>我说：</h5>
+				<p>约吗</p>
+			</div>
+			<div class="other">
+				<h5>它说：</h5>
+				<p>约</p>
+			</div>
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<!-- 输入框 -->
+			<div class="input">
+				<textarea></textarea>
+			</div>
+			<!-- 按钮 -->
+			<div class="btn">
+				<input type="button" value="发送">
+			</div>
+		</div>
+	</div>
+	
+	<!-- 创建模版 -->
+	<script type="text/template" id="tmp">
+
+		<% if(flag=="self") {%>
+			<div class="self">
+				<h5>我说：</h5>
+				<p><%= msg %></p>
+			</div>
+		<% } else if(flag=="other") { %>
+			<div class="other">
+				<h5>他说：</h5>
+				<p><%= msg %></p>
+			</div>
+		<% } %>
+
+	</script>
+
+
+	<script>
+		//  点击按钮 
+		//  获取用户输入的文字  拼接成 标签  追加到messagebox中
+		//  异步想服务器发送 请求
+		//  处理服务的响应  把服务器返回的内容  拼接成 标签  追加到messagebox中
+		
+		$(function(){
+			$('.btn input').click(function(){
+				var txt=$('textarea').val();
+				console.log(txt);
+				//注意： 传给模版的数据必须是一对象，
+				//在模版中直接使用对象的属性，不用写对象名
+				// 包装对象
+				var data={
+					flag:'self',
+					msg:txt
+				}
+				//数据和模版进行组装
+				var html=template('tmp',data);
+				$('.messages').append(html); //追加
+				$('textarea').val(''); //清空输入框
+
+				//向服务器发送数据
+				$.ajax({
+					type:'get',
+					url:'chat.php',
+					data:null,
+					dataType:'text',
+					success:function(info){
+						console.log(info); //'上车'
+						//包装数据
+						var data={
+							flag:'other',
+							msg:info
+						}
+						//数据和模版进行组装
+						var html=template('tmp',data);
+						//追加
+						$('.messages').append(html);
+
+					}
+				});
+
+
+			});
+		});
+		
+	</script>
+</body>
+</html>

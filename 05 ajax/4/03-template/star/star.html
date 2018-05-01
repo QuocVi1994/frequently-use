@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			table{
+				width: 800px;
+			}
+
+			tr{
+				background-color: greenyellow;
+
+			}
+
+			tr:nth-child(odd){
+				background-color: pink;
+			}
+        </style>
+    </head>
+    <body>
+
+    	<button>获取数据</button>
+    	<table>
+    		
+    	</table>
+
+    	<script src="../../js/jquery.min.js"></script>
+    	<!-- 模板引擎 -->
+    	<script src="../template-native.js"></script>
+
+
+    	<script>
+    		$(function(){
+    			//需求：点击按钮 向后台请求数据，并渲染在页面中
+	    		$('button').click(function(){
+	    			//使用ajax请求服务器
+	    			$.ajax({
+	    				type:'get',
+	    				url:'star.php',
+	    				dataType:'json',
+	    				success:function(info){
+	    					console.log(info); //info是要给数组
+	    					//渲染数据
+	    					//1-准备模板
+	    					//2-准备数据（必须是对象--把info 数组 包装成对象）
+	    					var  data={
+	    						list:info
+	    					}
+	    					
+	    					//3-模板和数据进行组装
+	    					var html= template('tmp',data);
+
+	    					console.log(html);
+
+	    					$('table').html(html); //放到table中
+	    				}
+	    			});
+	    		})
+    		})
+    		
+    	</script>
+
+    	<script type="text/template" id="tmp">
+    		<% for( var i=0;i<list.length;i++){ %>
+    			<tr>
+    				<td> <%=list[i].name  %> </td>
+    				<td> <%=list[i].age  %> </td>
+    				<td> <%=list[i].sex  %> </td>
+    				<td> <%=list[i].photo  %> </td>
+    				<td> <%=list[i].album  %> </td>
+    			</tr>
+    		<% } %>
+    	</script>
+    </body>
+</html>

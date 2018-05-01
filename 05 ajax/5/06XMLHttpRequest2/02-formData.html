@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			form{
+				width: 300px;
+				margin:100px auto;
+			}
+
+			input{
+				width: 100%;
+				height: 25px;
+				display: block;
+				margin-bottom:20px;
+			}
+
+			.info{
+				width: 300px;
+				min-height: 100px;
+				border: 1px solid red;
+				margin:-50px auto;
+			}
+
+			.info img{
+				width: 100%;
+			}
+        </style>
+    </head>
+    <body>
+    	<form>
+    		<label >
+    			用户名：<input type="text" name="username" >
+    		</label>
+
+    		<label >
+    			密码：<input type="password" name="pwd" >
+    		</label>
+
+    		<label >
+    			头像：<input type="file" name="file" >
+    		</label>
+
+    		<input type="button" value="提交睡觉觉">
+    		<!-- <input type="submit" value=""> -->
+<!--     		<button>aaaaaa</button> -->
+    	</form>
+
+    	<div class="info"></div>
+
+    	<script>	
+    	document.querySelector('input[type="button"]').onclick=function(){
+    		//获取表单所有的数据
+    		//FormData  用于管理表单数据的要给对象
+    		var form=document.querySelector('form');
+
+    		var formData=new FormData(form);  //创建要给管理表单的对象
+
+
+    		//把表单数据异步发送到服务器
+    		var xhr=new XMLHttpRequest();
+
+    		xhr.open('post','02-formData.php');
+    		//手动想formData中添加数据
+    		formData.append('time','2017年5月5日17:17:25');
+    		formData.append('name2','chunge ');
+
+    		xhr.send(formData);
+
+    		xhr.onreadystatechange=function(){
+    			if(xhr.readyState==4&&xhr.status==200){
+    				document.querySelector('.info').innerHTML=xhr.responseText;
+    			}
+    		}
+
+    	}
+
+    	</script>
+    </body>
+</html>

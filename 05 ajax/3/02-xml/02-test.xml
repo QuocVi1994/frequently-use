@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+	<person index="1">
+		<name>李狗蛋</name>
+		<age>18</age> 
+		<sex>弯</sex>
+		<hobby>女</hobby>
+		<album>&lt;&lt;我是怎么变弯的&gt;&gt;</album>
+	</person>
+	<person index='2'>
+		<name>郭靖</name>
+		<age>38</age>
+		<sex>女</sex>
+		<hobby>男</hobby>
+		<album>&lt;&lt;C语言从入门到放弃&gt;&gt;</album>
+	</person>
+
+	<book>
+		<name>&lt;&lt;机械工程师入门到转行&gt;&gt;</name>
+		<page>234</page>
+		<price>1.00</price>
+		<author>春哥</author>
+	</book>
+</root>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+1、必须有一个根元素 
+2、不可有空格、不可以数字或.开头、大小写敏感
+3、不可交叉嵌套
+4、属性双引号（浏览器自动修正成双引号了）
+5、特殊符号要使用实体
+6、注释和HTML一样 
+-->

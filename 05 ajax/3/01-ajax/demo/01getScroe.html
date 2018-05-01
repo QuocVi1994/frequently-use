@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			.info{
+				width: 500px;
+				height: auto;
+				border: 1px solid red;
+				margin-top:30px;
+				min-height: 100px;
+			}
+        </style>
+    </head>
+    <body>
+	    <div class="box">
+	    	学号：<input type="text" name="code" class="code">
+	    	<button>成绩查询</button>
+	    	<div class="info"></div>
+	    </div>
+    	
+    	<script>
+    	//点击按钮，实现在页面不刷新不切换的情况下，实现获取成绩信息,并且显示在页面中
+
+    	document.querySelector('button').onclick=function(){
+    		//获取学号
+    		var  txt=document.querySelector('input').value;
+
+    		//通过XMLHttpRequest对象 向服务发送请求
+    		//实例化一个XMLHttpRequest对象
+    		var xhr=new XMLHttpRequest();
+            console.log(xhr.readyState);  //0
+    		//模拟http协议
+    		//请求行
+    		xhr.open('get','01getScroe.php?code='+txt);
+    		// 请求头省略
+    		//请求主体
+              console.log(xhr.readyState);  //1
+    		xhr.send(null);
+
+              console.log(xhr.readyState);
+    		//监听服务器响应
+    		xhr.onreadystatechange=function(){
+                  console.log(xhr.readyState);
+    			if(xhr.readyState==4&&xhr.status==200){
+
+                    console.log(xhr.statusText); //状态信息
+                    // console.log(xhr.getAllResponseHeaders()); //获取所有的响应头部信息
+                    console.log(xhr.getAllResponseHeaders());
+
+                    console.log(xhr.getResponseHeader('Content-Type'));
+
+    				var  result=xhr.responseText;
+    				document.querySelector('.info').innerHTML=result;
+                    // console.log('服务器现在咋响应完成');
+    			}
+    		}
+
+
+            // console.log('我是后面的代码');
+    	}
+	    
+    	</script>
+    </body>
+</html>

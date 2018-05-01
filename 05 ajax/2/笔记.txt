@@ -1,0 +1,93 @@
+﻿服务器配置：
+	httpd.conf
+	 1、设置  根目录
+	 	doumentRoot   2个地方  178  205  
+	 2、 2个权限 
+	 	 #deny  from all 
+	 	  allow from all 
+	 3、 释放了虚拟主动的 注释   vhost  
+
+    httpd-vhosts:
+    	复制 虚拟主机的配置 格式
+    	修改了 documetroot  根目录
+    	域名    别名 
+
+    	    DocumentRoot "e:/www/test/"
+		    ServerName  test.com
+		    ServerAlias www.test.com   
+
+    hosts文件:
+    	绑定ip域名的关系
+    	127.0.0.1   www.study.com
+    	127.0.0.1    study.com  
+
+
+   表单处理
+	   	name 属性的是用来提供给服务端接收所传递数据而设置的
+		action属性设置接收数据的处理程序
+		method属性设置发送数据的方式 get post 
+
+		当上传文件是需要设置 enctype="multipart/form-data"，且只能post方式
+		$_GET接收 get 传值
+		$_POST接收 post 传值
+		$_FILES接收文件上传
+
+	php常用方法：
+		in_array() 是否在数组中
+		count() 计算数组长度
+		array_key_exists ()检测数组中是否存在key
+		file_get_contents读取文件
+		move_uploaded_file 移动上传的文件
+
+
+	http协议：
+   		即超文本传输协议，网站是基于HTTP协议的，
+   		例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。
+   		HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客户机的响应(Response)进行了约束和规范
+
+   		1xx：指示信息--表示请求已接收，继续处理
+		2xx：成功
+		3xx：重定向--要完成请求必须进行更进一步的操作
+		4xx：客户端错误
+		5xx：服务器端错误
+
+		常见的有200代表成功、304文档未修改、403没有权限、404未找到
+
+		GET和POST请求方式的区别：(面试)
+			1、GET没有请求主体  xhr.send(null)
+			2、GET可以通过在请求URL上添加请求参数  
+			3、POST可以通过请求主体发送数据     xhr.send('name=itcast&age=10')
+			4、POST需要设置请头部    Content-Type:application/x-www-form-urlencoded
+			5、GET效率更好（应用多）
+			6、GET大小限制约4K，POST则没有限制
+
+
+   	ajax:
+   		Ajax 特点: 可以在不刷新页面的情况下，更新网页的局部数据;
+ 		Asynchronous  Javascript  And  XML
+ 		AJAX 是一门的新的语言，而是对现 有持术 的 综合利用。
+
+ 		异步： XMLHttpRequest   http   Date  Math  FileReader  
+ 		执行的属顺序和书写顺序无关 其优势在 于不阻塞程 序的执行， 从而提升 整体 执行 效率。
+
+ 		xhr.open() 发起请求，可以是get、post方式
+		xhr.setRequestHeader() 设置请求头
+		xhr.send() 发送请求主体get方式使用xhr.send(null)
+		
+		xhr.onreadystatechange = function () {} 监听响应状态
+		
+		xhr.status=200 响应状态码  成功 ok
+		xhr.readyState = 4时，DONE 响应完成
+
+		xhr.readyState = 0时，UNSENT open尚未调用
+		xhr.readyState = 1时，OPENED open已调用
+		xhr.readyState = 2时，HEADERS_RECEIVED 接收到头信息
+		xhr.readyState = 3时，LOADING 接收到响应主体
+		xhr.readyState = 4时，DONE 响应完成
+
+作业：
+	review   render  ajax  代码2遍   成绩查询案例 自己写
+
+
+
+

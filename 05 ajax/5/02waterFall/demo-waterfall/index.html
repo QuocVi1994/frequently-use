@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Plugin</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+			font-family: '微软雅黑';
+		}
+
+		.wrapper {
+			padding: 50px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 300px;
+		}
+
+		.items {
+			position: relative;
+		}
+
+		.item {
+			width: 228px;
+			position: absolute;
+		}
+
+		.tips {
+			width: 280px;
+			height: 40px;
+			margin: 30px auto 0;
+			text-align: center;
+			line-height: 40px;
+			background-color: #CCC;
+			border-radius: 6px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.tips.loading {
+			background-color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="items">
+		</div>
+		<p class="tips loading">正在加载...</p>
+	</div>
+	<!-- 引入库 -->
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/template-native.js"></script>
+	<script src="./js/jquery.waterFall.js"></script>
+	
+	<script>
+
+		// 装请求数据的任务封装一个函数
+		// 目的是可以重复调用
+		function getData(page) {
+			$.ajax({
+				type: 'post',
+				url: 'data.php',
+				data: {page: page},
+				beforeSend: function () {
+					// 设置Loading状态
+					$('.tips').addClass('loading').text('正在加载...');
+				},
+				success: function (info) {
+					console.log(info);
+
+					// for(var i=0; i<info.items.length; i++) {
+
+					// }
+
+					// 调用模板引擎
+					var html = template('tpl', info);
+
+					// 添加元素
+					$('.items').append(html);
+					
+					// 瀑布流插件
+					$('.items').waterFall();
+
+					// 缓存服务返回的页码
+					// 这个页码是告诉我们下一页该是哪一页了
+					$('.tips').attr('data-page', info.page);
+				},
+				complete: function () {
+					// 还原按扭状态
+					$('.tips').removeClass('loading').text('加载更多');
+				}
+			});
+		}
+
+		// 首次数据加载
+		getData(1);
+	
+		// 点击获取下一页
+		$('.tips').on('click', function () {
+			// 禁止重复提交
+			if($(this).hasClass('loading')) {
+				return;
+			}
+
+			// 获取下一页的页码
+			var page = $(this).attr('data-page');
+			// 获取下一页数据
+			getData(page);
+		});
+
+		// 
+		$(window).on('scroll', function () {
+			var win = $(this),
+				// 容器元素
+				items = $('.items'),
+				// 窗口高度
+				winHeight = win.height(),
+				// 滚动高度
+				scrollTop = win.scrollTop(),
+				// 容器距离html顶部的高度
+				offsetTop = items.offset().top,
+				// 容器高度
+				height = items.height();
+
+			// 计算滚动位置
+			var offset = height + offsetTop - winHeight - scrollTop;
+
+			console.log(offset);
+
+			// 提前200px去加载数据，并禁止重复请求
+			if(offset < 200 && !$('.tips').hasClass('loading')) {
+				// 获取下一页页码
+				var page = $('.tips').attr('data-page');
+				// 请求新数据
+				getData(page);
+			}
+
+		});
+	</script>
+	<!-- 抽离模板 -->
+	<script type="text/template" id="tpl">
+		<% for(var i=0; i<items.length; i++) { %>
+			<div class="item">
+				<img src="<%= items[i].path %>" alt="">
+				<p><%= items[i].text %></p>
+			</div>
+		<% } %>
+	</script>
+</body>
+</html>

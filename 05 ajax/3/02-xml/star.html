@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			table{
+				border: 1px solid red;
+				width: 800px;
+			}
+
+			tr{
+				background: yellowgreen;
+			}
+
+			tr:nth-child(odd){
+				background-color: pink;
+				}
+        </style>
+    </head>
+    <body>
+    	<button>获取数据</button>
+    	<table>
+    		
+    	</table>
+
+    	<script>
+    		//点击按钮  异步想服务器请求数据
+    		//获取服务器内部xml里面是数据
+    		//渲染到table表格中
+
+    		document.querySelector('button').onclick=function(){
+
+    			//想服务器请求数据
+    			var xhr=new XMLHttpRequest(); //实例化对象
+
+    			xhr.open('get','star.php');//请求行
+    			xhr.send(null);//发送请求主体
+
+    			//监听服务响应
+    			xhr.onreadystatechange=function(){
+    				if(xhr.readyState==4&&xhr.status==200){
+    					// var r=xhr.responseText; //以字符串的形式接受返回的内容
+    					var root=xhr.responseXML; //以XML形式接受返回数据
+    					console.log(root);
+    					//以dom的方式读取xml里面数据
+    					// 获取所有的item标签 
+    					var items=root.querySelectorAll('item'); //数组
+    					console.log(items);
+    					var html='';
+    					//遍历获取所有人信息
+    					for(var i=0;i<items.length;i++){
+    						var name1=items[i].querySelector('name').innerHTML;
+    						var age=items[i].querySelector('age').innerHTML;
+    						var sex=items[i].querySelector('sex').innerHTML;
+    						var photo=items[i].querySelector('photo').innerHTML;
+    						var album=items[i].querySelector('album').innerHTML;
+
+    						//把每个人的成绩拼接成一行	    					
+    						html+='<tr>';
+    						html+='<td>'+name1+'</td>';
+    						html+='<td>'+age+'</td>';
+    						html+='<td>'+sex+'</td>';
+    						html+='<td>'+photo+'</td>';
+    						html+='<td>'+album+'</td>';
+    						html+='</tr>';
+    						
+    					}	
+
+    					//所有的数据拼接完成,追加到table表格中
+    					document.querySelector('table').innerHTML=html; 
+
+    					//把后台返回的数据 按照一定格式显示在页面中，叫渲染
+    				}
+    			}
+    		}
+    	</script>
+    </body>
+</html>

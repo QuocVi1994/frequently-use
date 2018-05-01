@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<button>发送</button>
+    	<script>
+    		var obj={
+    			name:'baby',
+    			age:27,
+    			sex:'女',
+    			hobby:'春哥'
+    		}
+
+    		//js对象---》json字符串
+    		var obj=JSON.stringify(obj);
+
+    		document.querySelector('button').onclick=function(){
+    			//把 json个字符串 传递给服务器
+    			var xhr=new XMLHttpRequest(); //实例化对象
+
+    			xhr.open('get','02json.php?msg='+obj);
+    			xhr.send(null);
+
+    			xhr.onreadystatechange=function(){
+    				if(xhr.readyState==4&&xhr.status==200){
+    					var r=xhr.responseText;
+    					console.log(r);
+    				}
+    			}
+    		}
+
+
+    	</script>
+    </body>
+</html>
