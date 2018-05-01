@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+      width: 700px;
+      height: 60px;
+      margin:100px auto;
+      /*border: 1px solid red;*/
+      /*伸缩布局*/
+      display: flex;
+    }
+    li{
+      background-color: green;
+      margin:0 5px;
+      flex:1;
+      text-align: center;
+      line-height: 60px;
+      color:#fff;
+    }
+
+    .layout{
+      width: 600px;
+      height: 800px;
+      border: 1px solid red;
+      margin:100px auto;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    header{
+      background-color: pink;
+      flex:1;
+    }
+
+    section{
+      background-color: #ccc;
+      flex:4;
+      display: flex;
+    }
+
+    aside{
+      background-color: green;
+      flex:1;
+    }
+
+    article{
+      background-color: #000;
+      flex:3;
+    }
+
+    footer{
+      background-color: #daa520;
+      flex:1;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>首页</li>
+    <li>新闻</li>
+    <li>图片</li>
+    <li>视频</li>
+    <li>贴吧</li>
+    <li>音乐</li>
+  </ul>
+
+  <div class="layout">
+    <header></header>
+    <section>
+      <aside></aside>
+      <article></article>
+    </section>
+    <footer></footer>
+  </div>
+</body>
+</html>

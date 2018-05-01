@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* 申明字体  引入字体文件*/
+        @font-face {
+            font-family: 'myfont';
+            src: url('font/iconfont.eot');
+            src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('font/iconfont.woff') format('woff'),
+            url('font/iconfont.ttf') format('truetype'),
+            url('font/iconfont.svg#iconfont') format('svg');
+        }
+
+        /* 让图标字体配合伪元素使用*/
+
+        .code::before{
+            /*&#xe642;*/
+            content:"\e642";
+            font-family: myfont;
+            color:green;
+        }
+
+        .girl::before{
+            content:"\e605";
+            font-family: myfont;
+            color:red;
+        }
+
+        *{
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="code">divvvvvv</div>
+    <span class="code">span</span>
+    <p class="code">ppppppppppppppp</p>
+    <div class="girl">dddddddddddddddddddd</div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--meta:vp -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #eee;
+            font-size: 12px;
+        }
+        a{
+            text-decoration: none;
+            color:#333;
+        }
+
+        .layout{
+            width: 100%;
+            max-width: 640px;
+            min-width: 320px;
+            margin:0 auto;
+            background-color: #fff;
+        }
+
+
+
+        .banner a{
+            display: block;
+            width: 100%;
+        }
+
+        .banner a img{
+            width: 100%;
+        }
+
+        .nav{
+            padding:10px;
+        }
+
+        .item{
+            border-radius: 10px;
+            background-color: deeppink;
+            height: 90px;
+            margin-bottom:10px;
+            display: flex;/*伸缩布局*/
+        }
+        .pub{
+            flex:1;
+        }
+
+        .sub{
+            flex:2;
+            display: flex;/*伸缩布局*/
+            flex-wrap: wrap;/*换行*/
+        }
+
+        .sub a{
+            width: 50%;
+            box-sizing: border-box;/*内减模式*/
+            border-bottom:1px solid #fff;
+            border-left:1px solid #fff;
+            text-align: center;
+            line-height: 45px;
+            color:#fff;
+        }
+        
+        .item:nth-child(2){
+            background-color: cornflowerblue;
+        }
+
+        .item:nth-child(3){
+            background-color: #daa520;
+        }
+
+        .item:nth-child(4){
+            background-color: crimson;
+        }
+
+        .item:nth-child(4) a{
+            width: 33.33%;
+        }
+
+        .extra{
+            display: flex;
+        }
+
+        .extra a{
+            flex:1;
+        }
+
+        .extra a img{
+            width: 100%;
+        }
+
+        .footer ul{
+            display: flex;
+            height: 50px;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+        }
+
+        ul li{
+            flex:1;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            color:#ccc;
+        }
+        p{
+            text-align: center;
+            line-height: 40px;
+            color:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!--banner-->
+        <div class="banner">
+            <a href="#">
+                <img src="images/banner.jpg" alt=""/>
+            </a>
+        </div>
+        <!--nav-->
+        <nav class="nav">
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">海外酒店</a>
+                    <a href="javascript:;">团购</a>
+                    <a href="javascript:;">特惠酒店</a>
+                    <a href="javascript:;">客栈公寓</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">火车票</a>
+                    <a href="javascript:;">汽车票船票</a>
+                    <a href="javascript:;">国际机票</a>
+                    <a href="javascript:;">自驾专车</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pub"></div>
+                <div class="sub">
+                    <a href="javascript:;">攻略身边</a>
+                    <a href="javascript:;">邮轮</a>
+                    <a href="javascript:;">周末游</a>
+                    <a href="javascript:;">保险签证</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="sub">
+                    <a href="javascript:;">门票玩乐</a>
+                    <a href="javascript:;">美食</a>
+                    <a href="javascript:;">全球购</a>
+                    <a href="javascript:;">礼品卡</a>
+                    <a href="javascript:;">出境WIFI</a>
+                    <a href="javascript:;">更多</a>
+                </div>
+            </div>
+        </nav>
+        <!--拓展模块-->
+        <div class="extra">
+            <a href="#">
+                <img src="images/extra_1.png" alt=""/>
+            </a>
+            <a href="#">
+                <img src="images/extra_2.png" alt=""/>
+            </a>
+        </div>
+        <!--底部-->
+        <div class="footer">
+            <ul>
+                <li>我的</li>
+                <li>客户端</li>
+                <li>下载</li>
+            </ul>
+            <p>网站地图 | ENGLISH | 电脑版</p>
+            <p>©2015 携程旅行</p>
+        </div>
+
+    </div>
+</body>
+</html>

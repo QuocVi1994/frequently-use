@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .box{
+      position: relative;
+      width: 560px;
+      height: 300px;
+      border: 1px solid red;
+      margin:100px auto;
+    }
+    ul{
+
+    }
+
+    ul li{
+      position: relative;
+      width: 112px;
+      height: 300px;
+      /*border: 1px solid #000;*/
+      float: left;
+      transform-style:preserve-3d;
+      /*transform:rotateX(9deg) rotateY(0deg);*/
+    }
+
+    li span{
+      position: absolute;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      font-size: 70px;
+    }
+
+    span:nth-child(1){
+      background-color: darkseagreen;
+      transform:translateZ(150px);
+    }
+
+    span:nth-child(2){
+      background-color: green;
+      transform:translateY(-150px) rotateX(90deg);
+    }
+
+    span:nth-child(3){
+      background-color: crimson;
+      transform:translateZ(-150px) rotateX(180deg);
+    }
+
+    span:nth-child(4){
+      background-color: darkmagenta;
+      transform:translateY(150px) rotateX(-90deg);
+    }
+
+    /*所有 的li的同一个span是同一个背景图片*/
+
+    li span:nth-child(1){
+      background:url(images/1.jpg) no-repeat;
+    }
+    li span:nth-child(2){
+      background:url(images/2.jpg) no-repeat;
+    }
+    li span:nth-child(3){
+      background:url(images/3.jpg) no-repeat;
+    }
+    li span:nth-child(4){
+      background:url(images/4.jpg) no-repeat;
+    }
+
+    /* 同一个li的所有span 背景定位是一样的*/
+    li:nth-child(2) span{
+      background-position: -112px 0;
+    }
+
+    li:nth-child(3) span{
+      background-position: -224px 0;
+    }
+
+    li:nth-child(4) span{
+      background-position: -336px 0;
+    }
+
+    li:nth-child(5) span{
+      background-position: -448px 0;
+    }
+
+    .left,
+    .right{
+      position: absolute;
+      left:0;
+      top:50%;
+      width: 60px;
+      height: 80px;
+      margin-top:-40px;
+      background-color: red;
+      color:#fff;
+      line-height: 80px;
+      text-align: center;
+      font-size: 80px;
+      text-decoration: none;
+    }
+    .right{
+      left:auto;
+      right:0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </li>
+      <li>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </li>
+      <li>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </li>
+      <li>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </li>
+      <li>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </li>
+    </ul>
+    <a class="left" href="#"><</a>
+    <a class="right" href="#">></a>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script>
+    /*
+    *  点击上一张或者下一张 切换 轮播图
+    * */
+
+    $(function(){
+      var index=0;
+      var isEnd=true; //动画是否结束
+
+      //上一张
+      $('.left').click(function(){
+        if(isEnd){ //如果上次动画结束，则进行本次动画
+          index--;  //-1 * -90deg =90deg
+          var r=index*-90; //算出旋转的角度
+          isEnd=false;
+          $('li').css('transform','rotateX('+r+'deg)'); //让li旋转
+          $('li').css('transition','transform 0.5s'); //过渡
+          $('li').each(function(index,e){ // index索引值 e 当前遍历元素
+            $(e).css('transition-delay',0.2*index+'s');
+          });
+        }
+
+
+      });
+
+      //下一张
+      $('.right').click(function(){
+        if(isEnd){  //如果上次动画结束，则进行本次动画
+          index++;  //1 * -90deg =-90deg
+          var r=index*-90; //算出旋转的角度
+          isEnd=false;
+          $('li').css('transform','rotateX('+r+'deg)'); //让li旋转
+          $('li').css('transition','transform 0.5s'); //过渡
+
+          $('li').each(function(index,e){ // index索引值 e 当前遍历元素
+            $(e).css('transition-delay',0.2*index+'s');
+          });
+        }
+
+
+
+
+
+
+      });
+
+//      判断过渡是否结束
+//      最后一个li的过渡结束，则意味着整个过渡结束
+//      transitionend 过渡的结束的事件 当过渡结束时会触发
+       $('li').eq(4).on('transitionend',function(){
+          isEnd= true;
+       })
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 560px;
+            height: 300px;
+            border: 1px solid #000;
+            margin:100px auto;
+            position: relative;
+        }
+
+        ul li{
+            float: left;
+            width: 112px;
+            height: 300px;
+            position: relative;
+
+            transform-style:preserve-3d;
+
+            /*辅助*/
+            /*transform:rotateX(-19deg) rotateY(-15deg);*/
+        }
+        li span{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            font-size: 60px;
+        }
+        
+        span:nth-child(1){
+            background-color: yellowgreen;
+            transform:translateZ(150px);
+        }
+
+        span:nth-child(2){
+            background-color: deepskyblue;
+            transform:translateY(-150px) rotateX(90deg);
+        }
+
+        span:nth-child(3){
+            background-color: orangered;
+            transform:translateZ(-150px) rotateX(180deg);
+        }
+
+        span:nth-child(4){
+            background-color: cornflowerblue;
+            transform:translateY(150px) rotateX(-90deg);
+        }
+
+        /*规律 所有li的同一个span  是同一张背景*/
+        li span:nth-child(1){
+            background:url(images/1.jpg) no-repeat;
+        }
+
+        li span:nth-child(2){
+            background:url(images/2.jpg) no-repeat;
+        }
+
+        li span:nth-child(3){
+              background:url(images/3.jpg) no-repeat;
+          }
+
+        li span:nth-child(4){
+            background:url(images/4.jpg) no-repeat;
+        }
+
+        /*规律2 同一个li的所有span的背景图片定位是一样的*/
+
+        li:nth-child(2) span{
+            background-position: -112px 0;
+        }
+
+        li:nth-child(3) span{
+            background-position: -224px 0;
+        }
+
+        li:nth-child(4) span{
+            background-position: -336px 0;
+        }
+
+        li:nth-child(5) span{
+            background-position: -448px 0;
+        }
+
+        .left,
+        .right{
+            position: absolute;
+            left:0;
+            top:50%;
+            margin-top:-40px;
+            width: 40px;
+            height: 80px;
+            background-color: red;
+            font-size: 60px;
+            text-align: center;
+            color:#fff;
+            line-height: 80px;
+            text-decoration: none;
+        }
+
+        .right{
+            left:auto;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </li>
+            <li>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </li>
+            <li>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </li>
+            <li>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </li>
+            <li>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </li>
+        </ul>
+        <a href="javascript:;" class="left"><</a>
+        <a href="javascript:;" class="right">></a>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            /*
+            * 1/点击left  切换上一张
+            * 点击right  切换下一张
+             */
+
+            var index=0;  //记录当前播放图片的索引值
+            var isEnd=true;//动画是否结束
+            //上一张
+            $('.left').click(function(){
+                if(isEnd){
+                    index--;   /*-1* (-90) =  90*/
+                    //旋转的角度= -90*index
+                    var r=-index*90;
+                    //让li旋转
+                    isEnd=false;
+                    $('li').css('transform','rotateX('+r+'deg)');
+                    $('li').css('transition','transform 0.8s'); /*设置过渡*/
+
+                    $('li').each(function(index,e){  /*遍历设置动画延迟*/
+                        $(e).css('transition-delay',index*0.2+'s')
+                    });
+                }
+
+            });
+
+            //上一张
+            $('.right').click(function(){
+                if(isEnd){
+                    index++;   /*-1* (-90) =  90*/
+                    //旋转的角度= -90*index
+                    var r=-index*90;
+                    //让li旋转
+                    isEnd=false;
+                    $('li').css('transform','rotateX('+r+'deg)');
+                    $('li').css('transition','transform 0.8s'); /*设置过渡*/
+
+                    $('li').each(function(index,e){  /*遍历设置动画延迟*/
+                        $(e).css('transition-delay',index*0.2+'s')
+                    });
+                }
+
+            });
+
+
+            /*上一次动画没有结束，下一次动画不能开始*/
+
+            //只有最后一个li的动画结束，才能表示所有的动画结束  transitionend 过渡结束的事件
+            $('li').eq(4).on('transitionend',function(){
+               isEnd=true;
+            })
+
+        });
+    </script>
+</body>
+</html>

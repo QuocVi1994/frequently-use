@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body{
+      font-family: "Microsoft Yahei";
+      background-color: #eee;
+    }
+    section{
+      width: 1000px;
+      background-color: #fff;
+      margin:50px auto;
+    }
+    h2{
+      font-weight: normal;
+    }
+
+    ul{
+      border: 1px solid red;
+    }
+
+    li{
+      width: 150px;
+      height: 150px;
+      background-color: yellowgreen;
+      margin:10px;
+    }
+
+
+    section:nth-child(1) ul{
+      display: flex;/*伸缩布局*/
+      justify-content: flex-start;/* 从主轴开始的地方对齐*/
+    }
+
+    section:nth-child(2) ul{
+      display: flex;/*伸缩布局*/
+      justify-content: flex-end;/* 从主轴结束的地方对齐*/
+    }
+
+    section:nth-child(3) ul{
+      display: flex;/*伸缩布局*/
+      justify-content:center;/* 从主轴反向居中对齐*/
+    }
+
+
+    section:nth-child(4) ul{
+      display: flex;/*伸缩布局*/
+      justify-content:space-around;/* 从主轴方向上 平分父盒子空间*/
+    }
+
+    section:nth-child(5) ul{
+      display: flex;/*伸缩布局*/
+      justify-content:space-between /* 从主轴方向上 先两端对齐在 平分父盒子空间*/
+    }
+
+
+
+  </style>
+</head>
+<body>
+<section>
+  <h2>主轴对齐方式：jsutify-content:flex-start</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>主轴对齐方式 justify-content:flex-end</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>主轴对齐方式 justify-content:center</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+<section>
+  <h2>主轴对齐方式 justify-content:space-around</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>主轴对齐方式 justify-content:space-between</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</section>
+
+</body>
+</html>

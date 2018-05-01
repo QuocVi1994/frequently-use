@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body{
+      font-family: "Microsoft Yahei";
+      background-color: #eee;
+    }
+    section{
+      width: 1000px;
+      background-color: #fff;
+      margin:50px auto;
+    }
+    h2{
+      font-weight: normal;
+    }
+
+    ul{
+      border: 1px solid red;
+      height: 300px;
+    }
+
+    li{
+      width: 150px;
+      height: 150px;
+      background-color: yellowgreen;
+      margin:10px;
+    }
+
+
+    section:nth-child(1) ul{
+      display: flex;/*伸缩布局*/
+     align-items: flex-start;/* 从侧轴开始的地方对齐*/
+    }
+    section:nth-child(2) ul{
+      display: flex;/*伸缩布局*/
+      align-items: flex-end;/* 从侧轴开始的地方对齐*/
+    }
+
+    section:nth-child(3) ul{
+      display: flex;/*伸缩布局*/
+      align-items: center;/* 从侧轴居中对齐*/
+      justify-content: center;/* 主轴居中*/
+    }
+    section:nth-child(4) ul li{
+      height: auto;
+    }
+    section:nth-child(4) ul{
+      display: flex;/*伸缩布局*/
+      align-items: stretch;/* 从侧轴拉伸*/
+
+    }
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+<section>
+  <h2>侧轴对齐方式：align-items:flex-start</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>侧轴对齐方式：align-items:flex-end</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>侧轴对齐方式：align-items:center</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>侧轴对齐方式：align-items:stretch</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body{
+      font-family: "Microsoft Yahei";
+      background-color: #eee;
+    }
+    section{
+      width: 1000px;
+      background-color: #fff;
+      margin:50px auto;
+    }
+    h2{
+      font-weight: normal;
+    }
+
+    ul{
+      border: 1px solid red;
+    }
+
+    li{
+      width: 150px;
+      height: 150px;
+      background-color: yellowgreen;
+      margin:10px;
+    }
+
+    /*
+      通过flex属性 设置   子盒子在父盒子中所在的比例
+      如果某个子盒子不参与比例的划分，直接不设置flex属性即可，剩下的盒子会自动平分
+    */
+
+    section:nth-child(1) ul{
+      display: flex;/*伸缩布局*/
+    }
+
+    section:nth-child(1) ul li:nth-child(1){
+      flex:1;
+    }
+
+    section:nth-child(1) ul li:nth-child(2){
+      flex:3;
+    }
+
+    section:nth-child(1) ul li:nth-child(3){
+      flex:1;
+    }
+
+    section:nth-child(2) ul{
+      display: flex;/*伸缩布局*/
+    }
+
+    section:nth-child(2) ul li:nth-child(1){
+      /*flex:1;*/
+    }
+
+    section:nth-child(2) ul li:nth-child(2){
+      flex:2;
+    }
+
+    section:nth-child(2) ul li:nth-child(3){
+      flex:1;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <h2>伸缩比例 flex</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>伸缩比例</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</section>
+
+
+
+
+
+</body>
+</html>
